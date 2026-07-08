@@ -583,7 +583,7 @@ def send_welcome(message):
     if chat_type in ['group', 'supergroup']:
         group_text = (
             f"👋 **Hello** {message.from_user.first_name} Thanks for adding me in your group!\n\n"
-            f"🇮🇳 group name (**{message.chat.title}**)।\n"
+            f"🇮🇳 **group name: [{message.chat.title}]**।\n"
             f"This bot is the easiest way to keep your groups active and engaged.\n\n"
             f"**📌 My Features:**\n\n"
             f"📊 **Daily Auto Poll:**\n"
