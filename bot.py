@@ -615,8 +615,18 @@ def send_welcome(message):
         )
     else:
         welcome_text = (
-            f"👋 नमस्ते {message.from_user.first_name}!\n\n"
-            f"🤖 मैं एक एडवांस क्विज़ शेड्यूलर बॉट हूँ जो ग्रुप्स में ऑटो-क्विज़ भेजने के साथ पर्सनल इनबॉक्स ब्रॉडकास्ट भी सपोर्ट करता हूँ।"
+            f"👋 **Hello** {message.from_user.first_name}!\n"
+            f"**Welcome!** This bot is the easiest way to keep your groups active and engaged.\n\n"
+            f"**📌 My Features:**\n\n"
+            f"📊 **Daily Auto Poll:**\n"
+            "Automatically sends a new poll every day at your set time interval.\n\n"
+            "🏆 Auto Result\n\n"
+            "Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n\n"
+            "🚀 **How to Get Started:**\n\n"
+            "**1. Add me** to your Telegram group.\n"
+            "**2. Make me a **Group Admin** (so I have permission to send polls).\n"
+            "**3. Use the `/settings` command inside your group to configure everything.\n\n"
+            "For any help, simply type `/help` ."
         )
     
     markup = InlineKeyboardMarkup()
