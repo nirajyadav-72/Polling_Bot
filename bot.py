@@ -630,10 +630,17 @@ def send_welcome(message):
 @bot.message_handler(commands=['help'])
 def send_help(message):
     help_text = (
-        "❓ **बॉट उपयोग गाइड:**\n\n"
-        "1️⃣ बॉट को टेलीग्राम ग्रुप में जोड़ें।\n"
-        "2️⃣ बॉट को ग्रुप का **Admin** बनाएं और 'Delete Messages' परमिशन ऑन रखें।\n"
-        "3️⃣ ग्रुप के अंदर `/settings` कमांड चलाकर कस्टमाइज़ करें।"
+        "⚡ **Help & Guide - Daily Poll Bot:**\n\n"
+        "Here is a quick guide on how to configure and use the bot in your group:\n\n"
+        "🛠 **Setup Instructions:**\n\n"
+        "**Step 1:** Add this bot to your group.\n"
+        "**Step 2:** Grant the bot Admin Permissions.\n"
+        "**Step 3:** Type `/settings` inside the group to set up your poll timing and quiz language.\n\n"
+        "🕒 **How the System Works:**\n\n"
+        "**Polls:** Sent automatically during your configured daytime intervals.\n"
+        "**Leaderboard:** Published automatically every single night at **10:00 PM.**\n"
+        "Scoring: Accuracy matters! The leaderboard calculates the Top 20 users with a **negative marking system** applied for wrong answers.\n\n"
+        "🔐 `/settings` - Open the configuration panel (Group Admins only)."
     )
     markup = InlineKeyboardMarkup()
     owner_url = "https://t.me/comeback_009"
@@ -657,10 +664,9 @@ def send_stats(message):
             
         bot.send_message(
             message.chat.id, 
-            f"📊 **बॉट लाइव स्टेटस:**\n\n"
-            f"🎯 कुल एक्टिव ग्रुप्स: **{g_count}**\n"
-            f"👤 कुल प्राइवेट यूज़र्स: **{u_count}**\n\n"
-            f"📢 बॉट पूरी तरह सुरक्षित ढंग से लाइव काम कर रहा है।"
+            f"📊 **Bot live status:**\n\n"
+            f"🎯 total active group: **{g_count}**\n"
+            f"👤 total active user's: **{u_count}**"
         )
     else:
         bot.send_message(message.chat.id, "❌ यह कमांड सिर्फ बॉट ओनर के लिए है।")
