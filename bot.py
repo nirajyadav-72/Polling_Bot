@@ -582,10 +582,19 @@ def send_welcome(message):
 
     if chat_type in ['group', 'supergroup']:
         group_text = (
-            f"👋 नमस्ते {message.from_user.first_name}!\n\n"
-            f"🤖 मैं इस ग्रुप (**{message.chat.title}**) में एक्टिव हूँ।\n"
-            "🎯 ऑटोमैटिक क्विज़ पोल और **डेली TOP 20 लीडरबोर्ड रिज़ल्ट** भेजे जाएँगे!\n\n"
-            "⚙️ **एडमिन ध्यान दें:** कस्टमाइज करने के लिए ग्रुप में `/settings` टाइप करें।"
+            f"👋 **Hello** {message.from_user.first_name} Thanks for adding me in your group!\n\n"
+            f"🇮🇳 group name (**{message.chat.title}**)।\n"
+            f"This bot is the easiest way to keep your groups active and engaged.\n\n"
+            f"**📌 My Features:**\n\n"
+            f"📊 **Daily Auto Poll:**\n"
+            "Automatically sends a new poll every day at your set time interval.\n\n"
+            "🏆 Auto Result\n\n"
+            "Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n\n"
+            "🚀 **How to Get Started:**\n\n"
+            "**1. Add me** to your Telegram group.\n"
+            "**2. Make me a **Group Admin** (so I have permission to send polls).\n"
+            "**3. Use the `/settings` command inside your group to configure everything.\n\n"
+            "For any help, simply type `/help` ."
         )
         try: bot.reply_to(message, text=group_text, parse_mode="Markdown")
         except Exception: pass
@@ -692,7 +701,7 @@ def handle_left_or_joined(message):
             cursor.execute("UPDATE groups SET last_sent_time = 0 WHERE chat_id = ?", (message.chat.id,))
             conn.commit()
             try:
-                bot.send_message(chat_id=message.chat.id, text=f"🎉 **बॉट सफलतापूर्वक एक्टिव हो चुका है!**\n\n📢 इस ग्रुप में ऑटोमैटिक क्विज़ शुरू हो चुका है।", parse_mode="Markdown")
+                bot.send_message(chat_id=message.chat.id, text=f"🎉 **Bot activated successfully!**\n\n📢 Automated quizzes have been activated for this group.", parse_mode="Markdown")
             except Exception: pass
         elif new_status in ["left", "kicked"]:
             cursor.execute("DELETE FROM groups WHERE chat_id = ?", (message.chat.id,))
