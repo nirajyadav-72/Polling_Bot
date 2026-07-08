@@ -597,6 +597,11 @@ def send_welcome(message):
             "For any help, simply type `/help` ."
         )
         try: bot.reply_to(message, text=group_text, parse_mode="Markdown")
+        markup = InlineKeyboardMarkup()
+    try: add_to_group_url = f"https://t.me/{bot.get_me().username}?startgroup=true"
+    except Exception: add_to_group_url = "https://t.me/BotFather"
+    markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
+    try: bot.send_message(chat_id=message.chat.id, text=welcome_text, reply_markup=markup, parse_mode="Markdown")
         except Exception: pass
         return
 
