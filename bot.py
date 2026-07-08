@@ -165,11 +165,11 @@ def get_settings_markup(chat_id):
     del_status = "ON ✅" if auto_delete == 1 else "OFF 📴"
     
     text = (
-        "⚙️ **ग्रुप क्विज़ सेटिंग्स (Quiz Settings)**\n\n"
-        f"🌐 **वर्तमान भाषा (Language):** {lang.upper()}\n"
-        f"⏱️ **क्विज़ अंतराल (Interval):** {interval_mins} मिनट\n"
-        f"🗑️ **ऑटो-डिलीट स्टेटस:** {del_status}\n\n"
-        "अपनी सेटिंग्स बदलने के लिए नीचे दिए गए बटनों का उपयोग करें:"
+        "⚙️ **sᴇᴛᴛɪɴɢs ᴘᴀɴᴇʟ (Quiz Settings)**\n\n"
+        f"🌐 **current Language (Language):** {lang.upper()}\n"
+        f"⏱️ **⏱️ Quiz (Interval):** {interval_mins} min\n"
+        f"🗑️ **Auto delete poll status:** {del_status}\n\n"
+        "ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ᴄʜᴀɴɢɪɴɢ sᴇᴛᴛɪɴɢs:"
     )
     markup = InlineKeyboardMarkup()
     lang_text = "🌐 भाषा: HINDI 🇮🇳" if lang == 'hindi' else "🌐 Lang: ENGLISH 🇬🇧"
