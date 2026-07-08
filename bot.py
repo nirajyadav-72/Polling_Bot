@@ -599,9 +599,9 @@ def send_welcome(message):
         # ग्रुप के लिए इनलाइन बटन बनाना
         group_markup = InlineKeyboardMarkup()
         try:
-            add_to_group_url = f"https://t.me{bot.get_me().username}?startgroup=true"
+            add_to_group_url = f"https://t.me/{bot.get_me().username}?startgroup=true"
         except Exception:
-            add_to_group_url = "https://t.meBotFather"
+            add_to_group_url = "https://t.me/BotFather"
             
         group_markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
         
