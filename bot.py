@@ -400,9 +400,9 @@ def manual_leaderboard_sender(message):
             calculated_leaderboard.sort(key=lambda x: x[3], reverse=True)
             top_20 = calculated_leaderboard[:20]
             
-            lb_text = "🏆 **दैनिक क्विज़ रिज़ल्ट (Top 20 Leaderboard)** 🏆\n"
-            lb_text += f"📅 दिनांक: {now.strftime('%d-%m-%Y')} | समय: {now.strftime('%H:%M')} (मैनुअल)\n"
-            lb_text += "📊 मार्किंग: सही (+2) | गलत (-0.5)\n\n"
+            lb_text = "🏆 **Result [Top 20 user's Leaderboard]**\n\n"
+            lb_text += f"📅 Date: {now.strftime('%d-%m-%Y')} | ⏰ Time: {now.strftime('%H:%M')} (मैनुअल)\n"
+            lb_text += "📊 Marking: Right (+2) | Rong (-0.5)\n\n"
             
             if top_20:
                 medals = {1: "🥇", 2: "🥈", 3: "🥉"}
@@ -410,9 +410,9 @@ def manual_leaderboard_sender(message):
                     medal = medals.get(idx, f"{idx}.")
                     lb_text += f"{medal} **{name}** — {final_score} pts (✅{correct} | ❌{wrong})\n"
             else:
-                lb_text += "⚠️ आज किसी भी यूजर ने क्विज़ में भाग नहीं लिया।"
+                lb_text += "⚠️ No users participated in the quiz today."
                 
-            lb_text += "\n🎯 अद्भुत प्रयास! कल नए क्विज़ के लिए तैयार रहें।"
+            lb_text += "\n🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀"
             try: 
                 bot.send_message(chat_id=chat_id, text=lb_text, parse_mode="Markdown")
                 success_count += 1
@@ -466,20 +466,20 @@ def daily_leaderboard_scheduler():
                         calculated_leaderboard.sort(key=lambda x: x[3], reverse=True)
                         top_20 = calculated_leaderboard[:20]
                         
-                        lb_text = "🏆 **दैनिक क्विज़ रिज़ल्ट (Top 20 Leaderboard)** 🏆\n"
-                        lb_text += f"📅 दिनांक: {now.strftime('%d-%m-%Y')} | समय: {db_time}\n"
-                        lb_text += "📊 पिछले 24 घंटों का प्रदर्शन:\n"
-                        lb_text += "📊 मार्किंग: सही (+2) | गलत (-0.5)\n\n"
+                        lb_text = "🏆 **Result [Top 20 user's Leaderboard]**\n\n"
+                        lb_text += f"📅 Date: {now.strftime('%d-%m-%Y')} | ⏰ Time: {db_time}\n"
+                        lb_text += "🎓 Performance of the Last 24 Hours:\n"
+                        lb_text += "📊 Marking: Right (+2) | Rong (-0.5)\n\n"
                         
                         if top_20:
                             medals = {1: "🥇", 2: "🥈", 3: "🥉"}
                             for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
                                 medal = medals.get(idx, f"{idx}.")
-                                lb_text += f"{medal} **{name}** — {final_score} पॉइंट्स (✅{correct} | ❌{wrong})\n"
+                                lb_text += f"{medal} **{name}** — {final_score} point (✅{correct} | ❌{wrong})\n"
                         else:
-                            lb_text += "⚠️ पिछले 24 घंटों में किसी भी यूजर ने सही उत्तर नहीं दिया।"
+                            lb_text += "⚠️ No users participated in the quiz today."
                             
-                        lb_text += "\n🎯 अद्भुत प्रयास! कल नए क्विज़ के लिए तैयार रहें।"
+                        lb_text += "\n🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀"
                         try: 
                             bot.send_message(chat_id=chat_id, text=lb_text, parse_mode="Markdown")
                             time.sleep(0.05)
@@ -558,11 +558,11 @@ def check_user_score(message):
 
     try: 
         score_text = (
-            f"🎯 **{message.from_user.first_name}**, आपका लाइव रिपोर्ट कार्ड:\n\n"
-            f"✅ सही उत्तर: **{correct}** (+{correct * 2} पॉइंट्स)\n"
-            f"❌ गलत उत्तर: **{wrong}** (-{wrong * 0.5} पॉइंट्स)\n"
-            f"🔥 **फाइनल स्कोर: {final_score} पॉइंट्स**\n\n"
-            f"ℹ️ यह स्कोर लीडरबोर्ड भेजने पर रीसेट हो जाएगा।"
+            f"🎯 **{message.from_user.first_name}**, your live report card:\n\n"
+            f"✅ correct ans: **{correct}** (+{correct * 2} point)\n"
+            f"❌ rong ans: **{wrong}** (-{wrong * 0.5} point)\n"
+            f"🔥 **final score: {final_score} point**\n\n"
+            f"ℹ️ Note: This score will be reset after the leaderboard is published."
         )
         bot.reply_to(message, score_text, parse_mode="Markdown")
     except Exception: 
