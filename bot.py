@@ -580,30 +580,39 @@ def send_welcome(message):
     if not full_name:
         full_name = f"User_{user_id}"
 
+        # 1. अगर बॉट को किसी ग्रुप में स्टार्ट किया गया हो
     if chat_type in ['group', 'supergroup']:
         group_text = (
-            f"👋 **Hello** {message.from_user.first_name} Thanks for adding me in your group!\n\n"
-            f"🇮🇳 **group name: [{message.chat.title}]**।\n"
+            f"👋 **Hello {message.from_user.first_name}!** Thanks for adding me to your group!\n\n"
+            f"🇮🇳 **Group Name:** [{message.chat.title}]\n"
             f"This bot is the easiest way to keep your groups active and engaged.\n\n"
-            f"**📌 My Features:**\n\n"
-            f"📊 **Daily Auto Poll:**\n"
-            "Automatically sends a new poll every day at your set time interval.\n\n"
-            "🏆 Auto Result\n\n"
-            "Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n\n"
-            "🚀 **How to Get Started:**\n\n"
-            "**1. Add me** to your Telegram group.\n"
-            "**2. Make me a **Group Admin** (so I have permission to send polls).\n"
-            "**3. Use the `/settings` command inside your group to configure everything.\n\n"
-            "For any help, simply type `/help` ."
+            f"📌 **My Features:**\n"
+            f"📊 **Daily Auto Poll:** Automatically sends a new poll every day at your set time interval.\n"
+            f"🏆 **Auto Result:** Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n\n"
+            f"🚀 **How to Get Started:**\n"
+            f"1. **Add me** to your Telegram group.\n"
+            f"2. Make me a **Group Admin** (so I have permission to send polls).\n"
+            f"3. Use the `/settings` command inside your group to configure everything.\n\n"
+            f"For any help, simply type `/help`."
         )
-        try: bot.reply_to(message, text=group_text, parse_mode="Markdown")
-        markup = InlineKeyboardMarkup()
-    try: add_to_group_url = f"https://t.me/{bot.get_me().username}?startgroup=true"
-    except Exception: add_to_group_url = "https://t.me/BotFather"
-    markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
-    try: bot.send_message(chat_id=message.chat.id, text=welcome_text, reply_markup=markup, parse_mode="Markdown")
-        except Exception: pass
-        return
+        
+        # ग्रुप के लिए इनलाइन बटन बनाना
+        group_markup = InlineKeyboardMarkup()
+        try:
+            add_to_group_url = f"https://t.me{bot.get_me().username}?startgroup=true"
+        except Exception:
+            add_to_group_url = "https://t.meBotFather"
+            
+        group_markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
+        
+        # मैसेज और बटन को ग्रुप में भेजना
+        try:
+            bot.send_message(chat_id=message.chat.id, text=group_text, reply_markup=group_markup, parse_mode="Markdown")
+        except Exception as e:
+            print(f"Error sending group message: {e}")
+            
+        return  # ग्रुप का काम यहीं खत्म
+                             
 
     # प्राइवेट चैट में यूजर की आईडी रजिस्टर करें ताकि उसे ब्रॉडकास्ट भेजा जा सके
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
