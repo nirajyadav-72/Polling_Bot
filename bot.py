@@ -165,9 +165,9 @@ def get_settings_markup(chat_id):
     del_status = "ON ✅" if auto_delete == 1 else "OFF 📴"
     
     text = (
-        "⚙️ **sᴇᴛᴛɪɴɢs ᴘᴀɴᴇʟ (Quiz Settings)**\n\n"
-        f"🌐 **current Language (Language):** {lang.upper()}\n"
-        f"⏱️ **⏱️ Quiz (Interval):** {interval_mins} min\n"
+        "⚙️ **Settings Pannel (Quiz Settings)**\n\n"
+        f"🌐 **current (Language):** {lang.upper()}\n"
+        f"⏱️ **Quiz (Interval):** {interval_mins} min\n"
         f"🗑️ **Auto delete poll status:** {del_status}\n\n"
         "ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ᴄʜᴀɴɢɪɴɢ sᴇᴛᴛɪɴɢs:"
     )
@@ -197,9 +197,9 @@ def get_autodelete_markup(chat_id):
     status_text = "ON" if auto_delete == 1 else "OFF"
     text = (
         "🗑️ **Auto-Delete Settings**\n\n"
-        "⚠️ **Button pe click kare**\n\n"
+        "⚠️ **click on the on-off botton**\n\n"
         f"📊 **Status:** \" {status_text} \"\n\n"
-        "ℹ️ **What does this do?**\n"
+        "ℹ️ **What does this do?**\n\n"
         "• When ON: Previous quiz will be automatically deleted\n\n"
         "• When OFF: Previous quiz will remain in chat\n\n"
         "👇 Change auto-delete setting:"
