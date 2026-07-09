@@ -101,7 +101,7 @@ def is_user_admin(chat_id, user_id):
     except Exception:
         return False
 
-# 🔄 हर ग्रुप के लिए कस्टमाइज्ड पोल शेड्यूलर लूप
+# 🔄 हर ग्रुप के लिए कस्टमाइज्ड पोल शेड्यूलर लूप (एडमिन चेक और वार्निंग के साथ)
 def global_poll_manager():
     while True:
         try:
@@ -113,6 +113,32 @@ def global_poll_manager():
 
                 for chat_id, current_index, last_poll_id, last_sent_time, language, interval, auto_delete in all_groups:
                     if current_now - last_sent_time >= interval:
+                        
+                        # 🚨 [NEW UPDATE] चेक करें कि क्या बॉट अभी भी ग्रुप में एडमिन है?
+                        is_bot_admin = False
+                        try:
+                            bot_member = bot.get_chat_member(chat_id, bot.get_me().id)
+                            if bot_member.status in ['administrator', 'creator']:
+                                is_bot_admin = True
+                        except Exception:
+                            is_bot_admin = False
+
+                        # ⚠️ अगर बॉट एडमिन नहीं है, तो पोल भेजने के बजाय वार्निंग मैसेज भेजेगा
+                        if not is_bot_admin:
+                            try:
+                                bot.send_message(
+                                    chat_id=chat_id, 
+                                    text="⚠️ **बॉट अलर्ट!**\n\nइस ग्रुप में पोल सेंड करने के लिए बॉट को फिर से **Admin (Administrator)** बनाकर परमिशन देना होगा।",
+                                    parse_mode="Markdown"
+                                )
+                                # बार-बार वार्निंग न जाए, इसलिए लास्ट सेंट टाइम अपडेट कर देते हैं ताकि यह अगले इंटरवल पर ही चेक करे
+                                cursor.execute("UPDATE groups SET last_sent_time = ? WHERE chat_id = ?", (current_now, chat_id))
+                                conn.commit()
+                            except Exception:
+                                pass
+                            continue  # इस ग्रुप के लिए पोल भेजने का लॉजिक यहीं रोक दें और अगले ग्रुप पर जाएं
+
+                        # --- पुराना पोल डिलीट करने का लॉजिक (एडमिन होने पर ही चलेगा) ---
                         if last_poll_id is not None and auto_delete == 1:
                             try:
                                 bot.delete_message(chat_id=chat_id, message_id=last_poll_id)
@@ -136,7 +162,7 @@ def global_poll_manager():
                                 options=quiz["options"],
                                 type="quiz",
                                 correct_option_id=quiz["correct_id"],
-                                is_anonymous=False,
+                                is_anonymous=False,  
                                 explanation=explanation_text
                             )
                             new_poll_id = sent_message.message_id
