@@ -246,12 +246,24 @@ def get_autodelete_markup(chat_id):
     markup.row(btn_back)
     return text, markup
 
-@bot.message_handler(commands=['settings'], chat_types=['group', 'supergroup'])
+@bot.message_handler(commands=['settings'])
 def group_settings(message):
+    chat_type = message.chat.type
+
+    # 🚨 [NEW UPDATE] अगर कोई यूजर बॉट की पर्सनल चैट (DM) में /settings डालता है
+    if chat_type == 'private':
+        try:
+            bot.reply_to(message, "❌ इस कमांड को ग्रुप में यूज़ करें।")
+        except Exception:
+            pass
+        return  # फंक्शन यहीं रुक जाएगा, सेटिंग्स पैनल ओपन नहीं होगा
+
+    # ग्रुप के अंदर एडमिन चेक करने का लॉजिक (यह पहले से है)
     if not is_user_admin(message.chat.id, message.from_user.id):
         try: bot.reply_to(message, "❌ केवल ग्रुप के एडमिन ही सेटिंग्स बदल सकते हैं।")
         except Exception: pass
         return
+        
     text, markup = get_settings_markup(message.chat.id)
     if text: 
         try: bot.send_message(message.chat.id, text, reply_markup=markup, parse_mode="Markdown")
