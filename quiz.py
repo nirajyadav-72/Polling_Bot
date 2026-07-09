@@ -451,7 +451,7 @@ def manual_leaderboard_sender(message):
                             medals = {1: "🥇", 2: "🥈", 3: "🥉"}
                             for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
                                 medal = medals.get(idx, f"{idx}.")
-                                lb_text += f"{medal} **{name}** — {final_score} point (✅{correct} | ❌{wrong})\n"
+                                lb_text += f"{medal} **{name}** — {final_score} pts (✅{correct} | ❌{wrong})\n"
                         else:
                             lb_text += "⚠️ No users participated in the quiz today."
                             
