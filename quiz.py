@@ -447,24 +447,19 @@ def manual_leaderboard_sender(message):
             lb_text += f"📅 Date: {now.strftime('%d-%m-%Y')} | ⏰ Time: {now.strftime('%H:%M')} (Manual)\n"
             lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n\n"
             
-              if top_20:
-                medals = {1: "🥇", 2: "🥈", 3: "🥉"}
-                for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
-                    medal = medals.get(idx, f"{idx}.")
-                    lb_text += f"{medal} **{name}** — {final_score} pts (✅{correct} | ❌{wrong})\n\n"
-                
-                lb_text += "🏆 **🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀**\n"
-                lb_text += "If you don't want to wait for the results, you can use the `/myscore` command at any time.\n"
-             else:
-                lb_text += "⚠️ No users participated in the quiz today.\n"
-                lb_text += "\n🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀\n"
-                
-             try: 
-                bot.send_message(chat_id=chat_id, text=lb_text, parse_mode="Markdown")
-                success_count += 1
-                time.sleep(0.15)
-             except Exception: 
-                pass
+                        if top_20:
+                            medals = {1: "🥇", 2: "🥈", 3: "🥉"}
+                            for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
+                                medal = medals.get(idx, f"{idx}.")
+                                lb_text += f"{medal} **{name}** — {final_score} point (✅{correct} | ❌{wrong})\n"
+                        else:
+                            lb_text += "⚠️ No users participated in the quiz today."
+                            
+                        lb_text += "\n🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀"
+                        try: 
+                            bot.send_message(chat_id=chat_id, text=lb_text, parse_mode="Markdown")
+                            time.sleep(0.15)
+                        except Exception: pass
             
         cursor.execute("DELETE FROM daily_scores")
         cursor.execute("DELETE FROM poll_mapping")
