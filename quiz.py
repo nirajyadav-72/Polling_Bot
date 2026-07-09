@@ -136,7 +136,7 @@ def global_poll_manager():
                                 options=quiz["options"],
                                 type="quiz",
                                 correct_option_id=quiz["correct_id"],
-                                is_anonymous=True,
+                                is_anonymous=False,
                                 explanation=explanation_text
                             )
                             new_poll_id = sent_message.message_id
