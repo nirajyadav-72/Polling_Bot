@@ -647,7 +647,8 @@ def send_welcome(message):
             f"This bot is the easiest way to keep your groups active and engaged.\n\n"
             f"📌 **My Features:**\n"
             f"📊 **Daily Auto Poll:** Automatically sends a new poll every day at your set time interval.\n"
-            f"🏆 **Auto Result:** Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n\n"
+            f"🏆 **Auto Result:** Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n"
+            f"💡 **Results** ka wait nahi karna chahte to `/myscore` command send kare!\n\n"
             f"🚀 **How to Get Started:**\n"
             f"1. **Add me** to your Telegram group.\n"
             f"2. Make me a **Group Admin** (so I have permission to send polls).\n"
@@ -690,7 +691,8 @@ def send_welcome(message):
             f"📊 **Daily Auto Poll:**\n"
             "Automatically sends a new poll every day at your set time interval.\n\n"
             "🏆 **Auto Result:**\n"
-            "Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n\n"
+            "Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n"
+            "💡 **Results** ka wait nahi karna chahte to `/myscore` command send kare!\n\n"
             "🚀 **How to Get Started:**\n\n"
             "**1. Add me** to your Telegram group.\n"
             "**2. Make me a **Group Admin** (so I have permission to send polls).\n"
@@ -748,7 +750,7 @@ def send_stats(message):
     else:
         bot.send_message(message.chat.id, "❌ यह कमांड सिर्फ बॉट ओनर के लिए है।")
 
-# 🇮🇳 ग्रुप जॉइन/लीव ट्रैकर
+# 🤖 ग्रुप जॉइन/लीव ट्रैकर (सेम वेलकम मैसेज आर्किटेक्चर)
 @bot.my_chat_member_handler()
 def handle_left_or_joined(message):
     new_status = message.new_chat_member.status
@@ -758,8 +760,28 @@ def handle_left_or_joined(message):
             cursor.execute("INSERT OR IGNORE INTO groups (chat_id, interval) VALUES (?, 1800)", (message.chat.id,))
             cursor.execute("UPDATE groups SET last_sent_time = 0 WHERE chat_id = ?", (message.chat.id,))
             conn.commit()
+            
+            # 📌 [UPDATED] यहाँ भी बिल्कुल वही मैसेज सेट कर दिया गया है जो /start में आता है
+            group_text = (
+                f"🎉 **Join Group Successfully!**\n"
+                f"📢 Automated quizzes have been activated for this group.\n\n"
+                f"🇮🇳 **Group Name:** [{message.chat.title}]\n"
+                f"This bot is the easiest way to keep your groups active and engaged.\n\n"
+                f"📌 **My Features:**\n"
+                f"📊 **Daily Auto Poll:** Automatically sends a new poll every day at your set time interval.\n"
+                f"🏆 **Auto Result:** Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n"
+                f"💡 **Results** ka wait nahi karna chahte to `/myscore` command send kare!\n\n"
+                f"🚀 **How to Get Started:**\n"
+                f"1. Make me a **Group Admin** (so I have permission to send polls).\n"
+                f"2. Use the `/settings` command inside your group to configure everything.\n\n"
+                f"For any help, simply type `/help`."
+            )
+            group_markup = InlineKeyboardMarkup()
+            add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
+            group_markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
+            
             try:
-                bot.send_message(chat_id=message.chat.id, text=f"🎉 **Bot activated successfully!**\n\n📢 Automated quizzes have been activated for this group.", parse_mode="Markdown")
+                bot.send_message(chat_id=message.chat.id, text=group_text, reply_markup=group_markup, parse_mode="Markdown")
             except Exception: pass
         elif new_status in ["left", "kicked"]:
             cursor.execute("DELETE FROM groups WHERE chat_id = ?", (message.chat.id,))
