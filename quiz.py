@@ -544,9 +544,19 @@ def handle_poll_answer(poll_answer):
                 ''', (chat_id, user_id, user_name))
             conn.commit()
 
-# 📊 यूजर लाइव स्कोर ट्रैकर कमांड
+# 📊 यूजर लाइव स्कोर ट्रैकर कस्टमाइज्ड कमांड (प्राइवेट चैट ब्लॉक के साथ)
 @bot.message_handler(commands=['myscore'])
 def check_user_score(message):
+    chat_type = message.chat.type
+
+    # 🚨 [UPDATED] अगर यूजर प्राइवेट चैट (DM) में कमांड डालता है
+    if chat_type == 'private':
+        try:
+            bot.reply_to(message, "❌ इस कमांड को ग्रुप में यूज़ करें।")
+        except Exception:
+            pass
+        return  # फंक्शन यहीं रुक जाएगा, स्कोर नहीं दिखेगा
+
     user_id = message.from_user.id
     chat_id = message.chat.id
 
@@ -571,7 +581,8 @@ def check_user_score(message):
             f"ℹ️ Note: This score will be reset after the leaderboard is published."
         )
         bot.reply_to(message, score_text, parse_mode="Markdown")
-    except Exception: pass
+    except Exception: 
+        pass
 
 # 💬 /start कमांड
 @bot.message_handler(commands=['start'])
