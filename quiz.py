@@ -409,20 +409,21 @@ def handle_owner_broadcast(message):
         parse_mode="Markdown"
     )
 
-# 👑 🏆 ओनर कमांड - मैनुअल लीडरबोर्ड सेंडर (यूजर वार्निंग के साथ)
+# 👑 🏆 ओनर कमांड - मैनुअल लीडरबोर्ड सेंडर (सेपरेशन लाइन के साथ)
 @bot.message_handler(commands=['sendresult'], chat_types=['private', 'group', 'supergroup'])
 def manual_leaderboard_sender(message):
-    # 🚨 [UPDATED] अगर कमांड भेजने वाला बॉट का मालिक (OWNER) नहीं है
     if not (OWNER_ID and message.from_user.id == OWNER_ID): 
-        try:
-            bot.send_message(message.chat.id, "❌ यह कमांड सिर्फ बॉट ओनर के लिए है।")
-        except Exception:
-            pass
-        return  # फंक्शन यहीं रुक जाएगा
+        try: bot.send_message(message.chat.id, "❌ यह कमांड सिर्फ बॉट ओनर के लिए है।")
+        except Exception: pass
+        return  
         
     status_msg = bot.send_message(message.chat.id, "⏳ **सभी ग्रुप्स में तुरंत नया रिज़ल्ट भेजा जा रहा है...**")
     IST = pytz.timezone('Asia/Kolkata')
     now = datetime.now(IST)
+    
+    markup = InlineKeyboardMarkup()
+    add_to_group_url = f"https://t.me{BOT_USERNAME}?startgroup=true"
+    markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
     
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
@@ -440,24 +441,29 @@ def manual_leaderboard_sender(message):
                 if (correct + wrong) > 0:
                     calculated_leaderboard.append((name, correct, wrong, final_score))
             
-            calculated_leaderboard.sort(key=lambda x: x[3], reverse=True)
+            calculated_leaderboard.sort(key=lambda x: x, reverse=True)
             top_20 = calculated_leaderboard[:20]
             
-            lb_text = "🏆 **Result [Top 20 user's Leaderboard]**\n\n"
+            lb_text = "🏆 **Result [Top 20 user's Leaderboard]**\n"
+            lb_text += f"---------------------------------------\n" # [UPDATED] Header Line
             lb_text += f"📅 Date: {now.strftime('%d-%m-%Y')} | ⏰ Time: {now.strftime('%H:%M')} (Manual)\n"
-            lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n\n"
+            lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n"
+            lb_text += f"---------------------------------------\n\n" # [UPDATED] Header Line End
             
             if top_20:
                 medals = {1: "🥇", 2: "🥈", 3: "🥉"}
                 for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
                     medal = medals.get(idx, f"{idx}.")
-                    lb_text += f"{medal} **{name}** — {final_score} pts (✅{correct} | ❌{wrong})\n"
+                    lb_text += f"{medal} **{name}**\n"
+                    lb_text += f"🔥 Score: **{final_score}** pts | ✅ {correct} | ❌ {wrong}\n"
+                    lb_text += f"---------------------------------------\n" # 👈 [NEW LINE ADDED] जो यूजर्स को अलग करेगी
             else:
-                lb_text += "⚠️ No users participated in the quiz today."
+                lb_text += "⚠️ No users participated in the quiz today.\n"
+                lb_text += f"---------------------------------------\n"
                 
             lb_text += "\n🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀"
             try: 
-                bot.send_message(chat_id=chat_id, text=lb_text, parse_mode="Markdown")
+                bot.send_message(chat_id=chat_id, text=lb_text, reply_markup=markup, parse_mode="Markdown")
                 success_count += 1
                 time.sleep(0.15)
             except Exception: pass
@@ -465,13 +471,16 @@ def manual_leaderboard_sender(message):
         cursor.execute("DELETE FROM daily_scores")
         cursor.execute("DELETE FROM poll_mapping")
         conn.commit()
-    bot.edit_message_text(chat_id=message.chat.id, message_id=status_msg.message_id, text=f"✅ मालिक, मैनुअल रिज़ल्ट सफलतापूर्वक भेज दिया गया है!\n📊 कुल {success_count} एक्टिव ग्रुप्स में लीडरबोर्ड सेंड हुआ और स्कोर रीसेट कर दिए गए हैं।", parse_mode="Markdown")
+    bot.edit_message_text(chat_id=message.chat.id, message_id=status_msg.message_id, text=f"✅ **मालिक, मैनुअल रिज़ल्ट सफलतापूर्वक भेज दिया गया है!**\n📊 कुल **{success_count}** एक्टिव ग्रुप्स में लीडरबोर्ड सेंड हुआ और स्कोर रीसेट कर दिए गए हैं।", parse_mode="Markdown")
     
-
-# 🏆 दैनिक लीडरबोर्ड सेंडर शेड्यूलर
+# 🏆 दैनिक लीडरबोर्ड सेंडर शेड्यूलर (सेपरेशन लाइन के साथ)
 def daily_leaderboard_scheduler():
     has_sent_today = False
     last_checked_date = ""
+    
+    markup = InlineKeyboardMarkup()
+    add_to_group_url = f"https://t.me{BOT_USERNAME}?startgroup=true"
+    markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
     
     while True:
         try:
@@ -487,7 +496,7 @@ def daily_leaderboard_scheduler():
                 cursor = conn.cursor()
                 cursor.execute("SELECT value FROM bot_settings WHERE key = 'leaderboard_time'")
                 res = cursor.fetchone()
-                db_time = res[0] if res else "22:00"
+                db_time = res if res else "22:00"
             
             try: target_hour, target_minute = map(int, db_time.split(':'))
             except Exception: target_hour, target_minute = 22, 0
@@ -508,25 +517,30 @@ def daily_leaderboard_scheduler():
                             if (correct + wrong) > 0:
                                 calculated_leaderboard.append((name, correct, wrong, final_score))
                                 
-                        calculated_leaderboard.sort(key=lambda x: x[3], reverse=True)
+                        calculated_leaderboard.sort(key=lambda x: x, reverse=True)
                         top_20 = calculated_leaderboard[:20]
                         
-                        lb_text = "🏆 **Result [Top 20 user's Leaderboard]**\n\n"
+                        lb_text = "🏆 **Result [Top 20 user's Leaderboard]**\n"
+                        lb_text += f"---------------------------------------\n" # [UPDATED] Header Line
                         lb_text += f"📅 Date: {now.strftime('%d-%m-%Y')} | ⏰ Time: {db_time}\n"
                         lb_text += "🎓 Performance of the Last 24 Hours:\n"
-                        lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n\n"
+                        lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n"
+                        lb_text += f"---------------------------------------\n\n" # [UPDATED] Header Line End
                         
                         if top_20:
                             medals = {1: "🥇", 2: "🥈", 3: "🥉"}
                             for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
                                 medal = medals.get(idx, f"{idx}.")
-                                lb_text += f"{medal} **{name}** — {final_score} point (✅{correct} | ❌{wrong})\n"
+                                lb_text += f"{medal} **{name}**\n"
+                                lb_text += f"🔥 Score: **{final_score}** point | ✅ {correct} | ❌ {wrong}\n"
+                                lb_text += f"---------------------------------------\n" # 👈 [NEW LINE ADDED] जो यूजर्स को अलग करेगी
                         else:
-                            lb_text += "⚠️ No users participated in the quiz today."
+                            lb_text += "⚠️ No users participated in the quiz today.\n"
+                            lb_text += f"---------------------------------------\n"
                             
                         lb_text += "\n🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀"
                         try: 
-                            bot.send_message(chat_id=chat_id, text=lb_text, parse_mode="Markdown")
+                            bot.send_message(chat_id=chat_id, text=lb_text, reply_markup=markup, parse_mode="Markdown")
                             time.sleep(0.15)
                         except Exception: pass
                             
@@ -540,6 +554,7 @@ def daily_leaderboard_scheduler():
         except Exception as sched_err:
             print(f"शेड्यूलर एरर: {sched_err}")
         time.sleep(20)
+        
 
 # 🎯 LIVE पोल उत्तर ट्रैकर (OLD POLL STOPPER FEATURE LOADED ✅)
 @bot.poll_answer_handler()
