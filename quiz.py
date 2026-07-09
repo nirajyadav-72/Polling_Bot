@@ -451,7 +451,9 @@ def manual_leaderboard_sender(message):
                 medals = {1: "🥇", 2: "🥈", 3: "🥉"}
                 for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
                     medal = medals.get(idx, f"{idx}.")
-                    lb_text += f"{medal} **{name}** — {final_score} pts (✅{correct} | ❌{wrong})\n"
+                    lb_text += f"{medal} **{name}** — {final_score} pts (✅{correct} | ❌{wrong})\n\n"
+             lb_text = "🏆 **🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀**\n"
+             lb_text = "If you don't want to wait for the results, you can use the `/myscore` command at any time.\n"
             else:
                 lb_text += "⚠️ No users participated in the quiz today."
                 
