@@ -397,10 +397,17 @@ def handle_owner_broadcast(message):
         parse_mode="Markdown"
     )
 
-# 👑 🏆 ओनर कमांड - मैनुअल लीडरबोर्ड सेंडर (रिफ्रेशिंग पोल टेबल आर्किटेक्चर)
-@bot.message_handler(commands=['sendresult'], chat_types=['private'])
+ # 👑 🏆 ओनर कमांड - मैनुअल लीडरबोर्ड सेंडर (यूजर वार्निंग के साथ)
+@bot.message_handler(commands=['sendresult'], chat_types=['private', 'group', 'supergroup'])
 def manual_leaderboard_sender(message):
-    if not (OWNER_ID and message.from_user.id == OWNER_ID): return
+    # 🚨 [UPDATED] अगर कमांड भेजने वाला बॉट का मालिक (OWNER) नहीं है
+    if not (OWNER_ID and message.from_user.id == OWNER_ID): 
+        try:
+            bot.send_message(message.chat.id, "❌ यह कमांड सिर्फ बॉट ओनर के लिए है।")
+        except Exception:
+            pass
+        return  # फंक्शन यहीं रुक जाएगा
+        
     status_msg = bot.send_message(message.chat.id, "⏳ **सभी ग्रुप्स में तुरंत नया रिज़ल्ट भेजा जा रहा है...**")
     IST = pytz.timezone('Asia/Kolkata')
     now = datetime.now(IST)
@@ -421,7 +428,7 @@ def manual_leaderboard_sender(message):
                 if (correct + wrong) > 0:
                     calculated_leaderboard.append((name, correct, wrong, final_score))
             
-            calculated_leaderboard.sort(key=lambda x: x, reverse=True)
+            calculated_leaderboard.sort(key=lambda x: x[3], reverse=True)
             top_20 = calculated_leaderboard[:20]
             
             lb_text = "🏆 **Result [Top 20 user's Leaderboard]**\n\n"
