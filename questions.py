@@ -718,6 +718,286 @@ QUIZ_LIST = [
         "lang": "hindi",
         "explanation": "💡 एक स्वस्थ वयस्क मनुष्य का सामान्य रक्तचाप (BP) 120/80 mmHg होना चाहिए।"
     },
+    {
+        "question": "CPU का पूर्ण रूप (Full Form) क्या होता है?",
+        "options": ["Central Processing Unit", "Central Program Unit", "Computer Processing Unit", "Control Process Unit"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 CPU को अक्सर कंप्यूटर का मस्तिष्क कहा जाता है क्योंकि यह अधिकांश निर्देशों को प्रोसेस और निष्पादित करता है।"
+    },
+    {
+        "question": "किस प्रकार की मेमोरी अस्थायी (Volatile) होती है और कंप्यूटर बंद होने पर अपना डेटा खो देती है?",
+        "options": ["ROM", "Hard Disk", "RAM", "Flash Drive"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 RAM (Random Access Memory) एक अस्थायी स्टोरेज है जिसका उपयोग CPU वर्तमान में चल रहे डेटा को रखने के लिए करता है।"
+    },
+    {
+        "question": "कंप्यूटर में डेटा की सबसे छोटी इकाई (Smallest Unit) कौन सी है?",
+        "options": ["Byte", "Bit", "Nibble", "Kilobyte"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 एक बिट (बाइनरी डिजिट) डेटा की सबसे बुनियादी इकाई है, जिसका मान या तो 0 होता है या 1।"
+    },
+    {
+        "question": "एक सिंगल बाइट (Byte) कितने बिट्स से मिलकर बनता है?",
+        "options": ["4 bits", "8 bits", "16 bits", "32 bits"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 ठीक 8 बिट्स मिलकर 1 बाइट बनाते हैं। जबकि 4 बिट्स के समूह को 'निब्बल' (Nibble) कहा जाता है।"
+    },
+    {
+        "question": "निम्नलिखित में से कौन सा एक ओपन-सोर्स (Open-Source) ऑपरेटिंग सिस्टम है?",
+        "options": ["Windows 11", "macOS", "Linux", "iOS"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 Linux एक ओपन-सोर्स सॉफ्टवेयर है, जिसका अर्थ है कि इसका सोर्स कोड किसी के भी द्वारा संशोधित और वितरित किया जा सकता है।"
+    },
+    {
+        "question": "वेबसाइट URL में HTTP का पूर्ण रूप (Full Form) क्या होता है?",
+        "options": ["Hyper Text Transfer Protocol", "High Transfer Tech Protocol", "Hyper Terminal Text Processor", "Hyper Text Total Protocol"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 HTTP वह बुनियादी प्रोटोकॉल है जिसका उपयोग वर्ल्ड वाइड वेब (WWW) पर संदेशों को प्रसारित करने के लिए किया जाता है।"
+    },
+    {
+        "question": "कौन सी नेटवर्क टोपोलॉजी सभी डिवाइसों को एक ही केंद्रीय केबल से जोड़ती है?",
+        "options": ["Star Topology", "Ring Topology", "Mesh Topology", "Bus Topology"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 बस टोपोलॉजी (Bus Topology) में सभी कंप्यूटर और डिवाइस एक ही मुख्य केबल (बैकबोन) से क्रमिक रूप से जुड़े होते हैं।"
+    },
+    {
+        "question": "कंप्यूटर नेटवर्किंग के संदर्भ में IP का पूर्ण रूप क्या होता है?",
+        "options": ["Internal Protocol", "Internet Protocol", "Interface Program", "Interconnect Path"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 IP एड्रेस नंबरों की एक अनूठी स्ट्रिंग होती है जो नेटवर्क पर प्रत्येक कंप्यूटर या डिवाइस की पहचान करती है।"
+    },
+    {
+        "question": "इनमें से कौन सी भाषा कंप्यूटर का CPU सीधे समझता है?",
+        "options": ["Python", "Java", "Machine Language (Binary)", "C++"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 कंप्यूटर केवल मशीन भाषा (0 और 1) को सीधे समझता है। उच्च-स्तरीय भाषाओं को पहले इसमें बदलना पड़ता है।"
+    },
+    {
+        "question": "सॉफ्टवेयर बग (Software Bug) का क्या अर्थ होता है?",
+        "options": ["एक हार्डवेयर का भाग", "किसी प्रोग्राम में कोई त्रुटि या गलती", "एक प्रकार का कंप्यूटर वायरस", "एक तेज़ प्रोसेसिंग टूल"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बग का मतलब कोड में कोई ऐसी त्रुटि या कमी है जिसके कारण प्रोग्राम गलत या अप्रत्याशित परिणाम देता है।"
+    },
+    {
+        "question": "कौन सा डेटा स्ट्रक्चर 'First-In, First-Out' (FIFO) के सिद्धांत पर काम करता है?",
+        "options": ["Stack", "Queue", "Tree", "Graph"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 Queue (कतार) एक वास्तविक लाइन की तरह काम करती है; जो तत्व पहले जोड़ा जाता है, वही सबसे पहले बाहर निकलता है।"
+    },
+    {
+        "question": "कौन सा डेटा स्ट्रक्चर 'Last-In, First-Out' (LIFO) के सिद्धांत पर काम करता है?",
+        "options": ["Queue", "Array", "Stack", "Linked List"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 Stack सिक्कों या बर्तनों के ढेर की तरह काम करता है; जो वस्तु सबसे अंत में ऊपर रखी जाती है, उसे सबसे पहले हटाया जाता है।"
+    },
+    {
+        "question": "ऑपरेटिंग सिस्टम (OS) का मुख्य कार्य क्या होता है?",
+        "options": ["सोर्स कोड को कंपाइल करना", "कंप्यूटर हार्डवेयर और सॉफ्टवेयर संसाधनों का प्रबंधन करना", "इंटरनेट को सुरक्षित रूप से ब्राउज़ करना", "प्रेजेंटेशन बनाना"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 ऑपरेटिंग सिस्टम यूजर और कंप्यूटर के फिजिकल हार्डवेयर घटकों के बीच एक इंटरफेस के रूप में काम करता है।"
+    },
+    {
+        "question": "डेटाबेस प्रबंधन (Database Management) में SQL का पूर्ण रूप क्या होता है?",
+        "options": ["Structured Query Language", "Simple Queue Language", "Sequential Query List", "Standard Query Logic"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 SQL एक मानक प्रोग्रामिंग भाषा है जिसे रिलेशनल डेटाबेस में डेटा को व्यवस्थित और प्रबंधित करने के लिए बनाया गया है।"
+    },
+    {
+        "question": "इंटरनेट का वह घटक कौन सा है जो डोमेन नामों (जैसे google.com) को IP एड्रेस में बदलता है?",
+        "options": ["URL", "FTP", "DNS", "MAC Address"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 DNS (Domain Name System) इंटरनेट की फोनबुक की तरह काम करता है, जो अक्षरों वाले नाम को संख्यात्मक IP में बदलता है।"
+    },
+    {
+        "question": "मैलवेयर (Malware) क्या होता है?",
+        "options": ["उच्च प्रदर्शन वाला सॉफ्टवेयर", "सिस्टम को नुकसान पहुँचाने वाला दुर्भावनापूर्ण सॉफ्टवेयर", "फ्री एंटीवायरस टूल", "एक अपडेटेड डिवाइस ड्राइवर"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 मैलवेयर वायरस, रैनसमवेयर और स्पाइवेयर जैसे दुर्भावनापूर्ण प्रोग्रामों का एक सामूहिक नाम है।"
+    },
+    {
+        "question": "Python प्रोग्रामिंग में सिंगल-लाइन कमेंट (Comment) लिखने के लिए किस प्रतीक का उपयोग किया जाता है?",
+        "options": ["//", "/*", "#", "<!--"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 हैश कैरेक्टर (#) कंपाइलर/इंटरप्रेटर को बताता है कि उस लाइन के आगे लिखे टेक्स्ट को कोड के रूप में न चलाया जाए।"
+    },
+    {
+        "question": "कौन सा लॉजिक गेट केवल तभी True (1) आउटपुट देता है जब उसके दोनों इनपुट True (1) हों?",
+        "options": ["OR Gate", "AND Gate", "NOT Gate", "XOR Gate"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 AND गेट तार्किक गुणन (Logical Multiplication) करता है; यह तभी हाई सिग्नल देता है जब सभी इनपुट हाई हों।"
+    },
+    {
+        "question": "कंपाइलर (Compiler) का क्या कार्य होता है?",
+        "options": ["प्रोग्राम को लाइन-बाय-लाइन चलाना", "पूरे सोर्स कोड को एक साथ मशीन कोड में बदलना", "अस्थायी कैशे फाइलों को साफ करना", "कंप्यूटर को प्रिंटर से जोड़ना"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कंपाइलर एक ही बार में पूरे उच्च-स्तरीय प्रोग्राम को बाइनरी फाइल (मशीन कोड) में अनुवादित कर देता है।"
+    },
+    {
+        "question": "डेटा एन्क्रिप्शन (Encryption) का क्या अर्थ है?",
+        "options": ["फाइलों को स्थायी रूप से हटाना", "डेटा को एक सुरक्षित, अपठनीय कोड में बदलना", "स्पेस बचाने के लिए फाइलों को कंप्रेस करना", "इंटरनेट की गति बढ़ाना"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 एन्क्रिप्शन संवेदनशील डेटा को स्क्रैम्बल (बदल) कर देता है ताकि सही पासवर्ड या की (Key) के बिना उसे कोई पढ़ न सके।"
+    },
+    {
+        "question": "यदि किसी निश्चित कोड में 'CAT' को 'DBU' लिखा जाता है, तो उसी कोड में 'DOG' को क्या लिखा जाएगा?",
+        "options": ["EPH", "EOF", "FPH", "ENG"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 यहाँ प्रत्येक अक्षर को उसके अगले अक्षर (+1) से बदला गया है। D->E, O->P, G->H, इसलिए उत्तर EPH होगा।"
+    },
+    {
+        "question": "दी गई श्रृंखला को पूरा करें: 2, 4, 8, 16, 32, ?",
+        "options": ["48", "50", "64", "60"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 इस श्रृंखला में प्रत्येक संख्या अपने पिछले पद की दोगुनी (x2) हो रही है। 32 x 2 = 64।"
+    },
+    {
+        "question": "दिए गए विकल्पों में से विषम (Odd One Out) को चुनिए:",
+        "options": ["जनवरी", "मार्च", "अप्रैल", "मई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 जनवरी, मार्च और मई में 31 दिन होते हैं, जबकि अप्रैल में केवल 30 दिन होते हैं।"
+    },
+    {
+        "question": "जिस प्रकार 'पुस्तकालय' का संबंध 'पुस्तक' से है, उसी प्रकार 'अस्पताल' का संबंध किससे होगा?",
+        "options": ["इमारत", "मरीज", "डॉक्टर", "दवा"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पुस्तकालय में मुख्य रूप से पुस्तकें रखी जाती हैं, उसी प्रकार अस्पताल मुख्य रूप से मरीजों के इलाज के लिए होता है।"
+    },
+    {
+        "question": "एक व्यक्ति उत्तर की ओर 5 किमी चलता है, फिर वह दाएं मुड़कर 3 किमी चलता है। अब वह किस दिशा में जा रहा है?",
+        "options": ["उत्तर", "दक्षिण", "पूर्व", "पश्चिम"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 उत्तर दिशा में चलते हुए दाएं (Clockwise) मुड़ने पर व्यक्ति का मुख पूर्व (East) दिशा की ओर हो जाता है।"
+    },
+    {
+        "question": "A, B का भाई है। C, A की माता है। तो B का C से क्या संबंध है?",
+        "options": ["पुत्र", "पुत्री", "माता", "पुत्र या पुत्री"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 C, A की माता है और A, B का भाई है, तो C निश्चित ही B की भी माता होगी, लेकिन B का लिंग (Gender) स्पष्ट न होने से वह पुत्र या पुत्री हो सकता है।"
+    },
+    {
+        "question": "दी गई श्रृंखला में लुप्त पद ज्ञात करें: A, C, E, G, ?",
+        "options": ["H", "I", "J", "K"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 इस वर्णमाला श्रृंखला में एक-एक अक्षर छोड़कर (+2) आगे बढ़ रहे हैं। G के बाद H छोड़कर 'I' आएगा।"
+    },
+    {
+        "question": "यदि कल से पहले का दिन (परसों) शुक्रवार था, तो कल के बाद का दिन (परसों) क्या होगा?",
+        "options": ["बुधवार", "गुरुवार", "मंगलवार", "शनिवार"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 यदि बीता हुआ परसों शुक्रवार था, तो आज रविवार है। आज रविवार है तो आने वाला परसों मंगलवार होगा।"
+    },
+    {
+        "question": "एक कक्षा में मोहन का स्थान ऊपर से 9वाँ और नीचे से 28वाँ है। कक्षा में कुल कितने छात्र हैं?",
+        "options": ["37", "36", "35", "38"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कुल संख्या = (ऊपर से स्थान + नीचे से स्थान) - 1। अतः (9 + 28) - 1 = 36 छात्र।"
+    },
+    {
+        "question": "दिए गए विकल्पों में से विषम संख्या (Odd Number) को चुनिए:",
+        "options": ["25", "36", "49", "55"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 25 (5 का वर्ग), 36 (6 का वर्ग) और 49 (7 का वर्ग) पूर्ण वर्ग संख्याएं हैं, जबकि 55 किसी का वर्ग नहीं है।"
+    },
+    {
+        "question": "यदि '+' का अर्थ 'गुणा' और '-' का अर्थ 'भाग' हो, तो 6 + 4 - 2 का मान क्या होगा?",
+        "options": ["12", "10", "8", "14"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 चिन्ह बदलने पर समीकरण 6 * 4 / 2 बनेगा। BODMAS के अनुसार पहले भाग करेंगे: 4 / 2 = 2, फिर 6 * 2 = 12।"
+    },
+    {
+        "question": "60 विद्यार्थियों की एक कक्षा में लड़कियों की संख्या लड़कों से दोगुनी है। यदि रोहित का स्थान ऊपर से 17वाँ है और उससे आगे 9 लड़कियाँ हैं, तो उसके पीछे कितने लड़के हैं?",
+        "options": ["11", "12", "13", "14"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कुल 60 में 40 लड़कियाँ और 20 लड़के हैं। रोहित से आगे 9 लड़कियाँ हैं तो (17-1-9) = 7 लड़के उससे आगे हैं। रोहित को मिलाकर 8 लड़के हो गए, अतः पीछे 20 - 8 = 12 लड़के बचे।"
+    },
+    {
+        "question": "जिस प्रकार 'कलम' का संबंध 'लिखना' से है, उसी प्रकार 'चाकू' का संबंध किससे होगा?",
+        "options": ["सब्जी", "काटना", "रसोई", "तेज"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कलम का मुख्य कार्य लिखना होता है, उसी प्रकार चाकू का मुख्य कार्य काटना होता है।"
+    },
+    {
+        "question": "दी गई संख्या श्रृंखला को पूरा करें: 5, 10, 15, 20, ?",
+        "options": ["22", "24", "25", "30"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 इस श्रृंखला में प्रत्येक पद में 5 जोड़ा जा रहा है (+5)। अतः 20 + 5 = 25 होगा।"
+    },
+    {
+        "question": "यदि अंग्रेजी वर्णमाला को विपरीत (Reverse) क्रम में लिखा जाए, तो बाईं ओर से 5वाँ अक्षर कौन सा होगा?",
+        "options": ["E", "V", "U", "W"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 विपरीत क्रम में वर्णमाला Z से शुरू होगी। शुरुआत से 5वाँ अक्षर V होगा (क्योंकि सीधे क्रम में पीछे से 5वाँ V होता है)।"
+    },
+    {
+        "question": "एक तस्वीर की ओर इशारा करते हुए सुरेश ने कहा, 'यह मेरे दादाजी के इकलौते पुत्र की पुत्री है'। तस्वीर वाली महिला का सुरेश से क्या संबंध है?",
+        "options": ["माता", "चाची", "बहन", "चचेरी बहन"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 दादाजी का इकलौता पुत्र यानी सुरेश के पिता। पिता की पुत्री यानी सुरेश की बहन।"
+    },
+    {
+        "question": "यदि किसी वर्ष 5 मार्च को सोमवार था, तो उसी वर्ष 28 मार्च को कौन सा दिन होगा?",
+        "options": ["सोमवार", "मंगलवार", "बुधवार", "रविवार"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 दोनों तारीखों के बीच 28 - 5 = 23 दिन का अंतर है। 23 को 7 से भाग देने पर शेषफल 2 बचता है। सोमवार + 2 दिन = बुधवार।"
+    },
+    {
+        "question": "दिए गए शब्दों को शब्दकोश (Dictionary) के क्रम में सजाने पर कौन सा शब्द तीसरे स्थान पर आएगा? [Apple, Apricot, Ape, Ant]",
+        "options": ["Ant", "Ape", "Apple", "Apricot"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 वर्णमाला के अनुसार सही क्रम होगा: 1. Ant, 2. Ape, 3. Apple, 4. Apricot। अतः तीसरे स्थान पर Apple आएगा।"
+    },
+    {
+        "question": "सुबह के समय सूर्योदय के बाद, राम एक खंभे के सामने खड़ा था। खंभे की परछाई उसके ठीक दाईं ओर पड़ रही थी। राम का मुख किस दिशा में था?",
+        "options": ["उत्तर", "दक्षिण", "पूर्व", "पश्चिम"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 सुबह सूर्य पूर्व में होता है, तो परछाई पश्चिम में बनेगी। यदि परछाई राम के दाईं ओर है, तो राम का दाया हाथ पश्चिम में है, जिससे उसका मुख दक्षिण की ओर होगा।"
+    },
+    {
+        "question": "दी गई श्रृंखला को पूरा करें: 1, 9, 25, 49, ?",
+        "options": ["64", "81", "100", "121"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 यह श्रृंखला विषम संख्याओं के वर्ग की है: 1², 3², 5², 7²। अगला पद 9² = 81 होगा।"
+    },
     #====================================================
     # ------------------- ENGLISH QUIZZES ---------------
     # ===================================================
@@ -1630,6 +1910,145 @@ QUIZ_LIST = [
         "correct_id": 1,
         "lang": "english",
         "explanation": "💡 Encryption secures sensitive information by scrambling plaintext data into ciphertext that can only be read with a key."
-   }
-
+    },
+    {
+        "question": "If in a certain code 'CAT' is written as 'DBU', how will 'DOG' be written in that same code?",
+        "options": ["EPH", "EOF", "FPH", "ENG"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Each letter is replaced by its next consecutive letter (+1). D->E, O->P, G->H, so the answer is EPH."
+    },
+    {
+        "question": "Complete the given series: 2, 4, 8, 16, 32, ?",
+        "options": ["48", "50", "64", "60"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 In this series, every number is multiplied by 2 to get the next term. 32 x 2 = 64."
+    },
+    {
+        "question": "Find the odd one out from the given options:",
+        "options": ["January", "March", "April", "May"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 January, March, and May have 31 days each, whereas April has only 30 days."
+    },
+    {
+        "question": "As 'Library' is related to 'Book', in the same way 'Hospital' is related to what?",
+        "options": ["Building", "Patient", "Doctor", "Medicine"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 A library primarily houses books, similarly a hospital primarily houses and treats patients."
+    },
+    {
+        "question": "A person walks 5 km towards North, then turns right and walks 3 km. Which direction is he facing now?",
+        "options": ["North", "South", "East", "West"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Turning right (clockwise) while walking towards the North direction points the person towards the East."
+    },
+    {
+        "question": "A is the brother of B. C is the mother of A. What is the relation of B to C?",
+        "options": ["Son", "Daughter", "Mother", "Son or Daughter"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 C is the mother of A, and since A is B's brother, C is also B's mother. However, as B's gender is not specified, B could be a son or a daughter."
+    },
+    {
+        "question": "Find the missing term in the given series: A, C, E, G, ?",
+        "options": ["H", "I", "J", "K"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 This alphabet series skips one letter between terms (+2). Skipping H after G gives 'I'."
+    },
+    {
+        "question": "If the day before yesterday was Friday, what day will it be the day after tomorrow?",
+        "options": ["Wednesday", "Thursday", "Tuesday", "Saturday"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 If the day before yesterday was Friday, today is Sunday. If today is Sunday, the day after tomorrow will be Tuesday."
+    },
+    {
+        "question": "In a class, Mohan's rank is 9th from the top and 28th from the bottom. How many students are there in the class?",
+        "options": ["37", "36", "35", "38"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Total students = (Rank from Top + Rank from Bottom) - 1. Therefore, (9 + 28) - 1 = 36."
+    },
+    {
+        "question": "Choose the odd number out from the given options:",
+        "options": ["25", "36", "49", "55"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 25 (5²), 36 (6²), and 49 (7²) are perfect squares, whereas 55 is not a perfect square."
+    },
+    {
+        "question": "If '+' means 'multiplication' and '-' means 'division', what is the value of 6 + 4 - 2?",
+        "options": ["12", "10", "8", "14"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Replacing the signs gives the expression 6 * 4 / 2. According to BODMAS, divide first: 4 / 2 = 2, then multiply: 6 * 2 = 12."
+    },
+    {
+        "question": "In a class of 60 students, the number of girls is twice that of boys. If Rohit ranks 17th from the top and there are 9 girls ahead of him, how many boys are behind him?",
+        "options": ["11", "12", "13", "14"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Out of 60, there are 40 girls and 20 boys. Since 9 girls are ahead of Rohit, there are (17 - 1 - 9) = 7 boys ahead of him. Including Rohit, that makes 8 boys. Thus, 20 - 8 = 12 boys are behind him."
+    },
+    {
+        "question": "As 'Pen' is related to 'Writing', in the same way 'Knife' is related to what?",
+        "options": ["Vegetable", "Cutting", "Kitchen", "Sharp"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The primary function of a pen is writing, and similarly, the primary function of a knife is cutting."
+    },
+    {
+        "question": "Complete the given number series: 5, 10, 15, 20, ?",
+        "options": ["22", "24", "25", "30"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 In this arithmetic progression, 5 is added to each consecutive term (+5). Hence, 20 + 5 = 25."
+    },
+    {
+        "question": "If the English alphabet is written in reverse order, which letter will be 5th from the left side?",
+        "options": ["E", "V", "U", "W"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 In reverse order, the alphabet starts from Z. The 5th letter from Z counting backwards is V."
+    },
+    {
+        "question": "Pointing to a photograph, Suresh said, 'She is the daughter of the only son of my grandfather'. How is the woman in the photo related to Suresh?",
+        "options": ["Mother", "Aunt", "Sister", "Cousin"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The only son of Suresh's grandfather is Suresh's father. His father's daughter is Suresh's sister."
+    },
+    {
+        "question": "If on March 5th of a certain year it was Monday, what day of the week will it be on March 28th of the same year?",
+        "options": ["Monday", "Tuesday", "Wednesday", "Sunday"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The difference between dates is 28 - 5 = 23 days. Dividing 23 by 7 leaves a remainder of 2. Monday + 2 days = Wednesday."
+    },
+    {
+        "question": "Arrange the words in dictionary order and find which word comes at the 3rd position: [Apple, Apricot, Ape, Ant]",
+        "options": ["Ant", "Ape", "Apple", "Apricot"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Alphabetical sorting yields: 1. Ant, 2. Ape, 3. Apple, 4. Apricot. Therefore, Apple is at the 3rd position."
+    },
+    {
+        "question": "One morning after sunrise, Ram was standing facing a pole. The shadow of the pole fell exactly to his right. Which direction was Ram facing?",
+        "options": ["North", "South", "East", "West"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 In the morning, the sun rises in the East, so shadows fall towards the West. Since the shadow is to Ram's right, his right hand points West, meaning he is facing South."
+    },
+    {
+        "question": "Complete the given series: 1, 9, 25, 49, ?",
+        "options": ["64", "81", "100", "121"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The series consists of squares of consecutive odd numbers: 1², 3², 5², 7². The next term is 9² = 81."
+    }
 ]
