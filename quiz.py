@@ -685,14 +685,14 @@ def send_stats(message):
             
         bot.send_message(
             message.chat.id, 
-            f"📊 **Bot live status:**\n\n"
-            f"🎯 Total Active Groups: **{g_count}**\n"
-            f"👤 Total Active Users: **{u_count}**"
+            f"📊 Bot live status:\n\n"
+            f"⚡ Total Active Groups: {g_count}\n"
+            f"👤 Total Active Users: {u_count}"
         )
     else:
         bot.send_message(message.chat.id, "❌ यह कमांड सिर्फ बॉट ओनर के लिए है।")
 
-# 🤖 ग्रुप जॉइन/लीव ट्रैकर
+# 🇮🇳 ग्रुप जॉइन/लीव ट्रैकर
 @bot.my_chat_member_handler()
 def handle_left_or_joined(message):
     new_status = message.new_chat_member.status
@@ -709,15 +709,10 @@ def handle_left_or_joined(message):
             cursor.execute("DELETE FROM groups WHERE chat_id = ?", (message.chat.id,))
             conn.commit()
 
-# 🧵 थ्रेड्स स्टार्ट करें
+# ❤️‍🩹 थ्रेड्स स्टार्ट करें
 threading.Thread(target=global_poll_manager, daemon=True).start()
 threading.Thread(target=daily_leaderboard_scheduler, daemon=True).start()
 
-print("Successfully deployed...🚀")
+print("Successfully 🇮🇳 deployed...🚀 check kare ✅")
 
-bot.infinity_polling(
-    allowed_updates=["my_chat_member", "message", "callback_query", "poll_answer"],
-    timeout=60,
-    long_polling_timeout=60,
-    skip_pending=True
-)
+bot.infinity_polling(timeout=60, long_polling_timeout=60)
