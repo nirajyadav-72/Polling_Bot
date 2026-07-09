@@ -101,7 +101,10 @@ def is_user_admin(chat_id, user_id):
     except Exception:
         return False
 
-# 🔄 हर ग्रुप के लिए कस्टमाइज्ड पोल शेड्यूलर लूप (एडमिन चेक और वार्निंग के साथ)
+# 🚨 [NEW GLOBAL DICTIONARY] हर ग्रुप के लिए वार्निंग टाइमस्टैम्प याद रखने के लिए
+NON_ADMIN_WARNING_TRACKER = {}
+
+# 🔄 हर ग्रुप के लिए कस्टमाइज्ड पोल शेड्यूलर लूप
 def global_poll_manager():
     while True:
         try:
@@ -114,7 +117,7 @@ def global_poll_manager():
                 for chat_id, current_index, last_poll_id, last_sent_time, language, interval, auto_delete in all_groups:
                     if current_now - last_sent_time >= interval:
                         
-                        # 🚨 [NEW UPDATE] चेक करें कि क्या बॉट अभी भी ग्रुप में एडमिन है?
+                        # चेक करें कि क्या बॉट अभी भी ग्रुप में एडメン है?
                         is_bot_admin = False
                         try:
                             bot_member = bot.get_chat_member(chat_id, bot.get_me().id)
@@ -123,20 +126,31 @@ def global_poll_manager():
                         except Exception:
                             is_bot_admin = False
 
-                        # ⚠️ अगर बॉट एडमिन नहीं है, तो पोल भेजने के बजाय वार्निंग मैसेज भेजेगा
+                        # ⚠️ अगर बॉट एडमिन नहीं है
                         if not is_bot_admin:
-                            try:
-                                bot.send_message(
-                                    chat_id=chat_id, 
-                                    text="⚠️ **बॉट अलर्ट!**\n\nइस ग्रुप में पोल सेंड करने के लिए बॉट को फिर से **Admin (Administrator)** बनाकर परमिशन देना होगा।",
-                                    parse_mode="Markdown"
-                                )
-                                # बार-बार वार्निंग न जाए, इसलिए लास्ट सेंट टाइम अपडेट कर देते हैं ताकि यह अगले इंटरवल पर ही चेक करे
-                                cursor.execute("UPDATE groups SET last_sent_time = ? WHERE chat_id = ?", (current_now, chat_id))
-                                conn.commit()
-                            except Exception:
-                                pass
-                            continue  # इस ग्रुप के लिए पोल भेजने का लॉजिक यहीं रोक दें और अगले ग्रुप पर जाएं
+                            # ⏱️ 12 घंटे = 12 * 60 * 60 = 43200 सेकंड्स
+                            # 💡 अगर आपको 6 घंटे करना हो तो 21600 कर देना, 24 घंटे के लिए 86400 कर देना
+                            warning_interval = 43200 
+                            
+                            last_warning_time = NON_ADMIN_WARNING_TRACKER.get(chat_id, 0)
+                            
+                            # अगर पिछली वार्निंग को भेजे 12 घंटे (43200 सेकंड) हो चुके हैं या यह पहली वार्निंग है
+                            if current_now - last_warning_time >= warning_interval:
+                                try:
+                                    bot.send_message(
+                                        chat_id=chat_id, 
+                                        text="⚠️ **बॉट अलर्ट!**\n\nइस ग्रुप में पोल सेंड करने के लिए बॉट को फिर से **Admin (Administrator)** बनाकर परमिशन देना होगा।",
+                                        parse_mode="Markdown"
+                                    )
+                                    # 🎯 इस ग्रुप के लिए करंट वार्निंग टाइम मेमोरी में सेव करें
+                                    NON_ADMIN_WARNING_TRACKER[chat_id] = current_now
+                                except Exception:
+                                    pass
+                            
+                            # बार-बार डेटाबेस लूप को एक्टिवेट न करने के लिए last_sent_time को नॉर्मल इंटरवल तक बढ़ाएं
+                            cursor.execute("UPDATE groups SET last_sent_time = ? WHERE chat_id = ?", (current_now, chat_id))
+                            conn.commit()
+                            continue  # इस ग्रुप को स्किप करें
 
                         # --- पुराना पोल डिलीट करने का लॉजिक (एडमिन होने पर ही चलेगा) ---
                         if last_poll_id is not None and auto_delete == 1:
@@ -186,6 +200,7 @@ def global_poll_manager():
         except Exception as db_err:
             print(f"डेटाबेस लूप एरर: {db_err}")
         time.sleep(5)
+        
 
 # ⚙️ मुख्य सेटिंग्स मेनू यूआई जेनरेटर
 def get_settings_markup(chat_id):
