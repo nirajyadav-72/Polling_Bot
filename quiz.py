@@ -661,39 +661,49 @@ def check_user_score(message):
     except Exception: 
         pass
 
-# 💬 /start कमांड
+# 💬 /start कमांड (Strict Group Validation के साथ 100% FIXED)
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     user_id = message.from_user.id
     chat_type = message.chat.type
+    message_text = message.text.strip() if message.text else ""
     
+    # 🚨 [CRITICAL FIX] चेक करें कि क्या कमांड सिर्फ इसी बॉट के लिए है?
+    # अगर ग्रुप में कोई दूसरा बॉट ट्रिगर हुआ है (जैसे /start@OtherBot), तो यह फ़ंक्शन यहीं रुक जाएगा!
+    if chat_type in ['group', 'supergroup']:
+        expected_full_command = f"/start@{BOT_USERNAME}"
+        # अगर सिर्फ '/start' है तो ठीक, लेकिन अगर '@' लगा है और वो इस बॉट का नाम नहीं है तो रिजेक्ट करें
+        if "@" in message_text and not message_text.startswith(expected_full_command):
+            return  # ❌ दूसरे बॉट की कमांड है, मेरा बॉट शांत रहेगा
+
     first_name = message.from_user.first_name if message.from_user.first_name else ""
     last_name = message.from_user.last_name if message.from_user.last_name else ""
     full_name = f"{first_name} {last_name}".strip()
     if not full_name: full_name = f"User_{user_id}"
 
+    # 📌 अगर बॉट को इसी ग्रुप में सही तरीके से /start किया जाए
     if chat_type in ['group', 'supergroup']:
         group_text = (
-            f"👋 **Hello {message.from_user.first_name}!** Thanks for adding me to your group!\n\n"
+            f"🎉 **Bot activated successfully!**\n"
+            f"📢 Automated quizzes have been activated for this group.\n\n"
             f"🇮🇳 **Group Name:** [{message.chat.title}]\n"
             f"This bot is the easiest way to keep your groups active and engaged.\n\n"
             f"📌 **My Features:**\n"
             f"📊 **Daily Auto Poll:** Automatically sends a new poll every day at your set time interval.\n"
-            f"🏆 **Auto Result:** Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n"
-            f"💡 **Results** ka wait nahi karna chahte to `/myscore` command send kare!\n\n"
+            f"🏆 **Auto Result:** Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n\n"
             f"🚀 **How to Get Started:**\n"
-            f"1. **Add me** to your Telegram group.\n"
-            f"2. Make me a **Group Admin** (so I have permission to send polls).\n"
-            f"3. Use the `/settings` command inside your group to configure everything.\n\n"
+            f"1. Make me a **Group Admin** (so I have permission to send polls).\n"
+            f"2. Use the `/settings` command inside your group to configure everything.\n\n"
             f"For any help, simply type `/help`."
         )
         group_markup = InlineKeyboardMarkup()
-        add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
+        add_to_group_url = f"https://t.me{BOT_USERNAME}?startgroup=true"
         group_markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
         try: bot.send_message(chat_id=message.chat.id, text=group_text, reply_markup=group_markup, parse_mode="Markdown")
         except Exception: pass
         return  
 
+    # प्राइवेट चैट का बाकी लॉजिक (यह वैसे ही रहेगा)
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
         cursor.execute("INSERT OR IGNORE INTO users (user_id, user_name, join_time) VALUES (?, ?, ?)", (user_id, full_name, time.time()))
@@ -704,7 +714,7 @@ def send_welcome(message):
             cursor = conn.cursor()
             cursor.execute("SELECT value FROM bot_settings WHERE key = 'leaderboard_time'")
             res = cursor.fetchone()
-            db_time = res[0] if res else "22:00"
+            db_time = res if res else "22:00"
             
         welcome_text = (
             f"👑 **प्रणाम मालिक ({message.from_user.first_name})!**\n\n"
@@ -723,8 +733,7 @@ def send_welcome(message):
             f"📊 **Daily Auto Poll:**\n"
             "Automatically sends a new poll every day at your set time interval.\n\n"
             "🏆 **Auto Result:**\n"
-            "Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n"
-            "💡 **Results** ka wait nahi karna chahte to `/myscore` command send kare!\n\n"
+            "Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n\n"
             "🚀 **How to Get Started:**\n\n"
             "**1. Add me** to your Telegram group.\n"
             "**2. Make me a **Group Admin** (so I have permission to send polls).\n"
@@ -732,10 +741,11 @@ def send_welcome(message):
             "For any help, simply type `/help` ."
         )
     markup = InlineKeyboardMarkup()
-    add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
+    add_to_group_url = f"https://t.me{BOT_USERNAME}?startgroup=true"
     markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
     try: bot.send_message(chat_id=message.chat.id, text=welcome_text, reply_markup=markup, parse_mode="Markdown")
     except Exception: pass
+                
 
 # ℹ️ हेल्प कमांड
 @bot.message_handler(commands=['help'])
