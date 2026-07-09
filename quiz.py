@@ -452,9 +452,11 @@ def manual_leaderboard_sender(message):
                 for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
                     medal = medals.get(idx, f"{idx}.")
                     lb_text += f"{medal} **{name}** — {final_score} pts (✅{correct} | ❌{wrong})\n\n"
-             lb_text = "🏆 **🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀**\n"
-             lb_text = "If you don't want to wait for the results, you can use the `/myscore` command at any time.\n"
-            else:
+                
+                # यहाँ गलती थी (पहले `=` था, अब `+=` कर दिया है और स्पेस ठीक कर दिया है)
+                lb_text += "🏆 **🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀**\n"
+                lb_text += "If you don't want to wait for the results, you can use the `/myscore` command at any time.\n"
+                else:
                 lb_text += "⚠️ No users participated in the quiz today."
                 
             lb_text += "\n🎯 Amazing effort! Get ready for a new quiz tomorrow! 🚀"
