@@ -98,7 +98,7 @@ QUIZ_LIST = [
     {
         "question": "समुद्र पार भारत के दक्षिणी पड़ोसियों में ...... द्वीप देश शामिल हैं।",
         "options": ["तीन", "दो", "चार", "पांच"],
-        "correct_id": 2,
+        "correct_id": 1,
         "lang": "hindi",
         "explanation": "💡मालद्वीप और श्रीलंका"
      },
@@ -168,7 +168,7 @@ QUIZ_LIST = [
     {
         "question": "सफेद हाथियों का देश (Land of White Elephants) किसे कहा जाता है?",
         "options": ["थाईलैंड", "भारत", "जापान", "श्रीलंका"],
-        "correct_id": 1,
+        "correct_id": 0,
         "lang": "hindi",
         "explanation": "💡 थाईलैंड को सफेद हाथियों का देश कहा जाता है, जहाँ सफेद हाथियों को बहुत पवित्र माना जाता है।"
     },
@@ -182,7 +182,7 @@ QUIZ_LIST = [
     {
         "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (वयस्क में)?",
         "options": ["206", "300", "208", "210"],
-        "correct_id": 1,
+        "correct_id": 0,
         "lang": "hindi",
         "explanation": "💡 एक वयस्क मानव शरीर में कुल 206 हड्डियाँ होती हैं, जबकि नवजात शिशुओं में लगभग 300 होती हैं।"
     },
@@ -196,7 +196,7 @@ QUIZ_LIST = [
     {
         "question": "टेलीफोन का आविष्कार किसने किया था?",
         "options": ["अलेक्जेंडर ग्राहम बेल", "थॉमस एडिसन", "मारकोनी", "RIGHT BROTHERS"],
-        "correct_id": 1,
+        "correct_id": 0,
         "lang": "hindi",
         "explanation": "💡 अलेक्जेंडर ग्राहम बेल ने 1876 में टेलीफोन का आविष्कार किया था।"
     },
@@ -231,21 +231,21 @@ QUIZ_LIST = [
     {
         "question": "ब्रह्मपुत्र नदी निम्नलिखित में से किस देश में नहीं बहती है ?",
         "options": ["चीन" , "नेपाल" , "भारत" , "बांग्लादेश"],
-        "correct_id": 2,
+        "correct_id": 1,
         "lang": "hindi",
         "explanation": "💡 ब्रह्मपुत्र नदी तिब्बत, भारत तथा बांग्लादेश में बहती है"
     },
     {
         "question": "भारत अपनी लगभग ...... भूमि सीमा अफगानिस्तान के साथ साझा करता है।",
         "options": ["106km." , "306km." , "506km." , "706km."],
-        "correct_id": 1,
+        "correct_id": 0,
         "lang": "hindi",
         "explanation": "💡 भारत और अफगानिस्तान के मध्य अंतर्राष्ट्रीय सीमा को डूरंड रेखा कहते हैं"
     },
     {
         "question": "विश्व में क्षेत्रफल की दृष्टि से भारत का विश्व के देशों में कौन-सा स्थान है?",
         "options": ["8 वां" , "5 वां" , "6 वां" , "7 वां"],
-        "correct_id": 4,
+        "correct_id": 3,
         "lang": "hindi",
         "explanation": "💡 क्षेत्रफल की दृष्टिकोण से भारत का रूस, कनाड़ा, यू.एस.ए., चीन, ब्राजील, ऑस्टेलिया के बाद सातवां स्थान हैं।"
     },
@@ -374,7 +374,7 @@ QUIZ_LIST = [
     {
         "question": "What does WWW stand for in a website address?",
         "options": ["World Wide Web", "World Wide Wrestling", "Western Window Web", "Web World Wide"],
-        "correct_id": 1,
+        "correct_id": 0,
         "lang": "english",
         "explanation": "💡 WWW stands for World Wide Web, invented by Tim Berners-Lee in 1989."
     },
@@ -395,7 +395,7 @@ QUIZ_LIST = [
     {
         "question": "How many bones do sharks have in their bodies?",
         "options": ["0", "150", "206", "300"],
-        "correct_id": 1,
+        "correct_id": 0,
         "lang": "english",
         "explanation": "💡 Sharks do not have bones. Their skeletons are made entirely of flexible cartilage instead of bone."
     },
@@ -430,7 +430,7 @@ QUIZ_LIST = [
     {
         "question": "What is the fast-running animal that is the fastest land mammal?",
         "options": ["Cheetah", "Lion", "Leopard", "Horse"],
-        "correct_id": 1,
+        "correct_id": 0,
         "lang": "english",
         "explanation": "💡 The Cheetah is the fastest land animal, capable of reaching speeds up to 120 km/h (75 mph)."
     },
