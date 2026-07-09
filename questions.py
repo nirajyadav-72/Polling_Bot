@@ -1490,5 +1490,146 @@ QUIZ_LIST = [
         "correct_id": 0,
         "lang": "english",
         "explanation": "💡 Unlike the US federal structure of dual citizenship, India adopted single uniform citizenship from the British parliamentary model."
-    }
+    },
+    {
+        "question": "What does CPU stand for?",
+        "options": ["Central Processing Unit", "Central Program Unit", "Computer Processing Unit", "Control Process Unit"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The CPU is often called the brain of the computer because it interprets and executes most commands."
+    },
+    {
+        "question": "Which type of memory is volatile and loses its data when the computer is turned off?",
+        "options": ["ROM", "Hard Disk", "RAM", "Flash Drive"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 RAM (Random Access Memory) is temporary storage used by the CPU to hold data currently in use."
+    },
+    {
+        "question": "What is the smallest unit of data in a computer?",
+        "options": ["Byte", "Bit", "Nibble", "Kilobyte"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 A bit (binary digit) represents a logical state with one of two values: 0 or 1."
+    },
+    {
+        "question": "How many bits make up one single Byte?",
+        "options": ["4 bits", "8 bits", "16 bits", "32 bits"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Exactly 8 bits combine to form 1 byte. A collection of 4 bits is called a nibble."
+    },
+    {
+        "question": "Which of the following is an open-source operating system?",
+        "options": ["Windows 11", "macOS", "Linux", "iOS"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Linux is open-source, meaning its source code is free to be modified and distributed by anyone."
+    },
+    {
+        "question": "What does HTTP stand for in a website URL?",
+        "options": ["Hyper Text Transfer Protocol", "High Transfer Tech Protocol", "Hyper Terminal Text Processor", "Hyper Text Total Protocol"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 HTTP is the foundational protocol used by the World Wide Web to define how messages are formatted and transmitted."
+    },
+    {
+        "question": "Which network topology connects all devices to a single central cable?",
+        "options": ["Star Topology", "Ring Topology", "Mesh Topology", "Bus Topology"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Bus topology uses a main single cable (the bus) to connect all nodes together linearly."
+    },
+    {
+        "question": "In computer networking, what does IP stand for?",
+        "options": ["Internal Protocol", "Internet Protocol", "Interface Program", "Interconnect Path"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 An IP address is a unique string of numbers that identifies each computer using the Internet Protocol over a network."
+    },
+    {
+        "question": "Which of these languages is natively understood by a computer's CPU?",
+        "options": ["Python", "Java", "Machine Language (Binary)", "C++"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Computers only understand Machine Language consisting entirely of 0s and 1s. Higher languages must be compiled or interpreted."
+    },
+    {
+        "question": "What is a software bug?",
+        "options": ["A hardware component", "An error or flaw in a program", "A type of computer virus", "A fast processing tool"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 A bug is an error, flaw, or fault in design or software that causes it to produce an incorrect or unexpected result."
+    },
+    {
+        "question": "Which data structure follows the First-In, First-Out (FIFO) principle?",
+        "options": ["Stack", "Queue", "Tree", "Graph"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 A Queue works like a real-world line; the first element added is the very first one to be removed."
+    },
+    {
+        "question": "Which data structure follows the Last-In, First-Out (LIFO) principle?",
+        "options": ["Queue", "Array", "Stack", "Linked List"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 A Stack works like a pile of plates; the last plate placed on top is the first one taken off."
+    },
+    {
+        "question": "What is the main function of an Operating System (OS)?",
+        "options": ["To compile source code", "To manage computer hardware and software resources", "To browse the internet safely", "To create presentations"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The OS acts as an intermediary interface between computer users and the underlying hardware components."
+    },
+    {
+        "question": "What does SQL stand for in database management?",
+        "options": ["Structured Query Language", "Simple Queue Language", "Sequential Query List", "Standard Query Logic"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 SQL is a standard programming language specifically designed for managing data held in relational databases."
+    },
+    {
+        "question": "Which of the following is a fundamental component of the Internet that translates domain names into IP addresses?",
+        "options": ["URL", "FTP", "DNS", "MAC Address"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 DNS (Domain Name System) works like a phonebook for the internet, translating names like google.com into numerical IPs."
+    },
+    {
+        "question": "What is malware?",
+        "options": ["High-performance software", "Malicious software designed to harm a system", "Free antivirus tools", "An updated device driver"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Malware is an umbrella term for viruses, ransomware, spyware, and worms meant to disrupt or exploit devices."
+    },
+    {
+        "question": "In Python, which symbol is used to add a single-line comment?",
+        "options": ["//", "/*", "#", "<!--"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The hash character (#) tells Python to ignore the rest of the text on that line during execution."
+    },
+    {
+        "question": "Which logic gate outputs True (1) ONLY if both inputs are True (1)?",
+        "options": ["OR Gate", "AND Gate", "NOT Gate", "XOR Gate"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The AND gate performs logical multiplication; it yields a high signal only when all its inputs are high."
+    },
+    {
+        "question": "What does a compiler do?",
+        "options": ["It runs programs line by line", "It translates entire source code into machine code at once", "It cleans temporary cache files", "It connects computers to a printer"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 A compiler translates a high-level programming language into machine-executable file code all at once before execution."
+    },
+    {
+        "question": "What is encryption?",
+        "options": ["Deleting files permanently", "Converting data into a secure, unreadable code", "Compressing files to save space", "Speeding up internet connections"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Encryption secures sensitive information by scrambling plaintext data into ciphertext that can only be read with a key."
+   }
+
 ]
