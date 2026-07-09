@@ -619,11 +619,12 @@ def check_user_score(message):
 
     try: 
         score_text = (
-            f"🎯 **{message.from_user.first_name}**, your live report card:\n\n"
+            f"🇮🇳 **hello {message.from_user.first_name}**, your today's quiz score!\n\n"
             f"✅ Correct Ans: **{correct}** (+{correct * 2} point)\n"
             f"❌ Wrong Ans: **{wrong}** (-{wrong * 0.5} point)\n"
             f"🔥 **Final Score: {final_score} point**\n\n"
-            f"ℹ️ Note: This score will be reset after the leaderboard is published."
+            f"ℹ️ Note: This score will be reset after the leaderboard is published.\n"
+            f"If you don't want to wait for the results, you can use the `/myscore` command at any time."
         )
         bot.reply_to(message, score_text, parse_mode="Markdown")
     except Exception: 
