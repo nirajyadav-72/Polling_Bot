@@ -422,8 +422,8 @@ def manual_leaderboard_sender(message):
     now = datetime.now(IST)
     
     markup = InlineKeyboardMarkup()
-    add_to_group_url = f"https://t.me{BOT_USERNAME}?startgroup=true"
-    markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
+    add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
+    markup.add(InlineKeyboardButton(text="Add Me To Your Group", url=add_to_group_url))
     
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
@@ -479,8 +479,8 @@ def daily_leaderboard_scheduler():
     last_checked_date = ""
     
     markup = InlineKeyboardMarkup()
-    add_to_group_url = f"https://t.me{BOT_USERNAME}?startgroup=true"
-    markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
+    add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
+    markup.add(InlineKeyboardButton(text="Add Me To Your Group", url=add_to_group_url))
     
     while True:
         try:
