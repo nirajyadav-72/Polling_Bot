@@ -1,0 +1,8 @@
+# TELEGRAM QUIZ BOT CONFIGURATION (SAMPLE)
+
+# Render ya hosting par inhi names se Variable banayein
+API_ID=
+API_HASH=
+BOT_TOKEN=
+OWNER_ID=
+SUPPORT_GROUP_ID=
