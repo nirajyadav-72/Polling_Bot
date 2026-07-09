@@ -443,15 +443,16 @@ def manual_leaderboard_sender(message):
             calculated_leaderboard.sort(key=lambda x: x[3], reverse=True)
             top_20 = calculated_leaderboard[:20]
             
-            lb_text = "🏆 **Result [Top 20 user's Leaderboard]**\n\n"
-            lb_text += f"📅 Date: {now.strftime('%d-%m-%Y')} | ⏰ Time: {now.strftime('%H:%M')} (Manual)\n"
-            lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n\n"
-            
+                        lb_text = "🏆 **Result [Top 20 user's Leaderboard]**\n\n"
+                        lb_text += f"📅 Date: {now.strftime('%d-%m-%Y')} | ⏰ Time: {db_time}\n"
+                        lb_text += "🎓 Performance of the Last 24 Hours:\n"
+                        lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n\n"
+                        
                         if top_20:
                             medals = {1: "🥇", 2: "🥈", 3: "🥉"}
                             for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
                                 medal = medals.get(idx, f"{idx}.")
-                                lb_text += f"{medal} **{name}** — {final_score} pts (✅{correct} | ❌{wrong})\n"
+                                lb_text += f"{medal} **{name}** — {final_score} point (✅{correct} | ❌{wrong})\n"
                         else:
                             lb_text += "⚠️ No users participated in the quiz today."
                             
@@ -460,10 +461,10 @@ def manual_leaderboard_sender(message):
                             bot.send_message(chat_id=chat_id, text=lb_text, parse_mode="Markdown")
                             time.sleep(0.15)
                         except Exception: pass
-            
-        cursor.execute("DELETE FROM daily_scores")
-        cursor.execute("DELETE FROM poll_mapping")
-        conn.commit()
+                            
+                    cursor.execute("DELETE FROM daily_scores")
+                    cursor.execute("DELETE FROM poll_mapping")
+                    conn.commit()
     bot.edit_message_text(chat_id=message.chat.id, message_id=status_msg.message_id, text=f"✅ **मालिक, मैनुअल रिज़ल्ट सफलतापूर्वक भेज दिया गया है!**\n📊 कुल **{success_count}** एक्टिव ग्रुप्स में लीडरबोर्ड सेंड हुआ और स्कोर रीसेट कर दिए गए हैं।", parse_mode="Markdown")
 
 # 🏆 दैनिक लीडरबोर्ड सेंडर शेड्यूलर
