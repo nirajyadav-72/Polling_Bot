@@ -729,6 +729,146 @@ QUIZ_LIST = [
         "explanation": "💡 Paris is the capital and most populous city of France."
     },
     {
+        "question": "Who was the first woman President of India?",
+        "options": ["Droupadi Murmu", "Pratibha Devisingh Patil", "Indira Gandhi", "Sarojini Naidu"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Smt. Pratibha Patil served as the 12th and the first woman President of India from 2007 to 2012."
+    },
+    {
+        "question": "Which gland is known as the 'Master Gland' of the human body?",
+        "options": ["Thyroid Gland", "Pituitary Gland", "Adrenal Gland", "Pancreas"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The pituitary gland is located at the base of the brain and controls the secretion of other endocrine glands."
+    },
+    {
+        "question": "The famous horse 'Chetak' belonged to which historic ruler?",
+        "options": ["Chhatrapati Shivaji Maharaj", "Rani Lakshmibai", "Maharana Pratap", "Emperor Akbar"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Chetak was the loyal and brave horse of Maharana Pratap who showed immense courage in the Battle of Haldighati (1576)."
+    },
+    {
+        "question": "What is the unit used to measure the intensity of sound?",
+        "options": ["Hertz (Hz)", "Decibel (dB)", "Watt", "Joule"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Sound levels are measured in decibels. Normal conversation is typically around 60 decibels."
+    },
+    {
+        "question": "Which is the smallest country in the world by land area?",
+        "options": ["Monaco", "Maldives", "Vatican City", "San Marino"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Vatican City is the smallest independent country in the world, covering an area of just about 0.49 square kilometers."
+    },
+    {
+        "question": "The deficiency of Iodine causes which disease in the body?",
+        "options": ["Goitre", "Anemia", "Rickets", "Diabetes"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Deficiency of iodine leads to the swelling of the thyroid gland in the neck, which is known as Goitre."
+    },
+    {
+        "question": "Which state is known as the 'Sugar Bowl of India'?",
+        "options": ["Punjab", "Maharashtra", "Uttar Pradesh", "Bihar"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Uttar Pradesh is called the 'Sugar Bowl of India' due to its massive sugarcane production."
+    },
+    {
+        "question": "What is the chemical formula of Heavy Water?",
+        "options": ["H2O", "D2O", "CO2", "H2O2"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 D2O (Deuterium Oxide) is called heavy water. It is used as a moderator in nuclear reactors."
+    },
+    {
+        "question": "Bihu is the most famous folk dance of which Indian state?",
+        "options": ["West Bengal", "Odisha", "Assam", "Meghalaya"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Bihu is a traditional folk dance and harvest festival of Assam, celebrated three times a year."
+    },
+    {
+        "question": "What is the chemical name of Laughing Gas?",
+        "options": ["Nitric Oxide", "Nitrogen Dioxide", "Nitrous Oxide (N2O)", "Sulfur Dioxide"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Nitrous Oxide causes mild euphoria and laughter when inhaled, and is often used by dentists during treatments."
+    },
+    {
+        "question": "Who is considered the Father of the White Revolution in India?",
+        "options": ["M. S. Swaminathan", "Dr. Verghese Kurien", "Sam Pitroda", "Baba Amte"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Dr. Verghese Kurien is known as the 'Milkman of India'. He played a key role in the foundation of Amul."
+    },
+    {
+        "question": "What happens to the weight of iron when it rusts?",
+        "options": ["It decreases", "It increases", "It remains unchanged", "It first decreases then increases"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Rusting occurs when iron reacts with oxygen and moisture to form iron oxide, which increases its weight."
+    },
+    {
+        "question": "Where is the headquarters of the SAARC organization located?",
+        "options": ["New Delhi (India)", "Dhaka (Bangladesh)", "Kathmandu (Nepal)", "Colombo (Sri Lanka)"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The secretariat of the South Asian Association for Regional Cooperation (SAARC) is located in Kathmandu, Nepal."
+    },
+    {
+        "question": "How many total ribs are found in the human body?",
+        "options": ["12 Ribs", "24 Ribs", "36 Ribs", "20 Ribs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The human rib cage consists of 12 pairs of ribs (making a total of 24 ribs) that protect vital organs like lungs."
+    },
+    {
+        "question": "In which Indian state are the world-famous Ajanta Caves located?",
+        "options": ["Madhya Pradesh", "Gujarat", "Maharashtra", "Karnataka"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Located in the Aurangabad (Chhatrapati Sambhajinagar) district of Maharashtra, these caves are famous for Buddhist art masterpieces."
+    },
+    {
+        "question": "Which mirror is used as the rear-view mirror in vehicles?",
+        "options": ["Concave Mirror", "Convex Mirror", "Plane Mirror", "Concave Lens"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Convex mirrors have a very wide field of view, allowing drivers to easily see a larger area behind them."
+    },
+    {
+        "question": "In which country was paper invented first?",
+        "options": ["India", "Egypt", "China", "Greece"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paper-making was first invented in ancient China by 'Cai Lun' around the 2nd century BCE."
+    },
+    {
+        "question": "The filament of an electric bulb is made of which metal?",
+        "options": ["Copper", "Nichrome", "Tungsten", "Iron"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Tungsten has an extremely high melting point, which prevents it from melting even at very high glowing temperatures."
+    },
+    {
+        "question": "Where is the Gateway of India located?",
+        "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Located in Mumbai, the Gateway of India was built to commemorate the landing of British Emperor King George V."
+    },
+    {
+        "question": "Which instrument is used to measure blood pressure?",
+        "options": ["Barometer", "Thermometer", "Sphygmomanometer", "Stethoscope"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 A sphygmomanometer is used to measure BP. The normal blood pressure of a healthy adult is 120/80 mmHg."
+    },
+    {
         "question": "Which is the largest ocean on Earth?",
         "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
         "correct_id": 2,
@@ -930,5 +1070,425 @@ QUIZ_LIST = [
         "correct_id": 2,
         "lang": "english",
         "explanation": "💡 A standard football (soccer) match is played between two teams, each consisting of 11 players."
+    },
+    {
+        "question": "In which year was the Harappan Civilization discovered?",
+        "options": ["1915", "1921", "1935", "1942"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Dayaram Sahni discovered the site of Harappa in 1921 on the banks of the Ravi River."
+    },
+    {
+        "question": "When did the Jallianwala Bagh Massacre take place?",
+        "options": ["13 April 1919", "15 August 1919", "26 January 1920", "10 March 1918"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 British troops led by General Dyer opened fire on a crowd of unarmed Indians at Amritsar in Punjab."
+    },
+    {
+        "question": "Between whom was the First Battle of Panipat fought?",
+        "options": ["Akbar and Hemu", "Babur and Ibrahim Lodi", "Marathas and Ahmad Shah Abdali", "Humayun and Sher Shah Suri"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Fought in 1526, this battle resulted in Babur's victory and laid the foundation of the Mughal Empire in India."
+    },
+    {
+        "question": "Who is considered the 'Father of Local Self-Government' in India?",
+        "options": ["Lord Curzon", "Lord Dalhousie", "Lord Ripon", "Lord Mountbatten"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Lord Ripon introduced a resolution in 1882 to establish local boards, granting local autonomy."
+    },
+    {
+        "question": "Where did the Revolt of 1857 begin?",
+        "options": ["Jhansi", "Kanpur", "Meerut", "Delhi"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The uprising officially began on May 10, 1857, when Indian sepoys mutinied at the Meerut cantonment."
+    },
+    {
+        "question": "Who was the 24th and final Tirthankara of Jainism?",
+        "options": ["Rishabhadeva", "Parshvanatha", "Mahavira Swami", "Neminatha"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Lord Mahavira was the last Tirthankara, born near Vaishali in Kundalpur."
+    },
+    {
+        "question": "From which Veda is the famous 'Gayatri Mantra' taken?",
+        "options": ["Rigveda", "Samaveda", "Yajurveda", "Atharvaveda"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Gayatri Mantra is found in the third Mandala of the Rigveda, dedicated to the solar deity Savitr."
+    },
+    {
+        "question": "In which movement did Mahatma Gandhi give the slogan 'Do or Die'?",
+        "options": ["Non-Cooperation Movement", "Civil Disobedience Movement", "Champaran Satyagraha", "Quit India Movement"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Gandhiji gave this historic call in 1942 during the launch of the Quit India Movement."
+    },
+    {
+        "question": "Which Mauryan ruler embraced Buddhism after the Kalinga War?",
+        "options": ["Chandragupta Maurya", "Bindusara", "Emperor Ashoka", "Dasharatha Maurya"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Moved by the bloodshed of the Kalinga War (261 BCE), Ashoka renounced violence and adopted Dhamma."
+    },
+    {
+        "question": "Who founded the Vijayanagara Empire?",
+        "options": ["Krishnadeva Raya", "Harihara and Bukka", "Rajaraja Chola", "Sadashiva Raya"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The two brothers, Harihara I and Bukka Raya I, established the empire in 1336 on the banks of the Tungabhadra River."
+    },
+    {
+        "question": "Who was the founder of the Maurya Dynasty?",
+        "options": ["Ashoka", "Chandragupta Maurya", "Samudragupta", "Bindusara"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Chandragupta Maurya founded the empire in 322 BCE with the help of his mentor Chanakya (Kautilya)."
+    },
+    {
+        "question": "The famous traveler 'Ibn Battuta' visited India during the reign of which ruler?",
+        "options": ["Alauddin Khalji", "Muhammad bin Tughluq", "Akbar", "Firoz Shah Tughlaq"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Ibn Battuta was a Moroccan traveler who arrived in India in 1333 during the Tughluq dynasty."
+    },
+    {
+        "question": "Who wrote the famous book 'Discovery of India'?",
+        "options": ["Mahatma Gandhi", "Jawaharlal Nehru", "Subhas Chandra Bose", "Rabindranath Tagore"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Jawaharlal Nehru wrote this book while imprisoned at Ahmednagar Fort between 1942 and 1945."
+    },
+    {
+        "question": "In which year did Vasco da Gama discover the sea route to India?",
+        "options": ["1492", "1498", "1526", "1600"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Portuguese explorer Vasco da Gama reached the port of Calicut (Kozhikode) in Kerala in May 1498."
+    },
+    {
+        "question": "Who was the political guru of Mahatma Gandhi?",
+        "options": ["Bal Gangadhar Tilak", "Gopal Krishna Gokhale", "Dadabhai Naoroji", "Rabindranath Tagore"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Gopal Krishna Gokhale guided Gandhi on Indian political scenarios upon his return from South Africa."
+    },
+    {
+        "question": "Which Mughal Emperor is known for building the Taj Mahal?",
+        "options": ["Akbar", "Jahangir", "Shah Jahan", "Aurangzeb"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Shah Jahan commissioned the Taj Mahal in Agra as a mausoleum for his favorite wife, Mumtaz Mahal."
+    },
+    {
+        "question": "Who was the first Governor-General of independent India?",
+        "options": ["Lord Mountbatten", "C. Rajagopalachari", "Dr. Rajendra Prasad", "Jawaharlal Nehru"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Lord Mountbatten served as the first Governor-General of independent India until June 1948."
+    },
+    {
+        "question": "The Indus Valley site 'Lothal' was a famous ancient port located in which modern state?",
+        "options": ["Rajasthan", "Gujarat", "Punjab", "Haryana"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Lothal was a vital trade center and hosted the world's earliest known dockyard near the Sabarmati river."
+    },
+    {
+        "question": "Who founded the Brahmo Samaj in 1828?",
+        "options": ["Swami Vivekananda", "Dayanand Saraswati", "Raja Ram Mohan Roy", "Ishwar Chandra Vidyasagar"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Raja Ram Mohan Roy founded it to combat social evils like the Sati system and idol worship."
+    },
+    {
+        "question": "The French Revolution, which popularized ideas of liberty and equality, started in which year?",
+        "options": ["1776", "1789", "1815", "1857"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The revolution began in 1789 with the storming of the Bastille prison, transforming France's monarchy."
+    },
+    {
+        "question": "Which is the largest desert in India?",
+        "options": ["Gobi Desert", "Thar Desert", "Sahara Desert", "Atacama Desert"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Thar Desert, also known as the Great Indian Desert, is located mostly in Rajasthan and extends into Pakistan."
+    },
+    {
+        "question": "What is the rank of India in the world in terms of land area?",
+        "options": ["Fifth", "Sixth", "Seventh", "Eighth"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 India is the seventh-largest country by area in the world, while Russia holds the first position."
+    },
+    {
+        "question": "Which river is widely known as the 'Dakshin Ganga' (Ganga of the South)?",
+        "options": ["Krishna River", "Godavari River", "Kaveri River", "Narmada River"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Godavari is the longest peninsular river in India, which is why it is called the Dakshin Ganga or Vridha Ganga."
+    },
+    {
+        "question": "Through how many Indian states does the Tropic of Cancer pass?",
+        "options": ["6", "7", "8", "9"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Tropic of Cancer passes through 8 Indian states: Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, West Bengal, Tripura, and Mizoram."
+    },
+    {
+        "question": "In which country is Mount Everest, the world's highest mountain peak, located?",
+        "options": ["India", "Nepal", "China (Tibet)", "Bhutan"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mount Everest is located in Nepal, where it is locally known and referred to as 'Sagarmatha'."
+    },
+    {
+        "question": "Which is the highest waterfall in India?",
+        "options": ["Jog Falls", "Kunchikal Falls", "Dhuandhar Falls", "Dudhsagar Falls"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Formed by the Varahi river in Karnataka, Kunchikal Falls is the highest waterfall in India with a height of 455 meters."
+    },
+    {
+        "question": "By what other name is Black Soil known in India?",
+        "options": ["Regur Soil", "Bangar Soil", "Khadar Soil", "Red Soil"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Black soil is also called Regur soil and it is highly suitable for growing cotton crops."
+    },
+    {
+        "question": "Where is the only active volcano in India located?",
+        "options": ["Lakshadweep", "Barren Island", "Narcondam Island", "Amini Island"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Barren Island, located in the Andaman and Nicobar Islands territory, is the only active volcano in India."
+    },
+    {
+        "question": "Which rivers join together to form the famous Sundarbans Delta?",
+        "options": ["Ganga and Yamuna", "Ganga and Brahmaputra", "Indus and Jhelum", "Narmada and Tapi"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Ganga and Brahmaputra rivers combine to create the Sundarbans Delta, which is the largest river delta in the world."
+    },
+    {
+        "question": "Which is the largest planet in our Solar System?",
+        "options": ["Saturn", "Earth", "Jupiter", "Mars"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Jupiter is the biggest and most massive planet in our solar system, possessing dozens of natural moons."
+    },
+    {
+        "question": "Which layer of the atmosphere is closest to the Earth's surface?",
+        "options": ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Troposphere contains most of the atmosphere's mass and is where almost all weather phenomena occur."
+    },
+    {
+        "question": "Which Indian state has the longest coastline?",
+        "options": ["Maharashtra", "Tamil Nadu", "Gujarat", "Andhra Pradesh"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Gujarat has the longest coastline among all Indian states, stretching over 1,600 kilometers."
+    },
+    {
+        "question": "Which strait separates India from Sri Lanka?",
+        "options": ["Malacca Strait", "Palk Strait", "Gibraltar Strait", "Cook Strait"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Palk Strait is a narrow strip of water that lies between Tamil Nadu in India and the Mannar district of Sri Lanka."
+    },
+    {
+        "question": "What is the name of the highest mountain peak located entirely within India?",
+        "options": ["K2 (Godwin Austen)", "Kanchenjunga", "Nanda Devi", "Anamudi"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Kanchenjunga is the highest peak in India and the third highest in the world, located on the India-Nepal border in Sikkim."
+    },
+    {
+        "question": "Which line separates India and China?",
+        "options": ["Radcliffe Line", "Durand Line", "McMahon Line", "Palk Strait"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The McMahon Line is the effective boundary line between Northeast India and Tibet, proposed by Sir Henry McMahon in 1914."
+    },
+    {
+        "question": "Which is the largest fresh water lake in India?",
+        "options": ["Chilika Lake", "Wular Lake", "Dal Lake", "Pulicat Lake"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Wular Lake, located in Jammu and Kashmir, is the largest freshwater lake in India and is fed by the Jhelum River."
+    },
+    {
+        "question": "Which city is known as the 'Silicon Valley of India'?",
+        "options": ["Hyderabad", "Mumbai", "Pune", "Bengaluru"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Bengaluru is called the Silicon Valley of India because it is the country's leading information technology (IT) exporter."
+    },
+    {
+        "question": "Which imaginary line divides the Earth into the Northern and Southern Hemispheres?",
+        "options": ["Equator", "Prime Meridian", "Tropic of Cancer", "Tropic of Capricorn"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Equator is the 0-degree latitude line that circles the middle of the Earth, dividing it into two equal halves."
+    },
+    {
+        "question": "Which is the longest river in the world?",
+        "options": ["Amazon River", "Nile River", "Yangtze River", "Mississippi River"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Nile River in Africa is widely considered the longest river in the world, stretching roughly 6,650 kilometers."
+    },
+    {
+        "question": "Which planet is known as 'Earth's Twin' due to its similar size and mass?",
+        "options": ["Mars", "Venus", "Mercury", "Neptune"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Venus is often called Earth's twin or sister planet because of its very similar size, density, and basic composition."
+    },
+    {
+        "question": "How much total time did the Constituent Assembly take to frame the Constitution of India?",
+        "options": ["2 years, 11 months, 18 days", "3 years, 5 months, 12 days", "1 year, 9 months, 25 days", "2 years, 6 months, 10 days"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Constituent Assembly held its first meeting on December 9, 1946, and finally adopted the Constitution on November 26, 1949."
+    },
+    {
+        "question": "Which Article of the Indian Constitution was termed by Dr. B.R. Ambedkar as the 'Heart and Soul' of the Constitution?",
+        "options": ["Article 14", "Article 19", "Article 21", "Article 32"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Article 32 provides the Right to Constitutional Remedies, allowing citizens to approach the Supreme Court to protect their Fundamental Rights."
+    },
+    {
+        "question": "Who administers the oath of office to the President of India?",
+        "options": ["The Prime Minister", "The Chief Justice of India", "The Speaker of Lok Sabha", "The Vice President"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Under Article 60 of the Constitution, the Chief Justice of India (CJI) or the senior-most judge of the Supreme Court administers the oath."
+    },
+    {
+        "question": "From which country's constitution were the Fundamental Rights in the Indian Constitution borrowed?",
+        "options": ["United Kingdom", "United States of America (USA)", "Canada", "Ireland"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Fundamental Rights contained in Part III of the Indian Constitution are greatly inspired by the American 'Bill of Rights'."
+    },
+    {
+        "question": "What is the minimum age required to become a member of the Lok Sabha?",
+        "options": ["18 years", "21 years", "25 years", "30 years"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 A person must be at least 25 years old to contest Lok Sabha elections, while 30 years is required for the Rajya Sabha."
+    },
+    {
+        "question": "In which year did the Right to Information (RTI) Act come into force in India?",
+        "options": ["2002", "2005", "2008", "2010"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The landmark RTI Act was enacted to promote transparency and accountability in governance, coming into effect on October 12, 2005."
+    },
+    {
+        "question": "Which Constitutional Amendment lowered the voting age in India from 21 years to 18 years?",
+        "options": ["42nd Amendment", "44th Amendment", "61st Amendment", "73rd Amendment"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The 61st Constitutional Amendment Act of 1988 reduced the voting age for Lok Sabha and Assembly elections, taking effect in 1989."
+    },
+    {
+        "question": "The Directive Principles of State Policy (DPSP) have been borrowed from the constitution of which country?",
+        "options": ["Ireland", "Australia", "Russia", "South Africa"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 DPSPs are mentioned in Part IV (Articles 36 to 51) and were borrowed from the Irish Constitution to guide the state in welfare creation."
+    },
+    {
+        "question": "In which state was the Panchayati Raj System first introduced in India?",
+        "options": ["Uttar Pradesh", "Gujarat", "Madhya Pradesh", "Rajasthan"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 On October 2, 1959, Prime Minister Jawaharlal Nehru inaugurated the 3-tier Panchayati Raj system first in Nagaur district, Rajasthan."
+    },
+    {
+        "question": "Who calls for a Joint Sitting of both Houses of Parliament (Lok Sabha and Rajya Sabha)?",
+        "options": ["The Prime Minister", "The President", "The Speaker of Lok Sabha", "The Vice President"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Under Article 108, the President summons a joint sitting to resolve deadlocks over bills, but it is always presided over by the Lok Sabha Speaker."
+    },
+    {
+        "question": "Who is the ex-officio Chairman of the Rajya Sabha?",
+        "options": ["The President of India", "The Prime Minister of India", "The Vice President of India", "The Leader of Opposition"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Article 64 dictates that the Vice President of India automatically assumes the role of the Chairman of the Rajya Sabha."
+    },
+    {
+        "question": "Which article of the Indian Constitution deals with the abolition of Untouchability?",
+        "options": ["Article 15", "Article 16", "Article 17", "Article 18"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Article 17 strictly forbids the practice of untouchability in any form and makes its enforcement a punishable offense."
+    },
+    {
+        "question": "What is the maximum strength (number of seats) permitted in the Lok Sabha?",
+        "options": ["500", "530", "550", "250"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The maximum strength is fixed at 550 members following the removal of the 2 nominated Anglo-Indian seats by the 104th Amendment."
+    },
+    {
+        "question": "Who appoints the Chief Election Commissioner of India?",
+        "options": ["The Prime Minister", "The President", "The Chief Justice of India", "The Parliament"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The President of India appoints the Chief Election Commissioner, usually based on recommendations from a designated committee."
+    },
+    {
+        "question": "Which Fundamental Right was removed by the 44th Constitutional Amendment Act of 1978?",
+        "options": ["Right to Freedom of Speech", "Right to Property", "Right to Equality", "Right against Exploitation"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Right to Property was deleted as a Fundamental Right and made a legal right under Article 300A."
+    },
+    {
+        "question": "What is the tenure of a member of the Rajya Sabha?",
+        "options": ["4 years", "5 years", "6 years", "Permanent"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 While Rajya Sabha is a permanent body that cannot be dissolved, its individual members are elected for a term of 6 years."
+    },
+    {
+        "question": "By which Constitutional Amendment were the words 'Socialist', 'Secular', and 'Integrity' added to the Preamble?",
+        "options": ["24th Amendment", "42nd Amendment", "44th Amendment", "86th Amendment"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The 42nd Amendment Act of 1976 is also famously called the 'Mini-Constitution' due to its vast number of changes."
+    },
+    {
+        "question": "Who acts as the guardian of Fundamental Rights in India?",
+        "options": ["The Parliament", "The President", "The Judiciary (Supreme Court & High Courts)", "The Prime Minister"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Supreme Court and High Courts have writ jurisdictions to enforce and protect citizens' Fundamental Rights."
+    },
+    {
+        "question": "Which article of the Indian Constitution provides for the financial emergency?",
+        "options": ["Article 352", "Article 356", "Article 360", "Article 368"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Article 360 allows the President to declare a Financial Emergency. It has never been declared in India so far."
+    },
+    {
+        "question": "The concept of 'Single Citizenship' in India is inspired by the constitution of which country?",
+        "options": ["United Kingdom (Britain)", "United States of America", "Canada", "France"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Unlike the US federal structure of dual citizenship, India adopted single uniform citizenship from the British parliamentary model."
     }
 ]
