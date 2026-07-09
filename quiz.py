@@ -447,7 +447,7 @@ def manual_leaderboard_sender(message):
             lb_text += f"📅 Date: {now.strftime('%d-%m-%Y')} | ⏰ Time: {now.strftime('%H:%M')} (Manual)\n"
             lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n\n"
             
-             if top_20:
+              if top_20:
                 medals = {1: "🥇", 2: "🥈", 3: "🥉"}
                 for idx, (name, correct, wrong, final_score) in enumerate(top_20, 1):
                     medal = medals.get(idx, f"{idx}.")
