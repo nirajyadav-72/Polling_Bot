@@ -276,14 +276,14 @@ def group_settings(message):
     # 🚨 [NEW UPDATE] अगर कोई यूजर बॉट की पर्सनल चैट (DM) में /settings डालता है
     if chat_type == 'private':
         try:
-            bot.reply_to(message, "❌ इस कमांड को ग्रुप में यूज़ करें।")
+            bot.reply_to(message, "❌ This command can only be used in groups.")
         except Exception:
             pass
         return  # फंक्शन यहीं रुक जाएगा, सेटिंग्स पैनल ओपन नहीं होगा
 
     # ग्रुप के अंदर एडमिन चेक करने का लॉजिक (यह पहले से है)
     if not is_user_admin(message.chat.id, message.from_user.id):
-        try: bot.reply_to(message, "❌ केवल ग्रुप के एडमिन ही सेटिंग्स बदल सकते हैं।")
+        try: bot.reply_to(message, "❌ Only group admin's can change the settings.")
         except Exception: pass
         return
         
@@ -303,7 +303,7 @@ def handle_settings_callbacks(call):
     chat_id = int(data_parts[-1]) 
     
     if not is_user_admin(chat_id, user_id):
-        bot.answer_callback_query(call.id, "❌ आपके पास एडमिन परमिशन नहीं है!", show_alert=True)
+        bot.answer_callback_query(call.id, "❌ You do not have admin permissions!", show_alert=True)
         return
 
     if action == "panel" and sub_action == "close":
@@ -376,9 +376,9 @@ def set_global_leaderboard_time(message):
             cursor = conn.cursor()
             cursor.execute("UPDATE bot_settings SET value = ? WHERE key = 'leaderboard_time'", (time_str,))
             conn.commit()
-        bot.send_message(message.chat.id, f"✅ **मालिक, टाइम बदल दिया गया है!**\nअब से दैनिक रिज़ल्ट ठीक **{time_str}** बजे ऑटो-सेंड होगा।", parse_mode="Markdown")
+        bot.send_message(message.chat.id, f"✅ **Chief, the time has been updated!**\nFrom now on, daily results will be auto-sent at exactly **{time_str}**", parse_mode="Markdown")
     except ValueError:
-        bot.send_message(message.chat.id, "❌ **अमान्य समय फॉर्मेट!**\nकृपया 24-घंटे का फॉर्मेट उपयोग करें (जैसे: 13:00, 22:30)।")
+        bot.send_message(message.chat.id, "❌ **Invalid time format!**\nPlease use the 24-hour format.(ex: 13:00, 22:30)।")
 
 # 👑 📢 ओनर कमांड - अपडेटेड ब्रॉडकास्ट फ़ीचर (Strict Group & Owner Security Added)
 @bot.message_handler(commands=['broadcast'])
@@ -402,7 +402,7 @@ def handle_owner_broadcast(message):
         return
 
     target_msg = message.reply_to_message
-    status_msg = bot.send_message(message.chat.id, "📢 **ब्रॉडकास्ट प्रक्रिया शुरू हो रही है...**", parse_mode="Markdown")
+    status_msg = bot.send_message(message.chat.id, "📢 **Initializing broadcast process, please wait....**", parse_mode="Markdown")
 
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
@@ -431,12 +431,12 @@ def handle_owner_broadcast(message):
     bot.edit_message_text(
         chat_id=message.chat.id, 
         message_id=status_msg.message_id, 
-        text=f"📊 **ग्लोबल ब्रॉडकास्ट रिपोर्ट:**\n\n"
-             f"👥 **ग्रुप्स:**\n"
-             f"✅ सफल: **{g_success}** | ❌ असफल: **{g_fail}**\n\n"
-             f"👤 **प्राइवेट यूज़र्स:**\n"
-             f"✅ सफल: **{u_success}** | ❌ असफल: **{u_fail}**\n\n"
-             f"🎯 ब्रॉडकास्ट प्रक्रिया पूरी तरह संपन्न!", 
+        text=f"📊 **Global Broadcast Report:**\n\n"
+             f"👥 **group's:**\n"
+             f"✅ done: **{g_success}** | ❌ field: **{g_fail}**\n\n"
+             f"👤 **Private User's:**\n"
+             f"✅ done: **{u_success}** | ❌ field: **{u_fail}**\n\n"
+             f"🎯 Broadcast completed successfully!", 
         parse_mode="Markdown"
     )
     
