@@ -506,7 +506,7 @@ def manual_leaderboard_sender(message):
         cursor.execute("DELETE FROM daily_scores")
         cursor.execute("DELETE FROM poll_mapping")
         conn.commit()
-    bot.edit_message_text(chat_id=message.chat.id, message_id=status_msg.message_id, text=f"✅ **मालिक, मैनुअल रिज़ल्ट सफलतापूर्वक भेज दिया गया है!**\n📊 कुल **{success_count}** एक्टिव ग्रुप्स में लीडरबोर्ड सेंड हुआ और स्कोर रीसेट कर दिए गए हैं।", parse_mode="Markdown")
+    bot.edit_message_text(chat_id=message.chat.id, message_id=status_msg.message_id, text=f"✅ **Chief, the manual result has been successfully sent.!**\n📊 total **{success_count}** Leaderboard sent to active groups and scores have been reset!", parse_mode="Markdown")
 
 
 # 🏆 दैनिक लीडरबोर्ड सेंडर शेड्यूलर (सेपरेशन लाइन के साथ)
