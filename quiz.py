@@ -433,10 +433,10 @@ def handle_owner_broadcast(message):
         message_id=status_msg.message_id, 
         text=f"📊 **Global Broadcast Report:**\n\n"
              f"👥 **group's:**\n"
-             f"✅ done: **{g_success}** | ❌ field: **{g_fail}**\n\n"
+             f"✅ **done: {g_success}** | ❌ **Undone: {g_fail}**\n\n"
              f"👤 **Private User's:**\n"
-             f"✅ done: **{u_success}** | ❌ field: **{u_fail}**\n\n"
-             f"🎯 Broadcast completed successfully!", 
+             f"✅ **done: {u_success}** | ❌ **Undone: {u_fail}**\n\n"
+             f"🎯 **Broadcast completed successfully!**", 
         parse_mode="Markdown"
     )
     
@@ -452,7 +452,7 @@ def manual_leaderboard_sender(message):
         except Exception: pass
         return
         
-    status_msg = bot.send_message(message.chat.id, "⏳ **सभी ग्रुप्स में तुरंत नया रिज़ल्ट भेजा जा रहा है...**")
+    status_msg = bot.send_message(message.chat.id, "⏳ **Sending new result to all groups immediately...**")
     IST = pytz.timezone('Asia/Kolkata')
     now = datetime.now(IST)
     
