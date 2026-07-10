@@ -147,7 +147,7 @@ def global_poll_manager():
                                 try:
                                     bot.send_message(
                                         chat_id=chat_id, 
-                                        text="⚠️ **बॉट अलर्ट!**\n\nइस ग्रुप में पोल सेंड करने के लिए बॉट को फिर से **Admin (Administrator)** बनाकर परमिशन देना होगा।",
+                                        text="⚠️ **alert!**\n\nTo send polls in this group, you must re-promote the bot to Admin **(Administrator)** and grant permissions।",
                                         parse_mode="Markdown"
                                     )
                                     # 🎯 इस ग्रुप के लिए करंट वार्निंग टाइम मेमोरी में सेव करें
