@@ -649,7 +649,7 @@ def check_user_score(message):
     # 🚨 [UPDATED] अगर यूजर प्राइवेट चैट (DM) में कमांड डालता है
     if chat_type == 'private':
         try:
-            bot.reply_to(message, "❌ इस कमांड को ग्रुप में यूज़ करें।")
+            bot.reply_to(message, "❌ This command can only be used in groups.")
         except Exception:
             pass
         return  # फंक्शन यहीं रुक जाएगा, स्कोर नहीं दिखेगा
