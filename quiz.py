@@ -517,8 +517,16 @@ def daily_leaderboard_scheduler():
     last_checked_date = ""
     
     markup = InlineKeyboardMarkup()
-    add_to_group_url = f"https://t.me{BOT_USERNAME}?startgroup=true"
-    markup.add(InlineKeyboardButton(text="Add Me To Your Group", url=add_to_group_url))
+    
+    # [FIXED] BOT_USERNAME के पहले स्लैश (/) मिसिंग था जिससे URL गलत बन रहा था, उसे ठीक किया
+    add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
+    
+    # [UPDATED] style="success" जोड़कर बटन का बैकग्राउंड हरा (Green) किया गया है
+    markup.add(InlineKeyboardButton(
+        text="Add Me To Your Group", 
+        url=add_to_group_url,
+        style="success"
+    ))
     
     while True:
         try:
