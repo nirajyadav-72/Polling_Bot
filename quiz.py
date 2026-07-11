@@ -456,9 +456,17 @@ def manual_leaderboard_sender(message):
     now = datetime.now(IST)
     
     markup = InlineKeyboardMarkup()
-    add_to_group_url = f"https://t.me{BOT_USERNAME}?startgroup=true"
-    markup.add(InlineKeyboardButton(text="➕ Add Me To Your Group ➕", url=add_to_group_url))
-    
+
+# [CORRECTED] 't.me' के बाद '/' लगाया ताकि सही URL बने
+add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
+
+# [UPDATED] style="success" जोड़कर बटन का बैकग्राउंड हरा (Green) किया गया है
+markup.add(InlineKeyboardButton(
+    text="➕ Add Me To Your Group ➕", 
+    url=add_to_group_url,
+    style="success"
+))
+
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT chat_id FROM groups")
