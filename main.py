@@ -142,22 +142,22 @@ def is_user_admin(chat_id, user_id):
         return False
 
 # 🚨 [NEW GLOBAL DICTIONARY] हर ग्रुप के लिए वार्निंग टाइमस्टैम्प याद रखने के लिए
-NON_ADMIN_WARNING_TRACKER = {}
-
 # 🔄 हर ग्रुप के लिए कस्टमाइज्ड पोल शेड्यूलर लूप
 def global_poll_manager():
     while True:
         try:
             with sqlite3.connect(DB_FILE, timeout=20) as conn:
                 cursor = conn.cursor()
-                cursor.execute("SELECT chat_id, current_index, last_poll_id, last_sent_time, language, interval, auto_delete FROM groups")
+                # 🔍 SELECT क्वेरी में 'last_warning_time' कॉलम को भी जोड़ दिया है
+                cursor.execute("SELECT chat_id, current_index, last_poll_id, last_sent_time, language, interval, auto_delete, last_warning_time FROM groups")
                 all_groups = cursor.fetchall()
                 current_now = time.time()
 
-                for chat_id, current_index, last_poll_id, last_sent_time, language, interval, auto_delete in all_groups:
+                # 💡 लूप के वेरिएबल्स में 'last_warning_time' को भी पास किया है
+                for chat_id, current_index, last_poll_id, last_sent_time, language, interval, auto_delete, last_warning_time in all_groups:
                     if current_now - last_sent_time >= interval:
                         
-                        # चेक करें कि क्या बॉट अभी भी ग्रुप में एडメン है?
+                        # चेक करें कि क्या बॉट अभी भी ग्रुप में एडमिन है?
                         is_bot_admin = False
                         try:
                             bot_member = bot.get_chat_member(chat_id, bot.get_me().id)
@@ -168,22 +168,19 @@ def global_poll_manager():
 
                         # ⚠️ अगर बॉट एडमिन नहीं है
                         if not is_bot_admin:
-                            # ⏱️ 12 घंटे = 12 * 60 * 60 = 43200 सेकंड्स
-                            # 💡 अगर आपको 6 घंटे करना हो तो 21600 कर देना, 24 घंटे के लिए 86400 कर देना
+                            # ⏱️ 12 घंटे = 43200 सेकंड्स (फिक्स टाइमर)
                             warning_interval = 43200 
                             
-                            last_warning_time = NON_ADMIN_WARNING_TRACKER.get(chat_id, 0)
-                            
-                            # अगर पिछली वार्निंग को भेजे 12 घंटे (43200 सेकंड) हो चुके हैं या यह पहली वार्निंग है
-                            if current_now - last_warning_time >= warning_interval:
+                            # 🎯 अब मेमोरी से नहीं, सीधे डेटाबेस के रिकॉर्ड (last_warning_time) से चेक होगा
+                            if last_warning_time is None or current_now - last_warning_time >= warning_interval:
                                 try:
                                     bot.send_message(
                                         chat_id=chat_id, 
                                         text="⚠️ **alert!**\n\nTo send polls in this group, you must re-promote the bot to Admin **(Administrator)** and grant permissions।",
                                         parse_mode="Markdown"
                                     )
-                                    # 🎯 इस ग्रुप के लिए करंट वार्निंग टाइम मेमोरी में सेव करें
-                                    NON_ADMIN_WARNING_TRACKER[chat_id] = current_now
+                                    # 💾 डेटाबेस में वार्निंग भेजने का टाइम तुरंत सेव करें (रीस्टार्ट प्रूफ)
+                                    cursor.execute("UPDATE groups SET last_warning_time = ? WHERE chat_id = ?", (current_now, chat_id))
                                 except Exception:
                                     pass
                             
