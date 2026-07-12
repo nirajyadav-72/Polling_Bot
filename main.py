@@ -441,6 +441,7 @@ def set_global_leaderboard_time(message):
         bot.send_message(message.chat.id, "❌ **Invalid time format!**\nPlease use the 24-hour format.(ex: 13:00, 22:30)।")
 
 # 👑 📢 ओनर कमांड - अपडेटेड ब्रॉडकास्ट फ़ीचर (Strict Group & Owner Security Added)
+# STEP 1: Command Handler - Jo message par reply karne par Yes/No buttons poochega
 @bot.message_handler(commands=['broadcast'])
 def handle_owner_broadcast(message):
     is_owner = (OWNER_ID and message.from_user.id == OWNER_ID)
@@ -461,8 +462,49 @@ def handle_owner_broadcast(message):
         )
         return
 
-    target_msg = message.reply_to_message
-    status_msg = bot.send_message(message.chat.id, "📢 **Initializing broadcast process, please wait....**", parse_mode="Markdown")
+    # 🎨 Asli Green (Success) aur Red (Danger) Button Styles Ke Sath
+    markup = InlineKeyboardMarkup()
+    markup.row(
+        InlineKeyboardButton(
+            text=" YES (Pin Karein)", 
+            callback_data=f"bcast_yes_{message.reply_to_message.message_id}",
+            style="success"  # 👈 Isse button poora GREEN rang ka dikhega
+        ),
+        InlineKeyboardButton(
+            text="NO (Pin Nahi Karein)", 
+            callback_data=f"bcast_no_{message.reply_to_message.message_id}",
+            style="danger"   # 👈 Isse button poora RED rang ka dikhega
+        )
+    )
+
+    bot.send_message(
+        chat_id=message.chat.id,
+        text="🏵️ **क्या आप इस ब्रॉडकास्ट मैसेज को सभी ग्रुप्स में PIN करना चाहते हैं?**",
+        reply_markup=markup,
+        parse_mode="Markdown"
+    )
+
+
+# STEP 2: Callback Query Handler - Jo button dabaane par actual broadcast shuru karega
+@bot.callback_query_handler(func=lambda call: call.data.startswith(('bcast_yes_', 'bcast_no_')))
+def execute_broadcast_callback(call):
+    # Security: Sirf Bot Owner hi button par click kar sakta hai
+    if OWNER_ID and call.from_user.id != OWNER_ID:
+        bot.answer_callback_query(call.id, "❌ You are not authorized to control this broadcast!", show_alert=True)
+        return
+
+    # Data split karke decision nikalna
+    data_parts = call.data.split('_')
+    should_pin = (data_parts[1] == 'yes')
+    target_msg_id = int(data_parts[2])
+
+    # Status message me badle aur buttons ko screen se hataye
+    bot.edit_message_text(
+        chat_id=call.message.chat.id,
+        message_id=call.message.message_id,
+        text="📢 **Initializing broadcast process, please wait....**",
+        parse_mode="Markdown"
+    )
 
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
@@ -474,38 +516,51 @@ def handle_owner_broadcast(message):
     g_success, g_fail = 0, 0
     u_success, u_fail = 0, 0
 
-    # 📌 ग्रुप्स में ब्रॉडकास्ट (बटन्स के साथ)
+    # 👥 1. ग्रुप्स में ब्रॉडकास्ट (Yes hone par pin hoga)
     for (chat_id,) in all_chats:
         try:
-            # [FIXED] reply_markup=target_msg.reply_markup जोड़ दिया ताकि बटन्स भी कॉपी होकर जाएँ
-            bot.copy_message(
+            # Message copy karein aur return object nikalen
+            sent_msg = bot.copy_message(
                 chat_id=chat_id, 
-                from_chat_id=message.chat.id, 
-                message_id=target_msg.message_id,
-                reply_markup=target_msg.reply_markup
+                from_chat_id=call.message.chat.id, 
+                message_id=target_msg_id
+                # Note: Aapka original reply_markup target_msg_id se automatic chala jata hai
             )
+            
+            # 🔔 Agar user ne YES dabaaya tha, toh message ko group me pin karein
+            if should_pin and sent_msg and hasattr(sent_msg, 'message_id'):
+                try:
+                    bot.pin_chat_message(
+                        chat_id=chat_id, 
+                        message_id=sent_msg.message_id, 
+                        disable_notification=False
+                    )
+                except Exception:
+                    pass  # Agar kisi group me Admin permission na ho, toh crash na ho
+
             g_success += 1
             time.sleep(0.15)  
-        except Exception: g_fail += 1
+        except Exception: 
+            g_fail += 1
 
-    # 📌 प्राइवेट यूज़र्स में ब्रॉडकास्ट (बटन्स के साथ)
+    # 👤 2. प्राइवेट यूज़र्स में ब्रॉडकास्ट (Isme pin ka koi roll nahi hota)
     for (user_id,) in all_users:
         try:
-            # [FIXED] यहाँ भी बटन्स को यूज़र्स के पर्सनल इनबॉक्स में भेजने के लिए reply_markup जोड़ा
             bot.copy_message(
                 chat_id=user_id, 
-                from_chat_id=message.chat.id, 
-                message_id=target_msg.message_id,
-                reply_markup=target_msg.reply_markup
+                from_chat_id=call.message.chat.id, 
+                message_id=target_msg_id
             )
             u_success += 1
             time.sleep(0.15)  
         except Exception: u_fail += 1
 
+    # 📊 Final Report screen par dikhaye
     bot.edit_message_text(
-        chat_id=message.chat.id, 
-        message_id=status_msg.message_id, 
+        chat_id=call.message.chat.id, 
+        message_id=call.message.message_id, 
         text=f"📊 **Global Broadcast Report:**\n\n"
+             f"📌 **Group Pin Status:** {'✅ Pinned' if should_pin else '❌ Not Pinned'}\n\n"
              f"👥 **group's:**\n"
              f"✅ **done: {g_success}** | ❌ **Undone: {g_fail}**\n\n"
              f"👤 **Private User's:**\n"
