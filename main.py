@@ -119,7 +119,14 @@ def init_db():
         try:
             cursor.execute("ALTER TABLE poll_mapping ADD COLUMN creation_time REAL DEFAULT 0")
         except sqlite3.OperationalError:
+            pass
+
+        # 🔍 [WARNING TRACKER DB] बॉट एडमिन न होने पर वार्निंग टाइम याद रखने के लिए नया कॉलम
+        try:
+            cursor.execute("ALTER TABLE groups ADD COLUMN last_warning_time REAL DEFAULT 0")
+        except sqlite3.OperationalError:
             pass 
+            
             
         conn.commit()
 
