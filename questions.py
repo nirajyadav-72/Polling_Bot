@@ -1306,9 +1306,219 @@ QUIZ_LIST = [
         "lang": "hindi",
         "explanation": "💡 भारत की पहल पर संयुक्त राष्ट्र ने इसकी शुरुआत की थी। 21 जून उत्तरी गोलार्ध का सबसे लंबा दिन होता है, जो दीर्घायु का प्रतीक है।"
     },
+    {
+        "question": "एक दुकानदार ने एक कुर्सी ₹500 में खरीदी और उसे ₹600 में बेच दी। दुकानदार को कितने प्रतिशत का लाभ हुआ?",
+        "options": ["10%", "20%", "25%", "15%"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 लाभ = 600 - 500 = ₹100। लाभ प्रतिशत = (लाभ / क्रय मूल्य) * 100 = (100 / 500) * 100 = 20%।"
+    },
+    {
+        "question": "राम ने एक पुराना मोबाइल ₹4000 में खरीदा और ₹3200 में बेच दिया। राम को कितने प्रतिशत की हानि हुई?",
+        "options": ["15%", "18%", "20%", "25%"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 हानि = 4000 - 3200 = ₹800। हानि प्रतिशत = (हानि / क्रय मूल्य) * 100 = (800 / 4000) * 100 = 20%।"
+    },
+    {
+        "question": "एक वस्तु का क्रय मूल्य (Cost Price) ₹800 है। यदि इसे 15% लाभ पर बेचा जाए, तो इसका विक्रय मूल्य (Selling Price) क्या होगा?",
+        "options": ["₹920", "₹900", "₹850", "₹950"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 लाभ = 800 का 15% = ₹120। विक्रय मूल्य = क्रय मूल्य + लाभ = 800 + 120 = ₹920।"
+    },
+    {
+        "question": "एक साईकिल को ₹2700 में बेचने पर एक व्यक्ति को 10% की हानि होती है। साईकिल का क्रय मूल्य (Cost Price) क्या था?",
+        "options": ["₹2500", "₹2800", "₹3000", "₹3200"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 10% हानि का मतलब विक्रय मूल्य क्रय मूल्य का 90% है। अतः क्रय मूल्य = (2700 / 90) * 100 = ₹3000।"
+    },
+    {
+        "question": "एक मेज को ₹1200 में बेचने पर 20% का लाभ होता है। मेज का क्रय मूल्य ज्ञात कीजिए।",
+        "options": ["₹900", "₹1000", "₹1100", "₹950"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 20% लाभ का मतलब विक्रय मूल्य क्रय मूल्य का 120% है। अतः क्रय मूल्य = (1200 / 120) * 100 = ₹1000।"
+    },
+    {
+        "question": "यदि 15 वस्तुओं का क्रय मूल्य, 12 वस्तुओं के विक्रय मूल्य के बराबर हो, तो लाभ प्रतिशत क्या होगा?",
+        "options": ["20%", "25%", "30%", "15%"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 यहाँ लाभ वस्तुओं में देखें तो 15 - 12 = 3 वस्तु का है। लाभ% = (3 / 12) * 100 = 25%।"
+    },
+    {
+        "question": "एक व्यक्ति ₹10 में 11 चॉकलेट खरीदता है और ₹11 में 10 चॉकलेट बेच देता है। उसका लाभ प्रतिशत क्या है?",
+        "options": ["11%", "20%", "21%", "25%"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 शार्ट ट्रिक: (11*11 - 10*10) / (10*10) * 100 = (121 - 100) / 100 * 100 = 21% का लाभ।"
+    },
+    {
+        "question": "एक बेईमान दुकानदार सामान को क्रय मूल्य पर बेचने का दावा करता है, लेकिन 1 किग्रा के स्थान पर 900 ग्राम का वजन इस्तेमाल करता है। उसका लाभ प्रतिशत क्या है?",
+        "options": ["10%", "11.11%", "9%", "12.5%"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 लाभ = 1000g - 900g = 100g। लाभ% = (त्रुटि / सही वजन - त्रुटि) * 100 = (100 / 900) * 100 = 11.11%।"
+    },
+    {
+        "question": "एक घड़ी को ₹1440 में बेचने पर एक व्यक्ति को 10% की हानि होती है। वह इसे कितने में बेचे कि उसे 15% का लाभ हो?",
+        "options": ["₹1600", "₹1800", "₹1840", "₹1750"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 क्रय मूल्य = (1440 / 90) * 100 = ₹1600। अब 15% लाभ के लिए विक्रय मूल्य = 1600 * 1.15 = ₹1840।"
+    },
+    {
+        "question": "यदि किसी वस्तु के विक्रय मूल्य को दोगुना कर दिया जाए, तो लाभ तिगुना हो जाता है। वास्तविक लाभ प्रतिशत क्या है?",
+        "options": ["50%", "100%", "150%", "200%"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 मान लें क्रय मूल्य 100 और विक्रय मूल्य 200 है (लाभ = 100)। विक्रय मूल्य दोगुना (400) करने पर नया लाभ 300 (तिगुना) हो जाता है। अतः वास्तविक लाभ 100% था।"
+    },
+    {
+        "question": "250 का 20% कितना होगा?",
+        "options": ["40", "50", "60", "45"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 गणना: (20 / 100) * 250 = 0.2 * 250 = 50।"
+    },
+    {
+        "question": "यदि किसी संख्या का 35% भाग 105 है, तो वह संख्या क्या है?",
+        "options": ["250", "280", "300", "320"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 माना संख्या x है। (35 / 100) * x = 105 => x = (105 * 100) / 35 = 3 * 100 = 300।"
+    },
+    {
+        "question": "एक छात्र ने एक परीक्षा में 600 में से 420 अंक प्राप्त किए। उसके अंकों का प्रतिशत क्या है?",
+        "options": ["65%", "70%", "72%", "75%"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 प्रतिशत = (प्राप्त अंक / कुल अंक) * 100 = (420 / 600) * 100 = 70%।"
+    },
+    {
+        "question": "एक लैपटॉप की कीमत ₹40,000 से घटकर ₹36,000 हो जाती है। कीमत में हुई प्रतिशत कमी ज्ञात कीजिए।",
+        "options": ["8%", "10%", "12%", "15%"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कमी की राशि = 40,000 - 36,000 = ₹4,000। प्रतिशत कमी = (4,000 / 40,000) * 100 = 10%।"
+    },
+    {
+        "question": "यदि अमित का वेतन विजय के वेतन से 25% अधिक है, तो विजय का वेतन अमित के वेतन से कितने प्रतिशत कम है?",
+        "options": ["15%", "20%", "25%", "33.33%"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 शॉर्टकट सूत्र: [R / (100 + R)] * 100 = [25 / (100 + 25)] * 100 = (25 / 125) * 100 = 20%।"
+    },
+    {
+        "question": "एक व्यक्ति अपनी मासिक आय का 70% खर्च करता है और ₹9,000 की बचत करता है। उसकी कुल मासिक आय क्या है?",
+        "options": ["₹25,000", "₹27,000", "₹30,000", "₹32,000"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 यदि वह 70% खर्च करता है, तो बचत का प्रतिशत = 100% - 70% = 30%। दिया है 30% = ₹9,000, इसलिए 100% (आय) = (9,000 / 30) * 100 = ₹30,000।"
+    },
+    {
+        "question": "एक शहर की जनसंख्या में प्रतिवर्ष 10% की वृद्धि होती है। यदि वर्तमान जनसंख्या 10,000 है, तो 2 वर्ष बाद यह कितनी होगी?",
+        "options": ["11,000", "12,000", "12,100", "12,500"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 2 वर्ष बाद जनसंख्या = 10,000 * (1 + 10/100)² = 10,000 * 1.1 * 1.1 = 12,100।"
+    },
+    {
+        "question": "1200 के 50% का 40% कितना होगा?",
+        "options": ["240", "120", "480", "180"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 गणना: (40 / 100) * (50 / 100) * 1200 = 0.4 * 0.5 * 1200 = 0.2 * 1200 = 240।"
+    },
+    {
+        "question": "एक एजेंट को ₹2,00,000 मूल्य की संपत्ति बेचने पर 5% का कमीशन मिलता है। वह कितना कमीशन कमाता है?",
+        "options": ["₹8,000", "₹10,000", "₹12,000", "₹5,000"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कमीशन = 2,00,000 का 5% = (5 / 100) * 2,00,000 = 10,000।"
+    },
+    {
+        "question": "यदि चीनी के मूल्य में 20% की वृद्धि हो जाती है, तो एक परिवार को अपनी खपत में कितने प्रतिशत की कमी करनी चाहिए ताकि खर्च समान रहे?",
+        "options": ["16.67%", "20%", "25%", "14.28%"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 शॉर्टकट सूत्र: [R / (100 + R)] * 100 = [20 / (100 + 20)] * 100 = (20 / 120) * 100 = 16.67%।"
+    },
     #====================================================
     # ------------------- ENGLISH QUIZZES ---------------
     # ===================================================
+    {
+        "question": "What is 20% of 250?",
+        "options": ["40", "50", "60", "45"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Calculation: (20 / 100) * 250 = 0.2 * 250 = 50."
+    },
+    {
+        "question": "If 35% of a number is 105, what is the number?",
+        "options": ["250", "280", "300", "320"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Let the number be x. (35 / 100) * x = 105 => x = (105 * 100) / 35 = 3 * 100 = 300."
+    },
+    {
+        "question": "A student scored 420 marks out of 600 in an exam. What is his score percentage?",
+        "options": ["65%", "70%", "72%", "75%"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Percentage = (Marks Obtained / Total Marks) * 100 = (420 / 600) * 100 = 70%."
+    },
+    {
+        "question": "The price of a laptop decreases from ₹40,000 to ₹36,000. Find the percentage decrease.",
+        "options": ["8%", "10%", "12%", "15%"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Decrease amount = 40,000 - 36,000 = ₹4,000. Percentage decrease = (4,000 / 40,000) * 100 = 10%."
+    },
+    {
+        "question": "If Amit's salary is 25% more than Vijay's salary, then by how much percent is Vijay's salary less than Amit's?",
+        "options": ["15%", "20%", "25%", "33.33%"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Shortcut formula: [R / (100 + R)] * 100 = [25 / (100 + 25)] * 100 = (25 / 125) * 100 = 20%."
+    },
+    {
+        "question": "A man spends 70% of his monthly income and saves ₹9,000. What is his total monthly income?",
+        "options": ["₹25,000", "₹27,000", "₹30,000", "₹32,000"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 If he spends 70%, his savings percentage = 100% - 70% = 30%. Given 30% = ₹9,000, so 100% (Income) = (9,000 / 30) * 100 = ₹30,000."
+    },
+    {
+        "question": "The population of a town increases by 10% annually. If the current population is 10,000, what will it be after 2 years?",
+        "options": ["11,000", "12,000", "12,100", "12,500"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Population after 2 years = 10,000 * (1 + 10/100)² = 10,000 * 1.1 * 1.1 = 12,100."
+    },
+    {
+        "question": "What is 40% of 50% of 1200?",
+        "options": ["240", "120", "480", "180"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Calculation: (40 / 100) * (50 / 100) * 1200 = 0.4 * 0.5 * 1200 = 0.2 * 1200 = 240."
+    },
+    {
+        "question": "An agent gets a 5% commission on selling a property worth ₹2,00,000. How much commission does he make?",
+        "options": ["₹8,000", "₹10,000", "₹12,000", "₹5,000"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Commission = 5% of 2,00,000 = (5 / 100) * 2,00,000 = 10,000."
+    },
+    {
+        "question": "If the price of sugar is increased by 20%, by how much percent must a household reduce its consumption so that the expenditure remains the same?",
+        "options": ["16.67%", "20%", "25%", "14.28%"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Shortcut formula: [R / (100 + R)] * 100 = [20 / (100 + 20)] * 100 = (20 / 120) * 100 = 16.67%."
+    },
     {
         "question": "What is the capital of France?",
         "options": ["Berlin", "Madrid", "Paris", "Rome"],
@@ -2358,5 +2568,76 @@ QUIZ_LIST = [
         "correct_id": 1,
         "lang": "english",
         "explanation": "💡 The series consists of squares of consecutive odd numbers: 1², 3², 5², 7². The next term is 9² = 81."
-    }
+    },
+    {
+        "question": "A shopkeeper bought a chair for ₹500 and sold it for ₹600. What is his profit percentage?",
+        "options": ["10%", "20%", "25%", "15%"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Profit = 600 - 500 = ₹100. Profit % = (Profit / Cost Price) * 100 = (100 / 500) * 100 = 20%."
+    },
+    {
+        "question": "Ram bought an old mobile for ₹4000 and sold it for ₹3200. Find his loss percentage.",
+        "options": ["15%", "18%", "20%", "25%"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Loss = 4000 - 3200 = ₹800. Loss % = (Loss / Cost Price) * 100 = (800 / 4000) * 100 = 20%."
+    },
+    {
+        "question": "The cost price of an article is ₹800. If it is sold at a profit of 15%, what will be its selling price?",
+        "options": ["₹920", "₹900", "₹850", "₹950"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Profit = 15% of 800 = ₹120. Selling Price = Cost Price + Profit = 800 + 120 = ₹920."
+    },
+    {
+        "question": "By selling a bicycle for ₹2700, a person incurs a loss of 10%. What was the cost price of the bicycle?",
+        "options": ["₹2500", "₹2800", "₹3000", "₹3200"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 A 10% loss means the selling price is 90% of the cost price. Cost Price = (2700 / 90) * 100 = ₹3000."
+    },
+    {
+        "question": "A table is sold for ₹1200 at a profit of 20%. Find the cost price of the table.",
+        "options": ["₹900", "₹1000", "₹1100", "₹950"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 A 20% profit means the selling price is 120% of the cost price. Cost Price = (1200 / 120) * 100 = ₹1000."
+    },
+    {
+        "question": "If the cost price of 15 articles is equal to the selling price of 12 articles, what is the profit percentage?",
+        "options": ["20%", "25%", "30%", "15%"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The profit in terms of articles is 15 - 12 = 3 articles. Profit % = (3 / 12) * 100 = 25%."
+    },
+    {
+        "question": "A person buys 11 chocolates for ₹10 and sells 10 chocolates for ₹11. What is his profit percentage?",
+        "options": ["11%", "20%", "21%", "25%"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Cross-multiplication trick: (11*11 - 10*10) / (10*10) * 100 = (121 - 100) / 100 * 100 = 21% profit."
+    },
+    {
+        "question": "A dishonest dealer claims to sell his goods at cost price but uses a weight of 900 grams instead of 1 kg. What is his profit percentage?",
+        "options": ["10%", "11.11%", "9%", "12.5%"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Error = 1000g - 900g = 100g. Profit % = (Error / True Weight - Error) * 100 = (100 / 900) * 100 = 11.11%."
+    },
+    {
+        "question": "By selling a watch for ₹1440, a man loses 10%. At what price should he sell it to gain 15%?",
+        "options": ["₹1600", "₹1800", "₹1840", "₹1750"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Cost Price = (1440 / 90) * 100 = ₹1600. For a 15% profit, Selling Price = 1600 * 1.15 = ₹1840."
+    },
+    {
+        "question": "If the selling price of an item is doubled, the profit triples. What is the original profit percentage?",
+        "options": ["50%", "100%", "150%", "200%"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Let CP = 100 and SP = 200 (Profit = 100). If SP is doubled to 400, the new profit becomes 300 (which is 3 times 100). Thus, the original profit was 100%."
+    },
+
 ]
