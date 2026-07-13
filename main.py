@@ -333,7 +333,7 @@ def group_settings(message):
     text, markup = get_settings_markup(message.chat.id)
     if text: 
         try: 
-            # नया सेटिंग्स मैसेज भेजना
+            # 1. नया सेटिंग्स मैसेज (Response) सुरक्षित रूप से भेजें
             new_msg = bot.send_message(message.chat.id, text, reply_markup=markup, parse_mode="Markdown")
             
             # 📌 [SAVE NEW ID] नए मैसेज की आईडी को डेटाबेस में सेव करना ताकि अगली बार इसे डिलीट किया जा सके
@@ -341,6 +341,13 @@ def group_settings(message):
                 cursor = conn.cursor()
                 cursor.execute("UPDATE groups SET settings_msg_id = ? WHERE chat_id = ?", (new_msg.message_id, message.chat.id))
                 conn.commit()
+                
+            # 🗑️ [NEW LOGIC] नया रिस्पॉन्स डिलीवर होने के बाद यूजर की भेजी हुई '/settings' कमांड को डिलीट करें
+            try:
+                bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
+            except Exception:
+                pass  # अगर बॉट के पास मैसेज डिलीट करने की परमिशन नहीं होगी, तो भी बॉट क्रैश नहीं होगा
+                
         except Exception: 
             pass
   
@@ -358,7 +365,7 @@ def handle_settings_callbacks(call):
         bot.answer_callback_query(call.id, "❌ You do not have admin permissions!", show_alert=True)
         return
 
-    # 🛑 [UPDATED] क्लोज बटन दबाने पर डेटाबेस से आईडी साफ़ करना और मैसेज डिलीट करना
+    # 🛑 क्लोज बटन दबाने पर डेटाबेस से आईडी साफ़ करना और मैसेज डिलीट करना
     if action == "panel" and sub_action == "close":
         with sqlite3.connect(DB_FILE, timeout=20) as conn:
             cursor = conn.cursor()
@@ -380,7 +387,7 @@ def handle_settings_callbacks(call):
             current_lang = res[0] if res else 'hindi'
             new_lang = 'english' if current_lang == 'hindi' else 'hindi'
             cursor.execute("UPDATE groups SET language = ? WHERE chat_id = ?", (new_lang, chat_id))
-            bot.answer_callback_query(call.id, f"भाषा बदलकर {new_lang.upper()} कर दी गई है।")
+            bot.answer_callback_query(call.id, f"Language changed to {new_lang.upper()} / भाषा बदल दी गई है।")
             
         elif action == "set" and sub_action == "time":
             new_interval = int(data_parts[2]) 
@@ -415,7 +422,7 @@ def handle_settings_callbacks(call):
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=text, reply_markup=markup, parse_mode="Markdown")
     except Exception: 
         pass
-            
+        
 
 # 👑 ओनर कमांड - टाइम सेट करना (Strict Group & Owner Security Added)
 @bot.message_handler(commands=['settime'])
