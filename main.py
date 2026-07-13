@@ -889,35 +889,37 @@ def send_welcome(message):
     first_name = message.from_user.first_name if message.from_user.first_name else ""
     last_name = message.from_user.last_name if message.from_user.last_name else ""
     full_name = f"{first_name} {last_name}".strip()
-    if not full_name: full_name = f"User_{user_id}"
+    if not full_name: 
+        full_name = f"User_{user_id}"
 
-    # 🖼️ [DYNAMIC LOGIC] 'images' फोल्डर से रैंडम फोटो चुनना
-    image_folder = "images"  # आपके फोल्डर का नाम
+    # 🖼️ 'images' फोल्डर से रैंडम फोटो चुनना
+    image_folder = "images"  
     selected_image_path = None
 
     try:
-        # चेक करें कि फोल्डर मौजूद है या नहीं और उसमें फाइल्स हैं या नहीं
         if os.path.exists(image_folder) and os.path.isdir(image_folder):
-            # फोल्डर के अंदर की सभी फाइल्स की लिस्ट (केवल png, jpg, jpeg)
             all_images = [f for f in os.listdir(image_folder) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
             if all_images:
-                # फोल्डर के रास्ते के साथ रैंडम इमेज का पाथ जोड़ें (जैसे: images/photo1.png)
                 selected_image_path = os.path.join(image_folder, random.choice(all_images))
     except Exception as e:
         print(f"इमेज फोल्डर रीड करने में एरर: {e}")
 
-    # 📌 Group Chat Logic
+    # ==========================================
+    # 📌 1. GROUP CHAT LOGIC
+    # ==========================================
     if chat_type in ['group', 'supergroup']:
         with sqlite3.connect(DB_FILE, timeout=20) as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT start_msg_id FROM groups WHERE chat_id = ?", (message.chat.id,))
             row = cursor.fetchone()
-            # [FIXED - CRASH PROOF] अगर रो मौजूद है (not None) तो ही इंडेक्स 0 निकालेगा, वरना 0 असाइन करेगा
             old_start_id = row[0] if row is not None else 0
 
+        # Bot ke purane welcome message ko saaf karna
         if old_start_id > 0:
-            try: bot.delete_message(chat_id=message.chat.id, message_id=old_start_id)
-            except Exception: pass
+            try: 
+                bot.delete_message(chat_id=message.chat.id, message_id=old_start_id)
+            except Exception: 
+                pass
 
         group_text = (
             f"🎉 **Bot activated successfully!**\n"
@@ -926,7 +928,7 @@ def send_welcome(message):
             f"This bot is the easiest way to keep your groups active and engaged.\n\n"
             f"📌 **My Features:**\n"
             f"📊 **Daily Auto Poll:** Automatically sends a new poll every day at your set time interval.\n"
-            f"🏆 **Auto Result:** Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n\n"
+            f"🏆 **Auto Result:** Generates results daily at your set time showing the Top 20 users' scores with negative marking.\n\n"
             f"🚀 **How to Get Started:**\n"
             f"1. Make me a **Group Admin** (so I have permission to send polls).\n"
             f"2. Use the `/settings` command inside your group to configure everything.\n\n"
@@ -938,7 +940,6 @@ def send_welcome(message):
         
         new_msg = None
         try: 
-            # अगर इमेज पाथ मिल गया है तो फोटो भेजें
             if selected_image_path:
                 with open(selected_image_path, "rb") as photo_file:
                     new_msg = bot.send_photo(
@@ -949,27 +950,34 @@ def send_welcome(message):
                         parse_mode="Markdown"
                     )
             else:
-                # अगर फोल्डर खाली है या नहीं मिला तो सिर्फ टेक्स्ट भेजें
                 raise ValueError("No image found")
         except Exception: 
             try:
                 new_msg = bot.send_message(chat_id=message.chat.id, text=group_text, reply_markup=group_markup, parse_mode="Markdown")
-            except Exception: pass
+            except Exception: 
+                pass
 
-        # [FIXED - DATABASE SAVE] नया मैसेज भेजने के बाद उसकी ID को सुरक्षित रूप से स्टोर करना
         if new_msg:
             try:
                 with sqlite3.connect(DB_FILE, timeout=20) as conn:
                     cursor = conn.cursor()
-                    cursor.execute('''
-                        INSERT INTO groups (chat_id, start_msg_id) VALUES (?, ?)
-                        ON CONFLICT(chat_id) DO UPDATE SET start_msg_id = excluded.start_msg_id
-                    ''', (message.chat.id, new_msg.message_id))
+                    cursor.execute("INSERT OR IGNORE INTO groups (chat_id) VALUES (?)", (message.chat.id,))
+                    cursor.execute("UPDATE groups SET start_msg_id = ? WHERE chat_id = ?", (new_msg.message_id, message.chat.id))
                     conn.commit()
-            except Exception: pass
-        return  
+            except Exception: 
+                pass
 
-    # Private Chat Logic
+        # 🗑️ [NEW LOGIC] Group response delivery complete hote hi user ki command mita dein
+        try:
+            bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
+        except Exception:
+            pass
+
+        return  # Group chat process yahan complete ho gaya
+
+    # ==========================================
+    # 📌 2. PRIVATE CHAT LOGIC (Indentation Fixed)
+    # ==========================================
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
         cursor.execute("INSERT OR IGNORE INTO users (user_id, user_name, join_time) VALUES (?, ?, ?)", (user_id, full_name, time.time()))
@@ -980,7 +988,6 @@ def send_welcome(message):
             cursor = conn.cursor()
             cursor.execute("SELECT value FROM bot_settings WHERE key = 'leaderboard_time'")
             res = cursor.fetchone()
-            # [FIXED - TUPLE ERROR] डेटाबेस से साफ़ स्ट्रिंग निकालने के लिए res[0] किया
             db_time = res[0] if res is not None else "22:00"
             
         welcome_text = (
@@ -990,7 +997,7 @@ def send_welcome(message):
             "🏆 तुरंत रिज़ल्ट भेजने and स्कोर रीसेट करने के लिए `/sendresult` लिखें।\n"
             "📢 किसी भी मैसेज पर रिप्लाई करके `/broadcast` लिखने से वह सभी ग्रुप्स और यूज़र्स के पर्सनल इनबॉक्स में चला जाएगा।\n"
             "📊 बॉट का लाइव स्टैट्स देखने के लिए `/status` का उपयोग करें।\n\n"
-            "बॉट को ग्रुप में जोड़ने के लिए नीचे दिए बटन का उपयोग करें।"
+            "बॉट को group में जोड़ने के लिए नीचे दिए बटन का उपयोग करें।"
         )
     else:
         welcome_text = (
@@ -1025,9 +1032,11 @@ def send_welcome(message):
         else:
             bot.send_message(chat_id=message.chat.id, text=welcome_text, reply_markup=markup, parse_mode="Markdown")
     except Exception: 
-        try: bot.send_message(chat_id=message.chat.id, text=welcome_text, reply_markup=markup, parse_mode="Markdown")
-        except Exception: pass
-                
+        try: 
+            bot.send_message(chat_id=message.chat.id, text=welcome_text, reply_markup=markup, parse_mode="Markdown")
+        except Exception: 
+            pass
+    
         
 # ℹ️ हेल्प कमांड (Strict Username Validation के साथ FIXED)
 @bot.message_handler(commands=['help'])
