@@ -1213,75 +1213,72 @@ def handle_status_pagination(call):
 
 # 🤖 ग्रुप जॉइन/लीव ट्रैकर (सेम वेलकम मैसेज आर्किटेक्चर)
 @bot.my_chat_member_handler()
-def handle_left_or_joined(message):
-    new_status = message.new_chat_member.status
+def handle_left_or_joined(my_chat_member):
+    new_status = my_chat_member.new_chat_member.status
+    old_status = my_chat_member.old_chat_member.status  # 🔍 पुराना स्टेटस ट्रैक करें
+    chat_id = my_chat_member.chat.id
+    chat_title = my_chat_member.chat.title
     
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
         
         if new_status in ["administrator", "member"]:
-            cursor.execute("INSERT OR IGNORE INTO groups (chat_id, interval) VALUES (?, 1800)", (message.chat.id,))
-            cursor.execute("UPDATE groups SET last_sent_time = 0 WHERE chat_id = ?", (message.chat.id,))
-            conn.commit()
+            # Check karein ki kya group pehle se database mein maujood hai?
+            cursor.execute("SELECT chat_id FROM groups WHERE chat_id = ?", (chat_id,))
+            group_exists = cursor.fetchone()
             
-            # 🖼️ [DYNAMIC LOGIC] 'images' फोल्डर से रैंडम फोटो चुनना
-            image_folder = "images"
-            selected_image_path = None
-            try:
-                if os.path.exists(image_folder) and os.path.isdir(image_folder):
-                    all_images = [f for f in os.listdir(image_folder) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
-                    if all_images:
-                        selected_image_path = os.path.join(image_folder, random.choice(all_images))
-            except Exception as e:
-                print(f"इमेज फोल्डर रीड करने में एरर: {e}")
-            
-            group_text = (
-                f"🎉 **Join Group Successfully!**\n"
-                f"📢 Automated quizzes have been activated for this group.\n\n"
-                f"🇮🇳 **Group Name:** [{message.chat.title}]\n"
-                f"This bot is the easiest way to keep your groups active and engaged.\n\n"
-                f"📌 **My Features:**\n"
-                f"📊 **Daily Auto Poll:** Automatically sends a new poll every day at your set time interval.\n"
-                f"🏆 **Auto Result:** Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n"
-                f"💡 **Results** ka wait nahi karna chahte to `/myscore` command send kare!\n\n"
-                f"🚀 **How to Get Started:**\n"
-                f"1. Make me a **Group Admin** (so I have permission to send polls).\n"
-                f"2. Use the `/settings` command inside your group to configure everything.\n\n"
-                f"For any help, simply type `/help`."
-            )
-            
-            group_markup = InlineKeyboardMarkup()
-            add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
-            
-            # [UPDATED] style="primary" के साथ नीला बटन तैयार है
-            group_markup.add(InlineKeyboardButton(
-                text="✨ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ", 
-                url=add_to_group_url,
-                style="primary"
-            ))
-            
-            try:
-                # [UPDATED] अगर इमेज मिल जाती है, तो फोटो के साथ वेलकम मैसेज भेजें
-                if selected_image_path:
-                    with open(selected_image_path, "rb") as photo_file:
-                        bot.send_photo(
-                            chat_id=message.chat.id, 
-                            photo=photo_file, 
-                            caption=group_text, 
-                            reply_markup=group_markup, 
-                            parse_mode="Markdown"
-                        )
-                else:
-                    # अगर फोल्डर खाली है, तो पुराने स्टाइल में केवल टेक्स्ट भेजें
-                    bot.send_message(chat_id=message.chat.id, text=group_text, reply_markup=group_markup, parse_mode="Markdown")
-            except Exception:
-                # फॉलबैक सेफ्टी: कोई भी एरर आने पर बिना इमेज के टेक्स्ट सेंड हो जाएगा
+            # 🎯 अगर ग्रुप पहले से मौजूद नहीं है (यानी बॉट सच में नया जॉइन हुआ है)
+            # या फिर बॉट पहले ग्रुप से पूरी तरह लेफ्ट/किक हो चुका था, सिर्फ तभी वेलकम मैसेज भेजेगा।
+            if not group_exists or old_status in ["left", "kicked"]:
+                if not group_exists:
+                    cursor.execute("INSERT OR IGNORE INTO groups (chat_id, interval, last_sent_time) VALUES (?, 1800, 0)", (chat_id,))
+                    conn.commit()
+                
+                # 🖼️ 'images' फोल्डर से रैंडम फोटो चुनना
+                image_folder = "images"
+                selected_image_path = None
                 try:
-                    bot.send_message(chat_id=message.chat.id, text=group_text, reply_markup=group_markup, parse_mode="Markdown")
-                except Exception: pass
+                    if os.path.exists(image_folder) and os.path.isdir(image_folder):
+                        all_images = [f for f in os.listdir(image_folder) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+                        if all_images:
+                            selected_image_path = os.path.join(image_folder, random.choice(all_images))
+                except Exception as e:
+                    print(f"इमेज फोल्डर रीड करने में एरर: {e}")
+                
+                group_text = (
+                    f"🎉 **Join Group Successfully!**\n"
+                    f"📢 Automated quizzes have been activated for this group.\n\n"
+                    f"🇮🇳 **Group Name:** [{chat_title}]\n"
+                    f"This bot is the easiest way to keep your groups active and engaged.\n\n"
+                    f"📌 **My Features:**\n"
+                    f"📊 **Daily Auto Poll:** Automatically sends a new poll every day at your set time interval.\n"
+                    f"🏆 **Auto Result:** Generates results daily at 10 PM showing the Top 20 users' scores with negative marking.\n"
+                    f"💡 **Results** ka wait nahi karna chahte to `/myscore` command send kare!\n\n"
+                    f"🚀 **How to Get Started:**\n"
+                    f"1. Make me a **Group Admin** (so I have permission to send polls).\n"
+                    f"2. Use the `/settings` command inside your group to configure everything.\n\n"
+                    f"For any help, simply type `/help`."
+                )
+                
+                group_markup = InlineKeyboardMarkup()
+                # 🛠️ [FIXED] t.me के बाद forward slash ( / ) जोड़ दिया गया है
+                add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
+                group_markup.add(InlineKeyboardButton(text="✨ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ", url=add_to_group_url, style="primary"))
+                
+                try:
+                    if selected_image_path:
+                        with open(selected_image_path, "rb") as photo_file:
+                            bot.send_photo(chat_id=chat_id, photo=photo_file, caption=group_text, reply_markup=group_markup, parse_mode="Markdown")
+                    else:
+                        bot.send_message(chat_id=chat_id, text=group_text, reply_markup=group_markup, parse_mode="Markdown")
+                except Exception:
+                    try:
+                        bot.send_message(chat_id=chat_id, text=group_text, reply_markup=group_markup, parse_mode="Markdown")
+                    except Exception: pass
                 
         elif new_status in ["left", "kicked"]:
-            cursor.execute("DELETE FROM groups WHERE chat_id = ?", (message.chat.id,))
+            # Bot ko group se nikalne par data automatically clean ho jayega
+            cursor.execute("DELETE FROM groups WHERE chat_id = ?", (chat_id,))
             conn.commit()
                 
 # ❤️‍🩹 थ्रेड्स स्टार्ट करें
@@ -1291,3 +1288,4 @@ threading.Thread(target=daily_leaderboard_scheduler, daemon=True).start()
 print("Successfully 🇮🇳 deployed...🚀")
 
 bot.infinity_polling(timeout=60, long_polling_timeout=60)
+                                         
