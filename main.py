@@ -2,6 +2,7 @@ import os
 import time
 import sqlite3
 import threading
+import logging
 from datetime import datetime
 import pytz
 import random
@@ -22,6 +23,8 @@ if not API_TOKEN:
     raise ValueError("Error: BOT_TOKEN एनवायरनमेंट वेरिएबल्स में नहीं मिला!")
 
 bot = telebot.TeleBot(API_TOKEN)
+telebot.logger.setLevel(logging.CRITICAL)
+
 DB_FILE = "bot_data.db"
 
 # 🚀 परफ़ॉर्मेंस बूस्ट: ग्लोबल बॉट यूज़रनेम वेरिएबल
