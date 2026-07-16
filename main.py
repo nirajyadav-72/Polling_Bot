@@ -788,7 +788,7 @@ def handle_poll_answer(poll_answer):
         mapping = cursor.fetchone()
         
         if not mapping:
-            print(f"⚠️ चेतावनी: Poll ID {poll_id} डेटाबेस मैपिंग में नहीं मिली!")
+            print(f"⚠️ Warning: Poll ID {poll_id} not found in database mapping.")
             return  
 
         chat_id = mapping[0]
