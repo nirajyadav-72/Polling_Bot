@@ -1363,5 +1363,15 @@ threading.Thread(target=daily_leaderboard_scheduler, daemon=True).start()
 
 print("Successfully 🇮🇳 deployed...🚀")
 
-bot.infinity_polling(timeout=60, long_polling_timeout=60)
-                                         
+# 🚀 ऑटो-रीस्टार्ट और मजबूत नेटवर्क एरर हैंडलिंग लूप
+while True:
+    try:
+        # timeout और long_polling_timeout को कम रखा गया है ताकि कनेक्शन जल्दी रीफ्रेश हो
+        bot.infinity_polling(timeout=15, long_polling_timeout=5)
+        
+    except Exception as e:
+        print(f"⚠️ नेटवर्क एरर या कनेक्शन ड्रॉप हुआ: {e}")
+        print("⏳ 5 सेकंड में बॉट को दोबारा कनेक्ट किया जा रहा है...")
+        time.sleep(5)
+        continue
+        
