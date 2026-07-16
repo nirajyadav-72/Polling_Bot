@@ -1370,7 +1370,7 @@ print("Successfully 🇮🇳 deployed...🚀")
 while True:
     try:
         # timeout और long_polling_timeout को कम रखा गया है ताकि कनेक्शन जल्दी रीफ्रेश हो
-        bot.infinity_polling(timeout=15, long_polling_timeout=5)
+        bot.infinity_polling(timeout=60, long_polling_timeout=30)
         
     except Exception as e:
         print(f"⚠️ नेटवर्क एरर या कनेक्शन ड्रॉप हुआ: {e}")
