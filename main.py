@@ -1770,7 +1770,7 @@ def generate_status_page(page=0):
                     link_text = f"[Click to Join]({invite_link})"
                 except Exception:
                     if chat_info.username:
-                        link_text = f"[Click to Join](https://t.me{chat_info.username})"
+                        link_text = f"[Click to Join](https://t.me/{chat_info.username})"
                     else:
                         link_text = "⚠️ No Admin (No Link)"
                 
