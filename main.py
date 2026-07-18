@@ -1667,7 +1667,7 @@ def track_save_and_limit_users(message):
                         # Sirf pehli baar limit end hone par alert bhejein
                         if current_count == DAILY_MSG_LIMIT:
                             safe_name = escape_html(u_name)
-                            alert_text = f"⚠️ 👤 हे <a href='tg://user?id={u_id}'>{safe_name}</a>, आपकी आज की <b>{DAILY_MSG_LIMIT} मैसेजेस</b> की दैनिक सीमा समाप्त हो चुकी है! आप बॉट-प्रमोटेड एडमिन हैं, इसलिए आपके मैसेजेस भी कल सुबह तक डिलीट किए जाएंगे।"
+                            alert_text = f"⚠️ Hey <a href='tg://user?id={u_id}'>{safe_name}</a>, आपकी आज की <b>{DAILY_MSG_LIMIT} मैसेजेस</b> की दैनिक सीमा समाप्त हो चुकी है! आप बॉट-प्रमोटेड एडमिन हैं, इसलिए आपके मैसेजेस भी कल सुबह तक डिलीट किए जाएंगे।"
                             bot.send_message(SUPPORT_GROUP_ID, alert_text, parse_mode="HTML")
                     except Exception:
                         pass
