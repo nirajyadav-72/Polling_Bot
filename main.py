@@ -566,7 +566,7 @@ def handle_owner_broadcast(message):
 
     bot.send_message(
         chat_id=message.chat.id,
-        text="🏵️ *क्या आप इस ब्रॉडकास्ट मैसेज को सभी ग्रुप्स में PIN करना चाहते हैं?*",
+        text="🏵️ *Would you like to pin this broadcast message to all groups?*",
         reply_markup=markup,
         parse_mode="Markdown"
     )
@@ -1296,9 +1296,9 @@ def handle_promote_command(message):
     if not user_id_to_promote:
         try:
             error_msg = (
-                "💡 <b>तरीका:</b> यूज़र के मैसेज पर रिप्लाई करके <code>/promote</code> लिखें,\n"
-                "या फिर <code>/promote @username</code> या <code>/promote User_Name</code> लिखें।\n\n"
-                "⚠️ <i>नोट: यूज़र का बॉट के डेटाबेस में होना (यानी ग्रुप में पहले कोई मैसेज किया होना) ज़रूरी है!</i>"
+                "💡 <b>तरीका:</b> Reply to the user's message and write <code>/promote</code>,\n"
+                "or <code>/promote @username</code> , <code>/promote User_Name</code>।\n\n"
+                "⚠️ <i>Note: The user must exist in the bot's database (i.e., they must have sent a message in the group before).</i>"
             )
             bot.reply_to(message, error_msg, parse_mode="HTML")
         except Exception:
@@ -1345,16 +1345,16 @@ def handle_promote_command(message):
         mention = f'<a href="tg://user?id={user_id_to_promote}">{safe_name}</a>'
         
         success_text = (
-            f"👑 <b>प्रमोशन सफल!</b>\n\n"
+            f"👑 <b>Promotion has been successfully completed.</b>\n\n"
             f"✨ Name: {mention}\n"
-            f"✨ ID: <code>{user_id_to_promote}</code> को सफलतापूर्वक <b>एडमिन (Admin)</b> बना दिया गया है।\n"
-            f"💡 <i>सर आपके आदेश पर इस एडमिन को डिमोट या हमेशा के लिए बैन भी कर दूंगा!</i>"
+            f"✨ ID: <code>{user_id_to_promote}</code> was <b>successfully promoted</b> to Admin.\n"
+            f"💡 <i>Sir, I will demote or permanently ban this admin on your order!</i>"
         )
         bot.reply_to(message, success_text, parse_mode="HTML")
         
     except Exception as e:
         try:
-            bot.reply_to(message, f"❌ प्रमोट करने में विफलता आई: {e}")
+            bot.reply_to(message, f"❌ An error occurred while promoting: {e}")
         except Exception:
             pass
             
