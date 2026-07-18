@@ -1296,7 +1296,7 @@ def handle_promote_command(message):
     if not user_id_to_promote:
         try:
             error_msg = (
-                "💡 <b>तरीका:</b> Reply to the user's message and write <code>/promote</code>,\n"
+                "💡 <b>Process:</b> Reply to the user's message and write <code>/promote</code>,\n"
                 "or <code>/promote @username</code> , <code>/promote User_Name</code>।\n\n"
                 "⚠️ <i>Note: The user must exist in the bot's database (i.e., they must have sent a message in the group before).</i>"
             )
@@ -1429,9 +1429,9 @@ def ban_countdown_thread(target_id, target_mention, message_id_to_edit):
         if remaining_minutes > 0:
             update_text = (
                 f"⏳ <b>बैन काउंटडाउन जारी है...</b>\n\n"
-                f"👤 हे {target_mention}, तुम्हारे पास समय बहुत कम है!\n"
+                f"👤 Hey {target_mention}, तुम्हारे पास समय बहुत कम है!\n"
                 f"✨ <b>ओनर सर को सॉरी बोलो</b> नहीं तो काउंटडाउन समाप्त होते ही तुम्हारे एडमिन राइट्स छीन कर तुम्हें बैन कर दिया जाएगा।\n\n"
-                f"⏱️ <b>बचा हुआ समय:</b> {remaining_minutes} मिनट 00 सेकंड"
+                f"⏱️ <b>शेष बचा हुआ समय:</b> {remaining_minutes} मिनट 00 सेकंड"
             )
             try:
                 bot.edit_message_text(chat_id=SUPPORT_GROUP_ID, message_id=message_id_to_edit, text=update_text, parse_mode="HTML")
@@ -1449,7 +1449,7 @@ def ban_countdown_thread(target_id, target_mention, message_id_to_edit):
                 can_manage_video_chats=False, is_anonymous=False
             )
             bot.ban_chat_member(SUPPORT_GROUP_ID, target_id)
-            final_text = f"🎯 <b>समय समाप्त!</b>\n\nयूज़र {target_mention} ने माफ़ी नहीं मांगी, इसलिए इसके एडमिन राइट्स छीन कर इसे ग्रुप से <b>बैन (Ban)</b> कर दिया गया है। ✅"
+            final_text = f"🎯 <b>समय समाप्त!</b>\n\nसर यूज़र {target_mention} ने माफ़ी नहीं मांगी, इसलिए इसके एडमिन राइट्स छीन कर इसे ग्रुप से <b>बैन (Ban)</b> कर दिया गया है। ✅"
             bot.edit_message_text(chat_id=SUPPORT_GROUP_ID, message_id=message_id_to_edit, text=final_text, parse_mode="HTML")
         except Exception as e:
             try:
@@ -1513,9 +1513,9 @@ def handle_ban_command(message):
 
     warn_text = (
         f"⏳ <b>बैन काउंटडाउन शुरू हो चुका है!</b>\n\n"
-        f"👤 हे {mention}, तुमने ओनर सर को नाराज किया है!\n"
+        f"👤 Hey {mention}, तुमने ओनर सर को नाराज किया है!\n"
         f"✨ <b>चेतावनी:</b> चाहे तुम ग्रुप के एडमिन ही क्यों न हो, जल्दी से <b>ओनर सर को सॉरी बोलो</b> अन्यथा काउंटडाउन समाप्त होते ही मैं तुम्हें डिमोट करके हमेशा के लिए बैन कर दूंगा।\n\n"
-        f"⏱️ <b>बचा हुआ समय:</b> 5 मिनट 00 सेकंड"
+        f"⏱️ <b>शेष बचा हुआ समय:</b> 5 मिनट 00 सेकंड"
     )
 
     try:
@@ -1576,7 +1576,7 @@ def handle_unban_command(message):
         bot.unban_chat_member(SUPPORT_GROUP_ID, user_id_to_unban, only_if_banned=True)
         active_ban_timers.pop(user_id_to_unban, None)
         try:
-            bot.reply_to(message, f"✅ यूज़र [ID: <code>{user_id_to_unban}</code>] को सफलतापूर्वक <b>अनबैन (Unban)</b> कर दिया गया है।", parse_mode="HTML")
+            bot.reply_to(message, f"✅ यूज़र [ID: <code>{user_id_to_unban}</code>] को सफलतापूर्वक <b>अनबैन (Unban)</b> कर दिया गया है।\n\n✅ <b>सर ने तुम्हें माफ़ कर दिया!</b>\nबैन की प्रक्रिया को यहीं रोक दिया गया है। अगली बार नियमों का पालन करें।", parse_mode="HTML")
         except Exception:
             pass
     except Exception as e:
@@ -1602,7 +1602,7 @@ def handle_cancel_ban(message):
                 active_ban_timers[user_id]["status"] = "cancelled"
                 active_ban_timers.pop(user_id, None)
                 try:
-                    cancel_text = "✅ <b>ओनर सर ने तुम्हें माफ़ कर दिया!</b>\nबैन की प्रक्रिया को यहीं रोक दिया गया है। अगली बार नियमों का पालन करें।"
+                    cancel_text = "✅ <b>सर ने तुम्हें माफ़ कर दिया!</b>\nबैन की प्रक्रिया को यहीं रोक दिया गया है। अगली बार नियमों का पालन करें।"
                     bot.edit_message_text(chat_id=SUPPORT_GROUP_ID, message_id=target_msg_id, text=cancel_text, parse_mode="HTML")
                 except Exception:
                     pass
