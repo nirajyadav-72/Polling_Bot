@@ -1120,7 +1120,9 @@ def send_welcome(message):
             "⚙️ You can change the time directly here by typing *`/settime HH:MM`*\n"
             "🏆 To send the result immediately and reset the score, type *`/sendresult`*\n"
             "📢 Replying to any message with *`/broadcast`* will send it to all groups and users' personal inboxes.\n"
-            "📊 Use *`/status`* to see the bot's live stats."
+            "📊 Use *`/status`* to see the bot's live stats.\n"
+            "✨ you can make anyone an admin by using the `*/promote*` command.\n"
+            "🍥 reply to any user's message with the `*/ban*` command. If you don't `*/unban*` them within 5 minutes, I will ban them permanently."
         )
     else:
         welcome_text = (
