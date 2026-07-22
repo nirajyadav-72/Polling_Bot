@@ -1660,6 +1660,356 @@ QUIZ_LIST = [
     # ------------------- ENGLISH QUIZZES ---------------
     # ===================================================
     {
+        "question": "The 'Komagata Maru' incident of 1914, which fueled the Ghadar movement, was centered around which of the following?",
+        "options": ["A secret revolutionary armory in Chittagong", "A Japanese steamship carrying Indian immigrants to Canada", "A mass peasant strike in Punjab against water tax", "A military mutiny in the British Indian army at Singapore"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Komagata Maru was a chartered ship carrying Indian passengers that was forced to return from Vancouver due to strict Canadian immigration laws, leading to a violent clash with police at Budge Budge, Calcutta."
+    },
+    {
+        "question": "Who among the following revolutionaries was NOT associated with the Kakori Train Robbery case of 1925?",
+        "options": ["Ram Prasad Bismil", "Ashfaqullah Khan", "Bhagat Singh", "Roshan Singh"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 The Kakori conspiracy was executed by members of the Hindustan Republican Association (HRA) including Bismil, Ashfaqullah, and Roshan Singh. Bhagat Singh was later involved with the HSRA but not this robbery."
+    },
+    {
+        "question": "The 'Deepavali Declaration' issued by Lord Irwin in October 1929 promised which of the following political developments for India?",
+        "options": ["Immediate grant of Complete Independence (Purna Swaraj)", "The eventual grant of Dominion Status to India", "Partition of the country based on religious majorities", "Abolition of the separate electorate system"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Lord Irwin issued the declaration stating that the natural issue of India's constitutional progress, as contemplated in the 1917 declaration, was the attainment of Dominion Status."
+    },
+    {
+        "question": "Which pact officially brought an end to the Civil Disobedience Movement temporarily, allowing the Congress to participate in the Second Round Table Conference?",
+        "options": ["Poona Pact, 1932", "Gandhi-Irwin Pact, 1931", "Lucknow Pact, 1916", "Shimla Accord, 1945"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Signed in March 1931, the Gandhi-Irwin Pact led to the suspension of the Civil Disobedience Movement and cleared the way for Mahatma Gandhi to attend the Second Round Table Conference in London."
+    },
+    {
+        "question": "The historic 'Poona Pact' of 1932 was signed between Mahatma Gandhi and Dr. B. R. Ambedkar to resolve disputes regarding which issue?",
+        "options": ["Form of governance in provinces", "Reservation of seats and separate electorates for depressed classes", "Financial allocations between Center and States", "The language of the official administration"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Following Gandhi's fast unto death against the Communal Award, the Poona Pact replaced separate electorates for the depressed classes with reserved seats within the general electorate."
+    },
+    {
+        "question": "During the Quit India Movement of 1942, who among the following successfully broadcasted underground Congress Radio to bypass British censorship?",
+        "options": ["Aruna Asaf Ali", "Usha Mehta", "Sucheta Kripalani", "Rajkumari Amrit Kaur"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Usha Mehta was a key organizer of the Secret Congress Radio, an underground radio station that operated for a few months during the 1942 movement to spread news of the rebellion."
+    },
+    {
+        "question": "The 'August Offer' of 1940 was announced by which British Governor-General/Viceroy to secure Indian cooperation during World War II?",
+        "options": ["Lord Linlithgow", "Lord Wavell", "Lord Willingdon", "Lord Mountbatten"],
+        "correct_id": 0,
+        "lang": "en",
+        "explanation": "💡 Lord Linlithgow issued the August Offer, which proposed expanding the Viceroy's Executive Council and establishing a constituent assembly after the war, though it was rejected by both Congress and the Muslim League."
+    },
+    {
+        "question": "Who among the following was appointed as the commander of the Indian National Army (INA) when it was first formed in Malaya in 1942?",
+        "options": ["Subhas Chandra Bose", "Captain Mohan Singh", "Rash Behari Bose", "Shah Nawaz Khan"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 The first INA was formed in September 1942 under Captain Mohan Singh with Japanese assistance. Subhas Chandra Bose took leadership of its revived version later in 1943."
+    },
+    {
+        "question": "The 'C. R. Formula' (1944) proposed by Chakravarti Rajagopalachari was intended to solve which political deadlock?",
+        "options": ["The integration of Himalayan princely states", "The constitutional deadlock between the Indian National Congress and the All-India Muslim League", "The redistribution of provinces on a linguistic basis", "The allocation of defense budgets during World War II"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 The C.R. Formula was a proposal for Congress-League cooperation. It suggested that the League endorse the demand for independence, followed by a plebiscite in Muslim-majority areas to decide on partition."
+    },
+    {
+        "question": "Who headed the 'Boundary Commission' appointed to demarcate the international borders between India and Pakistan in 1947?",
+        "options": ["Sir Stafford Cripps", "Lord Pethick-Lawrence", "Sir Cyril Radcliffe", "A. V. Alexander"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 Sir Cyril Radcliffe was appointed as the joint chairman of the two Boundary Commissions for Bengal and Punjab to draw the line of partition splitting British India into two dominions."
+    },
+    {
+        "question": "Which of the following British regulations explicitly declared the practice of Sati as illegal and punishable by criminal courts?",
+        "options": ["Regulation XIII of 1827", "Regulation XVII of 1829", "Regulation V of 1831", "Regulation XXI of 1795"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 The Bengal Sati Regulation (Regulation XVII of 1829) was passed by the Governor-General Lord William Bentinck, making the practice of Sati illegal and punishable as culpable homicide."
+    },
+    {
+        "question": "During the Revolt of 1857, who among the following led the uprising against the British forces in Bareilly?",
+        "options": ["Khan Bahadur Khan", "Kunwar Singh", "Maulvi Ahmadullah", "Bakht Khan"],
+        "correct_id": 0,
+        "lang": "en",
+        "explanation": "💡 Khan Bahadur Khan, a grandson of Hafiz Rahmat Khan, formed his own government in Bareilly during the 1857 revolt. Kunwar Singh led in Bihar, and Maulvi Ahmadullah led in Faizabad."
+    },
+    {
+        "question": "The famous 'Wood's Despatch' of 1854 was comprehensively related to which of the following sectors in British India?",
+        "options": ["Judicial Reforms", "Police Administration", "Educational Systems", "Land Revenue Settlement"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 Formulated by Sir Charles Wood, the Wood's Despatch is considered the 'Magna Carta of English Education in India'. It recommended a structured system from primary schools to universities."
+    },
+    {
+        "question": "Who among the following national leaders founded the 'Servants of India Society' in 1905?",
+        "options": ["Bal Gangadhar Tilak", "Gopal Krishna Gokhale", "Lala Lajpat Rai", "Dadabhai Naoroji"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Gopal Krishna Gokhale founded the Servants of India Society in Pune to train Indians to devote their lives to the cause of the country in a religious spirit."
+    },
+    {
+        "question": "The 'Ilbert Bill Controversy' during the tenure of Lord Ripon was primarily related to which issue?",
+        "options": ["Imposition of restrictions on vernacular press", "Removal of racial disqualifications in judicial trials", "Suppression of indigenous textile mills", "Reduction of age limit for civil services"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Introduced in 1883, the Ilbert Bill sought to allow Indian judges to try Europeans in criminal cases. It faced fierce opposition from the European community, leading to a compromise amendment."
+    },
+    {
+        "question": "At which historic session did the Indian National Congress split into 'Moderates' and 'Extremists'?",
+        "options": ["Calcutta Session, 1906", "Surat Session, 1907", "Madras Session, 1908", "Lucknow Session, 1916"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 The Congress split at the Surat Session in 1907 over differences regarding the expansion of the Boycott movement. Dr. Rash Behari Ghosh presided over this tumultuous session."
+    },
+    {
+        "question": "Which prominent leader brought out the weekly newspapers 'New India' and 'Commonweal' to popularize the Home Rule movement?",
+        "options": ["Annie Besant", "Bal Gangadhar Tilak", "Bipin Chandra Pal", "G. S. Arundale"],
+        "correct_id": 0,
+        "lang": "en",
+        "explanation": "💡 Annie Besant published 'New India' and 'Commonweal' to articulate the demand for self-government. B.G. Tilak popularized his campaign through 'Mahratta' and 'Kesari'."
+    },
+    {
+        "question": "What was the main purpose of Mahatma Gandhi's 'Champaran Satyagraha' of 1917?",
+        "options": ["To protest against the high land revenue during a drought", "To resolve a wage dispute between mill owners and workers", "To reform the exploitative Tinkathia system imposed on indigo planters", "To demand complete independence from colonial rule"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 Champaran Satyagraha was Gandhi's first active satyagraha in India. It fought against the Tinkathia system, which forced peasants to grow indigo on 3/20th of their land."
+    },
+    {
+        "question": "Who among the following was the author of the famous book 'The Indian War of Independence, 1857'?",
+        "options": ["R. C. Majumdar", "Vinayak Damodar Savarkar", "S. B. Chaudhuri", "S. N. Sen"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 V.D. Savarkar authored the book in 1909, where he was among the first nationalists to explicitly describe the 1857 mutiny as a unified and planned war of independence."
+    },
+    {
+        "question": "Under the provisions of the Montagu-Chelmsford Reforms (1919), the system of 'Dyarchy' was introduced at which level?",
+        "options": ["At the Central Government level", "At the Provincial Government level", "At the Local Self-Government level", "Exclusively in the Princely States"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 The Government of India Act 1919 introduced Dyarchy in the provinces, dividing provincial subjects into 'Reserved' (under the Governor) and 'Transferred' (under Indian Ministers)."
+    },
+    {
+        "question": "By which Constitutional Amendment Act was the former combined National Commission for SCs and STs bifurcated into two separate independent bodies?",
+        "options": ["65th Amendment Act, 1990", "86th Amendment Act, 2002", "89th Amendment Act, 2003", "102nd Amendment Act, 2018"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 The 89th Constitutional Amendment Act of 2003 split the combined body into the National Commission for Scheduled Castes (Article 338) and the National Commission for Scheduled Tribes (Article 338A)."
+    },
+    {
+        "question": "According to the Constitution, it is mandatory to constitute 'Wards Committees' in municipalities that have a population of how much or more?",
+        "options": ["1 Lakh or more", "3 Lakhs or more", "5 Lakhs or more", "10 Lakhs or more"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Article 243S mandates that there shall be constituted Wards Committees, consisting of one or more wards, within the territorial area of a Municipality having a population of three lakhs or more."
+    },
+    {
+        "question": "All doubts and disputes arising out of or in connection with the election of a President or Vice-President are inquired into and decided by whom?",
+        "options": ["The Election Commission of India", "The Supreme Court of India", "A Joint Committee of Parliament", "The Union Ministry of Law and Justice"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Article 71 clearly establishes that the Supreme Court has the exclusive and final jurisdiction to investigate and decide all disputes relating to the election of the President or Vice-President."
+    },
+    {
+        "question": "If the Prime Minister of India is a member of the Upper House (Rajya Sabha), which of the following scenarios will occur?",
+        "options": ["He will not be able to vote in his favor in the event of a No-Confidence Motion", "He cannot speak on the Budget in the Lok Sabha", "He can make statements only in the Upper House", "He must become a member of the Lok Sabha within 6 months"],
+        "correct_id": 0,
+        "lang": "en",
+        "explanation": "💡 A No-Confidence Motion can only be introduced and voted upon in the Lok Sabha. Since a minister can speak in either house but vote only in the house he belongs to, a PM from Rajya Sabha cannot vote on it."
+    },
+    {
+        "question": "Which famous Chief Justice of India also served as the Acting President of India for a brief duration?",
+        "options": ["Justice K. Subba Rao", "Justice M. Hidayatullah", "Justice P. N. Bhagwati", "Justice Y. V. Chandrachud"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 In 1969, following the demise of President Dr. Zakir Husain and the subsequent resignation of VP V.V. Giri, Chief Justice M. Hidayatullah took charge as the Acting President of India."
+    },
+    {
+        "question": "According to the Constitution of India, the appointment, posting, and promotion of 'District Judges' in any State are made by whom?",
+        "options": ["The Governor of the State in consultation with the High Court", "The Chief Minister in consultation with the State Public Service Commission", "The President of India in consultation with the Supreme Court", "The Chief Justice of the concerned High Court directly"],
+        "correct_id": 0,
+        "lang": "en",
+        "explanation": "💡 Under Article 233, the appointments, posting, and promotion of district judges in a state are executed by the Governor of the State, acting in mandatory consultation with the High Court exercising jurisdiction over that state."
+    },
+    {
+        "question": "Which Article of the Constitution empowers the Parliament to legislate on a matter in the State List if it becomes necessary in the national interest?",
+        "options": ["Article 248", "Article 249", "Article 250", "Article 252"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Under Article 249, if the Rajya Sabha passes a resolution supported by not less than two-thirds of the members present and voting that it is in the national interest, Parliament can make laws on that state subject."
+    },
+    {
+        "question": "Under which Article is a 'Special Officer for Linguistic Minorities' appointed by the President to investigate matters relating to constitutional safeguards?",
+        "options": ["Article 350", "Article 350A", "Article 350B", "Article 351"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 Article 350B was added by the 7th Constitutional Amendment Act of 1956. It provides for a Special Officer (Commissioner) for Linguistic Minorities to be appointed by the President."
+    },
+    {
+        "question": "The First Backward Classes Commission was set up in the year 1953 under the chairmanship of whom?",
+        "options": ["B. P. Mandal", "Kaka Kalelkar", "Fazl Ali", "Hridaynath Kunzru"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 In terms of Article 340, the First Backward Classes Commission was appointed by a presidential order in 1953 under Kaka Kalelkar. The second such commission was headed by B.P. Mandal in 1979."
+    },
+    {
+        "question": "Which of the following items of expenditure is NOT a 'Charged Expenditure' upon the Consolidated Fund of India (on which Parliament cannot vote)?",
+        "options": ["Salaries and allowances of the President of India", "Salaries, allowances, and pensions of Supreme Court judges", "Salaries and allowances of High Court judges", "Pensions payable to the Chairman of UPSC"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 Notably, the salaries and allowances of High Court judges are charged on the Consolidated Fund of the *State*, not the Centre. However, their pensions are paid out of the Consolidated Fund of *India*."
+    },
+    {
+        "question": "Which of the following statements is NOT correct regarding the Rajya Sabha?",
+        "options": ["It is a permanent body and not subject to dissolution", "One-third of its members retire every second year", "A resolution to remove the Vice-President can only be initiated in the Rajya Sabha", "The Rajya Sabha can delay a Money Bill for a maximum period of 6 months"],
+        "correct_id": 3,
+        "lang": "en",
+        "explanation": "💡 Rajya Sabha has very limited powers regarding a Money Bill. It can neither reject nor amend it, and must return the bill to Lok Sabha within 14 days, failing which it is deemed passed."
+    },
+    {
+        "question": "Under which Article of the Indian Constitution is the 'Promotion of international peace and security' included as a duty of the State?",
+        "options": ["Article 45", "Article 48A", "Article 50", "Article 51"],
+        "correct_id": 3,
+        "lang": "en",
+        "explanation": "💡 Article 51, under the Directive Principles of State Policy (DPSP), directs the State to promote international peace and security, maintain just relations between nations, and foster respect for international law."
+    },
+    {
+        "question": "What procedure does Parliament follow for the creation or abolition of a Legislative Council (Vidhan Parishad) in a state?",
+        "options": ["Special majority under Article 368", "An ordinary legislative procedure after a special resolution by the concerned State Assembly", "By calling a Joint Sitting of both Houses", "By an executive order of the President alone"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Under Article 169, if the State Assembly passes a resolution by a majority of total membership and a 2/3rd majority of members present and voting, Parliament can pass an ordinary law to create or abolish the council."
+    },
+    {
+        "question": "Which Article provides for the establishment of an Inter-State Council and who presides over its meetings?",
+        "options": ["Article 262, Union Home Minister", "Article 263, Prime Minister of India", "Article 280, President of India", "Article 300, Vice-Chairman of NITI Aayog"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Article 263 empowers the President to establish an Inter-State Council to investigate and discuss subjects of common interest between the Centre and States. The Prime Minister is its ex-officio Chairman."
+    },
+    {
+        "question": "According to which Article of the Constitution is the law declared by the Supreme Court binding on all courts within the territory of India?",
+        "options": ["Article 136", "Article 141", "Article 142", "Article 144"],
+        "correct_id": 0,
+        "lang": "en",
+        "explanation": "💡 Article 141 states that the law declared by the Supreme Court shall be binding on all courts within the territory of India, enforcing uniform judicial precedents across the country."
+    },
+    {
+        "question": "Which Fundamental Right under the Indian Constitution is available to foreign citizens (excluding enemy aliens)?",
+        "options": ["Article 15 (Prohibition of discrimination on grounds of religion, race, caste etc.)", "Article 16 (Equality of opportunity in matters of public employment)", "Article 19 (Protection of freedom of speech and expression)", "Article 21 (Protection of life and personal liberty)"],
+        "correct_id": 3,
+        "lang": "en",
+        "explanation": "💡 Articles 15, 16, 19, 29, and 30 are available exclusively to Indian citizens. Article 21 (Right to Life) is a universal human right guaranteed to both citizens and foreigners alike."
+    },
+    {
+        "question": "Which of the following statements is true regarding the Adjournment and Prorogation of a parliamentary house?",
+        "options": ["Both adjournment and prorogation are done by the President", "Adjournment is done by the Presiding Officer of the House, while Prorogation is done by the President", "Prorogation terminates all pending bills before the House", "Adjournment terminates the entire session of the House"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Adjournment terminates a sitting for a specified time (hours, days, or weeks) and is done by the Speaker/Chairman. Prorogation not only terminates a sitting but also the session, and it is issued by the President."
+    },
+    {
+        "question": "Who among the following was the Chairman of the 'Provincial Constitution Committee' of the Constituent Assembly?",
+        "options": ["Dr. B. R. Ambedkar", "Pandit Jawaharlal Nehru", "Sardar Vallabhbhai Patel", "Dr. Rajendra Prasad"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 Sardar Vallabhbhai Patel chaired the Provincial Constitution Committee. Jawaharlal Nehru headed the Union Powers and Union Constitution Committees, while Dr. Ambedkar chaired the Drafting Committee."
+    },
+    {
+        "question": "The concept of 'Judicial Review' in the Indian Constitution is explicitly inspired by the constitutional system of which country?",
+        "options": ["United Kingdom (UK)", "United States of America (USA)", "Canada", "Australia"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Although the phrase 'Judicial Review' is not explicitly mentioned anywhere in the text, its structure and implementation (especially in Articles 13, 32, and 226) are heavily adapted from the US Constitution."
+    },
+    {
+        "question": "Whose prior recommendation is necessary to introduce a bill in Parliament related to the formation of a new state or alteration of areas/boundaries?",
+        "options": ["Chief Minister of the concerned state", "The President of India", "Presiding Officers of both Houses of Parliament", "The Union Home Minister"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Under Article 3, a bill altering state boundaries or creating new states can be introduced in either House of Parliament only with the prior recommendation of the President."
+    },
+    {
+        "question": "In which historic case did the Supreme Court rule that 'Fundamental Rights' and 'Directive Principles of State Policy' are complementary to each other and their balance is part of the basic structure?",
+        "options": ["Kesavananda Bharati Case, 1973", "A.K. Gopalan Case, 1950", "Minerva Mills Case, 1980", "Waman Rao Case, 1981"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 In the Minerva Mills case (1980), the Court held that the Indian Constitution is founded on the bedrock of the balance between Fundamental Rights and DPSP. They are like two wheels of a chariot."
+    },
+    {
+        "question": "A resolution approving the proclamation of 'National Emergency' under Article 352 must be passed by either House of Parliament by which majority?",
+        "options": ["Simple majority of the total membership of the House", "Special majority (Majority of total membership + 2/3rd of members present and voting)", "Simple majority of members present and voting", "Special 3/4th majority of the total membership of the House"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 After the 44th Amendment Act of 1978, a proclamation of National Emergency must be approved by each House of Parliament by a 'Special Majority' within one month from the date of its issue."
+    },
+    {
+        "question": "If a question arises as to whether a member of Parliament has become subject to disqualification under the Anti-Defection Law (10th Schedule), who holds the ultimate deciding authority?",
+        "options": ["The President of India", "The Election Commission of India", "The Presiding Officer of the respective House (Speaker/Chairman)", "The Chief Justice of the Supreme Court"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 Disqualification questions under the 10th Schedule are decided by the Speaker of Lok Sabha or Chairman of Rajya Sabha. Following the Kihoto Hollohan case (1992), this decision is subject to judicial review."
+    },
+    {
+        "question": "Under which Article of the Constitution can the President grant assent or withhold assent to a bill reserved by the Governor of a state for the President's consideration?",
+        "options": ["Article 200", "Article 201", "Article 213", "Article 143"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 While Article 200 deals with the Governor reserving a bill for the President, Article 201 explicitly outlines the choices available to the President regarding that reserved bill."
+    },
+    {
+        "question": "Which of the following compositions is correct regarding the constitution of the Public Accounts Committee (PAC)?",
+        "options": ["Total 15 members (10 from Lok Sabha + 5 from Rajya Sabha)", "Total 22 members (15 from Lok Sabha + 7 from Rajya Sabha)", "Total 30 members (All from Lok Sabha)", "Total 25 members (15 from Lok Sabha + 10 from Rajya Sabha)"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 The PAC consists of 22 members (15 elected by Lok Sabha and 7 nominated from Rajya Sabha). A minister cannot be elected as its member, and by convention, the chairman is selected from the opposition."
+    },
+    {
+        "question": "Which of the following statements is completely true regarding the 'Estimates Committee' of Parliament?",
+        "options": ["Its members are elected from both Houses of Parliament", "It consists of 22 members in total", "All of its 30 members are elected exclusively from the Lok Sabha", "It has a fixed tenure of 5 years"],
+        "correct_id": 2,
+        "lang": "en",
+        "explanation": "💡 The Estimates Committee is the largest standing committee of Parliament. It features 30 members, and all of them are drawn strictly from the Lok Sabha. Its term of office is 1 year."
+    },
+    {
+        "question": "Under which Article of the Indian Constitution is the Supreme Court empowered to review any judgment pronounced or order made by it?",
+        "options": ["Article 132", "Article 137", "Article 141", "Article 142"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Subject to the provisions of any law made by Parliament or rules under Article 145, Article 137 grants the Supreme Court the power to review its own judgments to correct any judicial errors."
+    },
+    {
+        "question": "In which year and under whose premiership was the 'L. M. Singhvi Committee' formed, which recommended giving constitutional status to Panchayati Raj institutions?",
+        "options": ["1977, Morarji Desai", "1986, Rajiv Gandhi", "1989, V. P. Singh", "1992, P. V. Narsimha Rao"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 The L.M. Singhvi Committee was appointed by the Rajiv Gandhi government in 1986. It was this committee that strongly recommended a new chapter in the Constitution to protect and preserve Panchayati Raj."
+    },
+    {
+        "question": "Who determines the salary, allowances, and conditions of service of the Comptroller and Auditor General (CAG) of India?",
+        "options": ["The President of India", "The Parliament by law", "The Chief Justice of India", "The Union Ministry of Finance"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 According to Article 148(3), the salary and service conditions of the CAG are determined by Parliament by law. Neither his salary nor his rights in respect of leave can be varied to his disadvantage after appointment."
+    },
+    {
+        "question": "According to the mandatory provisions of the 73rd Constitutional Amendment Act, 1992, what fraction of seats must be reserved for women in Panchayati Raj institutions?",
+        "options": ["At least one-fourth (1/4) of total seats", "At least one-third (1/3) of total seats", "Exactly half (1/2) of total seats", "The reservation fraction is left entirely to the State Legislature"],
+        "correct_id": 1,
+        "lang": "en",
+        "explanation": "💡 Article 243D mandates the reservation of not less than one-third of the total number of seats for women (including the number of seats reserved for SC/ST women) in direct elections and offices of chairpersons."
+    },
+    {
         "question": "What is 20% of 250?",
         "options": ["40", "50", "60", "45"],
         "correct_id": 1,
