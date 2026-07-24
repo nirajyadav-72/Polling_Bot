@@ -1066,7 +1066,7 @@ def send_welcome(message):
         )
     else:
         welcome_text = (
-            f"👋 *Hello {message.from_user.first_name}!*\n"
+            f"👋 *Hey {message.from_user.first_name}!*\n"
             f"*Welcome!* This bot is the easiest way to keep your groups active and engaged.\n\n"
             f"*📌 My Features:*\n\n"
             f"📊 *Daily Auto Poll:*\n"
@@ -1325,9 +1325,10 @@ def handle_left_or_joined(my_chat_member):
                     print(f"इमेज फोल्डर रीड करने में एरर: {e}")
                 
                 group_text = (
+                    f"🌟 *Hey everyone,* I'm poll bot, Thanks for the invite 💖\n\n"
                     f"🎉 *Join Group Successfully!*\n"
-                    f"📢 Automated quizzes have been activated for this group.\n\n"
                     f"🇮🇳 *Group Name:* [{chat_title}]\n"
+                    f"📢 Automated quizzes have been activated for this group.\n\n"
                     f"This bot is the easiest way to keep your groups active and engaged.\n\n"
                     f"📌 *My Features:*\n"
                     f"📊 *Daily Auto Poll:* Automatically sends a new poll every day at your set time interval.\n"
