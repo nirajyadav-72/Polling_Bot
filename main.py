@@ -1791,7 +1791,7 @@ def handle_cancel_ban(message):
 # =====================================================================
 # 💾 🤖 AUTOMATIC USER TRACKER + DAILY TEXT LIMIT (Bot Admins Included)
 # =====================================================================
-DAILY_MSG_LIMIT = 10  # 👈 Yahan aap apni marzi se limit set kar sakte hain
+DAILY_MSG_LIMIT = 20  # 👈 Yahan aap apni marzi se limit set kar sakte hain
 
 @bot.message_handler(func=lambda message: True, content_types=['text', 'photo', 'video', 'sticker', 'document', 'voice', 'audio', 'animation'])
 def track_save_and_limit_users(message):
