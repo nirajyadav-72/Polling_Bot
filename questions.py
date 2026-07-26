@@ -2849,5 +2849,285 @@ QUIZ_LIST = [
         "lang": "english",
         "explanation": "💡 Let CP = 100 and SP = 200 (Profit = 100). If SP is doubled to 400, the new profit becomes 300 (which is 3 times 100). Thus, the original profit was 100%."
     },
+    {
+        "question": "Who was appointed as the Temporary Chairman of the Constituent Assembly?",
+        "options": ["Dr. Rajendra Prasad", "Dr. Sachchidananda Sinha", "Sir B.N. Rao", "Dr. B.R. Ambedkar"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Dr. Sachchidananda Sinha was chosen as the temporary Chairman during the first meeting of the Constituent Assembly on December 9, 1946."
+    },
+    {
+        "question": "By which Constitutional Amendment were the words 'Secular' and 'Socialist' added to the Preamble?",
+        "options": ["42nd Amendment", "44th Amendment", "86th Amendment", "They were present from the beginning"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The 42nd Constitutional Amendment Act of 1976 added the words Socialist, Secular, and Integrity to the Preamble."
+    },
+    {
+        "question": "In which year was the First Amendment to the Indian Constitution enacted?",
+        "options": ["1950", "1951", "1952", "1955"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The first constitutional amendment was made in 1951, which added the 9th Schedule to protect land reform laws."
+    },
+    {
+        "question": "Which was the first state in India to be formed on a linguistic basis?",
+        "options": ["Tamil Nadu", "Kerala", "Andhra Pradesh", "West Bengal"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Andhra Pradesh was the first state created on a linguistic basis on October 1, 1953."
+    },
+    {
+        "question": "The 'Eighth Schedule' of the Indian Constitution is related to which of the following?",
+        "options": ["Anti-Defection Law", "Panchayati Raj System", "Official Languages of India", "Centre-State Relations"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Eighth Schedule recognizes the 22 official regional languages of India."
+    },
+    {
+        "question": "Who was the Chairman of the 'Provincial Constitution Committee' of the Constituent Assembly?",
+        "options": ["Dr. B.R. Ambedkar", "Jawaharlal Nehru", "Sardar Vallabhbhai Patel", "J.B. Kripalani"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Sardar Vallabhbhai Patel headed the Provincial Constitution Committee, while Dr. Ambedkar chaired the Drafting Committee."
+    },
+    {
+        "question": "Which Article describes the process of amending the Constitution of India?",
+        "options": ["Article 356", "Article 360", "Article 368", "Article 370"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Article 368 in Part XX of the Constitution outlines the powers and procedures of the Parliament to amend the document."
+    },
+    {
+        "question": "Which committee recommended the three-tier structure of the Panchayati Raj System?",
+        "options": ["Ashok Mehta Committee", "Balwant Rai Mehta Committee", "Sarkaria Commission", "L.M. Singhvi Committee"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 In 1957, the Balwant Rai Mehta Committee recommended a three-tier Panchayati Raj system at the village, block, and district levels."
+    },
+    {
+        "question": "The 73rd Constitutional Amendment Act, 1992 is related to which of the following?",
+        "options": ["Municipalities", "Panchayati Raj System", "Land Reforms", "Anti-Defection Law"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The 73rd Amendment granted constitutional status to rural local self-governments, known as the Panchayati Raj Institutions."
+    },
+    {
+        "question": "Which of the following subjects falls under the 'Concurrent List'?",
+        "options": ["Agriculture", "Education", "Police", "Defense"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Education was moved from the State List to the Concurrent List by the 42nd Amendment in 1976, allowing both Centre and States to make laws on it."
+    },
+    {
+        "question": "In which part of the Indian Constitution are the 'Fundamental Rights' described?",
+        "options": ["Part II", "Part III", "Part IV", "Part V"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Part III of the Indian Constitution deals with Fundamental Rights from Articles 12 to 35."
+    },
+    {
+        "question": "From which country's constitution were the 'Directive Principles of State Policy' (DPSP) borrowed?",
+        "options": ["USA", "Ireland", "Australia", "UK"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Directive Principles of State Policy included in Part IV of the Constitution are inspired by the Constitution of Ireland."
+    },
+    {
+        "question": "Which Fundamental Right was called the 'Heart and Soul of the Constitution' by Dr. B.R. Ambedkar?",
+        "options": ["Right to Equality", "Right to Freedom", "Right to Constitutional Remedies", "Right to Freedom of Religion"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Dr. Ambedkar called Article 32 (Right to Constitutional Remedies) the heart and soul because it protects citizens against violations of their fundamental rights."
+    },
+    {
+        "question": "On the recommendation of which committee were 'Fundamental Duties' added to the Indian Constitution?",
+        "options": ["Verma Committee", "Swaran Singh Committee", "Shah Commission", "Kothari Committee"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 On the recommendation of the Swaran Singh Committee, Fundamental Duties were added under Article 51A via the 42nd Amendment in 1976."
+    },
+    {
+        "question": "Which Article of the Constitution guarantees the 'Right to Education' to citizens of India?",
+        "options": ["Article 19", "Article 21", "Article 21A", "Article 22"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Article 21A was added by the 86th Amendment (2002) to make free and compulsory education for children aged 6 to 14 a fundamental right."
+    },
+    {
+        "question": "Under which Constitutional Amendment was the 'Right to Property' removed from the list of Fundamental Rights?",
+        "options": ["42nd Amendment", "44th Amendment", "52nd Amendment", "61st Amendment"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The 44th Constitutional Amendment Act of 1978 deleted the Right to Property as a Fundamental Right and made it a legal right under Article 300A."
+    },
+    {
+        "question": "Which Article of the Constitution prohibits the practice of 'Untouchability'?",
+        "options": ["Article 14", "Article 15", "Article 16", "Article 17"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Article 17 abolishes 'Untouchability' and forbids its practice in any form, making it a punishable offense."
+    },
+    {
+        "question": "Which Article of the Indian Constitution promotes the establishment of 'Village Panchayats' under DPSP?",
+        "options": ["Article 39", "Article 40", "Article 44", "Article 48"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Article 40 of the Directive Principles directs the State to organize village panchayats as units of self-government."
+    },
+    {
+        "question": "How many 'Fundamental Duties' are currently listed in the Indian Constitution?",
+        "options": ["8", "10", "11", "12"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Originally 10 duties were added by the 42nd Amendment. The 11th duty was added by the 86th Constitutional Amendment Act in 2002."
+    },
+    {
+        "question": "Which Writ issued by the court means 'We Command' or orders a public authority to perform a legal duty?",
+        "options": ["Habeas Corpus", "Mandamus", "Certiorari", "Quo Warranto"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mandamus is a judicial remedy in the form of an order from a superior court to any government subordinate court, corporation, or public authority to do a specific duty."
+    },
+    {
+        "question": "Who appoints the Chief Election Commissioner of India?",
+        "options": ["The Prime Minister", "The Parliament", "The President", "The Chief Justice of India"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The President of India appoints the Chief Election Commissioner and other Election Commissioners."
+    },
+    {
+        "question": "What is the tenure of a member of the Rajya Sabha?",
+        "options": ["4 Years", "5 Years", "6 Years", "It is a permanent house, so no tenure"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 While the Rajya Sabha is a permanent body, its individual members are elected for a term of 6 years, with one-third retiring every two years."
+    },
+    {
+        "question": "Who presides over the Joint Sitting of both Houses of Parliament?",
+        "options": ["The President", "The Vice-President", "The Prime Minister", "The Speaker of Lok Sabha"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The President calls for a Joint Sitting, but it is always presided over by the Speaker of the Lok Sabha."
+    },
+    {
+        "question": "To whom does the Vice-President of India address their resignation letter?",
+        "options": ["The President", "The Prime Minister", "The Speaker of Lok Sabha", "The Chief Justice of India"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Vice-President submits their resignation to the President, and the President submits theirs to the Vice-President."
+    },
+    {
+        "question": "Where can a No-Confidence Motion against the ruling government be introduced?",
+        "options": ["Only in Lok Sabha", "Only in Rajya Sabha", "In either House of Parliament", "In a Joint Sitting of Parliament"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 A No-Confidence Motion can only be introduced in the Lok Sabha because the Council of Ministers is collectively responsible to it."
+    },
+    {
+        "question": "What is the minimum age required to become the Prime Minister of India if he/she is a member of the Rajya Sabha?",
+        "options": ["25 Years", "30 Years", "35 Years", "There is no age limit"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The minimum age for a Lok Sabha member is 25, but if the chosen Prime Minister belongs to the Rajya Sabha, the minimum age required is 30."
+    },
+    {
+        "question": "Which Article of the Constitution empowers the President of India to grant 'Pardons'?",
+        "options": ["Article 52", "Article 61", "Article 72", "Article 85"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Article 72 gives the President the power to grant pardons, reprieves, respites, or remissions of punishment to any convict."
+    },
+    {
+        "question": "Who certifies a bill introduced in the Parliament as a 'Money Bill'?",
+        "options": ["The President", "The Finance Minister", "The Prime Minister", "The Speaker of Lok Sabha"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Speaker of the Lok Sabha holds the final and absolute authority to decide whether a bill is a Money Bill or not."
+    },
+    {
+        "question": "The 'Upper House' of the Indian Parliament is known by which name?",
+        "options": ["Lok Sabha", "Rajya Sabha", "Legislative Assembly", "Legislative Council"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Indian Parliament has two houses: the Rajya Sabha is known as the Upper House, and the Lok Sabha is the Lower House."
+    },
+    {
+        "question": "Who is the Ex-officio Chairman of the Rajya Sabha?",
+        "options": ["The President", "The Prime Minister", "The Vice-President", "The Minister of Parliamentary Affairs"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Vice-President of India automatically serves as the ex-officio Chairman of the Rajya Sabha."
+    },
+    {
+        "question": "Under which Article of the Constitution can President's Rule be imposed in a State?",
+        "options": ["Article 352", "Article 356", "Article 360", "Article 368"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 If the constitutional machinery breaks down in a state, President's Rule can be imposed under Article 356."
+    },
+    {
+        "question": "What is the retirement age of a Judge of the High Court?",
+        "options": ["60 Years", "62 Years", "65 Years", "70 Years"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 High Court judges retire at the age of 62, while Supreme Court judges retire at 65."
+    },
+    {
+        "question": "Under which Article of the Constitution is the Finance Commission constituted?",
+        "options": ["Article 275", "Article 280", "Article 312", "Article 324"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Under Article 280, the President constitutes the Finance Commission every five years to handle financial allocations."
+    },
+    {
+        "question": "Who appoints the Chief Minister of a State in India?",
+        "options": ["The President", "The Governor", "The Chief Justice of the High Court", "The Speaker of the Legislative Assembly"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 According to Article 164, the Governor appoints the leader of the majority party in the state assembly elections as the Chief Minister."
+    },
+    {
+        "question": "What is the tenure of the Comptroller and Auditor General (CAG) of India?",
+        "options": ["5 Years", "6 Years or up to the age of 65", "5 Years or up to the age of 62", "During the pleasure of the President"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The CAG holds office for a term of six years or until they attain the age of 65 years, whichever comes first."
+    },
+    {
+        "question": "Who administers the oath of office to the Chief Justice of the Supreme Court of India?",
+        "options": ["The Prime Minister", "The Outgoing Chief Justice", "The President", "The Speaker of Lok Sabha"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The President of India administers the oath of office and secrecy to the Chief Justice of India (CJI)."
+    },
+    {
+        "question": "What is the minimum age required to be appointed as the Governor of a State?",
+        "options": ["25 Years", "30 Years", "35 Years", "40 Years"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 A person must be a citizen of India and have completed the age of 35 years to be eligible for appointment as a Governor."
+    },
+    {
+        "question": "In which Indian state was the first 'Lok Adalat' (People's Court) held?",
+        "options": ["Maharashtra", "Gujarat", "Rajasthan", "Uttar Pradesh"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The first Lok Adalat in India was organized in Gujarat in 1982 to settle disputes quickly and amicably."
+    },
+    {
+        "question": "Who has the power to remove a Judge of the Supreme Court of India from office?",
+        "options": ["The President alone", "The Chief Justice alone", "The President on an address by Parliament", "The Prime Minister"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 A Supreme Court judge can only be removed by the President after an address by both Houses of Parliament passed with a special majority."
+    },
+    {
+        "question": "Who is considered the 'Custodian or Guardian' of the Indian Constitution?",
+        "options": ["The Parliament", "The President", "The Prime Minister", "The Supreme Court of India"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Supreme Court of India is the final interpreter and guardian of the Constitution, protecting it against any legislative overreach."
+    }
 
 ]
