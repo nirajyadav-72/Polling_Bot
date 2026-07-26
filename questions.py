@@ -1807,6 +1807,146 @@ QUIZ_LIST = [
         "explanation": "💡 Calculation: (20 / 100) * 250 = 0.2 * 250 = 50."
     },
     {
+        "question": "Who founded the Indian National Congress (INC) in the year 1885?",
+        "options": ["W. C. Bonnerjee", "A. O. Hume", "Dadabhai Naoroji", "Surendranath Banerjee"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Allan Octavian Hume (A. O. Hume), a retired British Civil Servant, played the pivotal role in organizing the first meeting and founding the INC in December 1885."
+    },
+    {
+        "question": "The controversial 'Partition of Bengal' took place during the tenure of which British Viceroy?",
+        "options": ["Lord Curzon", "Lord Minto", "Lord Hardinge", "Lord Chelmsford"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Viceroy Lord Curzon announced the Partition of Bengal in 1905 on administrative grounds, though its main purpose was to divide the growing nationalist movement."
+    },
+    {
+        "question": "In which year did Mahatma Gandhi return to India permanently from South Africa?",
+        "options": ["1913", "1915", "1917", "1919"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mahatma Gandhi returned to India on January 9, 1915. This historic date is celebrated every year as 'Pravasi Bharatiya Divas' (Non-Resident Indian Day)."
+    },
+    {
+        "question": "Which was Mahatma Gandhi's first successful Satyagraha movement after arriving in India?",
+        "options": ["Kheda Satyagraha", "Ahmedabad Mill Strike", "Champaran Satyagraha", "Non-Cooperation Movement"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Gandhi Ji led his first Satyagraha in 1917 in Champaran, Bihar, to fight against the exploitative European indigo planters under the Tinkathia system."
+    },
+    {
+        "question": "On which tragic date did the Jallianwala Bagh Massacre take place in Amritsar?",
+        "options": ["April 13, 1919", "May 10, 1920", "March 5, 1919", "March 23, 1931"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 On April 13, 1919 (Baisakhi Day), British troops under General Dyer opened fire on a peaceful public gathering inside Jallianwala Bagh, killing hundreds."
+    },
+    {
+        "question": "Mahatma Gandhi abruptly called off the Non-Cooperation Movement in 1922 due to which violent incident?",
+        "options": ["Jallianwala Bagh Tragedy", "Chauri Chaura Incident", "Kakori Train Robbery", "Gandhi-Irwin Pact"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Following a violent clash where an angry mob set fire to a police station in Chauri Chaura (Gorakhpur) killing 22 policemen, Gandhi Ji withdrew the movement due to his strict adherence to non-violence."
+    },
+    {
+        "question": "In which historic Congress Session was the resolution for 'Purna Swaraj' (Complete Independence) passed?",
+        "options": ["1907 Surat Session", "1920 Calcutta Session", "1929 Lahore Session", "1931 Karachi Session"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Under the presidency of Pandit Jawaharlal Nehru, the 1929 Lahore Session passed the historic 'Purna Swaraj' declaration, setting complete independence as Congress's primary goal."
+    },
+    {
+        "question": "On which date did Mahatma Gandhi launch his famous 'Dandi March' from Sabarmati Ashram?",
+        "options": ["March 12, 1930", "April 6, 1930", "January 26, 1930", "August 15, 1930"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Gandhi Ji began his 24-day walk to coastal Dandi on March 12, 1930, to break the Salt law, which marked the formal launch of the Civil Disobedience Movement."
+    },
+    {
+        "question": "The historic 'Poona Pact' of 1932 was signed between Mahatma Gandhi and which prominent leader?",
+        "options": ["Jawaharlal Nehru", "Dr. B.R. Ambedkar", "Subhas Chandra Bose", "Muhammad Ali Jinnah"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Signed at Yerwada Central Jail, the Poona Pact settled a dispute between Mahatma Gandhi and Dr. B.R. Ambedkar regarding separate electorates for depressed classes, opting for reserved seats instead."
+    },
+    {
+        "question": "Which massive mass movement was launched in August 1942 following the failure of the Cripps Mission?",
+        "options": ["Swadeshi Movement", "Civil Disobedience Movement", "Quit India Movement", "Khilafat Movement"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Mahatma Gandhi launched the Quit India Movement at the Bombay session of the All India Congress Committee with his inspiring slogan 'Do or Die'."
+    },
+    {
+        "question": "In which year was the Battle of Plassey fought?",
+        "options": ["1757", "1764", "1761", "1785"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Battle of Plassey was fought on June 23, 1757, between the British East India Company forces led by Robert Clive and the Nawab of Bengal, Siraj-ud-Daulah."
+    },
+    {
+        "question": "Who introduced the 'Permanent Settlement' system of land revenue in India?",
+        "options": ["Lord William Bentinck", "Lord Curzon", "Lord Cornwallis", "Lord Dalhousie"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Lord Cornwallis introduced the Permanent Settlement system in Bengal, Bihar, and Odisha in 1793 to secure a fixed revenue from landlords."
+    },
+    {
+        "question": "Who was the Governor-General of India during the Revolt of 1857?",
+        "options": ["Lord Dalhousie", "Lord Canning", "Lord Ripon", "Lord Lytton"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Lord Canning was the Governor-General during the 1857 uprising. He later became the first Viceroy of India under the Government of India Act 1858."
+    },
+    {
+        "question": "Which state was the first to be annexed by the British under the 'Doctrine of Lapse'?",
+        "options": ["Jhansi", "Nagpur", "Satara", "Awadh"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Lord Dalhousie annexed Satara (located in Maharashtra) in 1848 as the first state under his expansionist policy called the Doctrine of Lapse."
+    },
+    {
+        "question": "Who led the anti-British rebels in 'Kanpur' during the Revolt of 1857?",
+        "options": ["Nana Saheb", "Kunwar Singh", "Begum Hazrat Mahal", "Bakht Khan"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Nana Saheb (Dhondo Pant), along with his close military commander Tatya Tope, led the historic siege and uprising against the British forces in Kanpur."
+    },
+    {
+        "question": "Which Governor-General heavily popularized the 'Subsidiary Alliance' system to expand British control?",
+        "options": ["Lord Wellesley", "Lord Hastings", "Robert Clive", "Lord Dufferin"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Lord Wellesley introduced and widely implemented the Subsidiary Alliance system to reduce French influence and make Indian rulers dependent on the British."
+    },
+    {
+        "question": "In which year did Raja Ram Mohan Roy establish the 'Brahmo Samaj'?",
+        "options": ["1815", "1820", "1828", "1835"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Raja Ram Mohan Roy established the Brahmo Samaj in August 1828 in Calcutta to fight social evils like idolatry and meaningless rituals."
+    },
+    {
+        "question": "Which Governor-General passed the law that declared the practice of 'Sati' illegal and punishable?",
+        "options": ["Lord William Bentinck", "Lord Dalhousie", "Lord Auckland", "Lord Ellenborough"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Backed by the rigorous reform efforts of Raja Ram Mohan Roy, Governor-General Lord William Bentinck banned Sati in December 1829 via Regulation XVII."
+    },
+    {
+        "question": "Who is widely referred to as the 'Father of Indian Renaissance'?",
+        "options": ["Swami Vivekananda", "Ishwar Chandra Vidyasagar", "Raja Ram Mohan Roy", "Dayanand Saraswati"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Raja Ram Mohan Roy is called the Father of Indian Renaissance due to his pioneering efforts in social reform, women's rights, and modern education."
+    },
+    {
+        "question": "Where was the 'Arya Samaj' originally founded by Swami Dayanand Saraswati in 1875?",
+        "options": ["Bombay (Mumbai)", "Calcutta (Kolkata)", "Lahore", "Amritsar"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Swami Dayanand Saraswati founded the Arya Samaj in April 1875 in Bombay to revive Vedic knowledge. Its headquarters were later moved to Lahore."
+    },
+    {
         "question": "If 35% of a number is 105, what is the number?",
         "options": ["250", "280", "300", "320"],
         "correct_id": 2,
