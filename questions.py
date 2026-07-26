@@ -978,6 +978,76 @@ QUIZ_LIST = [
         "explanation": "💡 गन्ने के अत्यधिक उत्पादन के कारण उत्तर प्रदेश को भारत का 'चीनी का कटोरा' कहा जाता है।"
     },
     {
+        "question": "दिल्ली सल्तनत के किस सुल्तान को 'लाखबख्श' (लाखों का दान देने वाला) कहा जाता था?",
+        "options": ["इल्तुतमिश", "कुतुबुद्दीन ऐबक", "अलाउद्दीन खिलजी", "फिरोज शाह तुगलक"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कुतुबुद्दीन ऐबक अपनी अत्यधिक उदारता और लाखों का दान करने के कारण 'लाखबख्श' के नाम से प्रसिद्ध था।"
+    },
+    {
+        "question": "दिल्ली की गद्दी पर बैठने वाली पहली और एकमात्र मुस्लिम महिला शासक कौन थी?",
+        "options": ["रज़िया सुल्तान", "चांद बीबी", "नूरजहां", "मुमताज महल"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 इल्तुतमिश की बेटी रज़िया सुल्तान ने 1236 से 1240 ईस्वी तक दिल्ली सल्तनत पर शासन किया था।"
+    },
+    {
+        "question": "प्रसिद्ध फारसी कवि अमीर खुसरो निम्नलिखित में से किस सुल्तान के दरबारी कवि थे?",
+        "options": ["बलबन", "इल्तुतमिश", "अलाउद्दीन खिलजी", "मोहम्मद बिन तुगलक"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 अमीर खुसरो ने कई सुल्तानों का काल देखा था, लेकिन वे मुख्य रूप से अलाउद्दीन खिलजी के शाही दरबारी कवि थे।"
+    },
+    {
+        "question": "किस सुल्तान ने अपनी राजधानी दिल्ली से बदलकर दौलताबाद (देवगिरि) स्थानांतरित की थी?",
+        "options": ["गयासुद्दीन तुगलक", "मोहम्मद बिन तुगलक", "सिकंदर लोदी", "इब्राहिम लोदी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 मोहम्मद बिन तुगलक ने अपनी प्रशासनिक योजनाओं के तहत 1327 में राजधानी को दिल्ली से दक्कन के दौलताबाद स्थानांतरित किया था।"
+    },
+    {
+        "question": "बाजार नियंत्रण प्रणाली (Market Control System) लागू करने के लिए कौन सा सुल्तान प्रसिद्ध है?",
+        "options": ["अलाउद्दीन खिलजी", "बलबन", "जलालुद्दीन खिलजी", "शेरशाह सूरी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 अलाउद्दीन खिलजी ने अपनी विशाल सेना को कम खर्च पर बनाए रखने के लिए अनाज, कपड़ों और अन्य वस्तुओं की कीमतें तय की थीं।"
+    },
+    {
+        "question": "प्रसिद्ध यात्री इब्न बतूता (Ibn Battuta) किसके शासनकाल में भारत आया था?",
+        "options": ["अलाउद्दीन खिलजी", "मोहम्मद बिन तुगलक", "फिरोज शाह तुगलक", "बहलोल लोदी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 मोरक्को का यात्री इब्न बतूता 1333 ईस्वी में मोहम्मद बिन तुगलक के काल में भारत आया था, जिसने अपनी पुस्तक 'रेहला' में इसका वर्णन किया है।"
+    },
+    {
+        "question": "आगरा शहर की स्थापना किस शासक ने की थी?",
+        "options": ["बहलोल लोदी", "सिकंदर लोदी", "इब्राहिम लोदी", "शाहजहां"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 लोदी वंश के शासक सिकंदर लोदी ने 1504 ईस्वी में आगरा शहर की स्थापना की थी और बाद में इसे अपनी राजधानी बनाया।"
+    },
+    {
+        "question": "दिल्ली सल्तनत का अंतिम शासक कौन था जिसे बाबर ने पानीपत के पहले युद्ध में हराया था?",
+        "options": ["सिकंदर लोदी", "इब्राहिम लोदी", "दौलत खान लोदी", "खिज्र खान"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 इब्राहिम लोदी दिल्ली सल्तनत का अंतिम सुल्तान था, जो 1526 में पानीपत की पहली लड़ाई में बाबर के हाथों मारा गया।"
+    },
+    {
+        "question": "चहलगानी या 'चालीसा दल' (40 तुर्क सरदारों का समूह) का गठन किसने किया था?",
+        "options": ["कुतुबुद्दीन ऐबक", "इल्तुतमिश", "बलबन", "रजिया सुल्तान"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 इल्तुतमिश ने अपने प्रशासन को मजबूत करने के लिए 40 वफादार तुर्क गुलामों के एक शक्तिशाली दल का गठन किया था।"
+    },
+    {
+        "question": "सल्तनत काल में किस सुल्तान ने सर्वप्रथम ब्राह्मणों पर भी 'जज़िया कर' लगाया था?",
+        "options": ["अलाउद्दीन खिलजी", "मोहम्मद बिन तुगलक", "फिरोज शाह तुगलक", "बलबन"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 फिरोज शाह तुगलक ने अपने शासनकाल में धार्मिक नीतियों को कड़ा करते हुए ब्राह्मणों को भी जज़िया कर के दायरे में ला दिया था।"
+    },
+    {
         "question": "भारी जल (Heavy Water) का रासायनिक सूत्र (Chemical Formula) क्या होता है?",
         "options": ["H2O", "D2O", "CO2", "H2O2"],
         "correct_id": 1,
@@ -1025,6 +1095,76 @@ QUIZ_LIST = [
         "correct_id": 1,
         "lang": "hindi",
         "explanation": "💡 मानव छाती में पसलियों के कुल 12 जोड़े (यानी संख्या में 24 पसलियां) होते हैं जो फेफड़ों की रक्षा करते हैं।"
+    },
+    {
+        "question": "खानवा का प्रसिद्ध युद्ध (Battle of Khanwa) 1527 में बाबर और किसके बीच लड़ा गया था?",
+        "options": ["इब्राहिम लोदी", "राणा सांगा", "मेदनी राय", "महमूद लोदी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानीपत के युद्ध के बाद बाबर ने भारत में पैर जमाने के लिए 1527 में मेवाड़ के राजा राणा सांगा को खानवा के युद्ध में हराया था।"
+    },
+    {
+        "question": "दिल्ली के प्रसिद्ध 'लाल किले' का निर्माण किस मुगल बादशाह ने करवाया था?",
+        "options": ["अकबर", "जहाँगीर", "शाहजहाँ", "औरंगज़ेब"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 शाहजहाँ ने अपनी नई राजधानी शाहजहाँनाबाद के हिस्से के रूप में यमुना नदी के तट पर लाल किले का निर्माण करवाया था।"
+    },
+    {
+        "question": "मुगल काल में 'दीन-ए-इलाही' नामक एक नए धार्मिक मार्ग की शुरुआत किसने की थी?",
+        "options": ["हुमायूं", "अकबर", "जहाँगीर", "शाहजहाँ"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 अकबर ने 1582 ईस्वी में सभी धर्मों के अच्छे विचारों को मिलाकर 'दीन-ए-इलाही' (तौहीद-ए-इलाही) की शुरुआत की थी।"
+    },
+    {
+        "question": "दक्षिण भारत के प्रसिद्ध 'विजयनगर साम्राज्य' की स्थापना किसने की थी?",
+        "options": ["कृष्णदेव राय", "हरिहर और बुक्का", "राजराज चोल", "देवराय प्रथम"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 1336 ईस्वी में तुंगभद्रा नदी के तट पर हरिहर और बुक्का नामक दो भाइयों ने विजयनगर साम्राज्य की नींव रखी थी।"
+    },
+    {
+        "question": "किस मुगल बादशाह के शासनकाल को 'चित्रकला का स्वर्ण काल' (Golden Age of Painting) कहा जाता है?",
+        "options": ["अकबर", "जहाँगीर", "शाहजहाँ", "हुमायूं"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जहाँगीर स्वयं चित्रकला का बड़ा पारखी था और उसके काल में मुगल चित्रकला अपने चरम उत्कर्ष पर पहुँची थी।"
+    },
+    {
+        "question": "हुमायूंनामा (Humayun-nama) की रचना निम्नलिखित में से किसने की थी?",
+        "options": ["गुलबदन बेगम", "हुमायूं", "अब्दुल हमीद लाहौरी", "जहाँआरा बेगम"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 हुमायूं की सौतेली बहन गुलबदन बेगम ने अकबर के अनुरोध पर हुमायूं के जीवन पर आधारित 'हुमायूंनामा' लिखा था।"
+    },
+    {
+        "question": "प्रसिद्ध सूफी संत शेख सलीम चिश्ती किस मुगल शासक के समकालीन थे और कहाँ रहते थे?",
+        "options": ["बाबर - दिल्ली", "अकबर - फतेहपुर सीकरी", "जहाँगीर - आगरा", "शाहजहाँ - अजमेर"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 शेख सलीम चिश्ती अकबर के समकालीन थे। अकबर उनके प्रति गहरा सम्मान रखता था और उन्हीं के नाम पर अपने बेटे का नाम सलीम (जहाँगीर) रखा था।"
+    },
+    {
+        "question": "शिवाजी महाराज का राज्याभिषेक (Coronation) किस किले में हुआ था?",
+        "options": ["पुणे किला", "रायगढ़ किला", "तोरणा किला", "सिंहगढ़ किला"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 6 जून 1674 को काशी के प्रसिद्ध विद्वान गागाभट्ट द्वारा रायगढ़ के किले में छत्रपति शिवाजी महाराज का राज्याभिषेक किया गया था।"
+    },
+    {
+        "question": "शेरशाह सूरी का मकबरा (Tomb of Sher Shah Suri) कहाँ स्थित है?",
+        "options": ["दिल्ली", "सासाराम", "कालिंजर", "जौनपुर"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 सूर वंश के संस्थापक शेरशाह सूरी का मकबरा बिहार के सासाराम में एक कृत्रिम झील के बीच में स्थित है।"
+    },
+    {
+        "question": "हल्दीघाटी का प्रसिद्ध युद्ध (1756 / 1576 ई.) किनके बीच लड़ा गया था?",
+        "options": ["बाबर और इब्राहिम लोदी", "अकबर और हेमू", "अकबर की सेना और महाराणा प्रताप", "औरंगज़ेब और दारा शिकोह"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 जून 1576 में हल्दीघाटी का ऐतिहासिक युद्ध मेवाड़ के शासक महाराणा प्रताप और अकबर की सेना (नेतृत्व मानसिंह) के बीच लड़ा गया था।"
     },
     {
         "question": "विश्व प्रसिद्ध अजंता की गुफाएं (Ajanta Caves) किस राज्य में स्थित हैं?",
@@ -1961,6 +2101,76 @@ QUIZ_LIST = [
         "explanation": "💡 Percentage = (Marks Obtained / Total Marks) * 100 = (420 / 600) * 100 = 70%."
     },
     {
+        "question": "Which Sultan of the Delhi Sultanate was famously known as 'Lakh Baksh' (Giver of Lakhs) for his generosity?",
+        "options": ["Iltutmish", "Qutb-ud-din Aibak", "Alauddin Khalji", "Firoz Shah Tughlaq"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Qutb-ud-din Aibak was called 'Lakh Baksh' due to his immense generosity and charity towards the poor and scholars."
+    },
+    {
+        "question": "Who was the first and only Muslim woman ruler to sit on the throne of Delhi?",
+        "options": ["Razia Sultana", "Chand Bibi", "Noor Jahan", "Mumtaz Mahal"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Razia Sultana, the daughter of Iltutmish, ruled the Delhi Sultanate from 1236 to 1240 CE."
+    },
+    {
+        "question": "The famous Persian poet Amir Khusrau was primarily the court poet of which Sultan?",
+        "options": ["Balban", "Iltutmish", "Alauddin Khalji", "Muhammad bin Tughlaq"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Although Amir Khusrau witnessed the reigns of several Sultans, he was most prominently the royal court poet of Alauddin Khalji."
+    },
+    {
+        "question": "Which Sultan shifted his capital from Delhi to Daulatabad (Devagiri) in the Deccan?",
+        "options": ["Ghiyasuddin Tughlaq", "Muhammad bin Tughlaq", "Sikandar Lodi", "Ibrahim Lodi"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 In 1327 CE, Muhammad bin Tughlaq ordered the shifting of his capital to Daulatabad to better govern southern India, though the experiment failed."
+    },
+    {
+        "question": "Which ruler is renowned for introducing a highly rigorous Market Control and Price Regulation System?",
+        "options": ["Alauddin Khalji", "Balban", "Jalaluddin Khalji", "Sher Shah Suri"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Alauddin Khalji fixed the prices of essential commodities like grain, cloth, and cattle to maintain a massive standing army at a low cost."
+    },
+    {
+        "question": "The famous Moroccan traveler Ibn Battuta visited India during the reign of which ruler?",
+        "options": ["Alauddin Khalji", "Muhammad bin Tughlaq", "Firoz Shah Tughlaq", "Bahlul Lodi"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Ibn Battuta arrived in India in 1333 CE during the reign of Muhammad bin Tughlaq, who appointed him as a Qazi (judge) in Delhi."
+    },
+    {
+        "question": "Who founded the historic city of Agra in the year 1504 CE?",
+        "options": ["Bahlul Lodi", "Sikandar Lodi", "Ibrahim Lodi", "Shah Jahan"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Sikandar Lodi of the Lodi Dynasty founded Agra in 1504 CE and later shifted his capital there to secure control over trade routes."
+    },
+    {
+        "question": "Who was the last Sultan of Delhi, defeated by Babur in the First Battle of Panipat?",
+        "options": ["Sikandar Lodi", "Ibrahim Lodi", "Daulat Khan Lodi", "Khizr Khan"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Ibrahim Lodi was the last Sultan of Delhi. He was killed on the battlefield by Babur in 1526 CE, marking the end of the Delhi Sultanate."
+    },
+    {
+        "question": "Who organized the famous corporate group of forty powerful Turkish nobles known as 'Turkan-i-Chahalgani'?",
+        "options": ["Qutb-ud-din Aibak", "Iltutmish", "Balban", "Razia Sultana"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Iltutmish formed 'Turkan-i-Chahalgani' (The Forty) consisting of his most loyal and powerful Turkish slaves to secure his hold over the administration."
+    },
+    {
+        "question": "Which Sultan of Delhi was the first to impose the 'Jizya' tax on Brahmins as well?",
+        "options": ["Alauddin Khalji", "Muhammad bin Tughlaq", "Firoz Shah Tughlaq", "Balban"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Firoz Shah Tughlaq made his administrative policies strictly religious and was the first to remove the exemption of Brahmins from the Jizya tax."
+    },
+    {
         "question": "The price of a laptop decreases from ₹40,000 to ₹36,000. Find the percentage decrease.",
         "options": ["8%", "10%", "12%", "15%"],
         "correct_id": 1,
@@ -2071,6 +2281,76 @@ QUIZ_LIST = [
         "correct_id": 1,
         "lang": "english",
         "explanation": "💡 D2O (Deuterium Oxide) is called heavy water. It is used as a moderator in nuclear reactors."
+    },
+    {
+        "question": "The historic Battle of Khanwa (1527) was fought between Babur and which Indian ruler?",
+        "options": ["Ibrahim Lodi", "Rana Sanga", "Medini Rai", "Mahmud Lodi"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 To consolidate his power in northern India, Babur fought and defeated Rana Sanga of Mewar at Khanwa in 1756 / 1527 CE."
+    },
+    {
+        "question": "Who constructed the famous architectural marvel 'Red Fort' (Lal Qila) in Delhi?",
+        "options": ["Akbar", "Jahangir", "Shah Jahan", "Aurangzeb"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Shah Jahan built the Red Fort as the primary palace of his newly established capital city, Shahjahanabad, along the Yamuna river."
+    },
+    {
+        "question": "Which Mughal Emperor initiated a unified socio-religious path called 'Din-i-Ilahi'?",
+        "options": ["Humayun", "Akbar", "Jahangir", "Shah Jahan"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Akbar introduced Din-i-Ilahi (Divine Faith) in 1582 CE, blending the ethical ideas of Islam, Hinduism, Jainism, and Zoroastrianism."
+    },
+    {
+        "question": "Who founded the famous South Indian medieval empire known as the 'Vijayanagara Empire'?",
+        "options": ["Krishnadeva Raya", "Harihara and Bukka", "Rajaraja Chola", "Devaraya I"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Two brothers, Harihara I and Bukka Raya I, founded the Vijayanagara Empire in 1336 CE on the southern banks of the Tungabhadra River."
+    },
+    {
+        "question": "The reign of which Mughal Emperor is widely described as the 'Golden Age of Mughal Painting'?",
+        "options": ["Akbar", "Jahangir", "Shah Jahan", "Humayun"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Jahangir was a deeply passionate connoisseur of art, and under his patronage, Mughal painting attained its highest level of refinement."
+    },
+    {
+        "question": "Who authored the historical biography 'Humayun-nama'?",
+        "options": ["Gulbadan Begum", "Humayun", "Abdul Hamid Lahori", "Jahanara Begum"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Gulbadan Begum, the paternal half-sister of Humayun, wrote the 'Humayun-nama' detailing his life accounts at the request of Emperor Akbar."
+    },
+    {
+        "question": "The prominent Sufi Saint Sheikh Salim Chishti, whom Akbar highly revered, lived at which location?",
+        "options": ["Delhi", "Fatehpur Sikri", "Agra", "Ajmer"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Sheikh Salim Chishti lived in Fatehpur Sikri. Akbar built his grand new capital around the saint's hermitage and named his son Salim (Jahangir) after him."
+    },
+    {
+        "question": "In which historic fort did the grand coronation ceremony of Chhatrapati Shivaji Maharaj take place?",
+        "options": ["Pune Fort", "Raigad Fort", "Torna Fort", "Sinhagad Fort"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 On June 6, 1674, Shivaji Maharaj was formally crowned as the Chhatrapati of the Maratha Empire at Raigad Fort by Pandit Gaga Bhatt."
+    },
+    {
+        "question": "Where is the unique octagonal floating tomb of Sher Shah Suri situated?",
+        "options": ["Delhi", "Sasaram", "Kalinjar", "Jaunpur"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The magnificent tomb of Sher Shah Suri, the founder of the Sur Empire, is situated in the middle of an artificial lake in Sasaram, Bihar."
+    },
+    {
+        "question": "The legendary Battle of Haldighati (1576) was fought between the Mughal forces and which Rajput ruler?",
+        "options": ["Rana Sanga", "Raja Man Singh", "Maharana Pratap", "Rana Amar Singh"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Fought in June 1576, the Battle of Haldighati was a fierce clash between the forces of Maharana Pratap of Mewar and the Mughal army commanded by Man Singh I."
     },
     {
         "question": "Bihu is the most famous folk dance of which Indian state?",
