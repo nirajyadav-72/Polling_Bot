@@ -1171,7 +1171,109 @@ def send_welcome(message):
         except Exception: 
             pass
     
-        
+
+# 📳 /welcome कमांड - रैंडम फोटो, कस्टमाइज्ड हिंदी टेक्स्ट और हरे बटन के साथ
+@bot.message_handler(commands=['welcome'])
+def send_owner_welcome(message):
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+
+    # सुरक्षा जांच: केवल ओनर या .env वाली GROUP_ID ही इसे एक्सेस कर सकते हैं
+    is_allowed = False
+    if user_id == OWNER_ID:
+        is_allowed = True
+    elif chat_id == ALLOWED_GROUP_ID:
+        is_allowed = True
+
+    if not is_allowed:
+        try:
+            warn_msg = bot.reply_to(message, "❌ This command is restricted to the Owner or the Allowed Group only!")
+            time.sleep(4)
+            bot.delete_message(chat_id, message.message_id)
+            bot.delete_message(chat_id, warn_msg.message_id)
+        except Exception:
+            pass
+        return
+
+    # यूज़र द्वारा भेजे गए कमांड टेक्स्ट (/welcome) को तुरंत डिलीट करना (Anti-Spam)
+    try: 
+        bot.delete_message(chat_id=chat_id, message_id=message.message_id)
+    except Exception: 
+        pass
+
+    # 'images' फोल्डर से रैंडम फोटो चुनने का आपका लॉजिक
+    image_folder = "images"  
+    selected_image_path = None
+
+    try:
+        if os.path.exists(image_folder) and os.path.isdir(image_folder):
+            all_images = [f for f in os.listdir(image_folder) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+            if all_images:
+                selected_image_path = os.path.join(image_folder, random.choice(all_images))
+    except Exception as e:
+        print(f"इमेज फोल्डर रीड करने में एरर: {e}")
+
+    # आपका कस्टमाइज्ड हिंदी टेक्स्ट फॉर्मेट
+    welcome_custom_text = (
+        "╭────────────────⦿\n"
+        "│क्या आपके ग्रुप में सन्नाटा\n"
+        "│रहता है? तो अभी ऐड करो\n"
+        "│धांसू ʟɪᴠᴇ Qᴜɪᴢ ʙᴏᴛ और \n"
+        "│शुरू करो लाइव मुकाबला!\n"
+        "├────────────────⦿\n"
+        "│ʀᴇᴀʟ-ᴛɪᴍᴇ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ\n"
+        "│(ᴛᴏᴘ 20 की रेस)\n"
+        "│+2 ᴘᴏɪɴᴛꜱ सही जवाब पर,\n"
+        "│- 0.5 ᴘᴏɪɴᴛꜱ गलत जवाब पर!\n"
+        "│हर ग्रुप का अपना 'Qᴜɪᴢ ᴋɪɴɢ' \n"
+        "│👑\n"
+        "├────────────────⦿\n"
+        "│प्रतिदिन रात 10 बजे\n"
+        "│परिणाम घोषित किए जाते हैं\n"
+        "│रिजल्ट की प्रतिक्षा नही करने वाले\n"
+        "│कभी भी /myscore ᴄᴏᴍᴍᴀɴᴅ\n"
+        "│से अपना परिणाम चेक\n"
+        "│कर सकते हैं\n"
+        "├────────────────⦿\n"
+        "│✨ साथियों आगामी परीक्षाओ जैसे\n"
+        "│ʙᴘꜱᴄ ᴘᴇᴛ, ꜱꜱᴄ ɢᴅ,\n"
+        "│ꜱꜱᴄ ᴄɢʟ, ᴜᴘ ᴘᴏʟɪᴄᴇ, आदि\n"
+        "│ᴇxᴀᴍꜱ के लिए जरूर जॉइन करे।\n"
+        "╰────────────────⦿"
+    )
+
+    # हरा रंग (Success Style) बटन सेटअप
+    markup = InlineKeyboardMarkup()
+    add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
+    add_button = InlineKeyboardButton(
+        text="✨ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ", 
+        url=add_to_group_url, 
+        style="success"
+    )
+    markup.add(add_button)
+
+    try: 
+        # अगर फोटो फोल्डर में मौजूद है, तो फोटो सेंड करेगा
+        if selected_image_path:
+            with open(selected_image_path, "rb") as photo_file:
+                bot.send_photo(
+                    chat_id=chat_id, 
+                    photo=photo_file, 
+                    caption=welcome_custom_text, 
+                    reply_markup=markup
+                )
+        else:
+            raise ValueError("No image found in folder")
+    except Exception: 
+        try: 
+            # सुरक्षित तरीका: फोटो न मिलने पर केवल टेक्स्ट और बटन चला जाएगा
+            bot.send_message(
+                chat_id=chat_id, 
+                text=welcome_custom_text, 
+                reply_markup=markup
+            )
+        except Exception: 
+            pass
 # ℹ️ हेल्प कमांड (Strict Username Validation के साथ FIXED)
 @bot.message_handler(commands=['help'])
 def send_help(message):
