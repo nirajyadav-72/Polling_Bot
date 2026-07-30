@@ -564,11 +564,10 @@ def handle_owner_broadcast(message):
         parse_mode="Markdown"
     )
 
-
 # STEP 2: Callback Query Handler - Jo button dabaane par actual broadcast shuru karega
 @bot.callback_query_handler(func=lambda call: call.data.startswith(('bcast_yes_', 'bcast_no_')))
 def execute_broadcast_callback(call):
-    # Security: Sirf Bot Owner hi button par click kar sakta hai
+    # Security Check
     if OWNER_ID and call.from_user.id != OWNER_ID:
         bot.answer_callback_query(call.id, "❌ You are not authorized to control this broadcast!", show_alert=True)
         return
@@ -578,7 +577,19 @@ def execute_broadcast_callback(call):
     should_pin = (data_parts[1] == 'yes')
     target_msg_id = int(data_parts[2])
 
-    # Status message me badle aur buttons ko screen se hataye
+    # 🌟 FIX: Original message ke naye styled buttons ko extract karein
+    original_markup = None
+    try:
+        # Hum original message ko temporary forward karke check karenge ki usme kya markup tha
+        orig_msg = bot.forward_message(chat_id=call.message.chat.id, from_chat_id=call.message.chat.id, message_id=target_msg_id)
+        if orig_msg and hasattr(orig_msg, 'reply_markup'):
+            original_markup = orig_msg.reply_markup
+        # Temporary forward message ko delete karein
+        bot.delete_message(chat_id=call.message.chat.id, message_id=orig_msg.message_id)
+    except Exception:
+        pass
+
+    # Status message me badle
     bot.edit_message_text(
         chat_id=call.message.chat.id,
         message_id=call.message.message_id,
@@ -596,46 +607,41 @@ def execute_broadcast_callback(call):
     g_success, g_fail = 0, 0
     u_success, u_fail = 0, 0
 
-    # 👥 1. ग्रुप्स में ब्रॉडकास्ट (Yes hone par pin hoga)
+    # 👥 1. ग्रुप्स में ब्रॉडकास्ट
     for (chat_id,) in all_chats:
         try:
-            # Message copy karein aur return object nikalen
+            # 🌟 FIX: reply_markup=original_markup pass kiya taaki styled buttons bhi copy ho sakein
             sent_msg = bot.copy_message(
                 chat_id=chat_id, 
                 from_chat_id=call.message.chat.id, 
-                message_id=target_msg_id
-                # Note: Aapka original reply_markup target_msg_id se automatic chala jata hai
+                message_id=target_msg_id,
+                reply_markup=original_markup
             )
             
-            # 🔔 Agar user ne YES dabaaya tha, toh message ko group me pin karein
             if should_pin and sent_msg and hasattr(sent_msg, 'message_id'):
                 try:
-                    bot.pin_chat_message(
-                        chat_id=chat_id, 
-                        message_id=sent_msg.message_id, 
-                        disable_notification=False
-                    )
-                except Exception:
-                    pass  # Agar kisi group me Admin permission na ho, toh crash na ho
+                    bot.pin_chat_message(chat_id=chat_id, message_id=sent_msg.message_id, disable_notification=False)
+                except Exception: pass
 
             g_success += 1
             time.sleep(0.15)  
-        except Exception: 
-            g_fail += 1
+        except Exception: g_fail += 1
 
-    # 👤 2. प्राइवेट यूज़र्स में ब्रॉडकास्ट (Isme pin ka koi roll nahi hota)
+    # 👤 2. प्राइवेट यूज़र्स में ब्रॉडकास्ट
     for (user_id,) in all_users:
         try:
+            # 🌟 FIX: Yahan bhi reply_markup=original_markup jod diya hai
             bot.copy_message(
                 chat_id=user_id, 
                 from_chat_id=call.message.chat.id, 
-                message_id=target_msg_id
+                message_id=target_msg_id,
+                reply_markup=original_markup
             )
             u_success += 1
             time.sleep(0.15)  
         except Exception: u_fail += 1
 
-    # 📊 Final Report screen par dikhaye
+    # Report Card print karein
     bot.edit_message_text(
         chat_id=call.message.chat.id, 
         message_id=call.message.message_id, 
