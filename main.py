@@ -1839,34 +1839,37 @@ def handle_send_command(message):
         return
 
     reply_msg = message.reply_to_message
+    
+    # Original message ke buttons ko nikaalna
+    buttons = reply_msg.reply_markup
 
     try:
         if reply_msg.text:
-            bot.send_message(SUPPORT_GROUP_ID, reply_msg.text, entities=reply_msg.entities)
+            bot.send_message(SUPPORT_GROUP_ID, reply_msg.text, entities=reply_msg.entities, reply_markup=buttons)
         elif reply_msg.photo:
-            bot.send_photo(SUPPORT_GROUP_ID, reply_msg.photo[-1].file_id, caption=reply_msg.caption, caption_entities=reply_msg.caption_entities)
+            bot.send_photo(SUPPORT_GROUP_ID, reply_msg.photo[-1].file_id, caption=reply_msg.caption, caption_entities=reply_msg.caption_entities, reply_markup=buttons)
         elif reply_msg.video:
-            bot.send_video(SUPPORT_GROUP_ID, reply_msg.video.file_id, caption=reply_msg.caption, caption_entities=reply_msg.caption_entities)
+            bot.send_video(SUPPORT_GROUP_ID, reply_msg.video.file_id, caption=reply_msg.caption, caption_entities=reply_msg.caption_entities, reply_markup=buttons)
         elif reply_msg.sticker:
-            bot.send_sticker(SUPPORT_GROUP_ID, reply_msg.sticker.file_id)
+            bot.send_sticker(SUPPORT_GROUP_ID, reply_msg.sticker.file_id, reply_markup=buttons)
         elif reply_msg.document:
-            bot.send_document(SUPPORT_GROUP_ID, reply_msg.document.file_id, caption=reply_msg.caption, caption_entities=reply_msg.caption_entities)
+            bot.send_document(SUPPORT_GROUP_ID, reply_msg.document.file_id, caption=reply_msg.caption, caption_entities=reply_msg.caption_entities, reply_markup=buttons)
         elif reply_msg.voice:
-            bot.send_voice(SUPPORT_GROUP_ID, reply_msg.voice.file_id, caption=reply_msg.caption)
+            bot.send_voice(SUPPORT_GROUP_ID, reply_msg.voice.file_id, caption=reply_msg.caption, reply_markup=buttons)
         elif reply_msg.audio:
-            bot.send_audio(SUPPORT_GROUP_ID, reply_msg.audio.file_id, caption=reply_msg.caption)
+            bot.send_audio(SUPPORT_GROUP_ID, reply_msg.audio.file_id, caption=reply_msg.caption, reply_markup=buttons)
         elif reply_msg.animation:
-            bot.send_animation(SUPPORT_GROUP_ID, reply_msg.animation.file_id, caption=reply_msg.caption)
+            bot.send_animation(SUPPORT_GROUP_ID, reply_msg.animation.file_id, caption=reply_msg.caption, reply_markup=buttons)
         else:
             bot.copy_message(SUPPORT_GROUP_ID, from_chat_id=reply_msg.chat.id, message_id=reply_msg.message_id)
 
-        bot.reply_to(message, "✅ मैसेज सफलतापूर्वक आपके सपोर्ट ग्रुप में भेज दिया गया है।")
+        bot.reply_to(message, "✅ The message has been successfully sent to your support group")
     except Exception as e:
         try:
             bot.reply_to(message, f"❌ मैसेज भेजने में विफलता आई: {e}")
         except Exception:
             pass
-            
+        
 
 # =====================================================================
 # ⏳ काउंटडाउन थ्रेड फंक्शन (Fixed Indentation & Single-Line Syntax)
