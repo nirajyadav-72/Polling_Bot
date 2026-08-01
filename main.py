@@ -844,7 +844,7 @@ def manual_leaderboard_sender(message):
         except Exception: pass
         return
         
-    status_msg = bot.send_message(message.chat.id, "⏳ *Sending new result to all groups immediately...*")
+    status_msg = bot.send_message(message.chat.id, "⏳ Sending new result to all groups immediately...")
     IST = pytz.timezone('Asia/Kolkata')
     now = datetime.now(IST)
     
@@ -1399,31 +1399,17 @@ def send_owner_welcome(message):
 
     # आपका कस्टमाइज्ड हिंदी टेक्स्ट फॉर्मेट
     welcome_custom_text = (
-        "╭────────────────⦿\n"
-        "│क्या आपके ग्रुप में सन्नाटा\n"
-        "│रहता है? तो अभी ऐड करो\n"
-        "│धांसू ʟɪᴠᴇ Qᴜɪᴢ ʙᴏᴛ और \n"
-        "│शुरू करो लाइव मुकाबला!\n"
-        "├────────────────⦿\n"
-        "│ʀᴇᴀʟ-ᴛɪᴍᴇ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ\n"
-        "│(ᴛᴏᴘ 20 की रेस)\n"
-        "│+2 ᴘᴏɪɴᴛꜱ सही जवाब पर,\n"
-        "│- 0.5 ᴘᴏɪɴᴛꜱ गलत जवाब पर!\n"
-        "│हर ग्रुप का अपना 'Qᴜɪᴢ ᴋɪɴɢ' \n"
-        "│👑\n"
-        "├────────────────⦿\n"
-        "│प्रतिदिन रात 10 बजे\n"
-        "│परिणाम घोषित किए जाते हैं\n"
-        "│रिजल्ट की प्रतिक्षा नही करने वाले\n"
-        "│कभी भी /myscore ᴄᴏᴍᴍᴀɴᴅ\n"
-        "│से अपना परिणाम चेक\n"
-        "│कर सकते हैं\n"
-        "├────────────────⦿\n"
-        "│✨ साथियों आगामी परीक्षाओ जैसे\n"
-        "│ʙᴘꜱᴄ ᴘᴇᴛ, ꜱꜱᴄ ɢᴅ,\n"
-        "│ꜱꜱᴄ ᴄɢʟ, ᴜᴘ ᴘᴏʟɪᴄᴇ, आदि\n"
-        "│ᴇxᴀᴍꜱ के लिए जरूर जॉइन करे।\n"
-        "╰────────────────⦿"
+        "📑 ɴᴇᴇᴅ ᴀɴ ᴀᴜᴛᴏ-ꜱᴇɴᴅ Qᴜɪᴢ ʙᴏᴛ?\n\n"
+        "Add ˹ Demaag Chalao Quiz Bot ˼ to your group and attempt Important Questions directly in your group chat! 🚀\n\n"
+        "✨ ᴡʜʏ ᴄʜᴏᴏꜱᴇ ᴛʜɪꜱ ʙᴏᴛ?\n"
+        "🌐 Dual Language: Supports both ʜɪɴᴅɪ & ᴇɴɢʟɪꜱʜ.\n"
+        "⚙️ Fully Customizable: Change quiz timings & manage auto-delete easily.\n"
+        "📊 Live Tracking: Check your instant score anytime using /myscore.\n\n"
+        "⚡ ᴋᴇʏ ғᴇᴀᴛᴜʀᴇꜱ:\n"
+        "✅ 24x7 Auto-Polling System\n"
+        "✅ Everyday Night 10:00 PM Results\n"
+        "✅ Top 20 Users Leaderboard List\n\n"
+        "👇 ᴛᴀᴘ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ:"
     )
 
     # हरा रंग (Success Style) बटन सेटअप
@@ -1880,6 +1866,7 @@ def handle_send_command(message):
             bot.reply_to(message, f"❌ मैसेज भेजने में विफलता आई: {e}")
         except Exception:
             pass
+            
 
 # =====================================================================
 # ⏳ काउंटडाउन थ्रेड फंक्शन (Fixed Indentation & Single-Line Syntax)
@@ -2137,7 +2124,7 @@ def show_db_stats(message):
 # =====================================================================
 # 💾 🤖 AUTOMATIC USER TRACKER + DAILY TEXT LIMIT (Bot Admins Included)
 # =====================================================================
-DAILY_MSG_LIMIT = 10  # 👈 Yahan aap apni marzi se limit set kar sakte hain
+DAILY_MSG_LIMIT = 40  # 👈 Yahan aap apni marzi se limit set kar sakte hain
 
 @bot.message_handler(func=lambda message: True, content_types=['text', 'photo', 'video', 'sticker', 'document', 'voice', 'audio', 'animation'])
 def track_save_and_limit_users(message):
