@@ -353,7 +353,7 @@ def get_settings_markup(chat_id):
         f"🌐 *Current Language:* {lang.upper()}\n"
         f"⏱️ *Quiz Interval:* {interval_mins} min\n"
         f"🗑️ *Auto Delete Poll:* {del_status}\n"
-        f"🧾 Tap to auto delete polls botton to set Quiz polls deleting system.\n\n"
+        f"🧾 Tap to auto delete polls botton to set Previous Quiz Polls deleting system.\n\n"
         "*Click on the buttons below to change configurations:*"
     )
     markup = InlineKeyboardMarkup()
