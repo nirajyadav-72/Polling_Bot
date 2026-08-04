@@ -181,184 +181,34 @@ def escape_html(text):
     if not text: return ""
     return str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     
-
-# ----------------- Poll length checker & safe sender helpers -----------------
-def check_poll_lengths(question, options, max_q=300, max_opt=100, max_opts=10):
+# =====================================================================
+# 📝 EXPLANATION TRUNCATOR FUNCTION (Explanation ko chota karne ke liye)
+# =====================================================================
+def truncate_explanation(explanation_text, max_length=100):
     """
-    Returns: (is_oversized: bool, details: dict)
+    Explanation ko specified length tak chota karta hai.
+    Agar text lamba ho toh "..." add karta hai.
+    
+    Args:
+        explanation_text: Original explanation text
+        max_length: Maximum characters (default 100)
+    
+    Returns:
+        Truncated explanation string
     """
-    if question is None:
-        question = ""
-    question = str(question).strip()
-    options = options or []
-
-    details = {
-        "question_len": len(question),
-        "options_lens": [len(str(o)) if o is not None else 0 for o in options],
-        "question_snippet": question[:500],
-        "options_snippets": [str(o)[:200] if o is not None else "" for o in options],
-        "max_question": max_q,
-        "max_option": max_opt,
-        "max_options_allowed": max_opts
-    }
-
-    # too many options?
-    if len(options) > max_opts:
-        details["too_many_options"] = True
-        return True, details
-    else:
-        details["too_many_options"] = False
-
-    # question length
-    if details["question_len"] > max_q:
-        return True, details
-
-    # each option length
-    for l in details["options_lens"]:
-        if l > max_opt:
-            return True, details
-
-    return False, details
-
-
-def safe_send_quiz(
-    bot,
-    chat_id,
-    quiz,
-    cursor,
-    conn,
-    current_now,
-    current_index,
-    filtered_quiz,
-    quiz_index=None,
-    use_execute_with_retry=False,
-    execute_with_retry_func=None,
-    timeout=20
-):
-    """
-    Non-destructive: If quiz/question/options exceed Telegram limits -> log+report+skip.
-    If OK -> send poll and update poll_mapping + groups table (mimics existing logic).
-    Returns dict with result details.
-    """
-    import time
-    quiz_index = quiz_index if quiz_index is not None else current_index
-
-    question_raw = quiz.get("question", "") or ""
-    options_raw = quiz.get("options", []) or []
-    explanation_text = quiz.get("explanation", None)
-
-    oversized, details = check_poll_lengths(question_raw, options_raw)
-    if oversized:
-        print(f"❌ [GROUP {chat_id}] SKIPPED quiz index={quiz_index} due to size limits.")
-        print(f"    question_len={details['question_len']} (max {details['max_question']})")
-        print(f"    options_count={len(options_raw)} (max {details['max_options_allowed']})")
-        print(f"    options_lens={details['options_lens']}")
-        print(f"    question_snippet: {details['question_snippet']!r}")
-        for oi, sn in enumerate(details['options_snippets'][:details['max_options_allowed']]):
-            ol = details['options_lens'][oi] if oi < len(details['options_lens']) else 0
-            print(f"      option[{oi}] snippet: {sn!r} (len={ol})")
-
-        # persistent report for offline inspection
-        try:
-            with open("last_oversized_quiz_report.txt", "a", encoding="utf-8") as rf:
-                rf.write(f"TIME {time.time()} | GROUP {chat_id} | INDEX {quiz_index} | question_len={details['question_len']} | options_lens={details['options_lens']}\n")
-                rf.write(f"question_snippet: {details['question_snippet']!r}\n")
-                for oi, sn in enumerate(details['options_snippets'][:details['max_options_allowed']]):
-                    ol = details['options_lens'][oi] if oi < len(details['options_lens']) else 0
-                    rf.write(f"  option[{oi}] (len={ol}): {sn!r}\n")
-                rf.write("\n")
-        except Exception as e:
-            print(f"[WARN] Could not write oversized quiz report: {e}")
-
-        # update last_sent_time to avoid retry spamming
-        try:
-            cursor.execute("UPDATE groups SET last_sent_time = ? WHERE chat_id = ?", (current_now, chat_id))
-            conn.commit()
-        except Exception as e:
-            print(f"[WARN] Could not update last_sent_time after oversized skip: {e}")
-
-        return {"sent": False, "reason": "oversized", "details": details, "index": quiz_index}
-
-    # send poll (normal flow)
-    try:
-        if use_execute_with_retry and execute_with_retry_func:
-            sent_message = execute_with_retry_func(
-                bot.send_poll,
-                chat_id=chat_id,
-                question=question_raw,
-                options=options_raw,
-                type="quiz",
-                correct_option_id=quiz["correct_id"],
-                is_anonymous=False,
-                explanation=explanation_text,
-                timeout=timeout
-            )
-        else:
-            sent_message = bot.send_poll(
-                chat_id=chat_id,
-                question=question_raw,
-                options=options_raw,
-                type="quiz",
-                correct_option_id=quiz["correct_id"],
-                is_anonymous=False,
-                explanation=explanation_text
-            )
-
-        new_poll_id = sent_message.message_id
-        poll_api_id = sent_message.poll.id
-
-        # Insert mapping
-        try:
-            cursor.execute(
-                "INSERT INTO poll_mapping (poll_id, chat_id, correct_id, creation_time) VALUES (?, ?, ?, ?)",
-                (poll_api_id, chat_id, quiz["correct_id"], time.time())
-            )
-        except Exception as e:
-            print(f"[WARN] Failed to insert poll_mapping: {e}")
-
-        # update index and groups table
-        try:
-            new_index = (current_index + 1) % len(filtered_quiz) if filtered_quiz else 0
-        except Exception:
-            new_index = current_index + 1
-
-        try:
-            cursor.execute('''
-                UPDATE groups
-                SET current_index = ?, last_poll_id = ?, last_sent_time = ?, error_count = 0
-                WHERE chat_id = ?
-            ''', (new_index, new_poll_id, current_now, chat_id))
-            conn.commit()
-        except Exception as e:
-            print(f"[WARN] Could not update groups table after sending poll: {e}")
-
-        print(f"✅ [GROUP {chat_id}] Poll sent successfully (index {quiz_index})")
-        return {"sent": True, "new_index": new_index, "poll_api_id": poll_api_id, "message_id": new_poll_id}
-
-    except Exception as e:
-        error_str = str(e).lower()
-        print(f"❌ [GROUP {chat_id}] Poll send failed: {e}")
-
-        try:
-            if "bot was kicked" in error_str or "chat not found" in error_str or "bot is not a member" in error_str:
-                try:
-                    cursor.execute("DELETE FROM groups WHERE chat_id = ?", (chat_id,))
-                    conn.commit()
-                    print(f"🗑️ [GROUP {chat_id}] Removed from database (bot kicked/left)")
-                except Exception as del_e:
-                    print(f"[WARN] Failed to remove group {chat_id}: {del_e}")
-                return {"sent": False, "reason": "bot_kicked_or_chat_missing", "error": str(e)}
-        except Exception:
-            pass
-
-        try:
-            cursor.execute("UPDATE groups SET last_sent_time = ? WHERE chat_id = ?", (current_now, chat_id))
-            conn.commit()
-        except Exception as ue:
-            print(f"[WARN] Could not update last_sent_time after failed send: {ue}")
-
-        return {"sent": False, "reason": "send_error", "error": str(e)}
-# ---------------------------------------------------------------------------
+    if not explanation_text:
+        return None
+    
+    explanation_text = str(explanation_text).strip()
+    
+    if len(explanation_text) <= max_length:
+        return explanation_text
+    
+    # Characters ke hisaab se chota karo aur "..." add karo
+    truncated = explanation_text[:max_length].rsplit(' ', 1)[0] + "..."
+    return truncated
+    
+# ----------------- Poll explanation length checker & safe sender helpers -----------------
 
 # =====================================================================
 # ⏰ AUTOMATIC MIDNIGHT RESET THREAD (Har raat 12 baje limit 0 karne ke liye)
@@ -442,7 +292,7 @@ def global_poll_manager():
                             current_index = 0
 
                         quiz = filtered_quiz[current_index]
-                        explanation_text = quiz.get("explanation", None)
+                        explanation_text = truncate_explanation(quiz.get("explanation", None), max_length=100)
                         
                         try:
                             sent_message = bot.send_poll(
