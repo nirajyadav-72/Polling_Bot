@@ -352,14 +352,15 @@ def get_settings_markup(chat_id):
         "⚙️ *Settings Panel (Quiz Settings)*\n\n"
         f"🌐 *Current Language:* {lang.upper()}\n"
         f"⏱️ *Quiz Interval:* {interval_mins} min\n"
-        f"🗑️ *Auto Delete Poll:* {del_status}\n\n"
+        f"🗑️ *Auto Delete Poll:* {del_status}\n"
+        f"🧾 Tap to auto delete polls botton to set Quiz polls deleting system.\n\n"
         "*Click on the buttons below to change configurations:*"
     )
     markup = InlineKeyboardMarkup()
     lang_text = "🌐 भाषा: HINDI 🇮🇳" if lang == 'hindi' else "🌐 Lang: ENGLISH 🇬🇧"
     
     btn_lang = InlineKeyboardButton(text=lang_text, callback_data=f"set_lang_{chat_id}", style="primary")
-    btn_autodel = InlineKeyboardButton(text="🗑️ Auto-Delete Settings", callback_data=f"menu_autodel_{chat_id}", style="primary")
+    btn_autodel = InlineKeyboardButton(text="🗑️ Auto-Delete Polls", callback_data=f"menu_autodel_{chat_id}", style="primary")
     
     btn_15m = InlineKeyboardButton(text="⏱️ 15 Min", callback_data=f"set_time_900_{chat_id}", style="success")
     btn_30m = InlineKeyboardButton(text="⏱️ 30 Min", callback_data=f"set_time_1800_{chat_id}", style="success")
@@ -383,7 +384,7 @@ def get_autodelete_markup(chat_id):
     auto_delete = res[0] if res else 1
     status_text = "ON" if auto_delete == 1 else "OFF"
     text = (
-        "🗑️ *Auto-Delete Settings*\n\n"
+        "🗑️ *Auto-Delete Quiz Polls Settings*\n\n"
         "⚠️ *Click on the control buttons*\n\n"
         f"📊 *Status:* \" {status_text} \"\n\n"
         "ℹ️ *What does this do?*\n"
