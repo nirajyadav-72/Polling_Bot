@@ -3081,6 +3081,286 @@ QUIZ_LIST = [
         "explanation": "💡 Under Article 76, the Attorney General of India (the chief legal advisor to the government) is appointed by the President."
     },
     {
+        "question": "Kathakali classical dance belongs to which Indian state? [SSC GD]",
+        "options": ["Tamil Nadu", "Kerala", "Andhra Pradesh", "Odisha"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Both Kathakali and Mohiniyattam are world-famous classical dance forms originating from Kerala."
+    },
+    {
+        "question": "Who among the following was the founder of the Mauryan Empire? [SSC GD]",
+        "options": ["Bindusara", "Ashoka", "Chandragupta Maurya", "Dasharatha"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Chandragupta Maurya, with the strategic assistance of Chanakya, overthrew Dhana Nanda (the last ruler of the Nanda dynasty) to establish the Mauryan Empire."
+    },
+    {
+        "question": "Choose the correct meaning of the idiom: 'Aankhon Mein Dhool Jhonkna' (To throw dust in someone's eyes) [SSC GD Hindi Section]",
+        "options": ["To deceive someone", "To get an eye injury", "To see clearly", "To criticize someone"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Actively tricking or deceiving someone while avoiding their attention is called 'Aankhon Mein Dhool Jhonkna'."
+    },
+    {
+        "question": "Pandit Hariprasad Chaurasia is associated with which musical instrument? [SSC GD]",
+        "options": ["Tabla", "Flute", "Sarod", "Shehnai"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Pandit Hariprasad Chaurasia is an internationally acclaimed classical maestro of the bamboo flute (Bansuri)."
+    },
+    {
+        "question": "Choose the correct antonym for the word: 'Anuraag' (Affection/Love) [SSC GD Hindi Section]",
+        "options": ["Prem", "Viraag", "Nafrat", "Krodh"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 'Anuraag' means deep love or attachment, and its exact antonym is 'Viraag' (detachment/indifference)."
+    },
+    {
+        "question": "Between whom was the Second Battle of Panipat (1556) fought? [SSC GD]",
+        "options": ["Babur and Ibrahim Lodi", "Akbar and Hemu", "Akbar and Rana Pratap", "Marathas and Ahmad Shah Abdali"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Second Battle of Panipat was fought on 5 November 1556 between the Mughal forces under Akbar (led by Bairam Khan) and Hemu."
+    },
+    {
+        "question": "Select the option that displays the mathematically and grammatically correct spelling: [SSC GD Hindi Section]",
+        "options": ["Kavayitri (कवियित्री)", "Kaviitri (कविइत्री)", "Kavayitri (कवयित्री)", "Kaveetri (कवीत्री)"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The correct feminine gender form of 'Kavi' (Poet) is spelled as 'कवयित्री'."
+    },
+    {
+        "question": "Which Article of the Constitution provides for the appointment of a 'Governor' in states? [SSC GD]",
+        "options": ["Article 52", "Article 110", "Article 153", "Article 324"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 According to Article 153 of the Constitution, there shall be a Governor for each state."
+    },
+    {
+        "question": "Give a single word substitute for the phrase: 'Something that has never happened before' [SSC GD Hindi Section]",
+        "options": ["Adbhut", "Abhootpoorv", "Anupam", "Apoorv"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 An event or occurrence that has absolutely no past parallel is known as 'Abhootpoorv' (Unprecedented)."
+    },
+    {
+        "question": "The world's only floating national park, 'Keibul Lamjao', is located on which lake? [SSC GD]",
+        "options": ["Chilika Lake", "Wular Lake", "Loktak Lake", "Dal Lake"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Keibul Lamjao National Park floats natively over Loktak Lake in Manipur and is highly famous for the endangered Sangai (brow-antlered deer)."
+    },
+    {
+        "question": "Find the part of the sentence that contains an error: 'आजकल सोने की कीमत बढ़ गया है।' (Nowadays the price of gold has increased.) [SSC GD Hindi Section]",
+        "options": ["आजकल", "सोने की", "कीमत बढ़", "गया है"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The word 'Keemat' (Price) is feminine in Hindi. Therefore, 'बढ़ गया है' should correctly be 'बढ़ गई है'. Hence, option 4 is error-prone."
+    },
+    {
+        "question": "What is the SI unit of Electric Current? [SSC GD]",
+        "options": ["Volt", "Ampere", "Om", "Watt"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The international standard (SI) unit for measuring the flow of electric current is the Ampere."
+    },
+    {
+        "question": "Find the most authentic synonym for the word: 'Kamal' (Lotus) [SSC GD Hindi Section]",
+        "options": ["Jalad", "Neeraj", "Pankaj", "Payodhar"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 While Pankaj and Neeraj are both valid, standard exam answer keys predominantly favor 'Pankaj' or 'Jalaj' as the absolute match for a lotus flower."
+    },
+    {
+        "question": "In which year was the Vijayanagara Empire founded? [SSC GD]",
+        "options": ["1206 AD", "1326 AD", "1336 AD", "1526 AD"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Vijayanagara Empire was established in 1336 AD by two brothers, Harihara and Bukka, on the banks of the river Tungabhadra."
+    },
+    {
+        "question": "What is a single word substitute for the phrase: 'An event taking place right in front of one's eyes'? [SSC GD Hindi Section]",
+        "options": ["Pratyaksh", "Paroksh", "Doordarshi", "Adrishya"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 An event happening live right before your eyes is called 'Pratyaksh' (First-hand/Direct), and its opposite is 'Paroksh' (Indirect)."
+    },
+    {
+        "question": "Which gas has the highest percentage composition in Earth's atmosphere? [SSC GD]",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Argon"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Nitrogen gas occupies the highest volume share in Earth's atmosphere, accounting for roughly 78%."
+    },
+    {
+        "question": "Fill in the blank with the most appropriate word choice: 'कोयल ________ रही है।' (The cuckoo is ________.) [SSC GD Hindi Section]",
+        "options": ["Bhonk (Barking)", "Kook (Cooing)", "Dahaad (Roaring)", "Chahak (Chirping)"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The specific sweet sound made by a cuckoo bird is called cooing ('Kookna'), so option 2 completes the sentence correctly."
+    },
+    {
+        "question": "The famous words 'Satyamev Jayate' are inscribed from which Upanishad? [SSC GD]",
+        "options": ["Kathopanishad", "Mundakopanishad", "Chandogya Upanishad", "Mandukya Upanishad"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 India's national motto 'Satyamev Jayate' (Truth alone triumphs) is directly taken from the Mundakopanishad."
+    },
+    {
+        "question": "Choose the correct meaning of the idiom: 'Lohe Ke Chane Chabana' (To chew iron chickpeas) [SSC GD Hindi Section]",
+        "options": ["To perform an extraordinarily difficult task", "To consume iron as food", "To win easily", "To feel very hungry"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Facing monumental hardships or dealing with an exceptionally grueling, uphill task is defined as 'Lohe Ke Chane Chabana'."
+    },
+    {
+        "question": "The Green Revolution in India was most significantly successful for which crop? [SSC GD]",
+        "options": ["Rice", "Wheat", "Pulses", "Oilseeds"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Launched in the mid-1960s, the agro-technological inputs of the Green Revolution yielded exponential production spikes primarily for Wheat."
+    },
+    {
+        "question": "Lavani folk dance is associated with which state of India? [SSC GD]",
+        "options": ["Gujarat", "Maharashtra", "Rajasthan", "Madhya Pradesh"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Lavani is a famous traditional folk dance of Maharashtra, performed to the beats of the Dholki."
+    },
+    {
+        "question": "Which of the following rivers originates from the Amarkantak Hills? [SSC GD]",
+        "options": ["Narmada River", "Krishna River", "Godavari River", "Kaveri River"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Narmada and Son rivers originate from the Amarkantak plateau/hills in Madhya Pradesh."
+    },
+    {
+        "question": "Identify the part of the sentence that contains a grammatical error: 'पढ़ने के बहाने से शिल्पा इधर आती है।' (Shilpa comes here under the pretext of studying.) [SSC GD Hindi Section]",
+        "options": ["पढ़ने के", "बहाने से", "शिल्पा इधर", "आती है"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The correct sentence is 'पढ़ने के बहाने शिल्पा इधर आती है'. The use of the preposition 'से' (with/by) after 'बहाने' is redundant and incorrect."
+    },
+    {
+        "question": "In which year was the First Battle of Tarain fought? [SSC GD]",
+        "options": ["1191 AD", "1192 AD", "1526 AD", "1556 AD"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The First Battle of Tarain was fought in 1191 between Prithviraj Chauhan and Muhammad Ghori, in which Prithviraj Chauhan emerged victorious."
+    },
+    {
+        "question": "Which of the following is the correct synonym for 'Akash' (Sky)? [SSC GD Hindi Section]",
+        "options": ["Jalad", "Gagan", "Paavak", "Mahee"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Gagan, Nabh, Vyom, and Ambar are the primary synonyms for the sky ('Akash')."
+    },
+    {
+        "question": "Under which Article of the Indian Constitution were 'Fundamental Duties' included? [SSC GD]",
+        "options": ["Article 32", "Article 45", "Article 51A", "Article 110"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Fundamental Duties were added to Part IV(A) under Article 51A of the Constitution by the 42nd Amendment Act of 1976."
+    },
+    {
+        "question": "Choose the correct antonym for the word: 'Andhkar' (Darkness) [SSC GD Hindi Section]",
+        "options": ["Ujala", "Prakash", "Kaali", "Ratri"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The exact antonym for 'Andhkar' (Darkness) is 'Prakash' (Light) or 'Alok'."
+    },
+    {
+        "question": "In which year did Swami Dayanand Saraswati establish the Arya Samaj? [SSC GD]",
+        "options": ["1857 AD", "1875 AD", "1885 AD", "1905 AD"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Swami Dayanand Saraswati founded the Arya Samaj in Bombay (Mumbai) in the year 1875."
+    },
+    {
+        "question": "What is a single word substitute for the phrase: 'One whose date of arrival is not fixed'? [SSC GD Hindi Section]",
+        "options": ["Atithi", "Saga", "Mitra", "Aagantuk"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 A person whose arrival date is unknown or unfixed is called an 'Atithi' (Guest)."
+    },
+    {
+        "question": "What is the rank of India in the world in terms of geographical area? [SSC GD]",
+        "options": ["Fifth", "Sixth", "Seventh", "Eighth"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 India is the seventh-largest country in the world by area, following Russia, Canada, the USA, China, Brazil, and Australia."
+    },
+    {
+        "question": "Select the option with the completely correct spelling: [SSC GD Hindi Section]",
+        "options": ["Aashirvaad (आशिर्वाद)", "Aashirvaad (आशीर्वाद)", "Aashirvaad (अशिरवाद)", "Aashirvaad (आशिरवाद)"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 According to Hindi grammar rules, Option 2 'आशीर्वाद' (Blessing) is the perfectly correct spelling."
+    },
+    {
+        "question": "Which is the hottest planet in our solar system? [SSC GD]",
+        "options": ["Mercury", "Venus", "Mars", "Jupiter"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Venus is the hottest planet in the solar system due to its dense carbon dioxide atmosphere and an intense greenhouse effect."
+    },
+    {
+        "question": "Choose the correct meaning of the idiom: 'Angutha Dikhana' (To show the thumb) [SSC GD Hindi Section]",
+        "options": ["To flatly refuse to help", "To tease someone", "To declare victory", "To hurt one's thumb"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Denying help or refusing to do a promised task at the very last moment is termed as 'Angutha Dikhana'."
+    },
+    {
+        "question": "Who appoints the Chief Election Commissioner of India? [SSC GD]",
+        "options": ["Prime Minister", "Parliament", "President", "Chief Justice of India"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Chief Election Commissioner is appointed by the President under Article 324(2) of the Indian Constitution."
+    },
+    {
+        "question": "Give a single word for the phrase: 'One who knows everything' [SSC GD Hindi Section]",
+        "options": ["Alpajnya", "Sarvajnya", "Vidwaan", "Gyaani"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 A person who knows everything is called 'Sarvajnya' (Omniscient), and one who knows very little is 'Alpajnya'."
+    },
+    {
+        "question": "Which is the largest internal gland in the human body? [SSC GD]",
+        "options": ["Pancreas", "Liver", "Thyroid", "Pituitary"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The liver is the largest internal organ as well as the largest gland in the human body, responsible for producing bile juice."
+    },
+    {
+        "question": "Select the most appropriate word to fill in the blank: 'घोड़ा ________ रहा है।' (The horse is ________.) [SSC GD Hindi Section]",
+        "options": ["Bhonk (Barking)", "Dahaad (Roaring)", "Hinhina (Neighing)", "Mimiya (Bleating)"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The sound made by a horse is called neighing ('Hinhinana'), making Option 3 the correct fit."
+    },
+    {
+        "question": "In which year did the first official/decennial census begin in India? [SSC GD]",
+        "options": ["1872 AD", "1881 AD", "1901 AD", "1951 AD"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The first unofficial census was held in 1872 under Lord Mayo, but the first synchronized and continuous regular decennial census started in 1881 under Lord Ripon."
+    },
+    {
+        "question": "Find the correct synonym for the word: 'Samudra' (Ocean/Sea) [SSC GD Hindi Section]",
+        "options": ["Vaaridh", "Saagar", "Tadaag", "Sarita"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Saagar, Payodhi, Jaladhi, and Ratnakar are the primary synonyms for 'Samudra'."
+    },
+    {
+        "question": "When was 'NITI Aayog' formed to replace the Planning Commission? [SSC GD]",
+        "options": ["1 January 2014", "1 January 2015", "15 August 2015", "26 January 2016"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 NITI Aayog (National Institution for Transforming India) was established by the Government of India on January 1, 2015."
+    },
+    {
         "question": "Which Fundamental Right was removed by the 44th Constitutional Amendment (1978)? [SSC CGL 05-Dec-2022 Shift-1]",
         "options": ["Right to Equality", "Right to Freedom", "Right to Property", "Right to Freedom of Religion"],
         "correct_id": 2,
