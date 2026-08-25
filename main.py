@@ -362,7 +362,7 @@ def get_settings_markup(chat_id):
     btn_lang = InlineKeyboardButton(text=lang_text, callback_data=f"set_lang_{chat_id}", style="primary")
     btn_autodel = InlineKeyboardButton(text="🗑️ Auto-Delete Polls", callback_data=f"menu_autodel_{chat_id}", style="primary")
     
-    btn_15m = InlineKeyboardButton(text="⏱️ 15 Min", callback_data=f"set_time_900_{chat_id}", style="success")
+    btn_15m = InlineKeyboardButton(text="⏱️ 05 Min", callback_data=f"set_time_300_{chat_id}", style="success")
     btn_30m = InlineKeyboardButton(text="⏱️ 30 Min", callback_data=f"set_time_1800_{chat_id}", style="success")
     btn_45m = InlineKeyboardButton(text="⏱️ 45 Min", callback_data=f"set_time_2700_{chat_id}", style="success")
     btn_60m = InlineKeyboardButton(text="⏱️ 60 Min", callback_data=f"set_time_3600_{chat_id}", style="success")
