@@ -5,6 +5,146 @@ QUIZ_LIST = [
     # ------------------- Samvidhan QUIZZES -------------------
     # =========================================================
     {
+        "question": "भारत का सबसे लंबा राष्ट्रीय राजमार्ग (National Highway) कौन सा है?\n\n[SSC GD 11-Jan-2023 Shift-2]",
+        "options": ["NH 1", "NH 7", "NH 10", "NH 44"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 राष्ट्रीय राजमार्ग 44 (NH 44) भारत का सबसे लंबा राजमार्ग है, जो श्रीनगर से कन्याकुमारी तक जाता है।"
+    },
+    {
+        "question": "किस ग्रह को पृथ्वी की 'जुड़वां बहन' (Earth's Twin) कहा जाता है?\n\n[SSC MTS 03-May-2023 Shift-1]",
+        "options": ["बुध", "शुक्र", "मंगल", "शनि"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 आकार, द्रव्यमान और घनत्व में पृथ्वी के समान होने के कारण शुक्र (Venus) को पृथ्वी की जुड़वां बहन कहा जाता है।"
+    },
+    {
+        "question": "भारत में सबसे बड़ा काजू उत्पादक राज्य कौन सा है?\n\n[SSC CHSL 15-Mar-2023 Shift-3]",
+        "options": ["केरल", "महाराष्ट्र", "आंध्र प्रदेश", "तमिलनाडु"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 महाराष्ट्र भारत का सबसे प्रमुख और बड़ा काजू उत्पादक राज्य है।"
+    },
+    {
+        "question": "सुंदरवन राष्ट्रीय उद्यान (Sundarbans National Park) भारत के किस राज्य में स्थित है?\n\n[SSC GD 17-Jan-2023 Shift-4]",
+        "options": ["ओडिशा", "असम", "पश्चिम बंगाल", "बिहार"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 सुंदरवन राष्ट्रीय उद्यान पश्चिम बंगाल में स्थित है, जो रॉयल बंगाल टाइगर और मैंग्रोव वनों के लिए प्रसिद्ध है।"
+    },
+    {
+        "question": "भारत और श्रीलंका को अलग करने वाली जलसंधि (Strait) को क्या कहते हैं?\n\n[SSC MTS 10-May-2023 Shift-3]",
+        "options": ["पाक जलडमरूमध्य", "मलक्का जलसंधि", "बेरिंग जलसंधि", "10 डिग्री चैनल"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 पाक जलडमरूमध्य (Palk Strait) भारत (तमिलनाडु) और श्रीलंका के मन्नार जिले को अलग करता है।"
+    },
+    {
+        "question": "भारत में 'गुलाबी क्रांति' (Pink Revolution) किससे संबंधित है?\n\n[SSC CHSL 14-Mar-2023 Shift-1]",
+        "options": ["टमाटर उत्पादन", "झींगा और प्याज उत्पादन", "मांस उत्पादन", "उर्वरक उत्पादन"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 गुलाबी क्रांति का संबंध झींगा मछली (Prawn) और प्याज (Onion) के उत्पादन से है।"
+    },
+    {
+        "question": "हीराकुड बांध (Hirakud Dam) किस नदी पर निर्मित है?\n\n[SSC GD 25-Jan-2023 Shift-2]",
+        "options": ["गंगा", "गोदावरी", "महानदी", "कृष्णा"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 ओडिशा में महानदी पर बना हीराकुड बांध भारत का सबसे लंबा बांध है।"
+    },
+    {
+        "question": "हीरे की खदानों के लिए प्रसिद्ध 'पन्ना' (Panna) किस राज्य में स्थित है?\n\n[SSC MTS 19-May-2023 Shift-2]",
+        "options": ["राजस्थान", "मध्य प्रदेश", "झारखंड", "छत्तीसगढ़"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 मध्य प्रदेश का पन्ना जिला भारत में हीरे की प्रमुख खदानों के लिए विश्व प्रसिद्ध है।"
+    },
+    {
+        "question": "भारत की सबसे बड़ी मीठे पानी की झील (Freshwater Lake) कौन सी है?\n\n[SSC GD 03-Feb-2023 Shift-3]",
+        "options": ["चिल्का झील", "वुलर झील", "सांभर झील", "दल झील"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जम्मू-कश्मीर में स्थित वुलर झील भारत की सबसे बड़ी मीठे पानी की झील है।"
+    },
+    {
+        "question": "निम्नलिखित में से किस राज्य की तटरेखा (Coastline) सबसे लंबी है?\n\n[SSC CHSL 17-Mar-2023 Shift-4]",
+        "options": ["महाराष्ट्र", "तमिलनाडु", "गुजरात", "आंध्र प्रदेश"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत में गुजरात राज्य की समुद्र तटरेखा सबसे लंबी (लगभग 1600 किमी) है।"
+    },
+    {
+        "question": "Which is the longest National Highway in India?\n\n[SSC GD 11-Jan-2023 Shift-2]",
+        "options": ["NH 1", "NH 7", "NH 10", "NH 44"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 National Highway 44 (NH 44) is the longest highway in India, running from Srinagar to Kanyakumari."
+    },
+    {
+        "question": "Which planet is known as 'Earth's Twin'?\n\n[SSC MTS 03-May-2023 Shift-1]",
+        "options": ["Mercury", "Venus", "Mars", "Saturn"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Venus is called Earth's twin due to its similar size, mass, and density to Earth."
+    },
+    {
+        "question": "Which is the largest cashew-producing state in India?\n\n[SSC CHSL 15-Mar-2023 Shift-3]",
+        "options": ["Kerala", "Maharashtra", "Andhra Pradesh", "Tamil Nadu"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Maharashtra is the leading and largest producer of cashew nuts in India."
+    },
+    {
+        "question": "In which state of India is the Sundarbans National Park located?\n\n[SSC GD 17-Jan-2023 Shift-4]",
+        "options": ["Odisha", "Assam", "West Bengal", "Bihar"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Sundarbans National Park is located in West Bengal, famous for Royal Bengal Tigers and mangrove forests."
+    },
+    {
+        "question": "What is the name of the strait that separates India and Sri Lanka?\n\n[SSC MTS 10-May-2023 Shift-3]",
+        "options": ["Palk Strait", "Malacca Strait", "Bering Strait", "10 Degree Channel"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Palk Strait separates India (Tamil Nadu) and the Mannar district of Sri Lanka."
+    },
+    {
+        "question": "With what is the 'Pink Revolution' in India associated?\n\n[SSC CHSL 14-Mar-2023 Shift-1]",
+        "options": ["Tomato production", "Prawn and Onion production", "Meat production", "Fertilizer production"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Pink Revolution is associated with the production of Prawns and Onions."
+    },
+    {
+        "question": "On which river is the Hirakud Dam constructed?\n\n[SSC GD 25-Jan-2023 Shift-2]",
+        "options": ["Ganga", "Godavari", "Mahanadi", "Krishna"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Hirakud Dam, built on the Mahanadi river in Odisha, is the longest dam in India."
+    },
+    {
+        "question": "In which state is 'Panna', famous for diamond mines, located?\n\n[SSC MTS 19-May-2023 Shift-2]",
+        "options": ["Rajasthan", "Madhya Pradesh", "Jharkhand", "Chhattisgarh"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Panna district of Madhya Pradesh is world-famous for its major diamond mines."
+    },
+    {
+        "question": "Which is the largest freshwater lake in India?\n\n[SSC GD 03-Feb-2023 Shift-3]",
+        "options": ["Chilika Lake", "Wular Lake", "Sambhar Lake", "Dal Lake"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Wular Lake, located in Jammu and Kashmir, is the largest freshwater lake in India."
+    },
+    {
+        "question": "Which of the following states has the longest coastline in India?\n\n[SSC CHSL 17-Mar-2023 Shift-4]",
+        "options": ["Maharashtra", "Tamil Nadu", "Gujarat", "Andhra Pradesh"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Gujarat has the longest coastline in India, measuring approximately 1600 km."
+    }, 
+    {
         "question": "भारत की किस नदी को 'बूढ़ी गंगा' या 'दक्षिण गंगा' कहा जाता है?\n\n[SSC MTS 02-May-2023 Shift-1]",
         "options": ["कृष्णा", "कावेरी", "गोदावरी", "नर्मदा"],
         "correct_id": 2,
