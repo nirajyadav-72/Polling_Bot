@@ -5,6 +5,146 @@ QUIZ_LIST = [
     # ------------------- Samvidhan QUIZZES -------------------
     # =========================================================
     {
+        "question": "सिंधु घाटी सभ्यता का प्रसिद्ध स्थल 'कालीबंगा' वर्तमान में किस राज्य में स्थित है?\n\n[SSC GD 12-Jan-2023 Shift-2]",
+        "options": ["गुजरात", "पंजाब", "राजस्थान", "हरियाणा"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 कालीबंगा राजस्थान के हनुमानगढ़ जिले में घग्गर नदी के किनारे स्थित है। यहाँ से जुते हुए खेतों के साक्ष्य मिले हैं।"
+    },
+    {
+        "question": "गौतम बुद्ध के बचपन का नाम क्या था?\n\n[SSC MTS 04-May-2023 Shift-1]",
+        "options": ["सिद्धार्थ", "वर्धमान", "राहुल", "देवदत्त"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 महात्मा बुद्ध के बचपन का नाम सिद्धार्थ था, जबकि महावीर स्वामी के बचपन का नाम वर्धमान था।"
+    },
+    {
+        "question": "मौर्य साम्राज्य का अंतिम शासक कौन था?\n\n[SSC CHSL 16-Mar-2023 Shift-3]",
+        "options": ["चंद्रगुप्त मौर्य", "बिन्दुसार", "दशरथ", "बृहद्रथ"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 मौर्य वंश का अंतिम शासक बृहद्रथ था, जिसकी हत्या उसके सेनापति पुष्यमित्र शुंग ने करके शुंग वंश की स्थापना की थी।"
+    },
+    {
+        "question": "गुप्त वंश का संस्थापक कौन था?\n\n[SSC GD 17-Jan-2023 Shift-1]",
+        "options": ["चंद्रगुप्त प्रथम", "श्रीगुप्त", "समुद्रगुप्त", "घटोत्कच"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 गुप्त साम्राज्य की स्थापना महाराजा श्रीगुप्त ने लगभग 275 ईस्वी में की थी।"
+    },
+    {
+        "question": "आगरा शहर की स्थापना 1504 ई. में किस सुल्तान ने की थी?\n\n[SSC MTS 11-May-2023 Shift-3]",
+        "options": ["बहलोल लोदी", "सिकंदर लोदी", "इब्राहिम लोदी", "खिज्र खान"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 सिकंदर लोदी ने 1504 में आगरा शहर बसाया था और बाद में इसे दिल्ली सल्तनत की राजधानी बनाया था।"
+    },
+    {
+        "question": "किस मुगल शासक को 'जिंदा पीर' (Living Saint) कहा जाता था?\n\n[SSC CHSL 13-Mar-2023 Shift-4]",
+        "options": ["अकबर", "जहाँगीर", "शाहजहाँ", "औरंगज़ेब"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 अपने सादा जीवन और धार्मिक कट्टरता के कारण औरंगज़ेब को इतिहास में 'जिंदा पीर' कहा जाता था।"
+    },
+    {
+        "question": "प्रसिद्ध 'दीन-ए-इलाही' धर्म की शुरुआत किस मुगल सम्राट ने की थी?\n\n[SSC GD 27-Jan-2023 Shift-4]",
+        "options": ["बाबर", "हुमायूँ", "अकबर", "शाहजहाँ"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 अकबर ने 1582 ई. में सभी धर्मों के मूल सिद्धांतों को मिलाकर 'दीन-ए-इलाही' नामक एक नया धर्म शुरू किया था।"
+    },
+    {
+        "question": "कोलकाता में 'रामकृष्ण मिशन' की स्थापना 1897 में किसने की थी?\n\n[SSC MTS 16-Jun-2023 Shift-2]",
+        "options": ["स्वामी विवेकानंद", "रामकृष्ण परमहंस", "स्वामी दयानंद सरस्वती", "देवेन्द्रनाथ टैगोर"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 स्वामी विवेकानंद ने अपने गुरु रामकृष्ण परमहंस की स्मृति और उनके संदेशों के प्रचार के लिए रामकृष्ण मिशन की स्थापना की थी।"
+    },
+    {
+        "question": "बंगाल का विभाजन किस वर्ष और किस वायसराय के काल में हुआ था?\n\n[SSC GD 06-Feb-2023 Shift-1]",
+        "options": ["1905, लॉर्ड कर्जन", "1911, लॉर्ड हार्डिंग", "1905, लॉर्ड मिंटो", "1919, लॉर्ड चेम्सफोर्ड"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 लॉर्ड कर्जन ने प्रशासनिक सुधारों का बहाना बनाकर 1905 में बंगाल का विभाजन (Partition of Bengal) कर दिया था।"
+    },
+    {
+        "question": "गांधी जी ने 'करो या मरो' (Do or Die) का नारा किस आंदोलन के दौरान दिया था?\n\n[SSC CHSL 17-Mar-2023 Shift-1]",
+        "options": ["असहयोग आंदोलन", "सविनय अवज्ञा आंदोलन", "भारत छोड़ो आंदोलन", "चंपारण सत्याग्रह"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 8 अगस्त 1942 को बम्बई के ग्वालिया टैंक मैदान से शुरू हुए 'भारत छोड़ो आंदोलन' में गांधी जी ने 'करो या मरो' का प्रसिद्ध नारा दिया था।"
+    },
+    {
+        "question": "In which present-day state is 'Kalibangan', the famous site of the Indus Valley Civilization, located?\n\n[SSC GD 12-Jan-2023 Shift-2]",
+        "options": ["Gujarat", "Punjab", "Rajasthan", "Haryana"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Kalibangan is located along the banks of the Ghaggar river in the Hanumangarh district of Rajasthan, famous for excavated ploughed fields."
+    },
+    {
+        "question": "What was the childhood name of Gautam Buddha?\n\n[SSC MTS 04-May-2023 Shift-1]",
+        "options": ["Siddhartha", "Vardhamana", "Rahul", "Devadatta"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The childhood name of Mahatma Buddha was Siddhartha, while Vardhamana was the childhood name of Mahavira Swami."
+    },
+    {
+        "question": "Who was the last ruler of the Mauryan Empire?\n\n[SSC CHSL 16-Mar-2023 Shift-3]",
+        "options": ["Chandragupta Maurya", "Bindusara", "Dasharatha", "Brihadratha"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Brihadratha was the last ruler of the Mauryan dynasty. He was assassinated by his commander Pushyamitra Shunga, who founded the Shunga dynasty."
+    },
+    {
+        "question": "Who was the founder of the Gupta Dynasty?\n\n[SSC GD 17-Jan-2023 Shift-1]",
+        "options": ["Chandragupta I", "Sri Gupta", "Samudragupta", "Ghatotkacha"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Gupta Empire was founded by Maharaja Sri Gupta around 275 AD."
+    },
+    {
+        "question": "Which sultan founded the city of Agra in 1504 AD?\n\n[SSC MTS 11-May-2023 Shift-3]",
+        "options": ["Bahlul Lodi", "Sikandar Lodi", "Ibrahim Lodi", "Khizr Khan"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Sikandar Lodi founded the city of Agra in 1504 and later made it the official capital of the Delhi Sultanate."
+    },
+    {
+        "question": "Which Mughal ruler was popularly known as 'Zinda Peir' (Living Saint)?\n\n[SSC CHSL 13-Mar-2023 Shift-4]",
+        "options": ["Akbar", "Jahangir", "Shah Jahan", "Aurangzeb"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Due to his simple austere lifestyle and religious puritanism, Aurangzeb was known in history as 'Zinda Peir'."
+    },
+    {
+        "question": "Which Mughal emperor introduced the religious syncretism known as 'Din-i-Ilahi'?\n\n[SSC GD 27-Jan-2023 Shift-4]",
+        "options": ["Babur", "Humayun", "Akbar", "Shah Jahan"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Emperor Akbar formulated 'Din-i-Ilahi' in 1582 AD, blending ethical doctrines from various prominent religions."
+    },
+    {
+        "question": "Who established the 'Ramakrishna Mission' in Kolkata in the year 1897?\n\n[SSC MTS 16-Jun-2023 Shift-2]",
+        "options": ["Swami Vivekananda", "Ramakrishna Paramahamsa", "Swami Dayananda Saraswati", "Debendranath Tagore"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Swami Vivekananda founded the Ramakrishna Mission in memory of his spiritual guru, Ramakrishna Paramahamsa."
+    },
+    {
+        "question": "In which year and under which Viceroy did the Partition of Bengal take place?\n\n[SSC GD 06-Feb-2023 Shift-1]",
+        "options": ["1905, Lord Curzon", "1911, Lord Hardinge", "1905, Lord Minto", "1919, Lord Chelmsford"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Lord Curzon enforced the Partition of Bengal in 1905 under the pretext of administrative efficiency."
+    },
+    {
+        "question": "During which movement did Mahatma Gandhi give the famous slogan 'Do or Die'?\n\n[SSC CHSL 17-Mar-2023 Shift-1]",
+        "options": ["Non-Cooperation Movement", "Civil Disobedience Movement", "Quit India Movement", "Champaran Satyagraha"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Gandhiji raised the slogan 'Do or Die' during the historic Quit India Movement, launched on August 8, 1942, in Bombay."
+    },
+    {
         "question": "सिंधु घाटी सभ्यता का प्रमुख बंदरगाह शहर 'लोथल' वर्तमान में किस राज्य में स्थित है?\n\n[SSC GD 11-Jan-2023 Shift-2]",
         "options": ["राजस्थान", "पंजाब", "गुजरात", "हरियाणा"],
         "correct_id": 2,
