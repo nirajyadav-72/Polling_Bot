@@ -5,6 +5,146 @@ QUIZ_LIST = [
     # ------------------- Samvidhan QUIZZES -------------------
     # =========================================================
     {
+        "question": "सिमलीपाल राष्ट्रीय उद्यान (Simlipal National Park) भारत के किस राज्य में स्थित है?\n\n[SSC GD 11-Jan-2023 Shift-4]",
+        "options": ["ओडिशा", "झारखंड", "छत्तीसगढ़", "पश्चिम बंगाल"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 सिमलीपाल राष्ट्रीय उद्यान और मयूरभंज हाथी अभयारण्य ओडिशा राज्य में स्थित हैं।"
+    },
+    {
+        "question": "ओजोन परत (Ozone Layer) वायुमंडल की किस परत में पाई जाती है?\n\n[SSC MTS 03-May-2023 Shift-2]",
+        "options": ["क्षोभमण्डल", "समतापमण्डल", "मध्यमण्डल", "बाह्यमण्डल"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 ओजोन परत समतापमण्डल (Stratosphere) में स्थित है, जो सूर्य की हानिकारक पराबैंगनी किरणों को सोखती है।"
+    },
+    {
+        "question": "भारत में श्वेत क्रांति (White Revolution) का जनक किसे कहा जाता है?\n\n[SSC CHSL 15-Mar-2023 Shift-1]",
+        "options": ["एम.एस. स्वामीनाथन", "वर्गिज कुरियन", "नॉर्मन बोरलॉग", "सैम पित्रोदा"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 भारत में डॉ. वर्गिज कुरियन को श्वेत क्रांति (दूध उत्पादन) और 'ऑपरेशन फ्लड' का जनक माना जाता है।"
+    },
+    {
+        "question": "भारत की किस नदी को 'नमक की नदी' (Salt River) कहा जाता है?\n\n[SSC GD 17-Jan-2023 Shift-2]",
+        "options": ["साबरमती", "लूनी नदी", "माही नदी", "तापी नदी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान के थार मरुस्थल से बहने वाली लूनी नदी को लवणीय जल के कारण 'नमक की नदी' भी कहते हैं।"
+    },
+    {
+        "question": "कपिली (Kapili) निम्नलिखित में से किस नदी की एक प्रमुख सहायक नदी है?\n\n[SSC MTS 10-May-2023 Shift-1]",
+        "options": ["गंगा", "ब्रह्मपुत्र", "सिंधु", "गोदावरी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कपिली नदी पूर्वोत्तर भारत में ब्रह्मपुत्र नदी की एक प्रमुख दक्षिण-तट सहायक नदी है।"
+    },
+    {
+        "question": "भारत का सबसे बड़ा बॉक्साइट उत्पादक राज्य कौन सा है?\n\n[SSC CHSL 14-Mar-2023 Shift-4]",
+        "options": ["ओडिशा", "झारखंड", "गुजरात", "महाराष्ट्र"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत में आधे से अधिक बॉक्साइट (एल्युमिनियम का अयस्क) का उत्पादन अकेले ओडिशा राज्य में होता है।"
+    },
+    {
+        "question": "राणा प्रताप सागर बांध किस नदी पर निर्मित है?\n\n[SSC GD 24-Jan-2023 Shift-2]",
+        "options": ["नर्मदा नदी", "चम्बल नदी", "सोन नदी", "बेतवा नदी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान में स्थित राणा प्रताप सागर बांध चम्बल नदी पर बनाई गई प्रमुख जलविद्युत परियोजनाओं में से एक है।"
+    },
+    {
+        "question": "गिर राष्ट्रीय उद्यान (Gir National Park) किसके संरक्षण के लिए प्रसिद्ध है?\n\n[SSC MTS 19-May-2023 Shift-3]",
+        "options": ["एशियाई शेर", "रॉयल बंगाल टाइगर", "एक सींग वाला गैंडा", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 गुजरात में स्थित गिर राष्ट्रीय उद्यान विशुद्ध रूप से 'एशियाई शेरों' (Asiatic Lions) के लिए जाना जाता है।"
+    },
+    {
+        "question": "भारत का सुदूर दक्षिणी बिंदु (Southernmost Point) कौन सा है?\n\n[SSC GD 03-Feb-2023 Shift-4]",
+        "options": ["इंदिरा कॉल", "केप कमोरिन", "इंदिरा पॉइंट", "किबिथू"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत का सबसे दक्षिणी बिंदु 'इंदिरा पॉइंट' अंडमान और निकोबार के ग्रेट निकोबार द्वीप पर स्थित है।"
+    },
+    {
+        "question": "भूमध्य रेखा के सबसे निकट स्थित भारतीय स्थान कौन सा है?\n\n[SSC CHSL 17-Mar-2023 Shift-2]",
+        "options": ["कन्याकुमारी", "रामेश्वरम", "इंदिरा पॉइंट", "मिनिकॉय द्वीप"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 अंडमान और निकोबार में स्थित 'इंदिरा पॉइंट' भूमध्य रेखा (Equator) के सबसे नजदीक का भारतीय क्षेत्र है।"
+    },
+    {
+        "question": "In which Indian state is the Simlipal National Park located?\n\n[SSC GD 11-Jan-2023 Shift-4]",
+        "options": ["Odisha", "Jharkhand", "Chhattisgarh", "West Bengal"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Simlipal National Park and Mayurbhanj Elephant Reserve are located in the state of Odisha."
+    },
+    {
+        "question": "In which layer of the atmosphere is the Ozone Layer found?\n\n[SSC MTS 03-May-2023 Shift-2]",
+        "options": ["Troposphere", "Stratosphere", "Mesosphere", "Exosphere"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The ozone layer is located in the Stratosphere, which absorbs harmful ultraviolet (UV) radiation from the sun."
+    },
+    {
+        "question": "Who is known as the father of the 'White Revolution' in India?\n\n[SSC CHSL 15-Mar-2023 Shift-1]",
+        "options": ["M.S. Swaminathan", "Verghese Kurien", "Norman Borlaug", "Sam Pitroda"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Dr. Verghese Kurien is considered the father of the White Revolution (milk production) and 'Operation Flood' in India."
+    },
+    {
+        "question": "Which river in India is also referred to as the 'Salt River'?\n\n[SSC GD 17-Jan-2023 Shift-2]",
+        "options": ["Sabarmati", "Luni River", "Mahi River", "Tapi River"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Luni River flowing through the Thar Desert of Rajasthan is called the Salt River due to its brackish water."
+    },
+    {
+        "question": "Kapili is a major tributary of which of the following rivers?\n\n[SSC MTS 10-May-2023 Shift-1]",
+        "options": ["Ganga", "Brahmaputra", "Indus", "Godavari"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Kapili River is a major south-bank tributary of the Brahmaputra River in Northeast India."
+    },
+    {
+        "question": "Which is the largest bauxite-producing state in India?\n\n[SSC CHSL 14-Mar-2023 Shift-4]",
+        "options": ["Odisha", "Jharkhand", "Gujarat", "Maharashtra"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Odisha is the leading bauxite producer in India, accounting for more than half of the country's total output."
+    },
+    {
+        "question": "On which river is the Rana Pratap Sagar Dam constructed?\n\n[SSC GD 24-Jan-2023 Shift-2]",
+        "options": ["Narmada River", "Chambal River", "Sone River", "Betwa River"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Rana Pratap Sagar Dam in Rajasthan is built on the Chambal River as a key hydroelectric project."
+    },
+    {
+        "question": "The Gir National Park is famous for the protection of which animal?\n\n[SSC MTS 19-May-2023 Shift-3]",
+        "options": ["Asiatic Lion", "Royal Bengal Tiger", "One-horned Rhinoceros", "Elephant"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Located in Gujarat, the Gir National Park is world-renowned exclusively for protecting Asiatic Lions."
+    },
+    {
+        "question": "Which is the southernmost point of Indian territory?\n\n[SSC GD 03-Feb-2023 Shift-4]",
+        "options": ["Indira Col", "Cape Comorin", "Indira Point", "Kirbithu"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The southernmost point of India is 'Indira Point', located on Great Nicobar Island in the Andaman and Nicobar archipelago."
+    },
+    {
+        "question": "Which Indian location is situated closest to the Equator?\n\n[SSC CHSL 17-Mar-2023 Shift-2]",
+        "options": ["Kanyakumari", "Rameshwaram", "Indira Point", "Minicoy Island"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 'Indira Point' in the Andaman and Nicobar Islands is geographically the closest Indian territory to the Equator."
+    },
+    {
         "question": "भारत का एकमात्र तैरता हुआ राष्ट्रीय उद्यान 'केबुल लामजाओ' कहाँ स्थित है?\n\n[SSC GD 12-Jan-2023 Shift-1]",
         "options": ["असम", "मणिपुर", "मेघालय", "त्रिपुरा"],
         "correct_id": 1,
