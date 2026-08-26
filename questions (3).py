@@ -5,6 +5,146 @@ QUIZ_LIST = [
     # ------------------- Samvidhan QUIZZES -------------------
     # =========================================================
     {
+        "question": "सिंधु घाटी सभ्यता का प्रमुख बंदरगाह शहर 'लोथल' वर्तमान में किस राज्य में स्थित है?\n\n[SSC GD 11-Jan-2023 Shift-2]",
+        "options": ["राजस्थान", "पंजाब", "गुजरात", "हरियाणा"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 लोथल गुजरात के भाल क्षेत्र में भोगवा नदी के तट पर स्थित सिंधु घाटी सभ्यता का एक प्रमुख बंदरगाह था।"
+    },
+    {
+        "question": "जैन धर्म के 24वें और अंतिम तीर्थंकर कौन थे?\n\n[SSC MTS 03-May-2023 Shift-1]",
+        "options": ["ऋषभदेव", "पार्श्वनाथ", "महावीर स्वामी", "अरिष्टनेमि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 वर्धमान महावीर जैन धर्म के 24वें तीर्थंकर थे। ऋषभदेव पहले और पार्श्वनाथ 23वें तीर्थंकर थे।"
+    },
+    {
+        "question": "कौटिल्य (चाणक्य) द्वारा रचित प्रसिद्ध पुस्तक कौन सी है?\n\n[SSC CHSL 15-Mar-2023 Shift-3]",
+        "options": ["इंडिका", "अर्थशास्त्र", "मुद्राराक्षस", "राजतरंगिणी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 चाणक्य द्वारा रचित 'अर्थशास्त्र' मौर्यकालीन राजनीति, लोक प्रशासन और अर्थशास्त्र पर आधारित एक प्रसिद्ध ग्रंथ है।"
+    },
+    {
+        "question": "प्रसिद्ध चीनी यात्री 'ह्वेनसांग' (Hiuen Tsang) किस राजा के शासनकाल में भारत आया था?\n\n[SSC GD 17-Jan-2023 Shift-4]",
+        "options": ["चंद्रगुप्त मौर्य", "चंद्रगुप्त द्वितीय", "हर्षवर्धन", "कनिष्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 चीनी बौद्ध भिक्षु ह्वेनसांग सम्राट हर्षवर्धन के शासनकाल में बौद्ध ग्रंथों का अध्ययन करने भारत आया था।"
+    },
+    {
+        "question": "लाखबख्श (लाखों का दान देने वाला) की उपाधि दिल्ली सल्तनत के किस शासक को दी गई थी?\n\n[SSC MTS 10-May-2023 Shift-2]",
+        "options": ["इल्तुतमिश", "कुतुबुद्दीन ऐबक", "बलबन", "अलाउद्दीन खिलजी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 अपनी अत्यधिक उदारता और दानशीलता के कारण कुतुबुद्दीन ऐबक को 'लाखबख्श' कहा जाता था।"
+    },
+    {
+        "question": "पानीपत की पहली लड़ाई (1526) में बाबर ने किस सुल्तान को हराया था?\n\n[SSC CHSL 14-Mar-2023 Shift-2]",
+        "options": ["बहलोल लोदी", "सिकंदर लोदी", "इब्राहिम लोदी", "राणा सांगा"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 21 अप्रैल 1526 को पानीपत के प्रथम युद्ध में बाबर ने इब्राहिम लोदी को हराकर भारत में मुगल साम्राज्य की नींव रखी।"
+    },
+    {
+        "question": "अकबरनामा (Akbarnama) पुस्तक के लेखक कौन हैं?\n\n[SSC GD 25-Jan-2023 Shift-1]",
+        "options": ["बीरबल", "अब्दुल रहीम खान-ए-खाना", "फैजी", "अबुल फजल"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 अबुल फजल ने मुगल सम्राट अकबर के जीवन और शासनकाल पर आधारित 'अकबरनामा' की रचना की थी।"
+    },
+    {
+        "question": "कोलकाता में 'ब्रह्म समाज' (Brahmo Samaj) की स्थापना 1828 में किसने की थी?\n\n[SSC MTS 19-May-2023 Shift-2]",
+        "options": ["स्वामी विवेकानंद", "राजा राममोहन राय", "ईश्वर चंद्र विद्यासागर", "केशव चंद्र सेन"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 राजा राममोहन राय ने सामाजिक कुरीतियों जैसे सती प्रथा के विरोध के लिए 1828 में ब्रह्म समाज की स्थापना की थी।"
+    },
+    {
+        "question": "1857 के महान विद्रोह की शुरुआत किस शहर की छावनी से हुई थी?\n\n[SSC GD 03-Feb-2023 Shift-2]",
+        "options": ["झांसी", "मेरठ", "कानपुर", "बैरकपुर"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 10 मई 1857 को मेरठ की छावनी के भारतीय सैनिकों ने आधिकारिक तौर पर इस क्रांति की शुरुआत की थी।"
+    },
+    {
+        "question": "महात्मा गांधी को सर्वप्रथम 'राष्ट्रपिता' कहकर किसने संबोधित किया था?\n\n[SSC CHSL 17-Mar-2023 Shift-4]",
+        "options": ["जवाहरलाल नेहरू", "रवींद्रनाथ टैगोर", "सुभाष चंद्र बोस", "सरदार पटेल"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 1944 में सिंगापुर से रेडियो रंगून के माध्यम से सुभाष चंद्र बोस ने गांधी जी को सबसे पहले 'राष्ट्रपिता' संबोधित किया था।"
+    },
+    {
+        "question": "In which present-day state is 'Lothal', the major port city of the Indus Valley Civilization, located?\n\n[SSC GD 11-Jan-2023 Shift-2]",
+        "options": ["Rajasthan", "Punjab", "Gujarat", "Haryana"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Lothal was a major ancient port city of the Indus Valley Civilization located on the banks of the Bhogava river in Gujarat."
+    },
+    {
+        "question": "Who was the 24th and last Tirthankara of Jainism?\n\n[SSC MTS 03-May-2023 Shift-1]",
+        "options": ["Rishabhdev", "Parshvanath", "Mahavira Swami", "Arishtanemi"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Vardhamana Mahavira was the 24th Tirthankara of Jainism. Rishabhdev was the 1st and Parshvanath was the 23rd."
+    },
+    {
+        "question": "Which famous book was authored by Kautilya (Chanakya)?\n\n[SSC CHSL 15-Mar-2023 Shift-3]",
+        "options": ["Indica", "Arthashastra", "Mudrarakshasa", "Rajatarangini"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 'Arthashastra' is a famous book composed by Chanakya, focusing on statecraft, economic policy, and military strategy during the Mauryan era."
+    },
+    {
+        "question": "The famous Chinese traveler 'Hiuen Tsang' visited India during the reign of which king?\n\n[SSC GD 17-Jan-2023 Shift-4]",
+        "options": ["Chandragupta Maurya", "Chandragupta II", "Harshavardhana", "Kanishka"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Chinese Buddhist monk Hiuen Tsang traveled to India during the reign of King Harshavardhana to collect Buddhist texts."
+    },
+    {
+        "question": "Which ruler of the Delhi Sultanate was given the title of 'Lakh Baksh' (Giver of Lakhs)?\n\n[SSC MTS 10-May-2023 Shift-2]",
+        "options": ["Iltutmish", "Qutb-ud-din Aibak", "Balban", "Alauddin Khalji"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Due to his excessive generosity and charity, Qutb-ud-din Aibak was commonly referred to as 'Lakh Baksh'."
+    },
+    {
+        "question": "Which sultan was defeated by Babur in the First Battle of Panipat (1526)?\n\n[SSC CHSL 14-Mar-2023 Shift-2]",
+        "options": ["Bahlul Lodi", "Sikandar Lodi", "Ibrahim Lodi", "Rana Sanga"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 On April 21, 1526, Babur defeated Ibrahim Lodi in the First Battle of Panipat, establishing the Mughal Empire in India."
+    },
+    {
+        "question": "Who is the author of the book 'Akbarnama'?\n\n[SSC GD 25-Jan-2023 Shift-1]",
+        "options": ["Birbal", "Abdul Rahim Khan-i-Khanan", "Faizi", "Abul Fazl"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Abul Fazl wrote the 'Akbarnama', which provides an official and detailed history of the life and reign of Mughal Emperor Akbar."
+    },
+    {
+        "question": "Who founded the 'Brahmo Samaj' in Kolkata in the year 1828?\n\n[SSC MTS 19-May-2023 Shift-2]",
+        "options": ["Swami Vivekananda", "Raja Ram Mohan Roy", "Ishwar Chandra Vidyasagar", "Keshub Chandra Sen"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Raja Ram Mohan Roy established the Brahmo Samaj in 1828 to fight social evils like the Sati system."
+    },
+    {
+        "question": "From which city's military cantonment did the great revolt of 1857 officially begin?\n\n[SSC GD 03-Feb-2023 Shift-2]",
+        "options": ["Jhansi", "Meerut", "Kanpur", "Barrackpore"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The uprising officially started on May 10, 1857, when Indian sepoys mutinied in the military cantonment at Meerut."
+    },
+    {
+        "question": "Who was the first to address Mahatma Gandhi as the 'Father of the Nation'?\n\n[SSC CHSL 17-Mar-2023 Shift-4]",
+        "options": ["Jawaharlal Nehru", "Rabindranath Tagore", "Subhas Chandra Bose", "Sardar Patel"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 In 1944, Subhas Chandra Bose addressed Gandhiji as the 'Father of the Nation' for the first time during a radio broadcast from Singapore."
+    },
+    {
         "question": "सिंधु घाटी सभ्यता का कौन सा स्थल 'मृतकों का टीला' (Mound of the Dead) कहलाता है?\n\n[SSC GD 10-Jan-2023 Shift-2]",
         "options": ["हड़प्पा", "लोथल", "कालीबंगा", "मोहनजोदड़ो"],
         "correct_id": 3,
