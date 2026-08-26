@@ -5,6 +5,146 @@ QUIZ_LIST = [
     # ------------------- Samvidhan QUIZZES -------------------
     # =========================================================
     {
+        "question": "कावेरी नदी का उद्गम स्थल (Origin) किस राज्य में है?\n\n[SSC GD 12-Jan-2023 Shift-4]",
+        "options": ["केरल", "तमिलनाडु", "कर्नाटक", "आंध्र प्रदेश"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 कावेरी नदी कर्नाटक के कोडागु जिले में ब्रह्मगिरि पहाड़ियों से निकलती है।"
+    },
+    {
+        "question": "वायुमंडल में सबसे अधिक मात्रा में पाई जाने वाली गैस कौन सी है?\n\n[SSC MTS 04-May-2023 Shift-3]",
+        "options": ["ऑक्सीजन", "नाइट्रोजन", "कार्बन डाइऑक्साइड", "आर्गन"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 हमारे वायुमंडल में सबसे अधिक मात्रा में नाइट्रोजन गैस (लगभग 78%) पाई जाती है।"
+    },
+    {
+        "question": "केवलादेव राष्ट्रीय उद्यान (Keoladeo National Park) किस राज्य में है?\n\n[SSC CHSL 14-Mar-2023 Shift-1]",
+        "options": ["मध्य प्रदेश", "गुजरात", "हरियाणा", "राजस्थान"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 केवलादेव राष्ट्रीय उद्यान (जिसे भरतपुर पक्षी अभयारण्य भी कहते हैं) राजस्थान में स्थित है।"
+    },
+    {
+        "question": "क्षेत्रफल के हिसाब से भारत का सबसे बड़ा राज्य कौन सा है?\n\n[SSC GD 17-Jan-2023 Shift-3]",
+        "options": ["मध्य प्रदेश", "उत्तर Pradesh", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 क्षेत्रफल में राजस्थान भारत का सबसे बड़ा राज्य है और गोवा सबसे छोटा है।"
+    },
+    {
+        "question": "भारत का सबसे ऊँचा बांध 'टिहरी बांध' किस राज्य में स्थित है?\n\n[SSC MTS 11-May-2023 Shift-2]",
+        "options": ["हिमाचल प्रदेश", "उत्तराखंड", "जम्मू-कश्मीर", "अरुणाचल प्रदेश"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 टिहरी बांध उत्तराखंड में भागीरथी नदी पर बना है, जो भारत का सबसे ऊँचा बांध है।"
+    },
+    {
+        "question": "भारत का सबसे बड़ा चावल उत्पादक राज्य कौन सा है?\n\n[SSC CHSL 16-Mar-2023 Shift-2]",
+        "options": ["उत्तर प्रदेश", "पंजाब", "आंध्र प्रदेश", "पश्चिम बंगाल"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 पश्चिम बंगाल भारत में सबसे अधिक चावल उत्पादन करने वाला राज्य है।"
+    },
+    {
+        "question": "नर्मदा नदी अमरकंटक से निकलकर किस खाड़ी या सागर में गिरती है?\n\n[SSC GD 27-Jan-2023 Shift-3]",
+        "options": ["बंगाल की खाड़ी", "खंभात की खाड़ी", "मन्नार की खाड़ी", "कच्छ की खाड़ी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 नर्मदा नदी पश्चिम की ओर बहती है और गुजरात के पास अरब सागर की खंभात की खाड़ी में गिरती है।"
+    },
+    {
+        "question": "कोलार (Kolar) सोने की खदानें भारत के किस राज्य में स्थित हैं?\n\n[SSC MTS 16-Jun-2023 Shift-1]",
+        "options": ["आंध्र प्रदेश", "कर्नाटक", "तमिलनाडु", "केरल"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कोलार गोल्ड फील्ड्स (KGF) कर्नाटक राज्य में स्थित प्रसिद्ध सोने की खदानें हैं।"
+    },
+    {
+        "question": "भारत और पाकिस्तान के बीच की सीमा रेखा को क्या कहा जाता है?\n\n[SSC GD 06-Feb-2023 Shift-2]",
+        "options": ["मैकमोहन रेखा", "डूरंड रेखा", "रेडक्लिफ रेखा", "हिंडनबर्ग रेखा"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत और पाकिस्तान के बीच की अंतरराष्ट्रीय सीमा को रेडक्लिफ रेखा (Radcliffe Line) कहते हैं।"
+    },
+    {
+        "question": "काजीरंगा राष्ट्रीय उद्यान भारत के किस राज्य में स्थित है?\n\n[SSC CHSL 17-Mar-2023 Shift-3]",
+        "options": ["असम", "मेघालय", "त्रिपुरा", "मिजोरम"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 काजीरंगा राष्ट्रीय उद्यान असम में स्थित है, जो एक सींग वाले गैंडे के लिए प्रसिद्ध है।"
+    },
+    {
+        "question": "In which state is the origin of the Cauvery River located?\n\n[SSC GD 12-Jan-2023 Shift-4]",
+        "options": ["Kerala", "Tamil Nadu", "Karnataka", "Andhra Pradesh"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Cauvery River originates from the Brahmagiri hills in the Kodagu district of Karnataka."
+    },
+    {
+        "question": "Which gas is found in the highest abundance in the Earth's atmosphere?\n\n[SSC MTS 04-May-2023 Shift-3]",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Argon"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Nitrogen is the most abundant gas in our atmosphere, making up about 78% of total volume."
+    },
+    {
+        "question": "In which state is the Keoladeo National Park located?\n\n[SSC CHSL 14-Mar-2023 Shift-1]",
+        "options": ["Madhya Pradesh", "Gujarat", "Haryana", "Rajasthan"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Keoladeo National Park (formerly known as Bharatpur Bird Sanctuary) is located in Rajasthan."
+    },
+    {
+        "question": "Which is the largest state of India in terms of area?\n\n[SSC GD 17-Jan-2023 Shift-3]",
+        "options": ["Madhya Pradesh", "Uttar Pradesh", "Rajasthan", "Maharashtra"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Rajasthan is the largest state in India by area, while Goa is the smallest."
+    },
+    {
+        "question": "In which state is 'Tehri Dam', the highest dam in India, located?\n\n[SSC MTS 11-May-2023 Shift-2]",
+        "options": ["Himachal Pradesh", "Uttarakhand", "Jammu and Kashmir", "Arunachal Pradesh"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Tehri Dam is built on the Bhagirathi river in Uttarakhand and is the highest dam in India."
+    },
+    {
+        "question": "Which is the largest rice-producing state in India?\n\n[SSC CHSL 16-Mar-2023 Shift-2]",
+        "options": ["Uttar Pradesh", "Punjab", "Andhra Pradesh", "West Bengal"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 West Bengal is the highest rice-producing state in India."
+    },
+    {
+        "question": "The Narmada River originates from Amarkantak and empties into which gulf or sea?\n\n[SSC GD 27-Jan-2023 Shift-3]",
+        "options": ["Bay of Bengal", "Gulf of Khambhat", "Gulf of Mannar", "Gulf of Kutch"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The westward-flowing Narmada river drains into the Gulf of Khambhat in the Arabian Sea near Gujarat."
+    },
+    {
+        "question": "In which Indian state are the Kolar gold mines located?\n\n[SSC MTS 16-Jun-2023 Shift-1]",
+        "options": ["Andhra Pradesh", "Karnataka", "Tamil Nadu", "Kerala"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Kolar Gold Fields (KGF) are famous gold mines located in the state of Karnataka."
+    },
+    {
+        "question": "What is the boundary line between India and Pakistan called?\n\n[SSC GD 06-Feb-2023 Shift-2]",
+        "options": ["McMahon Line", "Durand Line", "Radcliffe Line", "Hindenburg Line"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The international boundary line between India and Pakistan is called the Radcliffe Line."
+    },
+    {
+        "question": "In which state of India is the Kaziranga National Park located?\n\n[SSC CHSL 17-Mar-2023 Shift-3]",
+        "options": ["Assam", "Meghalaya", "Tripura", "Mizoram"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Kaziranga National Park is located in Assam and is world-famous for its one-horned rhinoceros population."
+    },
+    {
         "question": "सिमलीपाल राष्ट्रीय उद्यान (Simlipal National Park) भारत के किस राज्य में स्थित है?\n\n[SSC GD 11-Jan-2023 Shift-4]",
         "options": ["ओडिशा", "झारखंड", "छत्तीसगढ़", "पश्चिम बंगाल"],
         "correct_id": 0,
