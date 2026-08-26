@@ -5,6 +5,146 @@ QUIZ_LIST = [
     # ------------------- Samvidhan QUIZZES -------------------
     # =========================================================
     {
+        "question": "सिंधु घाटी सभ्यता का कौन सा स्थल 'मृतकों का टीला' (Mound of the Dead) कहलाता है?\n\n[SSC GD 10-Jan-2023 Shift-2]",
+        "options": ["हड़प्पा", "लोथल", "कालीबंगा", "मोहनजोदड़ो"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 सिन्धी भाषा में मोहनजोदड़ो का शाब्दिक अर्थ 'मृतकों का टीला' होता है।"
+    },
+    {
+        "question": "गौतम बुद्ध ने अपना पहला उपदेश कहाँ दिया था, जिसे 'धर्मचक्रप्रवर्तन' कहा जाता है?\n\n[SSC MTS 02-May-2023 Shift-1]",
+        "options": ["लुम्बिनी", "बोधगया", "सारनाथ", "कुशीनगर"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 ज्ञान प्राप्ति के बाद महात्मा बुद्ध ने अपना प्रथम उपदेश सारनाथ (ऋषिपत्तनम) में दिया था।"
+    },
+    {
+        "question": "प्रसिद्ध सम्राट अशोक किस राजवंश से संबंधित थे?\n\n[SSC CHSL 14-Mar-2023 Shift-1]",
+        "options": ["गुप्त वंश", "मौर्य वंश", "हर्यक वंश", "शुंग वंश"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 सम्राट अशोक मौर्य वंश के तीसरे शासक थे, जो बिंदुसार के पुत्र और चंद्रगुप्त मौर्य के पौत्र थे।"
+    },
+    {
+        "question": "भारत का नेपोलियन (Napoleon of India) किसे कहा जाता है?\n\n[SSC GD 16-Jan-2023 Shift-3]",
+        "options": ["चंद्रगुप्त प्रथम", "समुद्रगुप्त", "स्कंदगुप्त", "अशोक"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 इतिहासकार वी.ए. स्मिथ ने समुद्रगुप्त की सैन्य विजयों के कारण उसे 'भारत का नेपोलियन' कहा था।"
+    },
+    {
+        "question": "दिल्ली सल्तनत की पहली और एकमात्र महिला शासिका कौन थी?\n\n[SSC MTS 08-May-2023 Shift-2]",
+        "options": ["रजिया सुल्तान", "चाँद बीबी", "नूरजहाँ", "मुमताज महल"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 रजिया सुल्तान इल्तुतमिश की पुत्री थी, जिसने 1236 से 1240 ई. तक दिल्ली पर शासन किया।"
+    },
+    {
+        "question": "विजयनगर साम्राज्य की स्थापना 1336 ई. में किन दो भाइयों ने की थी?\n\n[SSC CHSL 11-Aug-2023 Shift-4]",
+        "options": ["कृष्णदेव राय और अच्युत राय", "हरिहर और बुक्का", "देवराय प्रथम और द्वितीय", "सदाशिव और रामराय"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 मोहम्मद बिन तुगलक के काल में हरिहर और बुक्का नाम के दो भाइयों ने तुंगभद्रा नदी के तट पर विजयनगर की स्थापना की थी।"
+    },
+    {
+        "question": "आर्य समाज (Arya Samaj) की स्थापना 1875 में किसने की थी?\n\n[SSC GD 24-Jan-2023 Shift-2]",
+        "options": ["राजा राममोहन राय", "स्वामी विवेकानंद", "स्वामी दयानंद सरस्वती", "आत्माराम पांडुरंग"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 स्वामी दयानंद सरस्वती ने मुंबई में आर्य समाज की स्थापना की और 'वेदों की ओर लौटो' का नारा दिया।"
+    },
+    {
+        "question": "भारतीय राष्ट्रीय कांग्रेस (INC) की स्थापना किस वर्ष हुई थी?\n\n[SSC MTS 15-Jun-2023 Shift-1]",
+        "options": ["1882", "1885", "1890", "1905"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 28 दिसंबर 1885 को बम्बई में ए.ओ. ह्यूम (A.O. Hume) के प्रयासों से कांग्रेस की स्थापना की गई थी।"
+    },
+    {
+        "question": "जलियांवाला बाग हत्याकांड किस वर्ष और किस तारीख को हुआ था?\n\n[SSC GD 02-Feb-2023 Shift-3]",
+        "options": ["13 अप्रैल 1919", "15 अगस्त 1919", "26 जनवरी 1920", "10 मार्च 1919"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 पंजाब के अमृतसर में स्थित जलियांवाला बाग में बैसाखी के दिन 13 अप्रैल 1919 को जनरल डायर ने अंधाधुंध गोलियां चलवाई थीं।"
+    },
+    {
+        "question": "गांधी जी ने भारत में अपना पहला सफल सत्याग्रह कहाँ शुरू किया था?\n\n[SSC CHSL 17-Mar-2023 Shift-2]",
+        "options": ["खेड़ा", "अहमदाबाद", "चंपारण", "बारदोली"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बिहार के चंपारण में 1917 में नील की खेती (तिनकठिया पद्धति) के विरोध में गांधी जी का भारत में पहला सत्याग्रह हुआ था।"
+    },
+    {
+        "question": "Which site of the Indus Valley Civilization is known as the 'Mound of the Dead'?\n\n[SSC GD 10-Jan-2023 Shift-2]",
+        "options": ["Harappa", "Lothal", "Kalibangan", "Mohenjo-daro"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 In the Sindhi language, the literal meaning of Mohenjo-daro is 'Mound of the Dead'."
+    },
+    {
+        "question": "Where did Gautam Buddha deliver his first sermon, which is known as 'Dhammacakkappavattana'?\n\n[SSC MTS 02-May-2023 Shift-1]",
+        "options": ["Lumbini", "Bodh Gaya", "Sarnath", "Kushinagar"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 After attaining enlightenment, Mahatma Buddha delivered his first sermon at Sarnath (Rishipatana)."
+    },
+    {
+        "question": "The famous Emperor Ashoka belonged to which dynasty?\n\n[SSC CHSL 14-Mar-2023 Shift-1]",
+        "options": ["Gupta Dynasty", "Maurya Dynasty", "Haryanka Dynasty", "Shunga Dynasty"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Emperor Ashoka was the third ruler of the Maurya dynasty, son of Bindusara and grandson of Chandragupta Maurya."
+    },
+    {
+        "question": "Who is popularly known as the 'Napoleon of India'?\n\n[SSC GD 16-Jan-2023 Shift-3]",
+        "options": ["Chandragupta I", "Samudragupta", "Skandagupta", "Ashoka"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Historian V.A. Smith called Samudragupta the 'Napoleon of India' due to his vast military conquests."
+    },
+    {
+        "question": "Who was the first and only woman ruler of the Delhi Sultanate?\n\n[SSC MTS 08-May-2023 Shift-2]",
+        "options": ["Razia Sultan", "Chand Bibi", "Noor Jahan", "Mumtaz Mahal"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Razia Sultan was the daughter of Iltutmish, who ruled Delhi from 1236 to 1240 AD."
+    },
+    {
+        "question": "Who founded the Vijayanagara Empire in 1336 AD?\n\n[SSC CHSL 11-Aug-2023 Shift-4]",
+        "options": ["Krishnadevaraya and Achyuta Raya", "Harihara and Bukka", "Devaraya I and II", "Sadashiva and Ramaraya"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 During the reign of Muhammad bin Tughluq, two brothers named Harihara and Bukka founded Vijayanagara on the banks of the Tungabhadra river."
+    },
+    {
+        "question": "Who founded the Arya Samaj in the year 1875?\n\n[SSC GD 24-Jan-2023 Shift-2]",
+        "options": ["Raja Ram Mohan Roy", "Swami Vivekananda", "Swami Dayananda Saraswati", "Atmaram Pandurang"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Swami Dayananda Saraswati established the Arya Samaj in Mumbai and gave the famous slogan 'Back to the Vedas'."
+    },
+    {
+        "question": "In which year was the Indian National Congress (INC) established?\n\n[SSC MTS 15-Jun-2023 Shift-1]",
+        "options": ["1882", "1885", "1890", "1905"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Congress was founded on December 28, 1885, in Bombay through the efforts of A.O. Hume."
+    },
+    {
+        "question": "On which date did the infamous Jallianwala Bagh Massacre take place?\n\n[SSC GD 02-Feb-2023 Shift-3]",
+        "options": ["13 April 1919", "15 August 1919", "26 January 1920", "10 March 1919"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 On the day of Baisakhi, 13 April 1919, General Dyer ordered indiscriminate firing on an unarmed crowd at Jallianwala Bagh in Amritsar, Punjab."
+    },
+    {
+        "question": "Where did Mahatma Gandhi start his first successful Satyagraha in India?\n\n[SSC CHSL 17-Mar-2023 Shift-2]",
+        "options": ["Kheda", "Ahmedabad", "Champaran", "Bardoli"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Gandhiji's first Satyagraha in India took place at Champaran (Bihar) in 1917, protesting against the Tinkathia system of indigo farming."
+    },
+    {
         "question": "कावेरी नदी का उद्गम स्थल (Origin) किस राज्य में है?\n\n[SSC GD 12-Jan-2023 Shift-4]",
         "options": ["केरल", "तमिलनाडु", "कर्नाटक", "आंध्र प्रदेश"],
         "correct_id": 2,
