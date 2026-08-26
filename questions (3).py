@@ -5,6 +5,146 @@ QUIZ_LIST = [
     # ------------------- Samvidhan QUIZZES -------------------
     # =========================================================
     {
+        "question": "भारत में 'हरित क्रांति' (Green Revolution) का जनक किसे माना जाता है?\n\n[SSC GD 11-Jan-2023 Shift-1]",
+        "options": ["वर्गिज कुरियन", "एम.एस. स्वामीनाथन", "सैम पित्रोदा", "नॉर्मन बोरलॉग"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 भारत में एम.एस. स्वामीनाथन को हरित क्रांति का जनक माना जाता है, जबकि विश्व में नॉर्मन बोरलॉग को इसका जनक माना जाता है।"
+    },
+    {
+        "question": "लोनार झील (Lonar Lake) भारत के किस राज्य में स्थित है?\n\n[SSC MTS 05-May-2023 Shift-3]",
+        "options": ["गुजरात", "राजस्थान", "महाराष्ट्र", "ओडिशा"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 महाराष्ट्र के बुलढाणा जिले में स्थित लोनार झील एक क्रेटर झील है, जिसका निर्माण उल्कापिंड के गिरने से हुआ था।"
+    },
+    {
+        "question": "भारत का सबसे बड़ा कोयला उत्पादक राज्य कौन सा है?\n\n[SSC CHSL 15-Mar-2023 Shift-4]",
+        "options": ["झारखंड", "छत्तीसगढ़", "ओडिशा", "पश्चिम बंगाल"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 कोयला उत्पादन (Production) के मामले में छत्तीसगढ़ प्रमुख राज्यों में है, जबकि कोयला भंडार (Reserves) सबसे ज्यादा झारखंड में हैं।"
+    },
+    {
+        "question": "सरिस्का राष्ट्रीय उद्यान (Sariska National Park) कहाँ स्थित है?\n\n[SSC GD 17-Jan-2023 Shift-1]",
+        "options": ["मध्य प्रदेश", "उत्तर प्रदेश", "गुजरात", "राजस्थान"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 सरिस्का बाघ अभयारण्य (Sariska Tiger Reserve) राजस्थान के अलवर जिले में स्थित है।"
+    },
+    {
+        "question": "धुआंधार जलप्रपात (Dhuandhar Falls) किस नदी पर स्थित है?\n\n[SSC MTS 11-May-2023 Shift-1]",
+        "options": ["नर्मदा नदी", "तापी नदी", "गोदावरी नदी", "महानदी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 धुआंधार जलप्रपात मध्य प्रदेश के जबलपुर में नर्मदा नदी पर स्थित एक प्रसिद्ध प्रपात है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा मरुस्थल कौन सा है?\n\n[SSC CHSL 13-Mar-2023 Shift-2]",
+        "options": ["थार", "सहारा", "गोबी", "कालाहारी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 अफ्रीका महाद्वीप में स्थित सहारा मरुस्थल विश्व का सबसे बड़ा गर्म मरुस्थल है।"
+    },
+    {
+        "question": "टिहरी बांध (Tehri Dam) किस नदी पर बनाया गया है?\n\n[SSC GD 24-Jan-2023 Shift-4]",
+        "options": ["अलकनंदा", "भागीरथी", "मंदाकिनी", "यमुना"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 उत्तराखंड में भागीरथी नदी पर बना टिहरी बांध भारत का सबसे ऊँचा बांध है।"
+    },
+    {
+        "question": "भारत में सबसे पहले सूर्योदय किस राज्य में होता है?\n\n[SSC MTS 19-May-2023 Shift-1]",
+        "options": ["असम", "नागालैंड", "अरुणाचल प्रदेश", "मणिपुर"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत के सबसे पूर्वी छोर पर स्थित होने के कारण अरुणाचल प्रदेश में सबसे पहले सूर्योदय होता है।"
+    },
+    {
+        "question": "चिल्का वन्यजीव अभयारण्य भारत के किस राज्य में स्थित है?\n\n[SSC GD 03-Feb-2023 Shift-1]",
+        "options": ["पश्चिम बंगाल", "ओडिशा", "आंध्र प्रदेश", "तमिलनाडु"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 चिल्का झील और उससे जुड़ा अभयारण्य ओडिशा राज्य में स्थित है, जो प्रवासी पक्षियों के लिए प्रसिद्ध है।"
+    },
+    {
+        "question": "एशिया की सबसे लंबी नदी कौन सी है?\n\n[SSC CHSL 17-Mar-2023 Shift-3]",
+        "options": ["यांग्त्सी नदी", "गंगा नदी", "सिंधु नदी", "मेकांग नदी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 चीन में बहने वाली यांग्त्सी (Yangtze) नदी चीन के साथ-साथ पूरे एशिया महाद्वीप की सबसे लंबी नदी है।"
+    },
+    {
+        "question": "Who is considered the father of the 'Green Revolution' in India?\n\n[SSC GD 11-Jan-2023 Shift-1]",
+        "options": ["Verghese Kurien", "M.S. Swaminathan", "Sam Pitroda", "Norman Borlaug"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 M.S. Swaminathan is considered the father of the Green Revolution in India, whereas Norman Borlaug is known as its father globally."
+    },
+    {
+        "question": "In which state of India is the Lonar Lake situated?\n\n[SSC MTS 05-May-2023 Shift-3]",
+        "options": ["Gujarat", "Rajasthan", "Maharashtra", "Odisha"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Lonar Lake, located in the Buldhana district of Maharashtra, is a crater lake formed by a meteorite impact."
+    },
+    {
+        "question": "Which is the leading coal-producing state in India?\n\n[SSC CHSL 15-Mar-2023 Shift-4]",
+        "options": ["Jharkhand", "Chhattisgarh", "Odisha", "West Bengal"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 In terms of coal production, Chhattisgarh is a leading state, while Jharkhand holds the largest coal reserves in India."
+    },
+    {
+        "question": "Where is the Sariska National Park located?\n\n[SSC GD 17-Jan-2023 Shift-1]",
+        "options": ["Madhya Pradesh", "Uttar Pradesh", "Gujarat", "Rajasthan"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Sariska Tiger Reserve is located in the Alwar district of the state of Rajasthan."
+    },
+    {
+        "question": "On which river is the Dhuandhar Waterfalls located?\n\n[SSC MTS 11-May-2023 Shift-1]",
+        "options": ["Narmada River", "Tapi River", "Godavari River", "Mahanadi River"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Dhuandhar Falls is a famous waterfall located on the Narmada river in Jabalpur, Madhya Pradesh."
+    },
+    {
+        "question": "Which is the largest desert in the world?\n\n[SSC CHSL 13-Mar-2023 Shift-2]",
+        "options": ["Thar", "Sahara", "Gobi", "Kalahari"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Sahara Desert, located on the African continent, is the largest hot desert in the world."
+    },
+    {
+        "question": "On which river is the Tehri Dam built?\n\n[SSC GD 24-Jan-2023 Shift-4]",
+        "options": ["Alaknanda", "Bhagirathi", "Mandakini", "Yamuna"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The Tehri Dam, built on the Bhagirathi river in Uttarakhand, is the highest dam in India."
+    },
+    {
+        "question": "Which state in India experiences the earliest sunrise?\n\n[SSC MTS 19-May-2023 Shift-1]",
+        "options": ["Assam", "Nagaland", "Arunachal Pradesh", "Manipur"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Due to its geographical position as the easternmost state of India, Arunachal Pradesh experiences the first sunrise."
+    },
+    {
+        "question": "In which Indian state is the Chilika Wildlife Sanctuary located?\n\n[SSC GD 03-Feb-2023 Shift-1]",
+        "options": ["West Bengal", "Odisha", "Andhra Pradesh", "Tamil Nadu"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Chilika Lake and its associated sanctuary areas are located in the state of Odisha, famous for migratory birds."
+    },
+    {
+        "question": "Which is the longest river in Asia?\n\n[SSC CHSL 17-Mar-2023 Shift-3]",
+        "options": ["Yangtze River", "Ganga River", "Indus River", "Mekong River"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 The Yangtze river flowing in China is the longest river in the country as well as the entire continent of Asia."
+    },
+    {
         "question": "भारत का सबसे ऊँचा जलप्रपात (Waterfall) कुंचिकल कहाँ स्थित है?\n\n[SSC GD 10-Jan-2023 Shift-3]",
         "options": ["केरल", "कर्नाटक", "तमिलनाडु", "ओडिशा"],
         "correct_id": 1,
