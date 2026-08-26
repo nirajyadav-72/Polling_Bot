@@ -5,6 +5,146 @@ QUIZ_LIST = [
     # ------------------- Samvidhan QUIZZES -------------------
     # =========================================================
     {
+        "question": "भारत का एकमात्र तैरता हुआ राष्ट्रीय उद्यान 'केबुल लामजाओ' कहाँ स्थित है?\n\n[SSC GD 12-Jan-2023 Shift-1]",
+        "options": ["असम", "मणिपुर", "मेघालय", "त्रिपुरा"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 मणिपुर की लोकटक झील पर स्थित केबुल लामजाओ (Keibul Lamjao) विश्व का एकमात्र तैरता हुआ राष्ट्रीय उद्यान है।"
+    },
+    {
+        "question": "वायुमंडल की सबसे निचली परत को क्या कहा जाता है?\n\n[SSC MTS 02-May-2023 Shift-3]",
+        "options": ["समतापमण्डल", "ओजोनमण्डल", "क्षोभमण्डल", "आयन्मण्डल"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 क्षोभमण्डल (Troposphere) वायुमंडल की सबसे निचली परत है, जहाँ मौसम की सभी घटनाएँ घटित होती हैं।"
+    },
+    {
+        "question": "गुलाबी नगरी (Pink City) के नाम से किसे जाना जाता है?\n\n[SSC CHSL 14-Mar-2023 Shift-2]",
+        "options": ["जोधपुर", "उदयपुर", "जयपुर", "जैसलमेर"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान की राजधानी जयपुर को अपनी अनूठी वास्तुकला और गुलाबी पत्थरों के कारण 'गुलाबी नगरी' कहा जाता है।"
+    },
+    {
+        "question": "दक्षिण भारत की सबसे लंबी नदी कौन सी है?\n\n[SSC GD 17-Jan-2023 Shift-3]",
+        "options": ["कृष्णा", "कावेरी", "गोदावरी", "महानदी"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 गोदावरी नदी प्रायद्वीपीय या दक्षिण भारत की सबसे लंबी नदी (1465 किमी) है।"
+    },
+    {
+        "question": "भारत में सबसे अधिक चाय उत्पादक राज्य कौन सा है?\n\n[SSC MTS 09-May-2023 Shift-1]",
+        "options": ["पश्चिम बंगाल", "असम", "केरल", "तमिलनाडु"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 असम भारत का सबसे बड़ा चाय उत्पादक राज्य है, जबकि दार्जिलिंग (पश्चिम बंगाल) की चाय अपनी सुगंध के लिए प्रसिद्ध है।"
+    },
+    {
+        "question": "चिल्का झील किस राज्य में स्थित है?\n\n[SSC CHSL 16-Mar-2023 Shift-4]",
+        "options": ["ओडिशा", "आंध्र प्रदेश", "तमिलनाडु", "केरल"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 ओडिशा में स्थित चिल्का झील भारत की सबसे बड़ी तटीय लैगून झील और खारे पानी की झील है।"
+    },
+    {
+        "question": "काली मिट्टी का दूसरा नाम क्या है?\n\n[SSC GD 25-Jan-2023 Shift-4]",
+        "options": ["बांगर मिट्टी", "खादर मिट्टी", "रेगुर मिट्टी", "लेटराइट मिट्टी"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 काली मिट्टी को 'रेगुर मिट्टी' भी कहा जाता है, जो कपास की खेती के लिए सर्वोत्तम होती है।"
+    },
+    {
+        "question": "शिवसमुद्रम जलप्रपात किस नदी पर स्थित है?\n\n[SSC MTS 15-Jun-2023 Shift-2]",
+        "options": ["नर्मदा नदी", "कृष्णा नदी", "गोदावरी नदी", "कावेरी नदी"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 शिवसमुद्रम जलप्रपात कर्नाटक में कावेरी नदी पर स्थित एक प्रसिद्ध जलप्रपात है।"
+    },
+    {
+        "question": "भारत का सबसे बड़ा मरुस्थल कौन सा है?\n\n[SSC GD 06-Feb-2023 Shift-3]",
+        "options": ["सहारा", "गोबी", "थार", "अटाकामा"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 थार मरुस्थल (Thar Desert) भारत का सबसे बड़ा मरुस्थल है, जो मुख्य रूप से राजस्थान में फैला है।"
+    },
+    {
+        "question": "दूधवा राष्ट्रीय उद्यान (Dudhwa National Park) कहाँ स्थित है?\n\n[SSC CHSL 17-Mar-2023 Shift-1]",
+        "options": ["मध्य प्रदेश", "उत्तर प्रदेश", "बिहार", "उत्तराखंड"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 दूधवा राष्ट्रीय उद्यान उत्तर प्रदेश के लखीमपुर खीरी जिले में स्थित एक प्रसिद्ध बाघ अभयारण्य है।"
+    },
+    {
+        "question": "Where is India's only floating national park 'Keibul Lamjao' located?\n\n[SSC GD 12-Jan-2023 Shift-1]",
+        "options": ["Assam", "Manipur", "Meghalaya", "Tripura"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Keibul Lamjao, located on Loktak Lake in Manipur, is the only floating national park in the world."
+    },
+    {
+        "question": "What is the lowest layer of the atmosphere called?\n\n[SSC MTS 02-May-2023 Shift-3]",
+        "options": ["Stratosphere", "Ozonosphere", "Troposphere", "Ionosphere"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Troposphere is the lowest layer of the atmosphere, where all weather phenomena occur."
+    },
+    {
+        "question": "Which city is known as the 'Pink City'?\n\n[SSC CHSL 14-Mar-2023 Shift-2]",
+        "options": ["Jodhpur", "Udaipur", "Jaipur", "Jaisalmer"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Jaipur, the capital of Rajasthan, is known as the Pink City due to its unique architecture and pink-colored stones."
+    },
+    {
+        "question": "Which is the longest river in South India?\n\n[SSC GD 17-Jan-2023 Shift-3]",
+        "options": ["Krishna", "Cauvery", "Godavari", "Mahanadi"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Godavari river is the longest river in peninsular or South India (1465 km)."
+    },
+    {
+        "question": "Which state is the largest producer of tea in India?\n\n[SSC MTS 09-May-2023 Shift-1]",
+        "options": ["West Bengal", "Assam", "Kerala", "Tamil Nadu"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Assam is the largest tea-producing state in India, while Darjeeling (West Bengal) tea is famous for its unique aroma."
+    },
+    {
+        "question": "In which state is Chilika Lake located?\n\n[SSC CHSL 16-Mar-2023 Shift-4]",
+        "options": ["Odisha", "Andhra Pradesh", "Tamil Nadu", "Kerala"],
+        "correct_id": 0,
+        "lang": "english",
+        "explanation": "💡 Chilika Lake in Odisha is the largest coastal lagoon lake and brackish saltwater lake in India."
+    },
+    {
+        "question": "What is the alternative name for Black Soil?\n\n[SSC GD 25-Jan-2023 Shift-4]",
+        "options": ["Bangar Soil", "Khadar Soil", "Regur Soil", "Laterite Soil"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Black soil is also known as 'Regur Soil' and is highly suitable for growing cotton crops."
+    },
+    {
+        "question": "On which river is the Shivanasamudra Falls located?\n\n[SSC MTS 15-Jun-2023 Shift-2]",
+        "options": ["Narmada River", "Krishna River", "Godavari River", "Cauvery River"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 Shivanasamudra Falls is a famous waterfall located on the Cauvery river in Karnataka."
+    },
+    {
+        "question": "Which is the largest desert in India?\n\n[SSC GD 06-Feb-2023 Shift-3]",
+        "options": ["Sahara", "Gobi", "Thar", "Atacama"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The Thar Desert is the largest desert in India, spread primarily across Rajasthan."
+    },
+    {
+        "question": "Where is the Dudhwa National Park located?\n\n[SSC CHSL 17-Mar-2023 Shift-1]",
+        "options": ["Madhya Pradesh", "Uttar Pradesh", "Bihar", "Uttarakhand"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Dudhwa National Park is a renowned tiger reserve located in the Lakhimpur Kheri district of Uttar Pradesh."
+    },
+    {
         "question": "भारत में 'हरित क्रांति' (Green Revolution) का जनक किसे माना जाता है?\n\n[SSC GD 11-Jan-2023 Shift-1]",
         "options": ["वर्गिज कुरियन", "एम.एस. स्वामीनाथन", "सैम पित्रोदा", "नॉर्मन बोरलॉग"],
         "correct_id": 1,
