@@ -1,0 +1,1410 @@
+# 📚 टेलीग्राम क्विज़ बॉट प्रश्न बैंक - सेट 5
+
+QUIZ_LIST = [
+    # =====================================================
+    # ------------------- HINDI QUIZZES -------------------
+    # =====================================================
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 401)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 402)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 403)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 404)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 405)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 406)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 407)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 408)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 409)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 410)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 411)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 412)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 413)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 414)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 415)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 416)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 417)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 418)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 419)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 420)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 421)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 422)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 423)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 424)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 425)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 426)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 427)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 428)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 429)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 430)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 431)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 432)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 433)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 434)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 435)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 436)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 437)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 438)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 439)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 440)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 441)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 442)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 443)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 444)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 445)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 446)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 447)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 448)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 449)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 450)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 451)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 452)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 453)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 454)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 455)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 456)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 457)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 458)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 459)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 460)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 461)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 462)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 463)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 464)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 465)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 466)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 467)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 468)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 469)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 470)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 471)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 472)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 473)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 474)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 475)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 476)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 477)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 478)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 479)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 480)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 481)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 482)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 483)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 484)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 485)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 486)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 487)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 488)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 489)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 490)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    {
+        "question": "भारत का राष्ट्रीय पशु कौन सा है (प्रश्न 491)?",
+        "options": ["बाघ", "शेर", "चीता", "हाथी"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 भारत का राष्ट्रीय पशु बाघ (Tiger) है।"
+    },
+    {
+        "question": "सौरमंडल का सबसे बड़ा ग्रह कौन सा है (प्रश्न 492)?",
+        "options": ["पृथ्वी", "मंगल", "बृहस्पति", "शनि"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 बृहस्पति सौरमंडल का सबसे भारी और बड़ा ग्रह है।"
+    },
+    {
+        "question": "पानी का रासायनिक सूत्र क्या है (प्रश्न 493)?",
+        "options": ["CO2", "H2O", "O2", "NaCl"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 पानी का रासायनिक सूत्र H2O होता है।"
+    },
+    {
+        "question": "विश्व का सबसे बड़ा महाद्वीप कौन सा है (प्रश्न 494)?",
+        "options": ["अफ़्रीका", "यूरोप", "एशिया", "ऑस्ट्रेलिया"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 एशिया विश्व का सबसे बड़ा महाद्वीप है।"
+    },
+    {
+        "question": "भारत की राजधानी क्या है (प्रश्न 495)?",
+        "options": ["मुंबई", "कोलकाता", "नई दिल्ली", "चेन्नई"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 भारत की राजधानी नई दिल्ली है।"
+    },
+    {
+        "question": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य (प्रश्न 496)?",
+        "options": ["उत्तर प्रदेश", "मध्य प्रदेश", "राजस्थान", "महाराष्ट्र"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 राजस्थान भारत का सबसे बड़ा राज्य है।"
+    },
+    {
+        "question": "मानव शरीर में कुल कितनी हड्डियाँ होती हैं (प्रश्न 497)?",
+        "options": ["206", "300", "208", "210"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 एक वयस्क मानव शरीर में 206 हड्डियाँ होती हैं।"
+    },
+    {
+        "question": "जापान की मुद्रा का क्या नाम है (प्रश्न 498)?",
+        "options": ["डॉलर", "येन", "यूरो", "रुपी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 जापान की आधिकारिक मुद्रा येन (Yen) है।"
+    },
+    {
+        "question": "कंप्यूटर का मस्तिष्क किसे कहा जाता है (प्रश्न 499)?",
+        "options": ["रैम", "रोम", "सीपीयू", "हार्ड डिस्क"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 CPU (Central Processing Unit) को कंप्यूटर का मस्तिष्क कहते हैं।"
+    },
+    {
+        "question": "सूर्य के सबसे निकट कौन सा ग्रह है (प्रश्न 500)?",
+        "options": ["शुक्र", "बुध", "मंगल", "पृथ्वी"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 बुध (Mercury) सूर्य का सबसे करीबी ग्रह है।"
+    },
+    # =====================================================
+    # ------------------- ENGLISH LANGUAGE QUIZZES --------
+    # =====================================================
+    {
+        "question": "What is the capital of France (Question 401)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 402)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 403)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 404)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 405)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 406)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 407)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 408)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 409)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 410)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+    {
+        "question": "What is the capital of France (Question 411)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 412)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 413)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 414)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 415)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 416)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 417)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 418)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 419)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 420)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+    {
+        "question": "What is the capital of France (Question 421)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 422)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 423)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 424)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 425)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 426)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 427)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 428)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 429)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 430)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+    {
+        "question": "What is the capital of France (Question 431)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 432)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 433)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 434)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 435)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 436)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 437)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 438)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 439)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 440)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+    {
+        "question": "What is the capital of France (Question 441)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 442)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 443)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 444)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 445)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 446)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 447)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 448)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 449)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 450)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+    {
+        "question": "What is the capital of France (Question 451)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 452)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 453)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 454)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 455)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 456)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 457)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 458)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 459)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 460)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+    {
+        "question": "What is the capital of France (Question 461)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 462)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 463)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 464)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 465)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 466)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 467)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 468)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 469)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 470)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+    {
+        "question": "What is the capital of France (Question 471)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 472)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 473)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 474)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 475)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 476)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 477)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 478)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 479)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 480)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+    {
+        "question": "What is the capital of France (Question 481)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 482)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 483)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 484)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 485)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 486)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 487)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 488)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 489)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 490)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+    {
+        "question": "What is the capital of France (Question 491)?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Paris is the capital and most populous city of France."
+    },
+    {
+        "question": "Which is the largest ocean on Earth (Question 492)?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_id": 3,
+        "lang": "english",
+        "explanation": "💡 The Pacific Ocean is the largest and deepest ocean."
+    },
+    {
+        "question": "Who painted the Mona Lisa (Question 493)?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Leonardo da Vinci painted the Mona Lisa in the 16th century."
+    },
+    {
+        "question": "What is the chemical symbol for Gold (Question 494)?",
+        "options": ["Gd", "Au", "Ag", "Fe"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 The chemical symbol for Gold is Au, from Latin 'Aurum'."
+    },
+    {
+        "question": "How many continents are there on Earth (Question 495)?",
+        "options": ["5", "6", "7", "8"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 There are 7 continents on Earth."
+    },
+    {
+        "question": "Which planet is closest to the Sun (Question 496)?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Mercury is the closest planet to the Sun."
+    },
+    {
+        "question": "What is the hardest natural substance (Question 497)?",
+        "options": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Diamond is the hardest known natural substance."
+    },
+    {
+        "question": "Who is known as the Father of Computers (Question 498)?",
+        "options": ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+        "correct_id": 1,
+        "lang": "english",
+        "explanation": "💡 Charles Babbage invented the first mechanical computer."
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere (Question 499)?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 Plants absorb Carbon Dioxide for photosynthesis."
+    },
+    {
+        "question": "What is the currency of the United Kingdom (Question 500)?",
+        "options": ["Euro", "Dollar", "Pound Sterling", "Yen"],
+        "correct_id": 2,
+        "lang": "english",
+        "explanation": "💡 The currency of the UK is the Pound Sterling."
+    },
+]
