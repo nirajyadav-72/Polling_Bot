@@ -241,7 +241,7 @@ def global_poll_manager():
                 all_groups = cursor.fetchall()
                 current_now = time.time()
 
-                for chat_id, current_index, last_poll_id, last_sent_time, language, interval, auto_delete, last_warning_time in all_groups:
+                for chat_id, current_index, last_poll_id_str, last_sent_time, language, interval, auto_delete, last_warning_time in all_groups:
                     if current_now - last_sent_time >= interval:
                         
                         # 🔍 Bot Admin Check
@@ -272,17 +272,19 @@ def global_poll_manager():
                                 except Exception as warn_err:
                                     print(f"⚠️ [GROUP {chat_id}] Warning send failed: {warn_err}")
                             
-                            # ❌ Skip poll sending, but update timer
                             cursor.execute("UPDATE groups SET last_sent_time = ? WHERE chat_id = ?", (current_now, chat_id))
                             conn.commit()
                             continue
 
-                        # --- Delete old poll ---
-                        if last_poll_id is not None and auto_delete == 1:
-                            try:
-                                bot.delete_message(chat_id=chat_id, message_id=last_poll_id)
-                            except Exception as del_err:
-                                print(f"❌ [GROUP {chat_id}] Old poll delete failed: {del_err}")
+                        # --- 🗑️ Delete old poll AND old text message ---
+                        if last_poll_id_str is not None and auto_delete == 1:
+                            # यदि स्ट्रिंग में ":" है, तो इसका मतलब टेक्स्ट और पोल दोनों डिलीट करने हैं
+                            ids_to_delete = str(last_poll_id_str).split(":")
+                            for msg_id in ids_to_delete:
+                                try:
+                                    bot.delete_message(chat_id=chat_id, message_id=int(msg_id))
+                                except Exception as del_err:
+                                    print(f"❌ [GROUP {chat_id}] Old message/poll {msg_id} delete failed: {del_err}")
 
                         filtered_quiz = [q for q in QUIZ_LIST if q.get("lang", "hindi") == language]
                         if not filtered_quiz:
@@ -292,20 +294,66 @@ def global_poll_manager():
                             current_index = 0
 
                         quiz = filtered_quiz[current_index]
-                        explanation_text = truncate_explanation(quiz.get("explanation", None), max_length=100)
                         
+                        # 🔥 Safe Explanation Truncation (Telegram Limit is 200 characters)
+                        explanation_text = truncate_explanation(quiz.get("explanation", None), max_length=200)
+                        
+                        # --- Check Limits for Telegram Poll ---
+                        poll_limit_exceeded = False
+                        if len(quiz["question"]) > 300:
+                            poll_limit_exceeded = True
+                            
+                        for opt in quiz["options"]:
+                            if len(str(opt)) > 100:
+                                poll_limit_exceeded = True
+                                break
+
                         try:
-                            sent_message = bot.send_poll(
-                                chat_id=chat_id,
-                                question=quiz["question"],
-                                options=quiz["options"],
-                                type="quiz",
-                                correct_option_id=quiz["correct_id"],
-                                is_anonymous=False,  
-                                explanation=explanation_text
-                            )
-                            new_poll_id = sent_message.message_id
-                            poll_api_id = sent_message.poll.id
+                            if poll_limit_exceeded:
+                                # 📝 FORMAT TEXT: Create message with full question & options
+                                text_msg = f"📝 **NEW QUIZ**\n\n{quiz['question']}\n\n"
+                                
+                                option_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+                                dummy_options = []
+                                
+                                for idx, opt in enumerate(quiz["options"]):
+                                    letter = option_letters[idx] if idx < len(option_letters) else f"{idx+1}"
+                                    text_msg += f"🔹 **{letter})** {opt}\n"
+                                    dummy_options.append(f"Option {letter}")
+                                
+                                # 1. Send the text message first
+                                sent_text_msg = bot.send_message(chat_id=chat_id, text=text_msg, parse_mode="Markdown")
+                                text_msg_id = sent_text_msg.message_id
+                                
+                                # 2. Send a dummy poll just for voting
+                                sent_poll_msg = bot.send_poll(
+                                    chat_id=chat_id,
+                                    question="👇 Choose the correct option below:",
+                                    options=dummy_options,
+                                    type="quiz",
+                                    correct_option_id=quiz["correct_id"],
+                                    is_anonymous=False,
+                                    explanation=explanation_text
+                                )
+                                poll_msg_id = sent_poll_msg.message_id
+                                poll_api_id = sent_poll_msg.poll.id
+                                
+                                # Store both IDs combined with a colon (e.g., "12345:12346")
+                                db_poll_save_id = f"{text_msg_id}:{poll_msg_id}"
+                            else:
+                                # ✅ Normal Poll if within limits
+                                sent_poll_msg = bot.send_poll(
+                                    chat_id=chat_id,
+                                    question=quiz["question"],
+                                    options=quiz["options"],
+                                    type="quiz",
+                                    correct_option_id=quiz["correct_id"],
+                                    is_anonymous=False,  
+                                    explanation=explanation_text
+                                )
+                                poll_msg_id = sent_poll_msg.message_id
+                                poll_api_id = sent_poll_msg.poll.id
+                                db_poll_save_id = str(poll_msg_id)
                             
                             cursor.execute("INSERT INTO poll_mapping (poll_id, chat_id, correct_id, creation_time) VALUES (?, ?, ?, ?)", 
                                            (poll_api_id, chat_id, quiz["correct_id"], time.time()))
@@ -315,28 +363,26 @@ def global_poll_manager():
                                 UPDATE groups 
                                 SET current_index = ?, last_poll_id = ?, last_sent_time = ? 
                                 WHERE chat_id = ?
-                            ''', (new_index, new_poll_id, current_now, chat_id))
+                            ''', (new_index, db_poll_save_id, current_now, chat_id))
                             conn.commit()
-                            print(f"✅ [GROUP {chat_id}] Poll sent successfully")
+                            print(f"✅ [GROUP {chat_id}] Poll/Text updated successfully")
 
                         except Exception as e:
                             error_str = str(e).lower()
                             print(f"❌ [GROUP {chat_id}] Poll send failed: {e}")
                             
-                            # Check if bot left group
                             if "bot was kicked" in error_str or "chat not found" in error_str or "bot is not a member" in error_str:
                                 cursor.execute("DELETE FROM groups WHERE chat_id = ?", (chat_id,))
                                 conn.commit()
                                 print(f"🗑️ [GROUP {chat_id}] Removed from database (bot kicked/left)")
                             else:
-                                # For permission errors, still try again next time
                                 cursor.execute("UPDATE groups SET last_sent_time = ? WHERE chat_id = ?", (current_now, chat_id))
                                 conn.commit()
                                 
         except Exception as db_err:
             print(f"❌ Database loop error: {db_err}")
         time.sleep(5)
-
+        
 # ⚙️ मुख्य सेटिंग्स मेनू यूआई जेनरेटर
 def get_settings_markup(chat_id):
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
