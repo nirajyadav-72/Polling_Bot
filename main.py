@@ -311,7 +311,7 @@ def global_poll_manager():
                         try:
                             if poll_limit_exceeded:
                                 # 📝 FORMAT TEXT: Create message with full question & options
-                                text_msg = f"<blockquote><b>Q. {quiz['question']}</b></blockquote>\n\n<blockquote><b>Option's</b></blockquote>\n"
+                                text_msg = f"<pre><code>Q. {quiz['question']}</code></pre>\n\n<blockquote><b>Option's</b></blockquote>\n"
                                 
                                 option_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
                                 dummy_options = []
