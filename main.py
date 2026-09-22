@@ -296,7 +296,7 @@ def global_poll_manager():
                         quiz = filtered_quiz[current_index]
                         
                         # 🔥 Safe Explanation Truncation (Telegram Limit is 200 characters)
-                        explanation_text = truncate_explanation(quiz.get("explanation", None), max_length=200)
+                        explanation_text = truncate_explanation(quiz.get("explanation", None), max_length=100)
                         
                         # --- Check Limits for Telegram Poll ---
                         poll_limit_exceeded = False
