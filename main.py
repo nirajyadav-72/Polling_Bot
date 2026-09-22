@@ -265,8 +265,8 @@ def global_poll_manager():
                                 try:
                                     bot.send_message(
                                         chat_id=chat_id, 
-                                        text="⚠️ **ALERT!**\n\nTo send polls, please re-promote me to Admin and grant permissions.",
-                                        parse_mode="Markdown"
+                                        text="<blockquote>⚠️ ALERT!</blockquote>\n\n<blockquote>To send polls, please re-promote me to Admin and grant permissions.</blockquote>",
+                                        parse_mode="HTML"
                                     )
                                     cursor.execute("UPDATE groups SET last_warning_time = ? WHERE chat_id = ?", (current_now, chat_id))
                                 except Exception as warn_err:
@@ -311,24 +311,24 @@ def global_poll_manager():
                         try:
                             if poll_limit_exceeded:
                                 # 📝 FORMAT TEXT: Create message with full question & options
-                                text_msg = f"**NEW QUIZ**\n\n{quiz['question']}\n\n"
+                                text_msg = f"<blockquote>question</blockquote>\n\n<blockquote><b>{quiz['question']}</b></blockquote>\n\n"
                                 
                                 option_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
                                 dummy_options = []
                                 
                                 for idx, opt in enumerate(quiz["options"]):
                                     letter = option_letters[idx] if idx < len(option_letters) else f"{idx+1}"
-                                    text_msg += f"**{letter})** {opt}\n"
+                                    text_msg += f"<blockquote>options</blockquote>\n\n<blockquote>{letter}) {opt}</blockquote>\n"
                                     dummy_options.append(f"Option {letter}")
                                 
                                 # 1. Send the text message first
-                                sent_text_msg = bot.send_message(chat_id=chat_id, text=text_msg, parse_mode="Markdown")
+                                sent_text_msg = bot.send_message(chat_id=chat_id, text=text_msg, parse_mode="HTML")
                                 text_msg_id = sent_text_msg.message_id
                                 
                                 # 2. Send a dummy poll just for voting
                                 sent_poll_msg = bot.send_poll(
                                     chat_id=chat_id,
-                                    question="👇 Choose the correct option below:",
+                                    question="Choose the correct option below:",
                                     options=dummy_options,
                                     type="quiz",
                                     correct_option_id=quiz["correct_id"],
