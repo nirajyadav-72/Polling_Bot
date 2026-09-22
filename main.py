@@ -311,14 +311,14 @@ def global_poll_manager():
                         try:
                             if poll_limit_exceeded:
                                 # 📝 FORMAT TEXT: Create message with full question & options
-                                text_msg = f"<blockquote>question</blockquote>\n\n<blockquote><b>{quiz['question']}</b></blockquote>\n\n"
+                                text_msg = f"<blockquote><b>Q. {quiz['question']}</b></blockquote>\n\n<blockquote><b>Option's</b></blockquote>\n"
                                 
                                 option_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
                                 dummy_options = []
                                 
                                 for idx, opt in enumerate(quiz["options"]):
                                     letter = option_letters[idx] if idx < len(option_letters) else f"{idx+1}"
-                                    text_msg += f"<blockquote>options</blockquote>\n\n<blockquote>{letter}) {opt}</blockquote>\n"
+                                    text_msg += f"<blockquote><b>{letter}) {opt}</b></blockquote>\n"
                                     dummy_options.append(f"Option {letter}")
                                 
                                 # 1. Send the text message first
