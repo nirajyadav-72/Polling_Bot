@@ -365,7 +365,7 @@ def global_poll_manager():
                                 WHERE chat_id = ?
                             ''', (new_index, db_poll_save_id, current_now, chat_id))
                             conn.commit()
-                            print(f"✅ [GROUP {chat_id}] Poll/Text updated successfully")
+                            print(f"✅ [GROUP {chat_id}] Poll send successfully")
 
                         except Exception as e:
                             error_str = str(e).lower()
