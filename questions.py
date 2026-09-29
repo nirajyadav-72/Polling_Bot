@@ -27,7 +27,7 @@ QUIZ_LIST = [
     },
     {
         "question": "यदि 'SUN' को किसी कूट में 'TVO' लिखा जाता है, तो उसी कूट नियम से 'FOX' का कोड क्या होगा?",
-        "options": ["GPY", "GPY", "HQZ", "EPW"],
+        "options": ["GPY", "GQY", "HQZ", "EPW"],
         "correct_id": 0,
         "lang": "hindi",
         "explanation": "💡 इसमें प्रत्येक अक्षर को उसके ठीक अगले अक्षर में बदला गया है (+1 शिफ्ट): S→T, U→V, N→O। इसी प्रकार FOX के लिए: F(+1)→G, O(+1)→P, X(+1)→Y होगा, जिससे 'GPY' बनेगा।"
