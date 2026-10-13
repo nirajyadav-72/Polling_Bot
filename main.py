@@ -239,6 +239,11 @@ def global_poll_manager():
                 cursor = conn.cursor()
                 cursor.execute("SELECT chat_id, current_index, last_poll_id, last_sent_time, language, interval, auto_delete, last_warning_time FROM groups")
                 all_groups = cursor.fetchall()
+                
+                # 👤 केवल उन्हीं यूज़र्स को निकालेगा जिन्होंने बॉट स्टार्ट किया है
+                cursor.execute("SELECT user_id FROM users")
+                all_users = [row for row in cursor.fetchall()]
+                
                 current_now = time.time()
 
                 for chat_id, current_index, last_poll_id_str, last_sent_time, language, interval, auto_delete, last_warning_time in all_groups:
@@ -278,7 +283,6 @@ def global_poll_manager():
 
                         # --- 🗑️ Delete old poll AND old text message ---
                         if last_poll_id_str is not None and auto_delete == 1:
-                            # यदि स्ट्रिंग में ":" है, तो इसका मतलब टेक्स्ट और पोल दोनों डिलीट करने हैं
                             ids_to_delete = str(last_poll_id_str).split(":")
                             for msg_id in ids_to_delete:
                                 try:
@@ -295,7 +299,7 @@ def global_poll_manager():
 
                         quiz = filtered_quiz[current_index]
                         
-                        # 🔥 Safe Explanation Truncation (Telegram Limit is 200 characters)
+                        # 🔥 Safe Explanation Truncation
                         explanation_text = truncate_explanation(quiz.get("explanation", None), max_length=100)
                         
                         # --- Check Limits for Telegram Poll ---
@@ -309,10 +313,11 @@ def global_poll_manager():
                                 break
 
                         try:
+                            main_poll_msg_id = None
+                            main_text_msg_id = None
+                            
                             if poll_limit_exceeded:
-                                # 📝 FORMAT TEXT: Create message with full question & options
                                 text_msg = f"<blockquote><b>Q. {quiz['question']}</b></blockquote>\n\n<blockquote><b>Option's</b></blockquote>\n"
-                                
                                 option_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
                                 dummy_options = []
                                 
@@ -321,11 +326,9 @@ def global_poll_manager():
                                     text_msg += f"<blockquote><b>{letter}) {opt}</b></blockquote>\n"
                                     dummy_options.append(f"Option {letter}")
                                 
-                                # 1. Send the text message first
                                 sent_text_msg = bot.send_message(chat_id=chat_id, text=text_msg, parse_mode="HTML")
-                                text_msg_id = sent_text_msg.message_id
+                                main_text_msg_id = sent_text_msg.message_id
                                 
-                                # 2. Send a dummy poll just for voting
                                 sent_poll_msg = bot.send_poll(
                                     chat_id=chat_id,
                                     question="Choose the correct option below:",
@@ -335,13 +338,10 @@ def global_poll_manager():
                                     is_anonymous=False,
                                     explanation=explanation_text
                                 )
-                                poll_msg_id = sent_poll_msg.message_id
+                                main_poll_msg_id = sent_poll_msg.message_id
                                 poll_api_id = sent_poll_msg.poll.id
-                                
-                                # Store both IDs combined with a colon (e.g., "12345:12346")
-                                db_poll_save_id = f"{text_msg_id}:{poll_msg_id}"
+                                db_poll_save_id = f"{main_text_msg_id}:{main_poll_msg_id}"
                             else:
-                                # ✅ Normal Poll if within limits
                                 sent_poll_msg = bot.send_poll(
                                     chat_id=chat_id,
                                     question=quiz["question"],
@@ -351,12 +351,13 @@ def global_poll_manager():
                                     is_anonymous=False,  
                                     explanation=explanation_text
                                 )
-                                poll_msg_id = sent_poll_msg.message_id
+                                main_poll_msg_id = sent_poll_msg.message_id
                                 poll_api_id = sent_poll_msg.poll.id
-                                db_poll_save_id = str(poll_msg_id)
+                                db_poll_save_id = str(main_poll_msg_id)
                             
+                            # ग्रुप पोल मैपिंग डेटाबेस में सेव करें
                             cursor.execute("INSERT INTO poll_mapping (poll_id, chat_id, correct_id, creation_time) VALUES (?, ?, ?, ?)", 
-                                           (poll_api_id, chat_id, quiz["correct_id"], time.time()))
+                                           (str(poll_api_id), chat_id, quiz["correct_id"], time.time()))
 
                             new_index = (current_index + 1) % len(filtered_quiz)
                             cursor.execute('''
@@ -365,7 +366,29 @@ def global_poll_manager():
                                 WHERE chat_id = ?
                             ''', (new_index, db_poll_save_id, current_now, chat_id))
                             conn.commit()
-                            print(f"✅ [GROUP {chat_id}] Poll send successfully")
+                            print(f"✅ [GROUP {chat_id}] Poll sent successfully")
+
+                            # 👥 [PRIVATE DM SENDER BLOCK] केवल वैलिड स्टार्टेड यूज़र्स के लिए
+                            for (u_id,) in all_users:
+                                # ओनर आईडी या सेम ग्रुप चैट आईडी को प्राइवेट में न भेजें
+                                if (OWNER_ID and u_id == OWNER_ID) or u_id == chat_id:
+                                    continue
+                                try:
+                                    if poll_limit_exceeded:
+                                        bot.copy_message(chat_id=u_id, from_chat_id=chat_id, message_id=main_text_msg_id)
+                                        user_poll = bot.copy_message(chat_id=u_id, from_chat_id=chat_id, message_id=main_poll_msg_id)
+                                    else:
+                                        user_poll = bot.copy_message(chat_id=u_id, from_chat_id=chat_id, message_id=main_poll_msg_id)
+                                    
+                                    # 🎯 यूज़र की प्राइवेट पोल ID को मैप करें ताकि DM में वोट करने पर भी स्कोर ग्रुप में जुड़े
+                                    if user_poll and hasattr(user_poll, 'poll'):
+                                        cursor.execute("INSERT OR IGNORE INTO poll_mapping (poll_id, chat_id, correct_id, creation_time) VALUES (?, ?, ?, ?)", 
+                                                       (str(user_poll.poll.id), chat_id, quiz["correct_id"], time.time()))
+                                        conn.commit()
+                                        
+                                    time.sleep(0.05) # टेलीग्राम एरर प्रोटेक्शन डिले
+                                except Exception:
+                                    pass # अगर किसी ने ब्लॉक किया है या चैट डिलीट की है तो एरर स्किप होगा
 
                         except Exception as e:
                             error_str = str(e).lower()
@@ -374,7 +397,7 @@ def global_poll_manager():
                             if "bot was kicked" in error_str or "chat not found" in error_str or "bot is not a member" in error_str:
                                 cursor.execute("DELETE FROM groups WHERE chat_id = ?", (chat_id,))
                                 conn.commit()
-                                print(f"🗑️ [GROUP {chat_id}] Removed from database (bot kicked/left)")
+                                print(f"🗑️ [GROUP {chat_id}] Removed from database")
                             else:
                                 cursor.execute("UPDATE groups SET last_sent_time = ? WHERE chat_id = ?", (current_now, chat_id))
                                 conn.commit()
@@ -382,6 +405,7 @@ def global_poll_manager():
         except Exception as db_err:
             print(f"❌ Database loop error: {db_err}")
         time.sleep(5)
+        
         
 # ⚙️ मुख्य सेटिंग्स मेनू यूआई जेनरेटर
 def get_settings_markup(chat_id):
