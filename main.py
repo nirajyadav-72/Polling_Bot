@@ -239,11 +239,6 @@ def global_poll_manager():
                 cursor = conn.cursor()
                 cursor.execute("SELECT chat_id, current_index, last_poll_id, last_sent_time, language, interval, auto_delete, last_warning_time FROM groups")
                 all_groups = cursor.fetchall()
-                
-                # 👤 केवल उन्हीं यूज़र्स को निकालेगा जिन्होंने बॉट स्टार्ट किया है
-                cursor.execute("SELECT user_id FROM users")
-                all_users = [row for row in cursor.fetchall()]
-                
                 current_now = time.time()
 
                 for chat_id, current_index, last_poll_id_str, last_sent_time, language, interval, auto_delete, last_warning_time in all_groups:
@@ -313,9 +308,6 @@ def global_poll_manager():
                                 break
 
                         try:
-                            main_poll_msg_id = None
-                            main_text_msg_id = None
-                            
                             if poll_limit_exceeded:
                                 text_msg = f"<blockquote><b>Q. {quiz['question']}</b></blockquote>\n\n<blockquote><b>Option's</b></blockquote>\n"
                                 option_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
@@ -327,7 +319,7 @@ def global_poll_manager():
                                     dummy_options.append(f"Option {letter}")
                                 
                                 sent_text_msg = bot.send_message(chat_id=chat_id, text=text_msg, parse_mode="HTML")
-                                main_text_msg_id = sent_text_msg.message_id
+                                text_msg_id = sent_text_msg.message_id
                                 
                                 sent_poll_msg = bot.send_poll(
                                     chat_id=chat_id,
@@ -338,9 +330,9 @@ def global_poll_manager():
                                     is_anonymous=False,
                                     explanation=explanation_text
                                 )
-                                main_poll_msg_id = sent_poll_msg.message_id
+                                poll_msg_id = sent_poll_msg.message_id
                                 poll_api_id = sent_poll_msg.poll.id
-                                db_poll_save_id = f"{main_text_msg_id}:{main_poll_msg_id}"
+                                db_poll_save_id = f"{text_msg_id}:{poll_msg_id}"
                             else:
                                 sent_poll_msg = bot.send_poll(
                                     chat_id=chat_id,
@@ -351,13 +343,12 @@ def global_poll_manager():
                                     is_anonymous=False,  
                                     explanation=explanation_text
                                 )
-                                main_poll_msg_id = sent_poll_msg.message_id
+                                poll_msg_id = sent_poll_msg.message_id
                                 poll_api_id = sent_poll_msg.poll.id
-                                db_poll_save_id = str(main_poll_msg_id)
+                                db_poll_save_id = str(poll_msg_id)
                             
-                            # ग्रुप पोल मैपिंग डेटाबेस में सेव करें
                             cursor.execute("INSERT INTO poll_mapping (poll_id, chat_id, correct_id, creation_time) VALUES (?, ?, ?, ?)", 
-                                           (str(poll_api_id), chat_id, quiz["correct_id"], time.time()))
+                                           (poll_api_id, chat_id, quiz["correct_id"], time.time()))
 
                             new_index = (current_index + 1) % len(filtered_quiz)
                             cursor.execute('''
@@ -367,28 +358,6 @@ def global_poll_manager():
                             ''', (new_index, db_poll_save_id, current_now, chat_id))
                             conn.commit()
                             print(f"✅ [GROUP {chat_id}] Poll sent successfully")
-
-                            # 👥 [PRIVATE DM SENDER BLOCK] केवल वैलिड स्टार्टेड यूज़र्स के लिए
-                            for (u_id,) in all_users:
-                                # ओनर आईडी या सेम ग्रुप चैट आईडी को प्राइवेट में न भेजें
-                                if (OWNER_ID and u_id == OWNER_ID) or u_id == chat_id:
-                                    continue
-                                try:
-                                    if poll_limit_exceeded:
-                                        bot.copy_message(chat_id=u_id, from_chat_id=chat_id, message_id=main_text_msg_id)
-                                        user_poll = bot.copy_message(chat_id=u_id, from_chat_id=chat_id, message_id=main_poll_msg_id)
-                                    else:
-                                        user_poll = bot.copy_message(chat_id=u_id, from_chat_id=chat_id, message_id=main_poll_msg_id)
-                                    
-                                    # 🎯 यूज़र की प्राइवेट पोल ID को मैप करें ताकि DM में वोट करने पर भी स्कोर ग्रुप में जुड़े
-                                    if user_poll and hasattr(user_poll, 'poll'):
-                                        cursor.execute("INSERT OR IGNORE INTO poll_mapping (poll_id, chat_id, correct_id, creation_time) VALUES (?, ?, ?, ?)", 
-                                                       (str(user_poll.poll.id), chat_id, quiz["correct_id"], time.time()))
-                                        conn.commit()
-                                        
-                                    time.sleep(0.05) # टेलीग्राम एरर प्रोटेक्शन डिले
-                                except Exception:
-                                    pass # अगर किसी ने ब्लॉक किया है या चैट डिलीट की है तो एरर स्किप होगा
 
                         except Exception as e:
                             error_str = str(e).lower()
@@ -405,7 +374,99 @@ def global_poll_manager():
         except Exception as db_err:
             print(f"❌ Database loop error: {db_err}")
         time.sleep(5)
-        
+                
+# 👤 [PRIVATE CHAT 30-MIN POLL MANAGER] स्वतंत्र रूप से केवल प्राइवेट चैट के लिए
+def private_poll_manager():
+    user_quiz_index = {}
+    
+    while True:
+        try:
+            current_now = time.time()
+            
+            with sqlite3.connect(DB_FILE, timeout=20) as conn:
+                cursor = conn.cursor()
+                # केवल स्टार्ट करने वाले यूज़र्स की लिस्ट
+                cursor.execute("SELECT user_id FROM users")
+                all_users = cursor.fetchall()
+                
+                # डिफ़ॉल्ट रूप से क्विज़ लिस्ट लोड करें
+                cursor.execute("SELECT language FROM groups LIMIT 1")
+                lang_res = cursor.fetchone()
+                default_lang = lang_res[0] if lang_res else 'hindi'
+
+                for (u_id,) in all_users:
+                    if OWNER_ID and u_id == OWNER_ID:
+                        continue
+                        
+                    if u_id not in user_quiz_index:
+                        user_quiz_index[u_id] = 0
+                        
+                    filtered_quiz = [q for q in QUIZ_LIST if q.get("lang", "hindi") == default_lang]
+                    if not filtered_quiz:
+                        filtered_quiz = QUIZ_LIST
+                        
+                    if user_quiz_index[u_id] >= len(filtered_quiz):
+                        user_quiz_index[u_id] = 0
+                        
+                    quiz = filtered_quiz[user_quiz_index[u_id]]
+                    explanation_text = truncate_explanation(quiz.get("explanation", None), max_length=100)
+                    
+                    poll_limit_exceeded = False
+                    if len(quiz["question"]) > 300:
+                        poll_limit_exceeded = True
+                    for opt in quiz["options"]:
+                        if len(str(opt)) > 100:
+                            poll_limit_exceeded = True
+                            break
+
+                    try:
+                        if poll_limit_exceeded:
+                            text_msg = f"<blockquote><b>Q. {quiz['question']}</b></blockquote>\n\n<blockquote><b>Option's</b></blockquote>\n"
+                            option_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+                            dummy_options = []
+                            
+                            for idx, opt in enumerate(quiz["options"]):
+                                letter = option_letters[idx] if idx < len(option_letters) else f"{idx+1}"
+                                text_msg += f"<blockquote><b>{letter}) {opt}</b></blockquote>\n"
+                                dummy_options.append(f"Option {letter}")
+                            
+                            bot.send_message(chat_id=u_id, text=text_msg, parse_mode="HTML")
+                            sent_poll_msg = bot.send_poll(
+                                chat_id=u_id,
+                                question="Choose the correct option below:",
+                                options=dummy_options,
+                                type="quiz",
+                                correct_option_id=quiz["correct_id"],
+                                is_anonymous=False,
+                                explanation=explanation_text
+                            )
+                        else:
+                            sent_poll_msg = bot.send_poll(
+                                chat_id=u_id,
+                                question=quiz["question"],
+                                options=quiz["options"],
+                                type="quiz",
+                                correct_option_id=quiz["correct_id"],
+                                is_anonymous=False,  
+                                explanation=explanation_text
+                            )
+                            
+                        # 🎯 प्राइवेट पोल आईडी को मैप करना ताकि डेली स्कोर में रिकॉर्ड जुड़े
+                        if sent_poll_msg and hasattr(sent_poll_msg, 'poll'):
+                            cursor.execute("INSERT OR IGNORE INTO poll_mapping (poll_id, chat_id, correct_id, creation_time) VALUES (?, ?, ?, ?)", 
+                                           (str(sent_poll_msg.poll.id), u_id, quiz["correct_id"], current_now))
+                            conn.commit()
+
+                        user_quiz_index[u_id] = (user_quiz_index[u_id] + 1) % len(filtered_quiz)
+                        time.sleep(0.05) # फ्लड प्रिवेंशन डिले
+                        
+                    except Exception:
+                        pass
+                        
+        except Exception as err:
+            print(f"❌ प्राइवेट पोल लूप एरर: {err}")
+            
+        time.sleep(1800)
         
 # ⚙️ मुख्य सेटिंग्स मेनू यूआई जेनरेटर
 def get_settings_markup(chat_id):
@@ -2166,6 +2227,7 @@ def track_and_save_users(bot_instance, message):
 # ❤️‍🩹 थ्रेड्स स्टार्ट करें
 threading.Thread(target=global_poll_manager, daemon=True).start()
 threading.Thread(target=daily_leaderboard_scheduler, daemon=True).start()
+threading.Thread(target=private_poll_manager, daemon=True).start()
 
 print("Successfully 🇮🇳 deployed...🚀")
 
