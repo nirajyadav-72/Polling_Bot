@@ -174,6 +174,12 @@ def init_db():
             cursor.execute("ALTER TABLE groups ADD COLUMN msg_count INTEGER DEFAULT 0")
         except sqlite3.OperationalError:
             pass
+
+        # 🔍 [QUESTION SOURCE TRACKER] Group ke question pool source ko setup karne ke liye column
+        try:
+            cursor.execute("ALTER TABLE groups ADD COLUMN question_source TEXT DEFAULT 'both'")
+        except sqlite3.OperationalError:
+            pass
             
         conn.commit()
 
