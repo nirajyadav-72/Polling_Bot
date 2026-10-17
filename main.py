@@ -438,6 +438,99 @@ def global_poll_manager():
             print(f"❌ Database loop error: {db_err}")
         time.sleep(5)
 
+# 👤 [PRIVATE CHAT 30-MIN POLL MANAGER] स्वतंत्र रूप से केवल प्राइवेट चैट के लिए
+def private_poll_manager():
+    user_quiz_index = {}
+    
+    while True:
+        try:
+            current_now = time.time()
+            
+            with sqlite3.connect(DB_FILE, timeout=20) as conn:
+                cursor = conn.cursor()
+                # केवल स्टार्ट करने वाले यूज़र्स की लिस्ट
+                cursor.execute("SELECT user_id FROM users")
+                all_users = cursor.fetchall()
+                
+                # डिफ़ॉल्ट रूप से क्विज़ लिस्ट लोड करें
+                cursor.execute("SELECT language FROM groups LIMIT 1")
+                lang_res = cursor.fetchone()
+                default_lang = lang_res[0] if lang_res else 'hindi'
+
+                for (u_id,) in all_users:
+                    if OWNER_ID and u_id == OWNER_ID:
+                        continue
+                        
+                    if u_id not in user_quiz_index:
+                        user_quiz_index[u_id] = 0
+                        
+                    filtered_quiz = [q for q in QUIZ_LIST if q.get("lang", "hindi") == default_lang]
+                    if not filtered_quiz:
+                        filtered_quiz = QUIZ_LIST
+                        
+                    if user_quiz_index[u_id] >= len(filtered_quiz):
+                        user_quiz_index[u_id] = 0
+                        
+                    quiz = filtered_quiz[user_quiz_index[u_id]]
+                    explanation_text = truncate_explanation(quiz.get("explanation", None), max_length=100)
+                    
+                    poll_limit_exceeded = False
+                    if len(quiz["question"]) > 300:
+                        poll_limit_exceeded = True
+                    for opt in quiz["options"]:
+                        if len(str(opt)) > 100:
+                            poll_limit_exceeded = True
+                            break
+
+                    try:
+                        if poll_limit_exceeded:
+                            text_msg = f"<blockquote><b>Q. {quiz['question']}</b></blockquote>\n\n<blockquote><b>Option's</b></blockquote>\n"
+                            option_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+                            dummy_options = []
+                            
+                            for idx, opt in enumerate(quiz["options"]):
+                                letter = option_letters[idx] if idx < len(option_letters) else f"{idx+1}"
+                                text_msg += f"<blockquote><b>{letter}) {opt}</b></blockquote>\n"
+                                dummy_options.append(f"Option {letter}")
+                            
+                            bot.send_message(chat_id=u_id, text=text_msg, parse_mode="HTML")
+                            sent_poll_msg = bot.send_poll(
+                                chat_id=u_id,
+                                question="Choose the correct option below:",
+                                options=dummy_options,
+                                type="quiz",
+                                correct_option_id=quiz["correct_id"],
+                                is_anonymous=False,
+                                explanation=explanation_text
+                            )
+                        else:
+                            sent_poll_msg = bot.send_poll(
+                                chat_id=u_id,
+                                question=quiz["question"],
+                                options=quiz["options"],
+                                type="quiz",
+                                correct_option_id=quiz["correct_id"],
+                                is_anonymous=False,  
+                                explanation=explanation_text
+                            )
+                            
+                        # 🎯 प्राइवेट पोल आईडी को मैप करना ताकि डेली स्कोर में रिकॉर्ड जुड़े
+                        if sent_poll_msg and hasattr(sent_poll_msg, 'poll'):
+                            cursor.execute("INSERT OR IGNORE INTO poll_mapping (poll_id, chat_id, correct_id, creation_time) VALUES (?, ?, ?, ?)", 
+                                           (str(sent_poll_msg.poll.id), u_id, quiz["correct_id"], current_now))
+                            conn.commit()
+
+                        user_quiz_index[u_id] = (user_quiz_index[u_id] + 1) % len(filtered_quiz)
+                        time.sleep(0.05) # फ्लड प्रिवेंशन डिले
+                        
+                    except Exception:
+                        pass
+                        
+        except Exception as err:
+            print(f"❌ प्राइवेट पोल लूप एरर: {err}")
+            
+        time.sleep(1800)
+
 # ⚙️ Global Question Pool Mode Changer Panel - ONLY FOR BOT OWNER (Applies to all groups)
 @bot.message_handler(commands=['set'])
 def global_question_source_set(message):
