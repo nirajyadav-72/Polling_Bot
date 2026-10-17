@@ -304,16 +304,16 @@ def global_poll_manager():
                                     print(f"❌ [GROUP {chat_id}] Old message/poll {msg_id} delete failed: {del_err}")
 
                         # --- 🆕 [DYNAMIC COMBINE BLOCK] saved_questions data merge system ---
-                        # --- 🆕 [DYNAMIC SOURCE FILTER BLOCK] Selector setup ---
+                        # --- 🆕 [GLOBAL SOURCE FILTER BLOCK FOR ALL GROUPS] ---
                         import json
                         
-                        # Group settings se target pool source check karne ka sql block
-                        cursor.execute("SELECT question_source FROM groups WHERE chat_id = ?", (chat_id,))
+                        # Bot settings se global source parameter read karein (Ek baar me pure bot par chalega)
+                        cursor.execute("SELECT value FROM bot_settings WHERE key = 'global_question_source'")
                         src_row = cursor.fetchone()
-                        group_source_choice = src_row[0] if src_row and src_row[0] else 'both'
+                        global_source_choice = src_row[0] if src_row else 'both'
 
                         saved_db_quizzes = []
-                        if group_source_choice in ['db', 'both']:
+                        if global_source_choice in ['db', 'both']:
                             try:
                                 with sqlite3.connect(DB_FILE, timeout=20) as dynamic_conn:
                                     d_cursor = dynamic_conn.cursor()
@@ -335,20 +335,20 @@ def global_poll_manager():
                             except Exception as fetch_err:
                                 print(f"⚠️ Saved questions fetch bypass active: {fetch_err}")
 
-                        # Condition check ke aadhar par pool array assign karein
-                        if group_source_choice == 'file':
+                        # Global parameter condition matrix ke mutabik questions select karein
+                        if global_source_choice == 'file':
                             MERGED_QUIZ_SYSTEM_LIST = QUIZ_LIST
-                        elif group_source_choice == 'db':
+                        elif global_source_choice == 'db':
                             MERGED_QUIZ_SYSTEM_LIST = saved_db_quizzes if saved_db_quizzes else QUIZ_LIST
                         else:
-                            # 'both' case - dono files aur raw metrics mix up hokar array me aayenge
+                            # 'both' case - questions.py aur dynamic database dono mix chalenge
                             MERGED_QUIZ_SYSTEM_LIST = QUIZ_LIST + saved_db_quizzes
 
                         filtered_quiz = [q for q in MERGED_QUIZ_SYSTEM_LIST if q.get("lang", "hindi") == language]
                         if not filtered_quiz:
                             filtered_quiz = MERGED_QUIZ_SYSTEM_LIST
-                        # -------------------------------------------------
-
+                        # ----------------------------------------------------------------------
+                        
                         if current_index >= len(filtered_quiz):
                             current_index = 0
 
