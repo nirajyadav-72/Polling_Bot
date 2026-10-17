@@ -528,13 +528,13 @@ def handle_global_source_settings_callbacks(call):
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=text, reply_markup=markup, parse_mode="Markdown")
     except Exception:
         pass
-        
-# 💾 /save Command Handler - Pure JSON List ko Auto-Numbering ke sath save karne ke liye
+
+# 💾 Updated /save Command - Auto-Numbering aur Total Database Question Count ke sath
 @bot.message_handler(commands=['save'])
 def handle_save_json_question_list(message):
-    # 🔒 Security: Only group admin or owner can save questions
-    if not is_user_admin(message.chat.id, message.from_user.id):
-        bot.reply_to(message, "❌ **यह कमांड केवल ग्रुप एडमिन ही इस्तेमाल कर सकते हैं!**", parse_mode="Markdown")
+    # 🔒 Security Check: Only bot owner can save questions
+    if OWNER_ID is None or message.from_user.id != OWNER_ID:
+        bot.reply_to(message, "❌ **यह कमांड केवल बॉट के ओनर (Owner) ही इस्तेमाल कर सकते हैं!**", parse_mode="Markdown")
         return
 
     if not message.reply_to_message or not message.reply_to_message.text:
@@ -548,7 +548,7 @@ def handle_save_json_question_list(message):
         import json
         parsed_data = json.loads(raw_json_text)
     except json.JSONDecodeError as json_err:
-        bot.reply_to(message, f"❌ **JSON फॉर्मेट एरर:** आपका भेजा गया टेक्स्ट वैध JSON नहीं है!\n\n**त्रुटि विवरण:** `{json_err}`", parse_mode="Markdown")
+        bot.reply_to(message, f"❌ **JSON फॉर्मेट एरर:** आपका भेजा गया टेक्स्ट वैध JSON नहीं है!\n\n**विफल विवरण:** `{json_err}`", parse_mode="Markdown")
         return
 
     if not isinstance(parsed_data, list):
@@ -560,6 +560,7 @@ def handle_save_json_question_list(message):
 
     saved_count = 0
     errors = []
+    final_total_in_db = 0
 
     try:
         with sqlite3.connect(DB_FILE, timeout=20) as conn:
@@ -581,7 +582,8 @@ def handle_save_json_question_list(message):
                     errors.append(f"Item #{idx}: Options list honi chahiye.")
                     continue
 
-                try: correct_id = int(correct_id)
+                try: 
+                    correct_id = int(correct_id)
                 except ValueError:
                     errors.append(f"Item #{idx}: correct_id number hona chahiye.")
                     continue
@@ -590,7 +592,7 @@ def handle_save_json_question_list(message):
                     errors.append(f"Item #{idx}: correct_id out of range hai.")
                     continue
 
-                # 🆕 [AUTO NUMBERING LOGIC] DB me check karein pehle se kitne rows hain
+                # [AUTO NUMBERING LOGIC] DB me check karein pehle se kitne rows hain
                 cursor.execute("SELECT COUNT(*) FROM saved_questions")
                 count_res = cursor.fetchone()
                 current_total_saved = count_res[0] if count_res else 0
@@ -598,7 +600,7 @@ def handle_save_json_question_list(message):
                 # Agla serial number dynamic calculate hoga
                 next_question_number = current_total_saved + 1
                 
-                # Question text se agar pehle se "Q. 1" jesa kuch ho to use saaf karne ke liye cleaner regex
+                # Question text se agar pehle se "Q. X" jesa kuch ho to use saaf karne ke liye cleaner regex
                 import re
                 clean_question = re.sub(r'^Q\s*\.\s*\d+\s*', '', str(question)).strip()
                 numbered_question = f"Q. {next_question_number} {clean_question}"
@@ -614,20 +616,127 @@ def handle_save_json_question_list(message):
                 
             conn.commit()
 
+            # 🆕 [TOTAL QUESTIONS COUNT LOGIC] Batch complete hone ke baad database ka absolute total fetch karein
+            cursor.execute("SELECT COUNT(*) FROM saved_questions")
+            final_count_res = cursor.fetchone()
+            final_total_in_db = final_count_res[0] if final_count_res else 0
+
     except Exception as db_err:
         bot.reply_to(message, f"❌ **डेटाबेस क्रैश एरर:** {db_err}")
         return
 
-    # Status Report Display
+    # Updated Status Report Display (Live Counters ke sath)
     report_message = f"📊 **JSON Questions Import Report:**\n---------------------------------------\n"
     if saved_count > 0:
         report_message += f"✅ **सफलतापूर्वक सुरक्षित:** {saved_count} नए प्रश्न डेटाबेस में जुड़ चुके हैं।\n"
-        report_message += f"🚀 *ये सभी प्रश्न ऑटो-नंबरिंग (Q. 1, Q. 2...) के साथ सक्रिय कर दिए गए हैं।*\n"
+        report_message += f"🚀 *ये सभी प्रश्न ऑटो-नंबरिंग (Q. 1, Q. 2...) के साथ सक्रिय कर दिए गए हैं।*\n\n"
     if errors:
-        report_message += f"\n❌ **विफल आइटम ({len(errors)}):**\n" + "\n".join(errors[:5])
+        report_message += f"❌ **विफल आइटम ({len(errors)}):**\n" + "\n".join(errors[:5]) + "\n\n"
+        
+    report_message += f"🗄️ **डेटाबेस स्थिति:**\n"
+    report_message += f"📊 **Total Questions in DB:** `{final_total_in_db}`"
             
     bot.reply_to(message, report_message, parse_mode="Markdown")
-        
+    
+# 🗑️ Global Delete Command - Single ID ya Range (e.g., 56 to 60, 56-60) ke liye [WITH AUTO RE-NUMBERING]
+@bot.message_handler(commands=['delete'])
+def handle_delete_questions(message):
+    # 🔒 Strict Owner Validation
+    if OWNER_ID is None or message.from_user.id != OWNER_ID:
+        try: bot.reply_to(message, "❌ **यह कमांड केवल बॉट के ओनर (Owner) ही इस्तेमाल कर सकते हैं!**", parse_mode="Markdown")
+        except Exception: pass
+        return
+
+    args = message.text.split(maxsplit=1)
+    if len(args) < 2:
+        bot.reply_to(message, "⚠️ **गलत फॉर्मेट!**\n\n"
+                              "💡 **उपयोग कैसे करें?**\n"
+                              "• **Single Delete:** `/delete 56`\n"
+                              "• **Range Delete:** `/delete 56 to 60` या `/delete 56-60`", parse_mode="Markdown")
+        return
+
+    input_text = args[1].strip().lower()
+    start_id, end_id = None, None
+
+    # Range parsing logic (supports 'to' and '-')
+    import re
+    range_match = re.match(r'^(\d+)\s*(?:to|-)\s*(\d+)\$', input_text)
+    
+    if range_match:
+        start_id = int(range_match.group(1))
+        end_id = int(range_match.group(2))
+    else:
+        # Check if single ID
+        if input_text.isdigit():
+            start_id = int(input_text)
+            end_id = start_id
+
+    if start_id is None or end_id is None or start_id <= 0 or end_id <= 0:
+        bot.reply_to(message, "❌ **त्रुटि:** कृपया एक वैध संख्या या रेंज दर्ज करें (जैसे: 56 to 60)।", parse_mode="Markdown")
+        return
+
+    if start_id > end_id:
+        bot.reply_to(message, "❌ **त्रुटि:** शुरुआती संख्या आखिरी संख्या से बड़ी नहीं हो सकती!", parse_mode="Markdown")
+        return
+
+    try:
+        with sqlite3.connect(DB_FILE, timeout=20) as conn:
+            cursor = conn.cursor()
+
+            # 1. Pehle check karein ki range ke andar kitne questions maujood hain
+            cursor.execute("SELECT COUNT(*) FROM saved_questions WHERE id BETWEEN ? AND ?", (start_id, end_id))
+            to_delete_count = cursor.fetchone()[0]
+
+            if to_delete_count == 0:
+                bot.reply_to(message, f"⚠️ **डेटाबेस में ID `{start_id}` से `{end_id}` के बीच कोई प्रश्न नहीं मिला!**", parse_mode="Markdown")
+                return
+
+            # 2. Target questions ko delete karein
+            cursor.execute("DELETE FROM saved_questions WHERE id BETWEEN ? AND ?", (start_id, end_id))
+            
+            # 3. 🆕 [AUTO RE-NUMBERING LOGIC] bache hue saare questions ki ID aur Text ko sequence me manage karein
+            # Sabhi bache hue sawalon ko temporary list me load karein
+            cursor.execute("SELECT question, options, correct_id, explanation, lang FROM saved_questions ORDER BY id ASC")
+            remaining_rows = cursor.fetchall()
+
+            # Purani table ko poora saaf karke autoincrement reset karein
+            cursor.execute("DELETE FROM saved_questions")
+            cursor.execute("DELETE FROM sqlite_sequence WHERE name='saved_questions'")
+
+            # Naye sequence ke sath saare sawal fir se insert karein aur text ka Q. Number bhi update karein
+            import json
+            for new_idx, row in enumerate(remaining_rows, start=1):
+                raw_q_text = row[0]
+                
+                # Puraane "Q. X" ko hatakar naya clean sequential serial number lagayein
+                clean_q = re.sub(r'^Q\s*\.\s*\d+\s*', '', str(raw_q_text)).strip()
+                new_numbered_question = f"Q. {new_idx} {clean_q}"
+
+                cursor.execute(
+                    "INSERT INTO saved_questions (question, options, correct_id, explanation, lang) VALUES (?, ?, ?, ?, ?)",
+                    (new_numbered_question, row[1], row[2], row[3], row[4])
+                )
+
+            conn.commit()
+
+            # Total bache hue questions ka count nikalne ke liye
+            cursor.execute("SELECT COUNT(*) FROM saved_questions")
+            final_total_in_db = cursor.fetchone()[0]
+
+        # Success Message Display
+        success_msg = (
+            f"🗑️ **प्रश्न सफलतापूर्वक हटाए गए!**\n"
+            f"---------------------------------------\n"
+            f"✅ **हटाए गए प्रश्नों की संख्या:** `{to_delete_count}`\n"
+            f"🔄 **सीरियल नंबर स्थिति:** सभी बचे हुए प्रश्नों को `Q. 1` से दोबारा क्रमबद्ध (Re-arranged) कर दिया गया है।\n\n"
+            f"🗄️ **डेटाबेस स्थिति:**\n"
+            f"📊 **Total Questions in DB:** `{final_total_in_db}`"
+        )
+        bot.reply_to(message, success_msg, parse_mode="Markdown")
+
+    except Exception as e:
+        bot.reply_to(message, f"❌ **डेटाबेस एरर:** {e}", parse_mode="Markdown")
+                       
 # ⚙️ मुख्य सेटिंग्स मेनू यूआई जेनरेटर
 def get_settings_markup(chat_id):
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
