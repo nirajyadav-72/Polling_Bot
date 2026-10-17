@@ -731,7 +731,7 @@ def handle_save_json_question_list(message):
             
     bot.reply_to(message, report_message, parse_mode="Markdown")
     
-# 🗑️ Global Delete Command - Single ID ya Range (e.g., 56 to 60, 56-60) ke liye [WITH AUTO RE-NUMBERING]
+# 🗑️ Optimized Global Delete Command - Single ID ya Range (e.g., 56 to 60, 56-60) ke liye [WITH FLEXIBLE PARSING]
 @bot.message_handler(commands=['delete'])
 def handle_delete_questions(message):
     # 🔒 Strict Owner Validation
@@ -748,22 +748,25 @@ def handle_delete_questions(message):
                               "• **Range Delete:** `/delete 56 to 60` या `/delete 56-60`", parse_mode="Markdown")
         return
 
+    # User input se saare unnecessary spaces ko trim karein
     input_text = args[1].strip().lower()
     start_id, end_id = None, None
 
-    # Range parsing logic (supports 'to' and '-')
+    # Flexible Regex Matrix: Jo ranges ke beech ke arbitrary spaces ko accurately evaluate karega
     import re
-    range_match = re.match(r'^(\d+)\s*(?:to|-)\s*(\d+)\$', input_text)
+    range_match = re.search(r'(\d+)\s*(?:to|-)\s*(\d+)', input_text)
     
     if range_match:
         start_id = int(range_match.group(1))
         end_id = int(range_match.group(2))
     else:
-        # Check if single ID
-        if input_text.isdigit():
-            start_id = int(input_text)
+        # Check if it's a standalone single numeric entry
+        single_match = re.search(r'\b(\d+)\b', input_text)
+        if single_match:
+            start_id = int(single_match.group(1))
             end_id = start_id
 
+    # Absolute parsing validations
     if start_id is None or end_id is None or start_id <= 0 or end_id <= 0:
         bot.reply_to(message, "❌ **त्रुटि:** कृपया एक वैध संख्या या रेंज दर्ज करें (जैसे: 56 to 60)।", parse_mode="Markdown")
         return
@@ -776,32 +779,32 @@ def handle_delete_questions(message):
         with sqlite3.connect(DB_FILE, timeout=20) as conn:
             cursor = conn.cursor()
 
-            # 1. Pehle check karein ki range ke andar kitne questions maujood hain
+            # 1. Cheking step inside range boundaries
             cursor.execute("SELECT COUNT(*) FROM saved_questions WHERE id BETWEEN ? AND ?", (start_id, end_id))
-            to_delete_count = cursor.fetchone()[0]
+            count_res = cursor.fetchone()
+            to_delete_count = count_res[0] if count_res else 0
 
             if to_delete_count == 0:
                 bot.reply_to(message, f"⚠️ **डेटाबेस में ID `{start_id}` से `{end_id}` के बीच कोई प्रश्न नहीं मिला!**", parse_mode="Markdown")
                 return
 
-            # 2. Target questions ko delete karein
+            # 2. Main execution block for targets removal
             cursor.execute("DELETE FROM saved_questions WHERE id BETWEEN ? AND ?", (start_id, end_id))
             
-            # 3. 🆕 [AUTO RE-NUMBERING LOGIC] bache hue saare questions ki ID aur Text ko sequence me manage karein
-            # Sabhi bache hue sawalon ko temporary list me load karein
+            # 3. [AUTO RE-NUMBERING ENGINE CORES] Restructuring sequence indexes
             cursor.execute("SELECT question, options, correct_id, explanation, lang FROM saved_questions ORDER BY id ASC")
             remaining_rows = cursor.fetchall()
 
-            # Purani table ko poora saaf karke autoincrement reset karein
+            # Clear out the auto-increment seed allocations
             cursor.execute("DELETE FROM saved_questions")
             cursor.execute("DELETE FROM sqlite_sequence WHERE name='saved_questions'")
 
-            # Naye sequence ke sath saare sawal fir se insert karein aur text ka Q. Number bhi update karein
+            # Dynamic re-serialization database loops
             import json
             for new_idx, row in enumerate(remaining_rows, start=1):
                 raw_q_text = row[0]
                 
-                # Puraane "Q. X" ko hatakar naya clean sequential serial number lagayein
+                # Question strings indexing pattern adjustments
                 clean_q = re.sub(r'^Q\s*\.\s*\d+\s*', '', str(raw_q_text)).strip()
                 new_numbered_question = f"Q. {new_idx} {clean_q}"
 
@@ -812,11 +815,12 @@ def handle_delete_questions(message):
 
             conn.commit()
 
-            # Total bache hue questions ka count nikalne ke liye
+            # Compute final live structural numbers in target cluster
             cursor.execute("SELECT COUNT(*) FROM saved_questions")
-            final_total_in_db = cursor.fetchone()[0]
+            final_count_res = cursor.fetchone()
+            final_total_in_db = final_count_res[0] if final_count_res else 0
 
-        # Success Message Display
+        # Output success telemetry report card
         success_msg = (
             f"🗑️ **प्रश्न सफलतापूर्वक हटाए गए!**\n"
             f"---------------------------------------\n"
@@ -829,7 +833,7 @@ def handle_delete_questions(message):
 
     except Exception as e:
         bot.reply_to(message, f"❌ **डेटाबेस एरर:** {e}", parse_mode="Markdown")
-                       
+        
 # ⚙️ मुख्य सेटिंग्स मेनू यूआई जेनरेटर
 def get_settings_markup(chat_id):
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
