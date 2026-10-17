@@ -297,9 +297,37 @@ def global_poll_manager():
                                 except Exception as del_err:
                                     print(f"❌ [GROUP {chat_id}] Old message/poll {msg_id} delete failed: {del_err}")
 
-                        filtered_quiz = [q for q in QUIZ_LIST if q.get("lang", "hindi") == language]
+                        # --- 🆕 [DYNAMIC COMBINE BLOCK] saved_questions data merge system ---
+                        import json
+                        saved_db_quizzes = []
+                        try:
+                            with sqlite3.connect(DB_FILE, timeout=20) as dynamic_conn:
+                                d_cursor = dynamic_conn.cursor()
+                                d_cursor.execute("SELECT question, options, correct_id, explanation, lang FROM saved_questions")
+                                rows = d_cursor.fetchall()
+                                for row in rows:
+                                    try:
+                                        parsed_opts = json.loads(row[1])
+                                    except Exception:
+                                        parsed_opts = [o.strip() for o in row[1].split(',') if o.strip()]
+                                        
+                                    saved_db_quizzes.append({
+                                        "question": row[0],  # Serial Number laga hua question path
+                                        "options": parsed_opts,
+                                        "correct_id": int(row[2]),
+                                        "explanation": row[3],
+                                        "lang": row[4] if row[4] else "hindi"
+                                    })
+                        except Exception as fetch_err:
+                            print(f"⚠️ Saved questions fetch bypass active: {fetch_err}")
+
+                        # questions.py waali static list aur Database waali dynamic list dono ko merge karein
+                        MERGED_QUIZ_SYSTEM_LIST = QUIZ_LIST + saved_db_quizzes
+
+                        filtered_quiz = [q for q in MERGED_QUIZ_SYSTEM_LIST if q.get("lang", "hindi") == language]
                         if not filtered_quiz:
-                            filtered_quiz = QUIZ_LIST
+                            filtered_quiz = MERGED_QUIZ_SYSTEM_LIST
+                        # ---------------------------------------------------
 
                         if current_index >= len(filtered_quiz):
                             current_index = 0
