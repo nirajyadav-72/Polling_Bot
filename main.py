@@ -442,41 +442,37 @@ def global_poll_manager():
             print(f"❌ Database loop error: {db_err}")
         time.sleep(5)
 
-# ⚙️ Question Pool Mode Changer Panel - ONLY FOR BOT OWNER
+# ⚙️ Global Question Pool Mode Changer Panel - ONLY FOR BOT OWNER (Applies to all groups)
 @bot.message_handler(commands=['set'])
-def group_question_source_set(message):
-    if message.chat.type == 'private':
-        try: bot.reply_to(message, "❌ This command can only be used in groups.")
-        except Exception: pass
-        return  
-
+def global_question_source_set(message):
     # 🔒 Strict Owner Validation
     if OWNER_ID is None or message.from_user.id != OWNER_ID:
         try: bot.reply_to(message, "❌ **यह कमांड केवल बॉट के ओनर (Owner) ही इस्तेमाल कर सकते हैं!**", parse_mode="Markdown")
         except Exception: pass
         return
 
-    # Database se current source nikalna
+    # Database se global source value nikalna
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT question_source FROM groups WHERE chat_id = ?", (message.chat.id,))
+        cursor.execute("SELECT value FROM bot_settings WHERE key = 'global_question_source'")
         row = cursor.fetchone()
-        current_source = row[0] if row and row[0] else 'both'
+        current_source = row[0] if row else 'both'
 
     source_text = "📁 QUESTIONS.PY (फ़ाइल)" if current_source == 'file' else "🗄️ DATABASE (सेव किये गए)"
     if current_source == 'both': source_text = "🔄 दोनों मिक्स (Default)"
 
     text = (
-        "🛠️ **क्वेश्चन सोर्स पैनल (Question Source Settings)**\n\n"
-        f"📊 **वर्तमान सोर्स:** {source_text}\n\n"
+        "🛠️ **ग्लोबल क्वेश्चन सोर्स पैनल (Global Question Source Settings)**\n\n"
+        "⚠️ *यहाँ किया गया बदलाव बॉट के सभी ग्रुप्स (All Groups) पर एक साथ लागू होगा।*\n\n"
+        f"📊 **वर्तमान ग्लोबल सोर्स:** {source_text}\n\n"
         "👇 **नीचे दिए गए बटन पर क्लिक करके सोर्स बदलें:**"
     )
 
     markup = InlineKeyboardMarkup()
-    btn_file = InlineKeyboardButton(text="📁 Use Questions.py", callback_data=f"src_file_{message.chat.id}")
-    btn_db = InlineKeyboardButton(text="🗄️ Use Saved DB", callback_data=f"src_db_{message.chat.id}")
-    btn_both = InlineKeyboardButton(text="🔄 Use Both Mixed", callback_data=f"src_both_{message.chat.id}")
-    btn_close = InlineKeyboardButton(text="Close ❌", callback_data="src_close_panel")
+    btn_file = InlineKeyboardButton(text="📁 Use Questions.py", callback_data="gsrc_file")
+    btn_db = InlineKeyboardButton(text="🗄️ Use Saved DB", callback_data="gsrc_db")
+    btn_both = InlineKeyboardButton(text="🔄 Use Both Mixed", callback_data="gsrc_both")
+    btn_close = InlineKeyboardButton(text="Close ❌", callback_data="gsrc_close_panel")
 
     markup.row(btn_file, btn_db)
     markup.row(btn_both)
@@ -489,45 +485,44 @@ def group_question_source_set(message):
     except Exception:
         pass
 
-# 🔄 Button Click Processor for /set Panel - ONLY FOR BOT OWNER
-@bot.callback_query_handler(func=lambda call: call.data.startswith('src_'))
-def handle_source_settings_callbacks(call):
-    if call.data == "src_close_panel":
+# 🔄 Button Click Processor for Global /set Panel - ONLY FOR BOT OWNER
+@bot.callback_query_handler(func=lambda call: call.data.startswith('gsrc_'))
+def handle_global_source_settings_callbacks(call):
+    if call.data == "gsrc_close_panel":
         try: bot.delete_message(call.message.chat.id, call.message.message_id)
         except Exception: pass
         return
 
     user_id = call.from_user.id
-    data_parts = call.data.split('_')
-    action = data_parts[1]       # 'file', 'db', ya 'both'
-    chat_id = int(data_parts[2])
+    action = call.data.split('_')[1] # 'file', 'db', ya 'both'
 
     # 🔒 Strict Owner Button Action Validation
     if OWNER_ID is None or user_id != OWNER_ID:
-        bot.answer_callback_query(call.id, "❌ आपके पास अनुमति नहीं है! यह केवल बॉट ओनर के लिए है।", show_alert=True)
+        bot.answer_callback_query(call.id, "❌ आपके पास अनुमति नहीं है! यह केवल बॉट ओoner के लिए है।", show_alert=True)
         return
 
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
-        cursor.execute("UPDATE groups SET question_source = ? WHERE chat_id = ?", (action, chat_id))
+        cursor.execute("UPDATE bot_settings SET value = ? WHERE key = 'global_question_source'", (action,))
         conn.commit()
 
     source_text = "📁 QUESTIONS.PY (फ़ाइल)" if action == 'file' else "🗄️ DATABASE (सेव किये गए)"
     if action == 'both': source_text = "🔄 दोनों मिक्स (Default)"
 
-    bot.answer_callback_query(call.id, f"सोर्स बदलकर {source_text} कर दिया गया है।")
+    bot.answer_callback_query(call.id, f"सफलतापूर्वक बदला गया ➔ {source_text}", show_alert=True)
 
     text = (
-        "🛠️ **क्वेश्चन सोर्स पैनल (Question Source Settings)**\n\n"
-        f"📊 **वर्तमान सोर्स:** {source_text}\n\n"
+        "🛠️ **ग्लोबल क्वेश्चन सोर्स पैनल (Global Question Source Settings)**\n\n"
+        "⚠️ *यहाँ किया गया बदलाव बॉट के सभी ग्रुप्स (All Groups) पर एक साथ लागू होगा।*\n\n"
+        f"📊 **वर्तमान ग्लोबल सोर्स:** {source_text}\n\n"
         "👇 **नीचे दिए गए बटन पर क्लिक करके सोर्स बदलें:**"
     )
     
     markup = InlineKeyboardMarkup()
-    btn_file = InlineKeyboardButton(text="📁 Use Questions.py", callback_data=f"src_file_{chat_id}")
-    btn_db = InlineKeyboardButton(text="🗄️ Use Saved DB", callback_data=f"src_db_{chat_id}")
-    btn_both = InlineKeyboardButton(text="🔄 Use Both Mixed", callback_data=f"src_both_{chat_id}")
-    btn_close = InlineKeyboardButton(text="Close ❌", callback_data="src_close_panel")
+    btn_file = InlineKeyboardButton(text="📁 Use Questions.py", callback_data="gsrc_file")
+    btn_db = InlineKeyboardButton(text="🗄️ Use Saved DB", callback_data="gsrc_db")
+    btn_both = InlineKeyboardButton(text="🔄 Use Both Mixed", callback_data="gsrc_both")
+    btn_close = InlineKeyboardButton(text="Close ❌", callback_data="gsrc_close_panel")
 
     markup.row(btn_file, btn_db)
     markup.row(btn_both)
@@ -537,7 +532,7 @@ def handle_source_settings_callbacks(call):
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=text, reply_markup=markup, parse_mode="Markdown")
     except Exception:
         pass
-
+        
 # 💾 /save Command Handler - Pure JSON List ko Auto-Numbering ke sath save karne ke liye
 @bot.message_handler(commands=['save'])
 def handle_save_json_question_list(message):
