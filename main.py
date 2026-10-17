@@ -115,6 +115,8 @@ def init_db():
                 lang TEXT DEFAULT 'hindi'
             )
         ''')
+        # 🔍 [GLOBAL QUESTION SOURCE DB SETUP] Sabhi groups ke liye ek sath mode check karne ke liye settings insert
+        cursor.execute("INSERT OR IGNORE INTO bot_settings (key, value) VALUES ('global_question_source', 'both')")
         
         # 🔍 [PROMOTE ACTIVATE DB] Users table me username search feature activate karne ke liye column
         try:
