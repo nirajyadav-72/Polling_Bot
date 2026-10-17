@@ -104,6 +104,17 @@ def init_db():
                 last_msg_time REAL DEFAULT 0
             )
         ''')
+        # 🆕 [SAVED QUESTIONS DB] JSON se saved questions store karne ke liye table
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS saved_questions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                question TEXT,
+                options TEXT,
+                correct_id INTEGER,
+                explanation TEXT,
+                lang TEXT DEFAULT 'hindi'
+            )
+        ''')
         
         # 🔍 [PROMOTE ACTIVATE DB] Users table me username search feature activate karne ke liye column
         try:
@@ -382,6 +393,105 @@ def global_poll_manager():
         except Exception as db_err:
             print(f"❌ Database loop error: {db_err}")
         time.sleep(5)
+
+# 💾 /save Command Handler - Pure JSON List ko Auto-Numbering ke sath save karne ke liye
+@bot.message_handler(commands=['save'])
+def handle_save_json_question_list(message):
+    # 🔒 Security: Only group admin or owner can save questions
+    if not is_user_admin(message.chat.id, message.from_user.id):
+        bot.reply_to(message, "❌ **यह कमांड केवल ग्रुप एडमिन ही इस्तेमाल कर सकते हैं!**", parse_mode="Markdown")
+        return
+
+    if not message.reply_to_message or not message.reply_to_message.text:
+        bot.reply_to(message, "💡 **तरीका:** JSON प्रारूप वाली प्रश्न सूची (Quiz JSON List) वाले मैसेज पर **Reply** करके `/save` लिखें।", parse_mode="Markdown")
+        return
+
+    raw_json_text = message.reply_to_message.text.strip()
+    
+    # JSON Parsing Block
+    try:
+        import json
+        parsed_data = json.loads(raw_json_text)
+    except json.JSONDecodeError as json_err:
+        bot.reply_to(message, f"❌ **JSON फॉर्मेट एरर:** आपका भेजा गया टेक्स्ट वैध JSON नहीं है!\n\n**त्रुटि विवरण:** `{json_err}`", parse_mode="Markdown")
+        return
+
+    if not isinstance(parsed_data, list):
+        if isinstance(parsed_data, dict):
+            parsed_data = [parsed_data]
+        else:
+            bot.reply_to(message, "❌ **त्रुटि:** JSON का मुख्य भाग एक सूची (List/Array `[...]`) होना चाहिए।", parse_mode="Markdown")
+            return
+
+    saved_count = 0
+    errors = []
+
+    try:
+        with sqlite3.connect(DB_FILE, timeout=20) as conn:
+            cursor = conn.cursor()
+            
+            # JSON array ke andar loop chalayein
+            for idx, item in enumerate(parsed_data, start=1):
+                question = item.get("question")
+                options = item.get("options")
+                correct_id = item.get("correct_id")
+                explanation = item.get("explanation", None)
+                lang = item.get("lang", "hindi").lower()
+
+                if not question or not options or correct_id is None:
+                    errors.append(f"Item #{idx}: Question, options ya correct_id miss hai.")
+                    continue
+                
+                if not isinstance(options, list) or len(options) < 2:
+                    errors.append(f"Item #{idx}: Options list honi chahiye.")
+                    continue
+
+                try: correct_id = int(correct_id)
+                except ValueError:
+                    errors.append(f"Item #{idx}: correct_id number hona chahiye.")
+                    continue
+
+                if correct_id < 0 or correct_id >= len(options):
+                    errors.append(f"Item #{idx}: correct_id out of range hai.")
+                    continue
+
+                # 🆕 [AUTO NUMBERING LOGIC] DB me check karein pehle se kitne rows hain
+                cursor.execute("SELECT COUNT(*) FROM saved_questions")
+                count_res = cursor.fetchone()
+                current_total_saved = count_res[0] if count_res else 0
+                
+                # Agla serial number dynamic calculate hoga
+                next_question_number = current_total_saved + 1
+                
+                # Question text se agar pehle se "Q. 1" jesa kuch ho to use saaf karne ke liye cleaner regex
+                import re
+                clean_question = re.sub(r'^Q\s*\.\s*\d+\s*', '', str(question)).strip()
+                numbered_question = f"Q. {next_question_number} {clean_question}"
+
+                options_json = json.dumps(options, ensure_ascii=False)
+
+                # DB Insertion
+                cursor.execute(
+                    "INSERT INTO saved_questions (question, options, correct_id, explanation, lang) VALUES (?, ?, ?, ?, ?)",
+                    (numbered_question, options_json, correct_id, explanation, lang)
+                )
+                saved_count += 1
+                
+            conn.commit()
+
+    except Exception as db_err:
+        bot.reply_to(message, f"❌ **डेटाबेस क्रैश एरर:** {db_err}")
+        return
+
+    # Status Report Display
+    report_message = f"📊 **JSON Questions Import Report:**\n---------------------------------------\n"
+    if saved_count > 0:
+        report_message += f"✅ **सफलतापूर्वक सुरक्षित:** {saved_count} नए प्रश्न डेटाबेस में जुड़ चुके हैं।\n"
+        report_message += f"🚀 *ये सभी प्रश्न ऑटो-नंबरिंग (Q. 1, Q. 2...) के साथ सक्रिय कर दिए गए हैं।*\n"
+    if errors:
+        report_message += f"\n❌ **विफल आइटम ({len(errors)}):**\n" + "\n".join(errors[:5])
+            
+    bot.reply_to(message, report_message, parse_mode="Markdown")
         
 # ⚙️ मुख्य सेटिंग्स मेनू यूआई जेनरेटर
 def get_settings_markup(chat_id):
