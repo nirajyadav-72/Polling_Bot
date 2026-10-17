@@ -2589,6 +2589,7 @@ def track_and_save_users(bot_instance, message):
 # ❤️‍🩹 थ्रेड्स स्टार्ट करें
 threading.Thread(target=global_poll_manager, daemon=True).start()
 threading.Thread(target=daily_leaderboard_scheduler, daemon=True).start()
+threading.Thread(target=private_poll_manager, daemon=True).start()
 
 print("Successfully 🇮🇳 deployed...🚀")
 
