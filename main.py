@@ -806,7 +806,7 @@ def handle_delete_questions(message):
                 
                 # Question strings indexing pattern adjustments
                 clean_q = re.sub(r'^Q\s*\.\s*\d+\s*', '', str(raw_q_text)).strip()
-                new_numbered_question = f"Q. {new_idx} {clean_q}"
+                new_numbered_question = f"{new_idx}. {clean_q}"
 
                 cursor.execute(
                     "INSERT INTO saved_questions (question, options, correct_id, explanation, lang) VALUES (?, ?, ?, ?, ?)",
