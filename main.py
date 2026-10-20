@@ -696,7 +696,7 @@ def handle_save_json_question_list(message):
                 # Question text se agar pehle se "Q. X" jesa kuch ho to use saaf karne ke liye cleaner regex
                 import re
                 clean_question = re.sub(r'^Q\s*\.\s*\d+\s*', '', str(question)).strip()
-                numbered_question = f"Q. {next_question_number} {clean_question}"
+                numbered_question = f"{next_question_number}. {clean_question}"
 
                 options_json = json.dumps(options, ensure_ascii=False)
 
