@@ -2218,12 +2218,13 @@ def handle_send_command(message):
         except Exception:
             pass
         
-
 # =====================================================================
-# ⏳ काउंटडाउन थ्रेड फंक्शन (Fixed Indentation & Single-Line Syntax)
+# ⏳ काउंटडाउन थ्रेड फंक्शन (Naya aane par pichla AUTO-DELETE karne ke liye updated)
 # =====================================================================
-def ban_countdown_thread(target_id, target_mention, message_id_to_edit):
+def ban_countdown_thread(target_id, target_mention, current_msg_id):
     remaining_minutes = 5
+    last_msg_id = current_msg_id
+    
     while remaining_minutes > 0:
         time.sleep(60)
         remaining_minutes -= 1
@@ -2240,13 +2241,32 @@ def ban_countdown_thread(target_id, target_mention, message_id_to_edit):
                 f"⏱️ <b>शेष बचा हुआ समय:</b> {remaining_minutes} मिनट 00 सेकंड"
             )
             try:
-                bot.edit_message_text(chat_id=SUPPORT_GROUP_ID, message_id=message_id_to_edit, text=update_text, parse_mode="HTML")
+                # 🗑️ [AUTO-DELETE] Naya message bhejne se pehle pichle alert ko mita dein
+                if last_msg_id:
+                    try:
+                        bot.delete_message(chat_id=SUPPORT_GROUP_ID, message_id=last_msg_id)
+                    except Exception:
+                        pass  # Agar koi member pehle hi use delete kar de toh crash na ho
+                
+                # 🆕 Ab naya message bhejein
+                new_msg = bot.send_message(chat_id=SUPPORT_GROUP_ID, text=update_text, parse_mode="HTML")
+                
+                # Tracker aur variable me naye message ki ID overwrite karein
+                active_ban_timers[target_id]["msg_id"] = new_msg.message_id
+                last_msg_id = new_msg.message_id
             except Exception:
                 pass
     
     # Final execution after 5 minutes
     if target_id in active_ban_timers and active_ban_timers[target_id]["status"] == "active":
         try:
+            # 🗑️ Final result/ban message se pehle aakhri countdown message ko bhi delete karein
+            if last_msg_id:
+                try:
+                    bot.delete_message(chat_id=SUPPORT_GROUP_ID, message_id=last_msg_id)
+                except Exception:
+                    pass
+
             bot.promote_chat_member(
                 chat_id=SUPPORT_GROUP_ID, user_id=target_id,
                 can_change_info=False, can_post_messages=False, can_edit_messages=False,
@@ -2255,15 +2275,17 @@ def ban_countdown_thread(target_id, target_mention, message_id_to_edit):
                 can_manage_video_chats=False, is_anonymous=False
             )
             bot.ban_chat_member(SUPPORT_GROUP_ID, target_id)
+            
             final_text = f"🎯 <b>समय समाप्त!</b>\n\nसर यूज़र {target_mention} ने माफ़ी नहीं मांगी, इसलिए इसके एडमिन राइट्स छीन कर इसे ग्रुप से <b>बैन (Ban)</b> कर दिया गया है। ✅"
-            bot.edit_message_text(chat_id=SUPPORT_GROUP_ID, message_id=message_id_to_edit, text=final_text, parse_mode="HTML")
+            
+            bot.send_message(chat_id=SUPPORT_GROUP_ID, text=final_text, parse_mode="HTML")
         except Exception as e:
             try:
                 bot.send_message(SUPPORT_GROUP_ID, f"❌ बैन करने में विफलता: {e}")
             except Exception:
                 pass
         active_ban_timers.pop(target_id, None)
-
+        
 # =====================================================================
 # 🔨 2. /ban कमान्ड हैंडलर (Argument Index & Formatting Fully Fixed)
 # =====================================================================
