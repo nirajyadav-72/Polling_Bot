@@ -928,53 +928,78 @@ def get_autodelete_markup(chat_id):
 @bot.message_handler(commands=['settings'])
 def group_settings(message):
     chat_type = message.chat.type
+    chat_id = message.chat.id
+    user_id = message.from_user.id
 
     if chat_type == 'private':
         try: bot.reply_to(message, "❌ This command can only be used in groups.")
         except Exception: pass
         return  
 
-    if not is_user_admin(message.chat.id, message.from_user.id):
+    if not is_user_admin(chat_id, user_id):
         try: bot.reply_to(message, "❌ Only group admin's can change the settings.")
         except Exception: pass
         return
+
+    # ====================================================================
+    # 🔒 INTERCEPTOR: FORCED JOIN STEP FOR TEXT COMMAND WITH ANTI-SPAM
+    # ====================================================================
+    if not check_channel_join(user_id):
+        try:
+            chat_info = bot.get_chat(SUPPORT_CHANNEL_ID)
+            channel_link = chat_info.invite_link or f"https://t.me/{chat_info.username}" if chat_info.username else None
+        except Exception:
+            channel_link = None
+
+        markup = InlineKeyboardMarkup()
+        if channel_link:
+            markup.add(InlineKeyboardButton(text="📢 Join Channel", url=channel_link))
+        markup.add(InlineKeyboardButton(text="🔄 Checked & Try Again", callback_data=f"check_again_settings_{chat_id}"))
+
+        # Anti-Spam: Purana warning message delete karein agar bacha ho
+        if chat_id in channel_alert_trackers:
+            try: bot.delete_message(chat_id=chat_id, message_id=channel_alert_trackers[chat_id])
+            except Exception: pass
+
+        try:
+            alert_msg = bot.send_message(
+                chat_id=chat_id,
+                text=f"⚠️ {message.from_user.first_name}, aap settings tabhi access kar sakte hain jab aap hamare Support Channel me join rahenge! Niche diye button se join karein:",
+                reply_markup=markup
+            )
+            channel_alert_trackers[chat_id] = alert_msg.message_id
+            bot.delete_message(chat_id=chat_id, message_id=message.message_id) # Command text delete
+        except Exception:
+            pass
+        return
+    # ====================================================================
         
-    # 🔍 [ANTI-SPAM LOGIC] डेटाबेस से पुराना सेटिंग्स मैसेज आईडी ढूँढना और उसे डिलीट करना
+    # Data lookup sequence (Aapki purani code logic)
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT settings_msg_id FROM groups WHERE chat_id = ?", (message.chat.id,))
+        cursor.execute("SELECT settings_msg_id FROM groups WHERE chat_id = ?", (chat_id,))
         row = cursor.fetchone()
         old_msg_id = row[0] if row and row[0] else 0
 
     if old_msg_id > 0:
-        try:
-            bot.delete_message(chat_id=message.chat.id, message_id=old_msg_id)
-        except Exception:
-            pass  # अगर पुराना मैसेज पहले ही कोई डिलीट कर चुका है तो एरर स्किप करें
+        try: bot.delete_message(chat_id=chat_id, message_id=old_msg_id)
+        except Exception: pass
 
-    text, markup = get_settings_markup(message.chat.id)
+    text, markup = get_settings_markup(chat_id)
     if text: 
         try: 
-            # 1. नया सेटिंग्स मैसेज (Response) सुरक्षित रूप से भेजें
-            new_msg = bot.send_message(message.chat.id, text, reply_markup=markup, parse_mode="Markdown")
-            
-            # 📌 [SAVE NEW ID] नए मैसेज की आईडी को डेटाबेस में सेव करना ताकि अगली बार इसे डिलीट किया जा सके
+            new_msg = bot.send_message(chat_id, text, reply_markup=markup, parse_mode="Markdown")
             with sqlite3.connect(DB_FILE, timeout=20) as conn:
                 cursor = conn.cursor()
-                cursor.execute("UPDATE groups SET settings_msg_id = ? WHERE chat_id = ?", (new_msg.message_id, message.chat.id))
+                cursor.execute("UPDATE groups SET settings_msg_id = ? WHERE chat_id = ?", (new_msg.message_id, chat_id))
                 conn.commit()
-                
-            # 🗑️ [NEW LOGIC] नया रिस्पॉन्स डिलीवर होने के बाद यूजर की भेजी हुई '/settings' कमांड को डिलीट करें
-            try:
-                bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
-            except Exception:
-                pass  # अगर बॉट के पास मैसेज डिलीट करने की परमिशन नहीं होगी, तो भी बॉट क्रैश नहीं होगा
-                
+            try: bot.delete_message(chat_id=chat_id, message_id=message.message_id)
+            except Exception: pass
         except Exception: 
             pass
-  
-# 🔄 सेटिंग्स बटन प्रोसेसर (मल्टी-इंडेक्स आर्किटेक्चर फिक्स्ड)
-@bot.callback_query_handler(func=lambda call: call.data.startswith(('set_lang_', 'set_time_', 'menu_autodel_', 'autodel_', 'panel_close_')))
+
+# 🔄 सेटिंग्स बटन प्रोसेसर (चैनल फ़ोर्स जॉइन और मल्टी-इंडेक्स आर्किटेक्चर फिक्स्ड)
+@bot.callback_query_handler(func=lambda call: call.data.startswith(('set_lang_', 'set_time_', 'menu_autodel_', 'autodel_', 'panel_close_', 'check_again_settings_')))
 def handle_settings_callbacks(call):
     user_id = call.from_user.id
     data_parts = call.data.split('_')
@@ -987,16 +1012,42 @@ def handle_settings_callbacks(call):
         bot.answer_callback_query(call.id, "❌ You do not have admin permissions!", show_alert=True)
         return
 
-    # 🛑 क्लोज बटन दबाने पर डेटाबेस से आईडी साफ़ करना और मैसेज डिलीट करना
+    # ====================================================================
+    # 🔒 INTERCEPTOR: FORCED JOIN STEP FOR BUTTON CALLBACKS
+    # ====================================================================
+    if action == "check" and sub_action == "again":
+        if check_channel_join(user_id):
+            bot.answer_callback_query(call.id, "✅ Authorization success! Setting panel opened.", show_alert=False)
+            try: bot.delete_message(chat_id=call.message.chat.id, message_id=call.message.message_id)
+            except Exception: pass
+            channel_alert_trackers.pop(chat_id, None)
+            
+            # Khula hua fresh main menu load karein
+            text, markup = get_settings_markup(chat_id)
+            new_msg = bot.send_message(chat_id, text, reply_markup=markup, parse_mode="Markdown")
+            with sqlite3.connect(DB_FILE, timeout=20) as conn:
+                cursor = conn.cursor()
+                cursor.execute("UPDATE groups SET settings_msg_id = ? WHERE chat_id = ?", (new_msg.message_id, chat_id))
+                conn.commit()
+            return
+        else:
+            bot.answer_callback_query(call.id, "❌ Aapne abhi tak channel join nahi kiya hai!", show_alert=True)
+            return
+
+    # Normal buttons par security trigger: Agar beech me kisi ne panel chhedne ki koshish ki
+    if not check_channel_join(user_id):
+        bot.answer_callback_query(call.id, "⚠️ Access Denied: Please follow the join prompt instructions first!", show_alert=True)
+        return
+    # ====================================================================
+
+    # क्लोज बटन दबाने पर डेटा की क्लीनअप (Aapka purana standard code block)
     if action == "panel" and sub_action == "close":
         with sqlite3.connect(DB_FILE, timeout=20) as conn:
             cursor = conn.cursor()
             cursor.execute("UPDATE groups SET settings_msg_id = 0 WHERE chat_id = ?", (chat_id,))
             conn.commit()
-        try: 
-            bot.delete_message(chat_id=call.message.chat.id, message_id=call.message.message_id)
-        except Exception: 
-            pass
+        try: bot.delete_message(chat_id=call.message.chat.id, message_id=call.message.message_id)
+        except Exception: pass
         return
 
     show_main_menu = True
@@ -1009,7 +1060,7 @@ def handle_settings_callbacks(call):
             current_lang = res[0] if res else 'hindi'
             new_lang = 'english' if current_lang == 'hindi' else 'hindi'
             cursor.execute("UPDATE groups SET language = ? WHERE chat_id = ?", (new_lang, chat_id))
-            bot.answer_callback_query(call.id, f"Language changed to {new_lang.upper()} / भाषा बदल दी गई है।")
+            bot.answer_callback_query(call.id, f"Language changed to {new_lang.upper()}")
             
         elif action == "set" and sub_action == "time":
             new_interval = int(data_parts[2]) 
@@ -1044,7 +1095,6 @@ def handle_settings_callbacks(call):
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=text, reply_markup=markup, parse_mode="Markdown")
     except Exception: 
         pass
-        
 
 # 👑 ओनर कमांड - टाइम सेट करना (Strict Group & Owner Security Added)
 @bot.message_handler(commands=['settime'])
