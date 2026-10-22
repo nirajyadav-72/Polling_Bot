@@ -998,8 +998,8 @@ def group_settings(message):
         except Exception: 
             pass
 
-# 🔄 सेटिंग्स बटन प्रोसेसर (चैनल फ़ोर्स जॉइन और मल्टी-इंडेक्स आर्किटेक्चर फिक्स्ड)
-@bot.callback_query_handler(func=lambda call: call.data.startswith(('set_lang_', 'set_time_', 'menu_autodel_', 'autodel_', 'panel_close_', 'check_again_settings_')))
+# 🔄 सेटिंग्स बटन प्रोसेसर (मल्टी-इंडेक्स आर्किटेक्चर फिक्स्ड)
+@bot.callback_query_handler(func=lambda call: call.data.startswith(('set_lang_', 'set_time_', 'menu_autodel_', 'autodel_', 'panel_close_')))
 def handle_settings_callbacks(call):
     user_id = call.from_user.id
     data_parts = call.data.split('_')
@@ -1012,42 +1012,15 @@ def handle_settings_callbacks(call):
         bot.answer_callback_query(call.id, "❌ You do not have admin permissions!", show_alert=True)
         return
 
-    # ====================================================================
-    # 🔒 INTERCEPTOR: FORCED JOIN STEP FOR BUTTON CALLBACKS
-    # ====================================================================
-    if action == "check" and sub_action == "again":
-        if check_channel_join(user_id):
-            bot.answer_callback_query(call.id, "✅ Authorization success! Setting panel opened.", show_alert=False)
-            try: bot.delete_message(chat_id=call.message.chat.id, message_id=call.message.message_id)
-            except Exception: pass
-            channel_alert_trackers.pop(chat_id, None)
-            
-            # Khula hua fresh main menu load karein
-            text, markup = get_settings_markup(chat_id)
-            new_msg = bot.send_message(chat_id, text, reply_markup=markup, parse_mode="Markdown")
-            with sqlite3.connect(DB_FILE, timeout=20) as conn:
-                cursor = conn.cursor()
-                cursor.execute("UPDATE groups SET settings_msg_id = ? WHERE chat_id = ?", (new_msg.message_id, chat_id))
-                conn.commit()
-            return
-        else:
-            bot.answer_callback_query(call.id, "❌ Aapne abhi tak channel join nahi kiya hai!", show_alert=True)
-            return
-
-    # Normal buttons par security trigger: Agar beech me kisi ne panel chhedne ki koshish ki
-    if not check_channel_join(user_id):
-        bot.answer_callback_query(call.id, "⚠️ Access Denied: Please follow the join prompt instructions first!", show_alert=True)
-        return
-    # ====================================================================
-
-    # क्लोज बटन दबाने पर डेटा की क्लीनअप (Aapka purana standard code block)
     if action == "panel" and sub_action == "close":
         with sqlite3.connect(DB_FILE, timeout=20) as conn:
             cursor = conn.cursor()
             cursor.execute("UPDATE groups SET settings_msg_id = 0 WHERE chat_id = ?", (chat_id,))
             conn.commit()
-        try: bot.delete_message(chat_id=call.message.chat.id, message_id=call.message.message_id)
-        except Exception: pass
+        try: 
+            bot.delete_message(chat_id=call.message.chat.id, message_id=call.message.message_id)
+        except Exception: 
+            pass
         return
 
     show_main_menu = True
@@ -1060,7 +1033,7 @@ def handle_settings_callbacks(call):
             current_lang = res[0] if res else 'hindi'
             new_lang = 'english' if current_lang == 'hindi' else 'hindi'
             cursor.execute("UPDATE groups SET language = ? WHERE chat_id = ?", (new_lang, chat_id))
-            bot.answer_callback_query(call.id, f"Language changed to {new_lang.upper()}")
+            bot.answer_callback_query(call.id, f"Language changed to {new_lang.upper()} / भाषा बदल दी गई है।")
             
         elif action == "set" and sub_action == "time":
             new_interval = int(data_parts[2]) 
@@ -1095,7 +1068,7 @@ def handle_settings_callbacks(call):
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=text, reply_markup=markup, parse_mode="Markdown")
     except Exception: 
         pass
-
+        
 # 👑 ओनर कमांड - टाइम सेट करना (Strict Group & Owner Security Added)
 @bot.message_handler(commands=['settime'])
 def set_global_leaderboard_time(message):
