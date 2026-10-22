@@ -33,6 +33,32 @@ DB_FILE = "bot_data.db"
 
 # ⏳ एक्टिव बैन काउंटडाउन ट्रैकर्स के लिए डिक्शनरी
 active_ban_timers = {}
+# ====================================================================
+# 📢 NEW CONFIGURATION FOR MANDATORY SUPPORT CHANNEL JOIN SYSTEM
+# ====================================================================
+# .env se SUPPORT_CHANNEL_ID load karein (Jaise: -100xxxxxxxxxx)
+SUPPORT_CHANNEL_ID = os.getenv("SUPPORT_CHANNEL_ID")
+if SUPPORT_CHANNEL_ID:
+    try:
+        SUPPORT_CHANNEL_ID = int(SUPPORT_CHANNEL_ID)
+    except ValueError:
+        SUPPORT_CHANNEL_ID = None
+
+# Alert notice messages ko track karne ke liye global tracking dictionary
+channel_alert_trackers = {}
+
+def check_channel_join(user_id, chat_id=None):
+    """Checks if the user is a member of the mandatory support channel"""
+    if not SUPPORT_CHANNEL_ID:
+        return True  # .env me ID na hone par sabhi ko access allow rahega
+    try:
+        member = bot.get_chat_member(chat_id=SUPPORT_CHANNEL_ID, user_id=user_id)
+        if member.status in ['member', 'administrator', 'creator']:
+            return True
+        return False
+    except Exception as e:
+        print(f"⚠️ Channel join validation query failed for user {user_id}: {e}")
+        return False
 
 # 🚀 ग्लोबल बॉट यूज़रनेम वेरिएबल
 BOT_USERNAME = "Bot"
