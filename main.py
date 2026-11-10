@@ -2115,7 +2115,7 @@ def handle_promote_command(message):
             can_change_info=False,
             can_post_messages=False,
             can_edit_messages=False,
-            can_delete_messages=True,
+            can_delete_messages=False,
             can_invite_users=True,
             can_restrict_members=True,
             can_pin_messages=True,
