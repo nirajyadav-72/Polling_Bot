@@ -5,6 +5,132 @@ QUIZ_LIST = [
     # ------------------- HINDI QUIZZES -------------------
     # =====================================================
     {
+        "question": "Number Series: 5, 10, 15, 20, ? [SSC MTS]",
+        "options": ["22", "24", "25", "30"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: प्रत्येक पद में +5 जोड़ा जा रहा है (5 का पहाड़ा है)। अगला पद 25 होगा।"
+    },
+    {
+        "question": "Odd One Out: विषम शब्द चुनिए: [SSC GD]",
+        "options": ["आँख", "कान", "नाक", "हाथ"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: आँख, कान और नाक ज्ञानेंद्रियाँ (Sense Organs) हैं, जबकि हाथ कर्मेंद्रिय है।"
+    },
+    {
+        "question": "Letter Analogy: AZ : BY :: CX : ? [SSC MTS]",
+        "options": ["DW", "EV", "FU", "GT"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: वर्णमाला के विपरीत अक्षर युग्म (Opposite Pair) हैं। C का विपरीत X और D का विपरीत W होता है।"
+    },
+    {
+        "question": "Coding-Decoding: यदि RUN = 3 है, तो SPRINT = ? [SSC GD]",
+        "options": ["4", "5", "6", "7"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: शब्द में अक्षरों की कुल संख्या गिनी गई है। SPRINT में 6 अक्षर हैं।"
+    },
+    {
+        "question": "Analogy: सूर्य : दिन :: चंद्रमा : ? [SSC MTS]",
+        "options": ["सुबह", "रात", "शाम", "दोपहर"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: सूर्य दिन में चमकता है और चंद्रमा रात में दिखाई देता है।"
+    },
+    {
+        "question": "Number Series: 100, 90, 80, 70, ? [SSC GD]",
+        "options": ["65", "60", "55", "50"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: प्रत्येक पद में से -10 घटाया जा रहा है। 70 - 10 = 60।"
+    },
+    {
+        "question": "Odd One Out: विषम संख्या चुनिए: [SSC MTS]",
+        "options": ["16", "25", "36", "47"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: 16 (4²), 25 (5²), और 36 (6²) पूर्ण वर्ग संख्याएँ हैं, जबकि 47 किसी का वर्ग नहीं है।"
+    },
+    {
+        "question": "Analogy: नेपाल : काठमांडू :: भूटान : ? [SSC GD]",
+        "options": ["थिम्पू", "ढाका", "कोलंबो", "माले"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: देश और उसकी राजधानी का संबंध है। भूटान की राजधानी थिम्पू है।"
+    },
+    {
+        "question": "Letter Series: A, C, E, G, ? [SSC MTS]",
+        "options": ["H", "I", "J", "K"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: प्रत्येक अक्षर में +2 जोड़ा जा रहा है (विषम स्थान वाले अक्षर)। G + 2 = I।"
+    },
+    {
+        "question": "Coding-Decoding: यदि NO = ON है, तो GO = ? [SSC GD]",
+        "options": ["OG", "DO", "SO", "TO"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: अक्षरों के क्रम को आपस में पलट (Reverse) दिया गया है। GO का उल्टा OG होगा।"
+    },
+    {
+        "question": "Analogy: पानी : प्यास :: भोजन : ? [SSC MTS]",
+        "options": ["स्वाद", "भूख", "चावल", "पकवान"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: पानी से प्यास बुझती है और भोजन से भूख मिटती है।"
+    },
+    {
+        "question": "Number Series: 2, 3, 5, 7, ? [SSC GD]",
+        "options": ["9", "10", "11", "13"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: यह लगातार अभाज्य संख्याओं (Prime Numbers) की श्रृंखला है। 7 के बाद अगली अभाज्य संख्या 11 होती है।"
+    },
+    {
+        "question": "Odd One Out: विषम अक्षर-समूह चुनिए: [SSC MTS]",
+        "options": ["AB", "CD", "EF", "ZY"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: AB, CD और EF बढ़ते क्रम में क्रमिक अक्षर हैं (+1)। जबकि ZY घटते क्रम में है (-1)।"
+    },
+    {
+        "question": "Analogy: सैनिक : सेना :: खिलाड़ी : ? [SSC GD]",
+        "options": ["मैदान", "टीम", "खेल", "अंपायर"],
+        "correct_id": 1,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: सैनिकों के समूह से सेना बनती है और खिलाड़ियों के समूह से टीम (Team) बनती है।"
+    },
+    {
+        "question": "Letter Series: M, N, O, P, ? [SSC MTS]",
+        "options": ["Q", "R", "S", "T"],
+        "correct_id": 0,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: वर्णमाला का सीधा क्रमिक क्रम है (+1)। P के बाद Q आता है।"
+    },
+    {
+        "question": "Coding-Decoding: यदि H = 8 है, तो HE = ? [SSC GD]",
+        "options": ["10", "12", "13", "14"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: अक्षरों के स्थानीय मान का योग है। H(8) + E(5) = 13।"
+    },
+    {
+        "question": "Analogy: 2 : 8 :: 5 : ? [SSC MTS]",
+        "options": ["25", "50", "125", "150"],
+        "correct_id": 2,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: पहली संख्या का घन (Cube) दूसरी संख्या है। 2³ = 8, इसी प्रकार 5³ = 125।"
+    },
+    {
+        "question": "Odd One Out: विषम शब्द चुनिए: [SSC GD]",
+        "options": ["लाल", "हरा", "नीला", "हल्का"],
+        "correct_id": 3,
+        "lang": "hindi",
+        "explanation": "💡 लॉजिक: लाल, हरा और नीला रंगों के नाम हैं, जबकि 'हल्का' रंग की तीव्रता या वजन को दर्शाता है।"
+    },
+    {
         "question": "निम्नलिखित में से शुद्ध वर्तनी वाले शब्द का चयन कीजिए: [SSC MTS Hindi]",
         "options": ["कवित्री", "कवयित्री", "कविइत्री", "कवीत्री"],
         "correct_id": 1,
