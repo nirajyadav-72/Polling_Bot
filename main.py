@@ -1233,195 +1233,287 @@ def execute_broadcast_callback(call):
     
 @bot.message_handler(commands=['sendresult'])
 def manual_leaderboard_sender(message):
-    is_owner = (OWNER_ID and message.from_user.id == OWNER_ID)
-    is_valid_chat = (message.chat.type == 'private' or (SUPPORT_GROUP_ID and message.chat.id == SUPPORT_GROUP_ID))
+    is_owner = OWNER_ID and message.from_user.id == OWNER_ID
+    is_valid_chat = (
+        message.chat.type == 'private'
+        or (SUPPORT_GROUP_ID and message.chat.id == SUPPORT_GROUP_ID)
+    )
 
     if not (is_owner and is_valid_chat):
-        try: bot.send_message(message.chat.id, "❌ This command is only valid for the bot owner and in authorized chats.")
-        except Exception: pass
+        try:
+            bot.send_message(
+                message.chat.id,
+                "❌ This command is only valid for the bot owner and in authorized chats."
+            )
+        except Exception:
+            pass
         return
-        
-    status_msg = bot.send_message(message.chat.id, "⏳ Sending new result to all groups immediately...")
-    IST = pytz.timezone('Asia/Kolkata')
-    now = datetime.now(IST)
-    
+
+    status_msg = bot.send_message(
+        message.chat.id,
+        "⏳ Sending new result to all groups immediately..."
+    )
+    now = datetime.now(pytz.timezone('Asia/Kolkata'))
+
     markup = InlineKeyboardMarkup()
     add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
-    
-    # [UPDATED] बटन में style="success" जोड़ दिया है, जिससे यह हरे रंग (Green) का दिखेगा
-    markup.add(InlineKeyboardButton(
-        text="✨ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ", 
-        url=add_to_group_url,
-        style="success"
-    ))
+    markup.add(
+        InlineKeyboardButton(
+            text="✨ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
+            url=add_to_group_url,
+            style="success"
+        )
+    )
+
+    success_count = 0
 
     with sqlite3.connect(DB_FILE, timeout=20) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT chat_id FROM groups")
         all_chats = cursor.fetchall()
-        success_count = 0
-        
+
         for (chat_id,) in all_chats:
-            cursor.execute("SELECT user_name, correct_count, wrong_count FROM daily_scores WHERE chat_id = ?", (chat_id,))
+            cursor.execute(
+                """
+                SELECT user_id, user_name, correct_count, wrong_count
+                FROM daily_scores
+                WHERE chat_id = ?
+                """,
+                (chat_id,)
+            )
             all_users = cursor.fetchall()
-            
+
             calculated_leaderboard = []
-            for name, correct, wrong in all_users:
+            for user_id, name, correct, wrong in all_users:
                 final_score = (correct * 2) - (wrong * 0.5)
-                if (correct + wrong) > 0:
-                    calculated_leaderboard.append((final_score, name, correct, wrong))
-            
-            # [FIXED] x[0] की जगह केवल x किया ताकि स्कोर बराबर होने पर नाम मैचिंग से एरर न आए
-            calculated_leaderboard.sort(key=lambda x: x, reverse=True)
+                if correct + wrong > 0:
+                    calculated_leaderboard.append(
+                        (final_score, user_id, name, correct, wrong)
+                    )
+
+            # केवल score पर sort करें, ताकि बराबरी पर अलग-अलग types compare न हों।
+            calculated_leaderboard.sort(key=lambda row: row[0], reverse=True)
             top_20 = calculated_leaderboard[:20]
-            
+
             lb_text = "🏆 *Result [Top 20 user's Leaderboard]*\n"
-            lb_text += f"---------------------------------------\n" 
-            lb_text += f"📅 *Date:* {now.strftime('%d-%m-%Y')} | ⏰ *Time:* {now.strftime('%H:%M')} (Manual)\n"
+            lb_text += "---------------------------------------\n"
+            lb_text += (
+                f"📅 *Date:* {now.strftime('%d-%m-%Y')} | "
+                f"⏰ *Time:* {now.strftime('%H:%M')} (Manual)\n"
+            )
             lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n"
-            lb_text += f"---------------------------------------\n\n" 
-            
+            lb_text += "---------------------------------------\n\n"
+
             if top_20:
                 medals = {1: "🥇", 2: "🥈", 3: "🥉"}
-                for idx, (final_score, name, correct, wrong) in enumerate(top_20, 1):
+
+                for idx, (score, user_id, name, correct, wrong) in enumerate(top_20, 1):
                     medal = medals.get(idx, f"{idx}.")
-                    display_score = f"{final_score:.1f}" if final_score % 0.5 != 0 else f"{int(final_score)}"
-                    
+                    display_score = (
+                        f"{score:.1f}" if score % 0.5 != 0 else f"{int(score)}"
+                    )
+
                     lb_text += f"{medal} *{name}*\n"
                     lb_text += f"Right: **{correct}** ✅\n"
                     lb_text += f"Wrong: **{wrong}** ❌\n"
                     lb_text += f"Final Score: **{display_score}** Marks\n"
-                    lb_text += f"---------------------------------------\n" 
+                    lb_text += "---------------------------------------\n"
             else:
                 lb_text += "⚠️ No users participated in the quiz today.\n"
-                lb_text += f"---------------------------------------\n"
-                
+                lb_text += "---------------------------------------\n"
+
             lb_text += "\n🎯 *Amazing effort!* Get ready for a new quiz tomorrow! 🚀\n"
             lb_text += "\n⭐ If you don't want to wait for the results, you can\n"
             lb_text += "\nuse the *☞ `/myscore`* command at any time."
-            try: 
-                bot.send_message(chat_id=chat_id, text=lb_text, reply_markup=markup, parse_mode="Markdown")
+
+            try:
+                bot.send_message(
+                    chat_id=chat_id,
+                    text=lb_text,
+                    reply_markup=markup,
+                    parse_mode="Markdown"
+                )
                 success_count += 1
                 time.sleep(60)
 
-                # 2. 🎉 5 में से कोई 1 रैंडम बधाई संदेश भेजें
-                if len(top_20) > 0:
+                if top_20:
                     congrats_text = get_random_congrats_message(top_20)
-                    bot.send_message(chat_id=chat_id, text=congrats_text, parse_mode="HTML")
+                    bot.send_message(
+                        chat_id=chat_id,
+                        text=congrats_text,
+                        parse_mode="HTML"
+                    )
                     time.sleep(30)
-            except Exception: pass
-            
+            except Exception as e:
+                print(f"Leaderboard send failed for group {chat_id}: {e}")
+
         cursor.execute("DELETE FROM daily_scores")
         cursor.execute("DELETE FROM poll_mapping")
         conn.commit()
-        
+
     try:
-        bot.edit_message_text(chat_id=message.chat.id, message_id=status_msg.message_id, text=f"✅ **Chief, the manual result has been successfully sent!**\n📊 Total **{success_count}** Leaderboards sent to active groups and scores have been reset!", parse_mode="Markdown")
-    except Exception: pass
+        bot.edit_message_text(
+            chat_id=message.chat.id,
+            message_id=status_msg.message_id,
+            text=(
+                "✅ **Chief, the manual result has been successfully sent!**\n"
+                f"📊 Total **{success_count}** Leaderboards sent."
+            ),
+            parse_mode="Markdown"
+        )
+    except Exception:
+        pass
+
 
 def daily_leaderboard_scheduler():
     has_sent_today = False
     last_checked_date = ""
-    
+
     markup = InlineKeyboardMarkup()
     add_to_group_url = f"https://t.me/{BOT_USERNAME}?startgroup=true"
-    
-    # [UPDATED] बटन को आकर्षक हरे रंग (Green) का बनाने के लिए style="success" जोड़ा
-    markup.add(InlineKeyboardButton(
-        text="✨ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ", 
-        url=add_to_group_url,
-        style="success"
-    ))
-    
+    markup.add(
+        InlineKeyboardButton(
+            text="✨ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
+            url=add_to_group_url,
+            style="success"
+        )
+    )
+
     while True:
         try:
-            IST = pytz.timezone('Asia/Kolkata')
-            now = datetime.now(IST)
+            ist = pytz.timezone('Asia/Kolkata')
+            now = datetime.now(ist)
             current_date_str = now.strftime("%Y-%m-%d")
-            
+
             if current_date_str != last_checked_date:
                 has_sent_today = False
                 last_checked_date = current_date_str
 
             with sqlite3.connect(DB_FILE, timeout=20) as conn:
                 cursor = conn.cursor()
-                cursor.execute("SELECT value FROM bot_settings WHERE key = 'leaderboard_time'")
-                res = cursor.fetchone()
-                db_time = res[0] if res else "22:00"
-            
-            try: 
+                cursor.execute(
+                    "SELECT value FROM bot_settings WHERE key = 'leaderboard_time'"
+                )
+                result = cursor.fetchone()
+                db_time = result[0] if result else "22:00"
+
+            try:
                 target_hour, target_minute = map(int, db_time.split(':'))
-            except Exception: 
+            except (TypeError, ValueError):
                 target_hour, target_minute = 22, 0
-            
-            if now.hour == target_hour and now.minute == target_minute and not has_sent_today:
+
+            if (
+                now.hour == target_hour
+                and now.minute == target_minute
+                and not has_sent_today
+            ):
                 with sqlite3.connect(DB_FILE, timeout=20) as conn:
                     cursor = conn.cursor()
                     cursor.execute("SELECT chat_id FROM groups")
                     all_chats = cursor.fetchall()
-                    
+
                     for (chat_id,) in all_chats:
-                        cursor.execute("SELECT user_name, correct_count, wrong_count FROM daily_scores WHERE chat_id = ?", (chat_id,))
+                        cursor.execute(
+                            """
+                            SELECT user_id, user_name, correct_count, wrong_count
+                            FROM daily_scores
+                            WHERE chat_id = ?
+                            """,
+                            (chat_id,)
+                        )
                         all_users = cursor.fetchall()
-                        
+
                         calculated_leaderboard = []
-                        for name, correct, wrong in all_users:
+                        for user_id, name, correct, wrong in all_users:
                             final_score = (correct * 2) - (wrong * 0.5)
-                            if (correct + wrong) > 0:
-                                calculated_leaderboard.append((final_score, name, correct, wrong))
-                                
-                        # 🎯 [FIXED - CRASH PROOF] केवल स्कोर कंपेयर होगा, नाम में इमोजी होने पर भी कभी क्रैश नहीं होगा
-                        calculated_leaderboard.sort(key=lambda x: x, reverse=True)
+                            if correct + wrong > 0:
+                                calculated_leaderboard.append(
+                                    (final_score, user_id, name, correct, wrong)
+                                )
+
+                        # केवल score पर sort करें।
+                        calculated_leaderboard.sort(
+                            key=lambda row: row[0],
+                            reverse=True
+                        )
                         top_20 = calculated_leaderboard[:20]
-                        
+
                         lb_text = "🏆 *Result [Top 20 user's Leaderboard]*\n"
-                        lb_text += f"---------------------------------------\n" 
-                        lb_text += f"📅 *Date:* {now.strftime('%d-%m-%Y')} | ⏰ *Time:* {db_time}\n"
+                        lb_text += "---------------------------------------\n"
+                        lb_text += (
+                            f"📅 *Date:* {now.strftime('%d-%m-%Y')} | "
+                            f"⏰ *Time:* {db_time}\n"
+                        )
                         lb_text += "🎓 Performance of the Last 24 Hours:\n"
                         lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n"
-                        lb_text += f"---------------------------------------\n\n" 
-                        
+                        lb_text += "---------------------------------------\n\n"
+
                         if top_20:
                             medals = {1: "🥇", 2: "🥈", 3: "🥉"}
-                            for idx, (final_score, name, correct, wrong) in enumerate(top_20, 1):
+
+                            for idx, (score, user_id, name, correct, wrong) in enumerate(top_20, 1):
                                 medal = medals.get(idx, f"{idx}.")
-                                display_score = f"{final_score:.1f}" if final_score % 0.5 != 0 else f"{int(final_score)}"
-                                
+                                display_score = (
+                                    f"{score:.1f}"
+                                    if score % 0.5 != 0
+                                    else f"{int(score)}"
+                                )
+
                                 lb_text += f"{medal} *{name}*\n"
                                 lb_text += f"Right: **{correct}** ✅\n"
                                 lb_text += f"Wrong: **{wrong}** ❌\n"
                                 lb_text += f"Final Score: **{display_score}** Marks\n"
-                                lb_text += f"---------------------------------------\n" 
+                                lb_text += "---------------------------------------\n"
                         else:
                             lb_text += "⚠️ No users participated in the quiz today.\n"
-                            lb_text += f"---------------------------------------\n"
-                            
-                        lb_text += "\n🎯 *Amazing effort!* Get ready for a new quiz tomorrow! 🚀\n"
-                        lb_text += "\n⭐ If you don't want to wait for the results, you can\n" 
-                        lb_text += "\nuse the *☞ `/myscore`* command at any time."
-                        try: 
-                            bot.send_message(chat_id=chat_id, text=lb_text, reply_markup=markup, parse_mode="Markdown")
+                            lb_text += "---------------------------------------\n"
+
+                        lb_text += (
+                            "\n🎯 *Amazing effort!* "
+                            "Get ready for a new quiz tomorrow! 🚀\n"
+                        )
+                        lb_text += (
+                            "\n⭐ If you don't want to wait for the results, "
+                            "you can\n"
+                        )
+                        lb_text += (
+                            "\nuse the *☞ `/myscore`* command at any time."
+                        )
+
+                        try:
+                            bot.send_message(
+                                chat_id=chat_id,
+                                text=lb_text,
+                                reply_markup=markup,
+                                parse_mode="Markdown"
+                            )
                             time.sleep(60)
 
-                            # 2. 🎉 5 में से कोई 1 रैंडम बधाई संदेश भेजें
-                            if len(top_20) > 0:
+                            if top_20:
                                 congrats_text = get_random_congrats_message(top_20)
-                                bot.send_message(chat_id=chat_id, text=congrats_text, parse_mode="HTML")
+                                bot.send_message(
+                                    chat_id=chat_id,
+                                    text=congrats_text,
+                                    parse_mode="HTML"
+                                )
                                 time.sleep(30)
-    
-                        except Exception: 
-                            pass
-                            
-                    # [FIXED - LOGIC] सभी ग्रुप्स को मैसेज भेजने के बाद ही डेटाबेस साफ़ होगा
+                        except Exception as e:
+                            print(
+                                f"Daily leaderboard send failed for group "
+                                f"{chat_id}: {e}"
+                            )
+
+                    # सभी groups के reports भेजने के बाद scores reset करें।
                     cursor.execute("DELETE FROM daily_scores")
                     cursor.execute("DELETE FROM poll_mapping")
                     conn.commit()
-                    
+
                 has_sent_today = True
-                time.sleep(60) 
-                
+                time.sleep(60)
+
         except Exception as sched_err:
             print(f"शेड्यूलर एरर: {sched_err}")
+
         time.sleep(20)
         
 # 🎯 LIVE पोल उत्तर ट्रैकर (OLD POLL STOPPER FEATURE LOADED ✅)
