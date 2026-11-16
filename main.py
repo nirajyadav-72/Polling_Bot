@@ -1299,13 +1299,13 @@ def manual_leaderboard_sender(message):
             try: 
                 bot.send_message(chat_id=chat_id, text=lb_text, reply_markup=markup, parse_mode="Markdown")
                 success_count += 1
-                time.sleep(0.15)
+                time.sleep(60)
 
                 # 2. 🎉 5 में से कोई 1 रैंडम बधाई संदेश भेजें
                 if len(top_20) > 0:
                     congrats_text = get_random_congrats_message(top_20)
                     bot.send_message(chat_id=chat_id, text=congrats_text, parse_mode="HTML")
-                    time.sleep(0.15)
+                    time.sleep(30)
             except Exception: pass
             
         cursor.execute("DELETE FROM daily_scores")
@@ -1398,13 +1398,13 @@ def daily_leaderboard_scheduler():
                         lb_text += "\nuse the *☞ `/myscore`* command at any time."
                         try: 
                             bot.send_message(chat_id=chat_id, text=lb_text, reply_markup=markup, parse_mode="Markdown")
-                            time.sleep(0.15)
+                            time.sleep(60)
 
                             # 2. 🎉 5 में से कोई 1 रैंडम बधाई संदेश भेजें
                             if len(top_20) > 0:
                                 congrats_text = get_random_congrats_message(top_20)
                                 bot.send_message(chat_id=chat_id, text=congrats_text, parse_mode="HTML")
-                                time.sleep(0.15)
+                                time.sleep(30)
     
                         except Exception: 
                             pass
