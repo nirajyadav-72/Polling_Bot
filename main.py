@@ -193,6 +193,52 @@ def is_user_admin(chat_id, user_id):
 def escape_html(text):
     if not text: return ""
     return str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+# 🎉 5 अलग-अलग डेली बधाई संदेश जनरेटर
+def get_random_congrats_message(top_20):
+    first_score, first_id, first_name, _, _ = top_20[0]
+    f_disp = f"{first_score:.1f}" if first_score % 0.5 != 0 else f"{int(first_score)}"
+    first_mention = f'<a href="tg://user?id={first_id}">{escape_html(first_name)}</a>'
+    
+    has_second = len(top_20) > 1
+    second_mention = ""
+    s_disp = ""
+    if has_second:
+        second_score, second_id, second_name, _, _ = top_20[1]
+        s_disp = f"{second_score:.1f}" if second_score % 0.5 != 0 else f"{int(second_score)}"
+        second_mention = f'<a href="tg://user?id={second_id}">{escape_html(second_name)}</a>'
+
+    templates = [
+        {
+            "header": "🎊 <b>आज के क्विज़ चैंपियंस को हार्दिक बधाई!</b> 🎊\n\n",
+            "second": f"🥈 <b>2nd Rank:</b> {second_mention} — <b>{s_disp} Marks</b>\n" if has_second else "",
+            "footer": "\n🌟 <i>शानदार प्रदर्शन! आपकी मेहनत रंग लाई। कल फिर तैयार रहिएगा!</i> 🚀"
+        },
+        {
+            "header": "🔥 <b>क्या ज़बरदस्त मुकाबला था! आज के टॉपर्स:</b> 🔥\n\n",
+            "second": f"🥈 <b>Runner-Up:</b> {second_mention} — <b>{s_disp} Marks</b>\n" if has_second else "",
+            "footer": "\n🏆 <i>आप दोनों ने कमाल कर दिया! बाकी सभी प्रतिभागी भी कल पूरी तैयारी के साथ आएं!</i> 💪"
+        },
+        {
+            "header": "💐 <b>विजेताओं को ढेर सारी शुभकामनाएं!</b> 💐\n\n",
+            "second": f"🥈 <b>द्वितीय स्थान:</b> {second_mention} — <b>{s_disp} Marks</b>\n" if has_second else "",
+            "footer": "\n📚 <i>ज्ञान की इस दौड़ में आप सबसे आगे रहे। ऐसे ही आगे बढ़ते रहें!</i> ✨"
+        },
+        {
+            "header": "👑 <b>आज के क्विज़ किंग्स / क्वींस!</b> 👑\n\n",
+            "second": f"🥈 <b>2nd Spot:</b> {second_mention} — <b>{s_disp} Marks</b>\n" if has_second else "",
+            "footer": "\n🎯 <i>दिमाग और तेज़ी का बेहतरीन प्रदर्शन! अगले क्विज़ में अपनी कुर्सी बचाकर रखिएगा!</i> 😎"
+        },
+        {
+            "header": "🥳 <b>बधाई हो! आज के टॉप स्कोरर्स की घोषणा:</b> 🥳\n\n",
+            "second": f"🥈 <b>2nd Position:</b> {second_mention} — <b>{s_disp} Marks</b>\n" if has_second else "",
+            "footer": "\n🌈 <i>सफलता उन्हीं को मिलती है जो लगातार प्रयास करते हैं। बहुत-बहुत बधाई!</i> 👏"
+        }
+    ]
+
+    chosen = random.choice(templates)
+    first_line = f"🥇 <b>1st Rank:</b> {first_mention} — <b>{f_disp} Marks</b>\n"
+    return chosen["header"] + first_line + chosen["second"] + chosen["footer"]
     
 # =====================================================================
 # 📝 EXPLANATION TRUNCATOR FUNCTION (Explanation ko chota karne ke liye)
