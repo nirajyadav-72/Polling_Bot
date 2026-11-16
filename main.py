@@ -194,12 +194,15 @@ def escape_html(text):
     if not text: return ""
     return str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
-# 🎉 5 अलग-अलग डेली बधाई संदेश जनरेटर
+# ✅ Corrected congratulations function
 def get_random_congrats_message(top_20):
+    if not top_20:
+        return "🎉 <b>आज का क्विज़ पूरा हुआ!</b> 🎉"
+
     first_score, first_id, first_name, _, _ = top_20[0]
     f_disp = f"{first_score:.1f}" if first_score % 0.5 != 0 else f"{int(first_score)}"
     first_mention = f'<a href="tg://user?id={first_id}">{escape_html(first_name)}</a>'
-    
+
     has_second = len(top_20) > 1
     second_mention = ""
     s_disp = ""
@@ -217,7 +220,7 @@ def get_random_congrats_message(top_20):
         {
             "header": "🔥 <b>क्या ज़बरदस्त मुकाबला था! आज के टॉपर्स:</b> 🔥\n\n",
             "second": f"🥈 <b>Runner-Up:</b> {second_mention} — <b>{s_disp} Marks</b>\n" if has_second else "",
-            "footer": "\n🏆 <i>आप दोनों ने कमाल कर दिया! बाकी सभी प्रतिभागी भी कल पूरी तैयारी के साथ आएं!</i> 💪"
+            "footer": "\n🏆 <i>आप दोनों ने कमाल कर दिया! बाकी सभी प्रतिभागी भी कल पूरी तैयारी के साथ उतरेंगे।</i> 🚀"
         },
         {
             "header": "💐 <b>विजेताओं को ढेर सारी शुभकामनाएं!</b> 💐\n\n",
@@ -227,12 +230,12 @@ def get_random_congrats_message(top_20):
         {
             "header": "👑 <b>आज के क्विज़ किंग्स / क्वींस!</b> 👑\n\n",
             "second": f"🥈 <b>2nd Spot:</b> {second_mention} — <b>{s_disp} Marks</b>\n" if has_second else "",
-            "footer": "\n🎯 <i>दिमाग और तेज़ी का बेहतरीन प्रदर्शन! अगले क्विज़ में अपनी कुर्सी बचाकर रखिएगा!</i> 😎"
+            "footer": "\n🎯 <i>दिमाग और तेज़ी का बेहतरीन प्रदर्शन! अगले क्विज़ में अपनी कुर्सी फिर से मजबूत करें।</i> 🏁"
         },
         {
             "header": "🥳 <b>बधाई हो! आज के टॉप स्कोरर्स की घोषणा:</b> 🥳\n\n",
             "second": f"🥈 <b>2nd Position:</b> {second_mention} — <b>{s_disp} Marks</b>\n" if has_second else "",
-            "footer": "\n🌈 <i>सफलता उन्हीं को मिलती है जो लगातार प्रयास करते हैं। बहुत-बहुत बधाई!</i> 👏"
+            "footer": "\n🌈 <i>सफलता उन्हीं को मिलती है जो लगातार प्रयास करते हैं। बहुत-बहुत बधाई!</i> ✨"
         }
     ]
 
