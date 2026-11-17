@@ -1319,7 +1319,7 @@ def manual_leaderboard_sender(message):
                     # Manual leaderboard sender
                     display_score = format_score(score)
 
-                    lb_text += f"{medal} <b>escape_html(name)</b>\n"
+                    lb_text += f"{medal} <b>{escape_html(name)}</b>\n"
                     lb_text += f"<b>Right: {correct}</b> ✅\n"
                     lb_text += f"<b>Wrong: {wrong}</b> ❌\n"
                     lb_text += f"<b>Final Score: {display_score}</b> Marks\n"
@@ -1462,7 +1462,7 @@ def daily_leaderboard_scheduler():
                                 # Daily leaderboard scheduler
                                 display_score = format_score(score)
 
-                                lb_text += f"{medal} <b>escape_html(name)</b>\n"
+                                lb_text += f"{medal} <b>{escape_html(name)}</b>\n"
                                 lb_text += f"<b>Right: {correct}</b> ✅\n"
                                 lb_text += f"<b>Wrong: {wrong}</b> ❌\n"
                                 lb_text += f"<b>Final Score: {display_score}</b> Marks\n"
