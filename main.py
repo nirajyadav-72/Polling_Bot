@@ -1340,7 +1340,7 @@ def manual_leaderboard_sender(message):
                     parse_mode="HTML"
                 )
                 success_count += 1
-                time.sleep(60)
+                time.sleep(3)
 
                 if top_20:
                     congrats_text = get_random_congrats_message(top_20)
@@ -1349,7 +1349,7 @@ def manual_leaderboard_sender(message):
                         text=congrats_text,
                         parse_mode="HTML"
                     )
-                    time.sleep(30)
+                    time.sleep(3)
             except Exception as e:
                 print(f"Leaderboard send failed for group {chat_id}: {e}")
 
@@ -1490,7 +1490,7 @@ def daily_leaderboard_scheduler():
                                 reply_markup=markup,
                                 parse_mode="HTML"
                             )
-                            time.sleep(60)
+                            time.sleep(3)
 
                             if top_20:
                                 congrats_text = get_random_congrats_message(top_20)
@@ -1499,7 +1499,7 @@ def daily_leaderboard_scheduler():
                                     text=congrats_text,
                                     parse_mode="HTML"
                                 )
-                                time.sleep(30)
+                                time.sleep(3)
                         except Exception as e:
                             print(
                                 f"Daily leaderboard send failed for group "
@@ -1512,12 +1512,12 @@ def daily_leaderboard_scheduler():
                     conn.commit()
 
                 has_sent_today = True
-                time.sleep(60)
+                time.sleep(3)
 
         except Exception as sched_err:
             print(f"शेड्यूलर एरर: {sched_err}")
 
-        time.sleep(20)
+        time.sleep(3)
         
 # 🎯 LIVE पोल उत्तर ट्रैकर (OLD POLL STOPPER FEATURE LOADED ✅)
 @bot.poll_answer_handler()
