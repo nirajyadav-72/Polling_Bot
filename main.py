@@ -1302,13 +1302,13 @@ def manual_leaderboard_sender(message):
             calculated_leaderboard.sort(key=lambda row: row[0], reverse=True)
             top_20 = calculated_leaderboard[:20]
 
-            lb_text = "🏆 *Result [Top 20 user's Leaderboard]*\n"
+            lb_text = "🏆 <b>Result [Top 20 user's Leaderboard]</b>\n"
             lb_text += "---------------------------------------\n"
             lb_text += (
-                f"📅 *Date:* {now.strftime('%d-%m-%Y')} | "
-                f"⏰ *Time:* {now.strftime('%H:%M')} (Manual)\n"
+                f"📅 <b>Date:</b> {now.strftime('%d-%m-%Y')} | "
+                f"⏰ <b>Time:</b> {now.strftime('%H:%M')} <b>(Manual)</b>\n"
             )
-            lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n"
+            lb_text += "📊 <b>Marking: Right (+2) | Wrong (-0.5)</b>\n"
             lb_text += "---------------------------------------\n\n"
 
             if top_20:
@@ -1319,25 +1319,25 @@ def manual_leaderboard_sender(message):
                     # Manual leaderboard sender
                     display_score = format_score(score)
 
-                    lb_text += f"{medal} *{name}*\n"
-                    lb_text += f"Right: **{correct}** ✅\n"
-                    lb_text += f"Wrong: **{wrong}** ❌\n"
-                    lb_text += f"Final Score: **{display_score}** Marks\n"
+                    lb_text += f"{medal} <b>{name}</b>\n"
+                    lb_text += f"<b>Right: {correct}</b> ✅\n"
+                    lb_text += f"<b>Wrong: {wrong}</b> ❌\n"
+                    lb_text += f"<b>Final Score: {display_score}</b> Marks\n"
                     lb_text += "---------------------------------------\n"
             else:
                 lb_text += "⚠️ No users participated in the quiz today.\n"
                 lb_text += "---------------------------------------\n"
 
-            lb_text += "\n🎯 *Amazing effort!* Get ready for a new quiz tomorrow! 🚀\n"
+            lb_text += "\n🎯 <b>Amazing effort!</b> Get ready for a new quiz tomorrow! 🚀\n"
             lb_text += "\n⭐ If you don't want to wait for the results, you can\n"
-            lb_text += "\nuse the *☞ `/myscore`* command at any time."
+            lb_text += "\nuse the ☞ `/myscore` command at any time."
 
             try:
                 bot.send_message(
                     chat_id=chat_id,
                     text=lb_text,
                     reply_markup=markup,
-                    parse_mode="Markdown"
+                    parse_mode="HTML"
                 )
                 success_count += 1
                 time.sleep(60)
@@ -1362,10 +1362,10 @@ def manual_leaderboard_sender(message):
             chat_id=message.chat.id,
             message_id=status_msg.message_id,
             text=(
-                "✅ **Chief, the manual result has been successfully sent!**\n"
-                f"📊 Total **{success_count}** Leaderboards sent."
+                "✅ <b>Chief, the manual result has been successfully sent!</b>\n"
+                f"📊 <b>Total {success_count}</b> Leaderboards sent."
             ),
-            parse_mode="Markdown"
+            parse_mode="HTML"
         )
     except Exception:
         pass
@@ -1444,14 +1444,14 @@ def daily_leaderboard_scheduler():
                         )
                         top_20 = calculated_leaderboard[:20]
 
-                        lb_text = "🏆 *Result [Top 20 user's Leaderboard]*\n"
+                        lb_text = "🏆 <b>Result [Top 20 user's Leaderboard]</b>\n"
                         lb_text += "---------------------------------------\n"
                         lb_text += (
-                            f"📅 *Date:* {now.strftime('%d-%m-%Y')} | "
-                            f"⏰ *Time:* {db_time}\n"
+                            f"📅 <b>Date:</b> {now.strftime('%d-%m-%Y')} | "
+                            f"⏰ <b>Time:</b> {db_time}\n"
                         )
-                        lb_text += "🎓 Performance of the Last 24 Hours:\n"
-                        lb_text += "📊 Marking: Right (+2) | Wrong (-0.5)\n"
+                        lb_text += "🎓 <b>Performance of the Last 24 Hours:</b>\n"
+                        lb_text += "📊 <b>Marking: Right (+2) | Wrong (-0.5)</b>\n"
                         lb_text += "---------------------------------------\n\n"
 
                         if top_20:
@@ -1462,17 +1462,17 @@ def daily_leaderboard_scheduler():
                                 # Daily leaderboard scheduler
                                 display_score = format_score(score)
 
-                                lb_text += f"{medal} *{name}*\n"
-                                lb_text += f"Right: **{correct}** ✅\n"
-                                lb_text += f"Wrong: **{wrong}** ❌\n"
-                                lb_text += f"Final Score: **{display_score}** Marks\n"
+                                lb_text += f"{medal} <b>{name}</b>\n"
+                                lb_text += f"<b>Right: {correct}</b> ✅\n"
+                                lb_text += f"<b>Wrong: {wrong}</b> ❌\n"
+                                lb_text += f"<b>Final Score: {display_score}</b> Marks\n"
                                 lb_text += "---------------------------------------\n"
                         else:
                             lb_text += "⚠️ No users participated in the quiz today.\n"
                             lb_text += "---------------------------------------\n"
 
                         lb_text += (
-                            "\n🎯 *Amazing effort!* "
+                            "\n🎯 <b>Amazing effort!</b>"
                             "Get ready for a new quiz tomorrow! 🚀\n"
                         )
                         lb_text += (
@@ -1480,7 +1480,7 @@ def daily_leaderboard_scheduler():
                             "you can\n"
                         )
                         lb_text += (
-                            "\nuse the *☞ `/myscore`* command at any time."
+                            "\nuse the ☞ `/myscore` command at any time."
                         )
 
                         try:
@@ -1488,7 +1488,7 @@ def daily_leaderboard_scheduler():
                                 chat_id=chat_id,
                                 text=lb_text,
                                 reply_markup=markup,
-                                parse_mode="Markdown"
+                                parse_mode="HTML"
                             )
                             time.sleep(60)
 
