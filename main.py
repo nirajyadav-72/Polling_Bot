@@ -194,6 +194,13 @@ def escape_html(text):
     if not text: return ""
     return str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
+# ✅ Safe score formatter
+def format_score(score):
+    score = float(score)
+    if abs(score - round(score)) < 1e-9:
+        return str(int(round(score)))
+    return f"{score:.1f}"
+    
 # ✅ Corrected congratulations function
 def get_random_congrats_message(top_20):
     if not top_20:
