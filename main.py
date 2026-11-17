@@ -1316,9 +1316,8 @@ def manual_leaderboard_sender(message):
 
                 for idx, (score, user_id, name, correct, wrong) in enumerate(top_20, 1):
                     medal = medals.get(idx, f"{idx}.")
-                    display_score = (
-                        f"{score:.1f}" if score % 0.5 != 0 else f"{int(score)}"
-                    )
+                    # Manual leaderboard sender
+                    display_score = format_score(score)
 
                     lb_text += f"{medal} *{name}*\n"
                     lb_text += f"Right: **{correct}** ✅\n"
@@ -1460,11 +1459,8 @@ def daily_leaderboard_scheduler():
 
                             for idx, (score, user_id, name, correct, wrong) in enumerate(top_20, 1):
                                 medal = medals.get(idx, f"{idx}.")
-                                display_score = (
-                                    f"{score:.1f}"
-                                    if score % 0.5 != 0
-                                    else f"{int(score)}"
-                                )
+                                # Daily leaderboard scheduler
+                                display_score = format_score(score)
 
                                 lb_text += f"{medal} *{name}*\n"
                                 lb_text += f"Right: **{correct}** ✅\n"
